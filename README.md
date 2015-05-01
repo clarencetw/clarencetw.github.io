@@ -7,10 +7,11 @@ About Me
 
 * Public LINK
 
-    * About.me:
-    * Facebook:
-    * Github:
-    * Plurk:
+    * About.me: [http://about.me/clarencetw](http://about.me/clarencetw)
+    * Blog: [http://blog.clarence.tw](http://blog.clarence.tw)
+    * Facebook: [https://www.facebook.com/Mr.ClarenceLin](https://www.facebook.com/Mr.ClarenceLin)
+    * Github: [https://github.com/clarencetw](https://github.com/clarencetw)
+    * Plurk: [https://www.plurk.com/mr_clarence](https://www.plurk.com/mr_clarence)
 
 ---
 
@@ -27,8 +28,7 @@ About Me
 
 * Project
 
-    * 北科表特: http://fb.clarence.tw
+    * 第一把交椅 太師椅: [http://clarence.tw/TheFirstChair](http://clarence.tw/TheFirstChair)
+    * 北科表特: [http://fb.clarence.tw](http://fb.clarence.tw)
 
 ---
-
-

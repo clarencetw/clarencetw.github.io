@@ -1,0 +1,175 @@
+# section information
+section:
+  name: 經歷
+  id: experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your experiences
+experiences:
+  - company:
+      name: BRONCI Technology Inc. 長問科技股份有限公司
+      url: "https://bronci.com.tw/"
+      location: Nowhere
+      overview: 雲端軟體開發與部署.
+    positions:
+      - designation: Backend Developer
+        start: 11 2018
+        # end: May 2017
+        responsibilities:
+          - 後端程式開發使用 Node.js.
+          - AWS 研究與開發.
+          - GCP 研究與開發.
+          - 撰寫自動化部屬腳本.
+          - 雲端架構設計、分析與部署
+
+  - company:
+      name: 數位時代
+      url: "https://www.bnext.com.tw/author/4039"
+      location: 作者
+      # company overview
+      # overview:
+    positions:
+      - designation: 專欄作者
+        start: 06 2022
+        # don't provide end date if you are currently working there. It will be replaced by "Present"
+        # end: Dec 2020
+        # give some points about what was your responsibilities at the company.
+
+  - company:
+      name: 五倍紅寶石軟體開發
+      url: "https://5xruby.com/"
+      location: 講師
+      # company overview
+      # overview:
+    positions:
+      - designation: 教育訓練講師
+        start: 2022
+        end: 2022
+
+  - company:
+      name: 博碩文化股份有限公司
+      url: "https://www.tenlong.com.tw/products/9789864349203"
+      location: 作者
+      # company overview
+      overview: AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC (iT邦幫忙鐵人賽系列書)
+    positions:
+      - designation: 書籍作者
+        start: 11 2021
+        # don't provide end date if you are currently working there. It will be replaced by "Present"
+        # end: Dec 2020
+        # give some points about what was your responsibilities at the company.
+
+  - company:
+      name: 天銳國際實業有限公司
+      url: "https://skysharp.com.tw"
+      location: 顧問
+      # company overview
+      overview: 提供技術諮詢服務
+    positions:
+      - designation: 技術顧問
+        start: 07 2020
+        # don't provide end date if you are currently working there. It will be replaced by "Present"
+        # end: Dec 2020
+        # give some points about what was your responsibilities at the company.
+        responsibilities:
+          - 技術諮詢
+
+  - company:
+      name: 田茂智能互聯股份有限公司
+      url: "https://weacloud.org/"
+      location: 顧問
+      # company overview
+      overview: 提供雲端解決方案諮詢
+    positions:
+      - designation: 雲端解決方案技術顧問
+        start: 05 2020
+        # don't provide end date if you are currently working there. It will be replaced by "Present"
+        # end: Dec 2020
+        # give some points about what was your responsibilities at the company.
+        responsibilities:
+          - 處理雲端架構
+
+  - company:
+      name: 國立臺北科技大學
+      url: "#"
+      location: 研發替代役
+      overview: 研究開發雲端系統程式.
+    positions:
+      - designation: 專題研究計畫專任助理
+        start: 11 2015
+        end: 11 2018
+        responsibilities:
+          - 網路軟體程式開發.
+          - 後端程式開發.
+
+  - company:
+      name: 國立臺北科技大學
+      url: "#"
+      location: 計網中心
+      overview: 處理各處室與老師的網路問題或是電腦維修
+    positions:
+      - designation: 工讀生
+        start: 06 2012
+        end: 06 2016
+        responsibilities:
+          - 網路基礎除錯.
+          - 電腦系統維修.
+
+  - company:
+      name: SITCON 學生電子計算機年會 (Students' Information Technology Conference)
+      url: "https://sitcon.org/"
+      # location:
+      # overview:
+    positions:
+      - designation: SITCON 2018 製播組
+        start: 2018
+        end: 2018
+      - designation: SITCON 2017 行銷組
+        start: 2017
+        end: 2017
+      - designation: SITCON 2016 行銷組
+        start: 2016
+        end: 2016
+      - designation: SITCON 2015 行銷組
+        start: 2015
+        end: 2015
+      - designation: 副組長 SITCON 2014 場務組
+        start: 2014
+        end: 2014
+
+  - company:
+      name: COSCUP
+      url: "https://coscup.org/"
+      # location:
+      # overview:
+    positions:
+      - designation: COSCUP 2014 - 場務組
+        start: 2014
+        end: 2014
+
+  - company:
+      name: SITCON 學生計算機夏令營
+      url: "https://sitcon.camp/"
+      # location:
+      # overview:
+    positions:
+      - designation: SITCON Summer Camp 2015 - 副召集人
+        start: 2015
+        end: 2015
+      - designation: SITCON Summer Camp 2014 - 課程長
+        start: 2014
+        end: 2014
+
+  - company:
+      name: Hacks In Taiwan Conference (HITCON)
+      url: "https://hitcon.org/"
+      # location:
+      # overview:
+    positions:
+      - designation: HITCON 2014 門機組 - 組長
+        start: 2014
+        end: 2014

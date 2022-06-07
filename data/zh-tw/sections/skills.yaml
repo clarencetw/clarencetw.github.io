@@ -1,0 +1,44 @@
+# section information
+section:
+  name: 技能
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your Skills.
+# Give a summary of you each skill in the summary section.
+skills:
+  - name: Cloud Architecture
+    logo: /images/sections/skills/cloud.png
+    summary: "雲端服務架構包括 AWS, GCP, Azure, DigitalOcean, Linode etc."
+
+  - name: AWS
+    logo: /images/sections/skills/cloud.png
+    summary: "使用 AWS 雲端服務包誇 EC2, S3, RDS, Lambda, VPC, ECS, ECR, Fargate etc."
+
+  - name: Docker
+    logo: /images/sections/skills/docker.svg
+    summary: "撰寫 Docker 容器化，包括重新 compile 與容器安全."
+    url: "https://www.docker.com/"
+
+  - name: Linux
+    logo: /images/sections/skills/linux.png
+    summary: "主要伺服器作業系統，可以使用指令操作系統並且撰寫 shell 腳本."
+
+  - name: Git
+    logo: /images/sections/skills/git.png
+    summary: "軟體版本控管使用 GitHub 以及 GitLab."
+    url: "https://git-scm.com/"
+
+  - name: CI/CD
+    logo:
+    summary: "攥寫 GitHub 或 GitLab 自動化部屬."
+    url: "https://dev.to/"
+
+  - name: Node.js
+    logo: /images/sections/skills/nodejs.png
+    summary: "使用 Node.js 開發伺服器軟體或是背景程式."
+    url: "https://nodejs.org/"

@@ -1,0 +1,75 @@
+# section information
+section:
+  name: 專案
+  id: projects
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# filter buttons
+buttons:
+  - name: All
+    filter: "all"
+  - name: CDK
+    filter: "cdk"
+  - name: Constructs
+    filter: "construct"
+  - name: LINE
+    filter: "line"
+
+# your projects
+projects:
+  - name: cdk-wordpress
+    role: Owner
+    timeline: "Oct 2020 - Present"
+    repo: https://github.com/clarencetw/cdk-wordpress
+    summary: A CDK construct library to deploy WordPress.
+    tags: ["cdk", "construct"]
+
+  - name: cdk-sns-notify
+    role: Owner
+    timeline: "Dec 2021 - Present"
+    repo: https://github.com/clarencetw/cdk-sns-notify
+    summary: A CDK construct library to send line notify or discord webhook.
+    tags: ["cdk", "construct"]
+
+  - name: Kaldi Speech Recognition Toolkit
+    logo: /images/sections/projects/kaldi.jpg
+    role: Contributor
+    timeline: "Dec 2021 - Present"
+    repo: https://github.com/kaldi-asr/kaldi # If your project is a public repo on GitHub, then provide this link. it will show star count.
+    #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+    summary: Kaldi is a toolkit for speech recognition, intended for use by speech recognition researchers and professionals.
+    tags: ["kaldi"]
+
+  - name: cdk-lambda-layer-wget
+    role: Owner
+    timeline: "Dec 2021 - Present"
+    repo: https://github.com/clarencetw/cdk-lambda-layer-wget
+    summary:
+    tags: ["cdk", "construct"]
+
+  - name: cdk-lambda-layer-zip
+    role: Owner
+    timeline: "Dec 2021 - Present"
+    repo: https://github.com/clarencetw/cdk-lambda-layer-zip
+    summary:
+    tags: ["cdk", "construct"]
+
+  - name: cdk-lambda-layer-curl
+    role: Owner
+    timeline: "Dec 2021 - Present"
+    repo: https://github.com/clarencetw/cdk-lambda-layer-curl
+    summary:
+    tags: ["cdk", "construct"]
+
+  - name: LINE Messaging API SDK for PHP
+    logo: /images/sections/projects/line.jpg
+    role: Contributor
+    timeline: "Feb 2019 - Present"
+    repo: https://github.com/line/line-bot-sdk-php # If your project is a public repo on GitHub, then provide this link. it will show star count.
+    #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+    summary: The LINE Messaging API SDK for PHP makes it easy to develop bots using LINE Messaging API, and you can create a sample bot within minutes..
+    tags: ["line"]

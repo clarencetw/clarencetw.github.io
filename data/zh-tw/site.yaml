@@ -17,8 +17,8 @@ customMenus:
 
 # Specify OpenGraph Headers
 openGraph:
-  title: Clarence
+  title: Clarence 個人介紹
   type: website
-  description: Clarence 個人簡歷.
-  image: images/author/clarence.png
+  description: 本網站為 Clarence 個人簡歷紀錄.
+  image: clarencetw-og.png
   url: https://clarence.tw

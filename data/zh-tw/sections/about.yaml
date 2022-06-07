@@ -1,0 +1,78 @@
+# section information
+section:
+  name: 關於我
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+# your designation
+designation: Backend Developer
+# your company information
+company:
+  name: 長問科技股份有限公司
+  url: "https://www.bronci.com.tw/"
+
+# your resume. this file path should be relative to you "static" directory
+#resume: "files/resume.pdf"
+
+# a summary about you
+summary: "長期從事網站後端開發、DevOps、Linux 作業系統、雲端系統架構設計以及雲端系統安全等工作。經營個人部落格，樂於分享技術知識，並將平時開發過程遭遇的問題撰寫成文章，向讀者分享解決方法。[AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）](https://www.tenlong.com.tw/products/9789864349203)作者。"
+
+# your social links
+# give as many as you want. use font-awesome for the icons.
+socialLinks:
+  - name: Email
+    icon: "fas fa-envelope"
+    url: "me@clarence.tw"
+
+  - name: Github
+    icon: "fab fa-github"
+    url: "https://github.com/clarencetw"
+
+  # - name: Stackoverflow
+  #   icon: "fab fa-stack-overflow"
+  #   url: "#"
+
+  - name: LinkedIn
+    icon: "fab fa-linkedin"
+    url: "https://www.linkedin.com/in/clarence-lin-89764448/"
+
+  - name: Twitter
+    icon: "fab fa-twitter"
+    url: "https://twitter.com/Clarence_Lin"
+
+  - name: Facebook
+    icon: "fab fa-facebook"
+    url: "https://www.facebook.com/ClarenceTaiwan/"
+
+# Show your badges
+# You can show your verifiable certificates from https://www.credly.com.
+# You can also show a circular bar indicating the level of expertise on a certain skill
+badges:
+# - type: certification
+#   name: Microsoft Office Specialist
+#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-office-specialist-master-office-2016"
+#   badge: "https://images.credly.com/size/680x680/images/265436ac-abfb-4199-b536-0fafe5f91e78/MOS_Master.png"
+
+# - type: certification
+#   name: Microsoft Word (Office 2016)
+#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-word-office-2016"
+#   badge: "https://images.credly.com/size/680x680/images/fd092703-61db-4e9f-9c7c-2211d44ca87d/MOS_Word.png"
+
+# - type: certification
+#   name: Microsoft Excel (Office 2016)
+#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-excel-office-2016"
+#   badge: "https://images.credly.com/size/680x680/images/d0790dc7-5127-4262-a492-1b60030b0114/MOS_Excel.png"
+
+# - type: certification
+#   name: Microsoft PowerPoint (Office 2016)
+#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-powerpoint-office-2016"
+#   badge: "https://images.credly.com/size/680x680/images/96c033ea-d798-45d7-9c2c-80834335706d/MOS_PowerPoint.png"
+
+# you can also provide color code instead of the color name
+# - type: soft-skill-indicator
+#   name: Example 1
+#   percentage: 75
+#   color: "#00adb5"

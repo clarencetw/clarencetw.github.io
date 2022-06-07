@@ -1,0 +1,30 @@
+# section information
+section:
+  name: 學歷
+  id: education
+  template: sections/education.html # Use "sections/education-alt.html for alternate template.
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+degrees:
+  - name: 電機工程碩士 (通訊組)
+    icon: fa-microscope
+    timeframe: 2014-2015
+    institution:
+      name: 國立臺北科技大學
+      url: "#"
+  - name: 學士
+    icon: fa-graduation-cap
+    timeframe: 2011-2014
+    institution:
+      name: 國立臺北科技大學
+      url: "#"
+  - name: 高職 (資訊科)
+    icon: fa-university
+    timeframe: 2019-2011
+    institution:
+      name: 協和工商
+      url: "#"

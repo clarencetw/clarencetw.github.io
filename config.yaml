@@ -1,0 +1,59 @@
+baseURL: https://clarence.tw
+
+languageCode: zh-tw
+title: "Clarence"
+theme: "toha"
+
+# Manage languages
+# For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
+defaultContentLanguage: zh-tw
+languages:
+  zh-tw:
+    languageName: 繁體中文
+    weight: 2
+
+# Control TOC depth
+markup:
+  tableOfContents:
+    startLevel: 2
+    endLevel: 6
+    ordered: false
+
+# At least HTML and JSON are required for the main HTML content and
+# client-side JavaScript search
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# Enable global emoji support
+enableEmoji: true
+
+# Site parameters
+params:
+  # Background image of the landing page
+  background: /images/site/background.jpeg
+
+  # GitHub repo URL of your site
+  gitRepo: https://github.com/clarencetw/clarencetw.github.io
+
+  # specify whether you want to write some blog posts or not
+  enableBlogPost: false
+
+  # Configure various features of this theme
+  features:
+    # Enable Analytics
+    analytics:
+      enabled: true
+      # Google Analytics
+      google:
+        id: UA-54293202-1
+
+  # specify whether you want to show Table of Contents in reading page
+  enableTOC: true
+
+  # Provide newsletter configuration. This feature hasn't been implemented yet.
+  # Currently, you can just hide it from the footer.
+  newsletter:
+    enable: false

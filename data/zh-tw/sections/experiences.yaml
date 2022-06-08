@@ -14,16 +14,16 @@ experiences:
       name: BRONCI Technology Inc. 長問科技股份有限公司
       url: "https://bronci.com.tw/"
       location: Nowhere
-      overview: 雲端軟體開發與部署.
+      overview: 雲端軟體開發與部署
     positions:
       - designation: Backend Developer
         start: 11 2018
         # end: May 2017
         responsibilities:
-          - 後端程式開發使用 Node.js.
-          - AWS 研究與開發.
-          - GCP 研究與開發.
-          - 撰寫自動化部屬腳本.
+          - 後端程式開發使用 Node.js
+          - AWS 研究與開發
+          - GCP 研究與開發
+          - 撰寫自動化部屬腳本
           - 雲端架構設計、分析與部署
 
   - company:
@@ -51,17 +51,33 @@ experiences:
         end: 2022
 
   - company:
+      name: AWS User Group Taiwan
+      url: "https://5xruby.com/"
+      location: 講師
+      # company overview
+      # overview:
+    positions:
+      - designation: 講師
+        start: 12 2021
+        end: 12 2021
+        responsibilities:
+          - "[AWS User Group Taiwan Meetup 2021-12 線上 / 下小聚](https://awsugtw.kktix.cc/events/awsug-202112)"
+
+  - company:
       name: 博碩文化股份有限公司
-      url: "https://www.tenlong.com.tw/products/9789864349203"
+      url: "https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149"
       location: 作者
       # company overview
-      overview: AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC (iT邦幫忙鐵人賽系列書)
+      overview: "[AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC (iT邦幫忙鐵人賽系列書)](https://www.tenlong.com.tw/products/9789864349203)"
     positions:
       - designation: 書籍作者
         start: 11 2021
         # don't provide end date if you are currently working there. It will be replaced by "Present"
         # end: Dec 2020
         # give some points about what was your responsibilities at the company.
+        responsibilities:
+          - 第一本從無到有教你撰寫 AWS CDK 的中文書籍！
+          - 為不會寫的你獻上超豐富 Sample Code，照抄也能成為 AWS CDK 達人！
 
   - company:
       name: 天銳國際實業有限公司
@@ -95,20 +111,20 @@ experiences:
 
   - company:
       name: 國立臺北科技大學
-      url: "#"
+      url: "https://www.ntut.edu.tw/"
       location: 研發替代役
-      overview: 研究開發雲端系統程式.
+      overview: 研究開發雲端系統程式
     positions:
       - designation: 專題研究計畫專任助理
         start: 11 2015
         end: 11 2018
         responsibilities:
-          - 網路軟體程式開發.
-          - 後端程式開發.
+          - 網路軟體程式開發
+          - 後端程式開發
 
   - company:
       name: 國立臺北科技大學
-      url: "#"
+      url: "https://cnc.ntut.edu.tw/"
       location: 計網中心
       overview: 處理各處室與老師的網路問題或是電腦維修
     positions:
@@ -116,13 +132,13 @@ experiences:
         start: 06 2012
         end: 06 2016
         responsibilities:
-          - 網路基礎除錯.
-          - 電腦系統維修.
+          - 網路基礎除錯並使用 Fluke 查線循線
+          - 電腦系統維修
 
   - company:
       name: SITCON 學生電子計算機年會 (Students' Information Technology Conference)
       url: "https://sitcon.org/"
-      # location:
+      location: 志工
       # overview:
     positions:
       - designation: SITCON 2018 製播組
@@ -137,14 +153,14 @@ experiences:
       - designation: SITCON 2015 行銷組
         start: 2015
         end: 2015
-      - designation: 副組長 SITCON 2014 場務組
+      - designation: SITCON 2014 場務組 - 副組長
         start: 2014
         end: 2014
 
   - company:
       name: COSCUP
       url: "https://coscup.org/"
-      # location:
+      location: 志工
       # overview:
     positions:
       - designation: COSCUP 2014 - 場務組
@@ -154,7 +170,7 @@ experiences:
   - company:
       name: SITCON 學生計算機夏令營
       url: "https://sitcon.camp/"
-      # location:
+      location: 志工
       # overview:
     positions:
       - designation: SITCON Summer Camp 2015 - 副召集人
@@ -167,7 +183,7 @@ experiences:
   - company:
       name: Hacks In Taiwan Conference (HITCON)
       url: "https://hitcon.org/"
-      # location:
+      location: 志工
       # overview:
     positions:
       - designation: HITCON 2014 門機組 - 組長

@@ -35,7 +35,7 @@ skills:
 
   - name: CI/CD
     logo:
-    summary: "攥寫 GitHub 或 GitLab 自動化部屬"
+    summary: "撰寫 GitHub 或 GitLab 自動化部屬"
     url: "https://dev.to/"
 
   - name: Node.js
@@ -62,3 +62,13 @@ skills:
     logo: /images/sections/skills/php.png
     summary: "使用 PHP 用於網頁軟體開發"
     url: "https://www.php.net/"
+
+  - name: MySQL
+    logo: /images/sections/skills/mysql.png
+    summary: "資料庫運用"
+    url: "https://www.mysql.com/"
+
+  - name: PostgreSQL
+    logo: /images/sections/skills/postgresql.png
+    summary: "資料庫運用"
+    url: "https://www.postgresql.org/"

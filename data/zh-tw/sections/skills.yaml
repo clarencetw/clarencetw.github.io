@@ -21,24 +21,44 @@ skills:
 
   - name: Docker
     logo: /images/sections/skills/docker.svg
-    summary: "撰寫 Docker 容器化，包括重新 compile 與容器安全."
+    summary: "撰寫 Docker 容器化，包括重新 compile 與容器安全"
     url: "https://www.docker.com/"
 
   - name: Linux
     logo: /images/sections/skills/linux.png
-    summary: "主要伺服器作業系統，可以使用指令操作系統並且撰寫 shell 腳本."
+    summary: "主要伺服器作業系統，可以使用指令操作系統並且撰寫 shell 腳本"
 
   - name: Git
     logo: /images/sections/skills/git.png
-    summary: "軟體版本控管使用 GitHub 以及 GitLab."
+    summary: "軟體版本控管使用 GitHub 以及 GitLab"
     url: "https://git-scm.com/"
 
   - name: CI/CD
     logo:
-    summary: "攥寫 GitHub 或 GitLab 自動化部屬."
+    summary: "攥寫 GitHub 或 GitLab 自動化部屬"
     url: "https://dev.to/"
 
   - name: Node.js
     logo: /images/sections/skills/nodejs.png
-    summary: "使用 Node.js 開發伺服器軟體或是背景程式."
+    summary: "使用 Node.js 開發伺服器軟體或是背景程式"
     url: "https://nodejs.org/"
+
+  - name: Go
+    logo: /images/sections/skills/go.png
+    summary: "網路程式開發."
+    url: "https://go.dev/"
+
+  - name: Python
+    logo: /images/sections/skills/python.jpeg
+    summary: "用於 API 伺服器開發"
+    url: "https://www.python.org/"
+
+  - name: Vue
+    logo: /images/sections/skills/vue.png
+    summary: "簡單的前端網頁程式"
+    url: "https://vuejs.org/"
+
+  - name: PHP
+    logo: /images/sections/skills/php.png
+    summary: "使用 PHP 用於網頁軟體開發"
+    url: "https://www.php.net/"

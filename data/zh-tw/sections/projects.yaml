@@ -12,6 +12,8 @@ section:
 buttons:
   - name: All
     filter: "all"
+  - name: AWS
+    filter: "aws"
   - name: CDK
     filter: "cdk"
   - name: Constructs
@@ -48,22 +50,29 @@ projects:
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-lambda-layer-wget
-    summary:
+    summary: A CDK construct library supporting lambda layers using wget
     tags: ["cdk", "construct"]
 
   - name: cdk-lambda-layer-zip
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-lambda-layer-zip
-    summary:
+    summary: A CDK construct library supporting lambda layers using zip
     tags: ["cdk", "construct"]
 
   - name: cdk-lambda-layer-curl
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-lambda-layer-curl
-    summary:
+    summary: A CDK construct library supporting lambda layers using curl
     tags: ["cdk", "construct"]
+
+  - name: aws-cdk
+    role: Contributor
+    timeline: "Feb 2021 - Present"
+    repo: https://github.com/aws/aws-cdk
+    summary: "The **AWS Cloud Development Kit (AWS CDK)** is an open-source software development framework to define cloud infrastructure in code and provision it through AWS CloudFormation."
+    tags: ["aws", "cdk"]
 
   - name: LINE Messaging API SDK for PHP
     logo: /images/sections/projects/line.jpg

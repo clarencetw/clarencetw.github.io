@@ -51,6 +51,10 @@ params:
       # Google Analytics
       google:
         id: UA-54293202-1
+      goatCounter:
+        code: clarence
+      counterDev:
+        id: me@clarence.tw
 
   # specify whether you want to show Table of Contents in reading page
   enableTOC: true

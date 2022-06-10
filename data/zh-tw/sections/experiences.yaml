@@ -13,18 +13,22 @@ experiences:
   - company:
       name: BRONCI Technology Inc. 長問科技股份有限公司
       url: "https://bronci.com.tw/"
-      location: Nowhere
+      location: Cloud
       overview: 雲端軟體開發與部署
     positions:
       - designation: Backend Developer
         start: 11 2018
         # end: May 2017
         responsibilities:
-          - 後端程式開發使用 Node.js
-          - AWS 研究與開發
-          - GCP 研究與開發
-          - 撰寫自動化部屬腳本
-          - 雲端架構設計、分析與部署
+          - 後端軟體開發 - Node.js, Python, Go, C/C++, Shell Script, Java, PostgreSQL, MySQL, Docker
+          - 雲端整合 - AWS, GCP, Azure
+          - 自動化部署 - GitLab CI/CD, GitHub Actions
+          - 自動化測試 - Jest
+          - 雲端架構 - AWS
+          - 基礎架構程式碼(IaC) - AWS CDK
+          - 日本家用攝影機方案 - 雲端服務整合工程
+          - 日本 IOT 智慧家庭方案 - 語音指令服務整合工程
+          - 台灣家電語音控制家電方案 - 雲端服務整合工程
 
   - company:
       name: 數位時代
@@ -119,8 +123,8 @@ experiences:
         start: 11 2015
         end: 11 2018
         responsibilities:
-          - 網路軟體程式開發
-          - 後端程式開發
+          - 網路程式開發 - Node.js, Go, C/C++, PostgreSQL
+          - 後端程式開發 - Node.js, PostgreSQL, Docker
 
   - company:
       name: 國立臺北科技大學

@@ -59,3 +59,7 @@ params:
   # Currently, you can just hide it from the footer.
   newsletter:
     enable: false
+
+sitemap:
+  filename: sitemap.xml
+  priority: 0.5

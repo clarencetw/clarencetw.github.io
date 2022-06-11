@@ -4,8 +4,6 @@ languageCode: zh-tw
 title: "Clarence"
 theme: "toha"
 
-enableRobotsTXT: true
-
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
 defaultContentLanguage: tw
@@ -67,6 +65,15 @@ params:
   newsletter:
     enable: false
 
+  # Dark theme toggle
+  darkMode:
+    provider: darkreader
+    enable: true
+
+# Sitemap
 sitemap:
   filename: sitemap.xml
   priority: 0.5
+
+# Robots
+enableRobotsTXT: true

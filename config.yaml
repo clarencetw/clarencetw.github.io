@@ -8,11 +8,14 @@ enableRobotsTXT: true
 
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
-defaultContentLanguage: zh-tw
+defaultContentLanguage: tw
 languages:
-  zh-tw:
+  tw:
     languageName: 繁體中文
     weight: 2
+  en:
+    languageName: English
+    weight: 1
 
 # Control TOC depth
 markup:

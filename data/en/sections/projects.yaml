@@ -1,6 +1,6 @@
 # section information
 section:
-  name: 專案
+  name: Projects
   id: projects
   enable: true
   weight: 5

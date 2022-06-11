@@ -6,9 +6,9 @@ theme: "toha"
 
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
-defaultContentLanguage: tw
+defaultContentLanguage: zh-tw
 languages:
-  tw:
+  zh-tw:
     languageName: 繁體中文
     weight: 2
   en:

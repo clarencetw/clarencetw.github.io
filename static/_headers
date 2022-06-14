@@ -4,4 +4,3 @@
   X-Content-Type-Options: nosnif
   Referrer-Policy: no-referrer
   Permissions-Policy: document-domain=()
-  Content-Security-Policy: script-src 'self'; frame-ancestors 'none'

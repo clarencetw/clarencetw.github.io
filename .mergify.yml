@@ -22,3 +22,9 @@ pull_request_rules:
         message: Automatically approving dependabot
       merge:
         method: merge
+        
+  - name: delete head branch on merged pull requests
+    conditions:
+      - merged
+    actions:
+      delete_head_branch:

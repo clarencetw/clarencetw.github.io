@@ -53,6 +53,10 @@ params:
 
   # Configure various features of this theme
   features:
+    # Enable & configure "Notes" features
+    notes:
+      enable: true
+
     # Enable Analytics
     analytics:
       enabled: true

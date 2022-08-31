@@ -1,0 +1,165 @@
+# section information
+section:
+  name: Experiences
+  id: experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your experiences
+experiences:
+  - company:
+      name: BRONCI Technology Inc.
+      url: "https://bronci.com.tw/"
+      location: Cloud
+      overview: Cloud software development, cloud architecture and automated system deployment
+    positions:
+      - designation: Backend Developer
+        start: 11 2018
+        # end: May 2017
+        responsibilities:
+          - Backend software development - Node.js, Python, Go, C/C++, Shell Script, Java, PostgreSQL, MySQL, Docker
+          - Cloud integration - AWS, GCP, Azure
+          - Automated deployment - GitLab CI/CD, GitHub Actions
+          - Automated testing - Jest
+          - Cloud Architecture - AWS
+          - Infrastructure as Code (IaC) - AWS CDK
+          - Japanese home camera solution - Cloud service integration project
+          - Japan IOT Smart Home Solution - Voice command service integration project
+          - Taiwan home appliance voice control home appliance solution - Cloud service integration project
+
+  - company:
+      name: Business Next Media Corp. 
+      url: "https://www.bnext.com.tw/author/4039"
+      location: Author
+      # company overview
+      # overview:
+    positions:
+      - designation: Author
+        start: 06 2022
+        # don't provide end date if you are currently working there. It will be replaced by "Present"
+        # end: Dec 2020
+        # give some points about what was your responsibilities at the company.
+
+  - company:
+      name: 5xRuby CO.
+      url: "https://5xruby.com/"
+      location: lecturer
+      # company overview
+      # overview:
+    positions:
+      - designation: Education training instructor
+        start: 2022
+        end: 2022
+
+  - company:
+      name: AWS User Group Taiwan
+      url: "https://www.facebook.com/groups/awsugtw/"
+      location: lecturer
+      # company overview
+      # overview:
+    positions:
+      - designation: lecturer
+        start: 12 2021
+        end: 12 2021
+        responsibilities:
+          - "[AWS User Group Taiwan Meetup 2021-12 線上 / 下小聚](https://awsugtw.kktix.cc/events/awsug-202112) [AWS 初心者 - 用 AWS CDK 我也可以一鍵上傳前端網站](https://hackmd.io/@clarencetw/aws-cdk-one-click-deploy-front-end)"
+
+  - company:
+      name: DrMaster Press Co., Ltd. 
+      url: "https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149"
+      location: Author
+      # company overview
+      overview: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC (iT邦幫忙鐵人賽系列書) [Book](https://www.tenlong.com.tw/products/9789864349203) [eBook](https://play.google.com/store/books/details/AWS_CDK_%E5%AE%8C%E5%85%A8%E5%AD%B8%E7%BF%92%E6%89%8B%E5%86%8A_iT%E9%82%A6%E5%B9%AB%E5%BF%99%E9%90%B5%E4%BA%BA%E8%B3%BD%E7%B3%BB%E5%88%97%E6%9B%B8_%E6%89%93%E9%80%A0%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC_IaC?id=u9xZEAAAQBAJ)"
+    positions:
+      - designation: Book author
+        start: 11 2021
+        # don't provide end date if you are currently working there. It will be replaced by "Present"
+        # end: Dec 2020
+        # give some points about what was your responsibilities at the company.
+        responsibilities:
+          - The first Chinese book that teaches you to write AWS CDK from scratch!
+          - For those of you who don't know how to write, we will provide you with super rich Sample Code, and you can also become an AWS CDK expert by copying!
+
+  - company:
+      name: National Taipei University of Technology, Taipei Tech
+      url: "https://www.ntut.edu.tw/"
+      location: R & D alternative service
+      overview: Research and develop cloud system programs
+    positions:
+      - designation: Full-time assistant of special research project
+        start: 11 2015
+        end: 11 2018
+        responsibilities:
+          - Web development - Node.js, Go, C/C++, PostgreSQL
+          - Backend program development - Node.js, PostgreSQL, Docker
+
+  - company:
+      name: National Taipei University of Technology, Taipei Tech
+      url: "https://cnc.ntut.edu.tw/"
+      location: Computer and Information Network Center
+      overview: Deal with network problems or computer repairs
+    positions:
+      - designation: Part-time worker 
+        start: 06 2012
+        end: 06 2016
+        responsibilities:
+          - Network Basics Debugging and Tracking with Fluke
+          - Computer system maintenance
+
+  - company:
+      name: Students' Information Technology Conference
+      url: "https://sitcon.org/"
+      location: Volunteer
+      # overview:
+    positions:
+      - designation: SITCON 2018 Video Engineering group
+        start: 2018
+        end: 2018
+      - designation: SITCON 2017 Marketing group
+        start: 2017
+        end: 2017
+      - designation: SITCON 2016 Marketing group
+        start: 2016
+        end: 2016
+      - designation: SITCON 2015 Marketing group
+        start: 2015
+        end: 2015
+      - designation: SITCON 2014 Venue Services Group - Deputy Head
+        start: 2014
+        end: 2014
+
+  - company:
+      name: COSCUP
+      url: "https://coscup.org/"
+      location: Volunteer
+      # overview:
+    positions:
+      - designation: COSCUP 2014 - Venue Services Group
+        start: 2014
+        end: 2014
+
+  - company:
+      name: Students' Information Technology Conference Summer Camp
+      url: "https://sitcon.camp/"
+      location: 志工
+      # overview:
+    positions:
+      - designation: SITCON Summer Camp 2015 - Deputy Convenor
+        start: 2015
+        end: 2015
+      - designation: SITCON Summer Camp 2014 - Course group leader
+        start: 2014
+        end: 2014
+
+  - company:
+      name: Hacks In Taiwan Conference (HITCON)
+      url: "https://hitcon.org/"
+      location: 志工
+      # overview:
+    positions:
+      - designation: HITCON 2014 Motorized group - Leader
+        start: 2014
+        end: 2014

@@ -1,0 +1,30 @@
+# section information
+section:
+  name: Education
+  id: education
+  template: sections/education.html # Use "sections/education-alt.html for alternate template.
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+degrees:
+  - name: M.S. Electrical Engineering
+    icon: fa-microscope
+    timeframe: 2014-2015
+    institution:
+      name: National Taipei University of Technology, Taipei Tech
+      url: "#"
+  - name: B.S. 
+    icon: fa-graduation-cap
+    timeframe: 2011-2014
+    institution:
+      name: National Taipei University of Technology, Taipei Tech
+      url: "#"
+  - name: Higher Vocational (Information)
+    icon: fa-university
+    timeframe: 2009-2011
+    institution:
+      name: Xiehe Youde Senior High School
+      url: "#"

@@ -1,6 +1,6 @@
 # section information
 section:
-  name: 技能
+  name: Skills
   id: skills
   enable: true
   weight: 2
@@ -13,62 +13,62 @@ section:
 skills:
   - name: Cloud Architecture
     logo: /images/sections/skills/cloud.png
-    summary: "雲端服務架構包括 AWS, GCP, Azure, DigitalOcean, Linode etc."
+    summary: "Cloud service architecture includes AWS, GCP, Azure, DigitalOcean, Linode etc."
 
   - name: AWS
     logo: /images/sections/skills/cloud.png
-    summary: "使用 AWS 雲端服務包誇 EC2, S3, RDS, Lambda, VPC, ECS, ECR, Fargate etc."
+    summary: "Use AWS cloud service packages like EC2, S3, RDS, Lambda, VPC, ECS, ECR, Fargate etc."
 
   - name: Docker
     logo: /images/sections/skills/docker.svg
-    summary: "撰寫 Docker 容器化，包括重新 compile 與容器安全."
+    summary: "Compose Docker containerization, including recompile and container security."
     url: "https://www.docker.com/"
 
   - name: Linux
     logo: /images/sections/skills/linux.png
-    summary: "伺服器作業系統維護以及使用純指令操作系統依照需求撰寫 shell 腳本."
+    summary: "OS maintenance and use no-gui linux.  write shell scripting."
 
   - name: Git
     logo: /images/sections/skills/git.png
-    summary: "軟體版本控管使用 GitHub 以及 GitLab."
+    summary: "Software version control using GitHub and GitLab."
     url: "https://git-scm.com/"
 
   - name: CI/CD
     logo:
-    summary: "撰寫 GitHub 或 GitLab 自動化部署以及測試腳本."
+    summary: "Compose GitHub or GitLab automated deployments."
     url: "https://dev.to/"
 
   - name: Node.js
     logo: /images/sections/skills/nodejs.png
-    summary: "使用 Node.js 開發伺服器軟體、網路應用程式以及桌面應用程式."
+    summary: "Develop server software, web applications, and desktop applications with Node.js"
     url: "https://nodejs.org/"
 
   - name: Go
     logo: /images/sections/skills/go.png
-    summary: "網路應用程式開發以及伺服器軟體開發."
+    summary: "Web application development and server software development."
     url: "https://go.dev/"
 
   - name: Python
     logo: /images/sections/skills/python.jpeg
-    summary: "API 程式開發以及自動化腳本程式開發."
+    summary: "API program development and automated script program development."
     url: "https://www.python.org/"
 
   - name: Vue
     logo: /images/sections/skills/vue.png
-    summary: "基礎的前端網頁開發"
+    summary: "Basic front-end web development"
     url: "https://vuejs.org/"
 
   - name: PHP
     logo: /images/sections/skills/php.png
-    summary: "使用 PHP 開發 API 應用程式以及後台網站."
+    summary: "Develop API applications and backend websites using PHP."
     url: "https://www.php.net/"
 
   - name: MySQL
     logo: /images/sections/skills/mysql.png
-    summary: "API 網站使用資料庫"
+    summary: "API website usage database"
     url: "https://www.mysql.com/"
 
   - name: PostgreSQL
     logo: /images/sections/skills/postgresql.png
-    summary: "API 網站使用資料庫"
+    summary: "API website usage database"
     url: "https://www.postgresql.org/"

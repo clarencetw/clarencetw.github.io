@@ -22,9 +22,18 @@ buttons:
     filter: "line"
   - name: Hugo
     filter: "hugo"
+  - name: Node.js
+    filter: "nodejs"
 
 # your projects
 projects:
+  - name: node-crypto-ecb
+    role: Owner
+    timeline: "Sep 2022 - Present"
+    repo: https://github.com/clarencetw/node-crypto-ecb
+    summary: Node.js AES ECB Library.
+    tags: ["crypto", "AES", "nodejs"]
+
   - name: Toha
     logo: /images/sections/projects/toha.png
     role: Contributor

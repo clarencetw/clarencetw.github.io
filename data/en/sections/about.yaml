@@ -31,9 +31,9 @@ socialLinks:
     icon: "fab fa-github"
     url: "https://github.com/clarencetw"
 
-  # - name: Stackoverflow
-  #   icon: "fab fa-stack-overflow"
-  #   url: "#"
+  - name: Stackoverflow
+    icon: "fab fa-stack-overflow"
+    url: "https://stackoverflow.com/users/19384998/clarence"
 
   - name: LinkedIn
     icon: "fab fa-linkedin"

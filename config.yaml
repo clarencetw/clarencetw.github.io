@@ -68,6 +68,21 @@ params:
       counterDev:
         id: me@clarence.tw
 
+    # Enable comment
+    comment:
+      enable: true
+      giscus:
+        repo: clarencetw/clarencetw.github.io
+        repoID: MDEwOlJlcG9zaXRvcnkxNjczMDk2OA==
+        # category: Announcements
+        categoryID: DIC_kwDOAP9LWM4CSqIm
+        # theme: light
+        # map: url
+        # reaction: 1
+        # metadata: 0
+        # inputPosition: bottom
+        # crossOrigin: anonymous
+
   # specify whether you want to show Table of Contents in reading page
   enableTOC: true
 

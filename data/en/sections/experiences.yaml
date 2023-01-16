@@ -144,7 +144,7 @@ experiences:
   - company:
       name: Students' Information Technology Conference Summer Camp
       url: "https://sitcon.camp/"
-      location: 志工
+      location: Volunteer
       # overview:
     positions:
       - designation: SITCON Summer Camp 2015 - Deputy Convenor
@@ -157,7 +157,7 @@ experiences:
   - company:
       name: Hacks In Taiwan Conference (HITCON)
       url: "https://hitcon.org/"
-      location: 志工
+      location: Volunteer
       # overview:
     positions:
       - designation: HITCON 2014 Motorized group - Leader

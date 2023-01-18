@@ -12,19 +12,19 @@ section:
 degrees:
   - name: M.S. Electrical Engineering
     icon: fa-microscope
-    timeframe: 2014-2015
+    timeframe: 2015-2017
     institution:
       name: National Taipei University of Technology, Taipei Tech
       url: "#"
   - name: B.S. 
     icon: fa-graduation-cap
-    timeframe: 2011-2014
+    timeframe: 2011-2015
     institution:
       name: National Taipei University of Technology, Taipei Tech
       url: "#"
   - name: Higher Vocational (Information)
     icon: fa-university
-    timeframe: 2009-2011
+    timeframe: 2008-2011
     institution:
       name: Xiehe Youde Senior High School
       url: "#"

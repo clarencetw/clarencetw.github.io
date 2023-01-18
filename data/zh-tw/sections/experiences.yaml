@@ -17,7 +17,7 @@ experiences:
       overview: 雲端軟體開發、雲端架構與系統自動化部署
     positions:
       - designation: Backend Developer
-        start: 11 2018
+        start: 11 2020
         # end: May 2017
         responsibilities:
           - 後端軟體開發 - Node.js, Python, Go, C/C++, Shell Script, Java, PostgreSQL, MySQL, Docker
@@ -121,7 +121,7 @@ experiences:
     positions:
       - designation: 專題研究計畫專任助理
         start: 11 2015
-        end: 11 2018
+        end: 11 2020
         responsibilities:
           - 網路程式開發 - Node.js, Go, C/C++, PostgreSQL
           - 後端程式開發 - Node.js, PostgreSQL, Docker
@@ -134,7 +134,7 @@ experiences:
     positions:
       - designation: 工讀生
         start: 06 2012
-        end: 06 2016
+        end: 06 2017
         responsibilities:
           - 網路基礎除錯並使用 Fluke 查線循線
           - 電腦系統維修

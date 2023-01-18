@@ -51,6 +51,21 @@ socialLinks:
 # You can show your verifiable certificates from https://www.credly.com.
 # You can also show a circular bar indicating the level of expertise on a certain skill
 badges:
+- type: certification
+  name: Key Applications
+  url: "https://www.credly.com/org/certiport/badge/key-applications"
+  badge: "https://images.credly.com/size/680x680/images/8a8f3497-95a1-4e87-8cbf-4859dd4c4a85/IC3_key_applications.png"
+
+- type: certification
+  name: Computing Fundamentals
+  url: "https://www.credly.com/org/certiport/badge/computing-fundamentals"
+  badge: "https://images.credly.com/size/680x680/images/bf8594c5-1e2d-4e5b-ab28-09c46bd755a3/IC3_computing_fundamentals.png"
+
+- type: certification
+  name: Living Online
+  url: "https://www.credly.com/org/certiport/badge/living-online"
+  badge: "https://images.credly.com/size/680x680/images/b4c97286-a3ec-4c84-9095-518e1496869d/IC3_living_online.png"
+
 # - type: certification
 #   name: Microsoft Office Specialist
 #   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-office-specialist-master-office-2016"

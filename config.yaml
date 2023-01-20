@@ -82,6 +82,14 @@ params:
         # metadata: 0
         # inputPosition: bottom
         # crossOrigin: anonymous
+        
+    support:
+      enabled: true
+      kofi:
+        user: clarencetw
+        text: Tip Me
+        textColor: '#f9fafc'
+        backgroundColor: '#248aaa'
 
   # specify whether you want to show Table of Contents in reading page
   enableTOC: true

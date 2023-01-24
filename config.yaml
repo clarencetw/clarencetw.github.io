@@ -102,14 +102,19 @@ params:
         # metadata: 0
         # inputPosition: bottom
         # crossOrigin: anonymous
-        
+
     support:
       enabled: true
-      kofi:
+      # kofi:
+      #   user: clarencetw
+      #   text: Tip Me
+      #   textColor: '#f9fafc'
+      #   backgroundColor: '#248aaa'
+      buymeacoffee:
         user: clarencetw
-        text: Tip Me
-        textColor: '#f9fafc'
-        backgroundColor: '#248aaa'
+        text: Support me on Buy me a coffee!
+        info: Buy me a coffee!
+        color: "#FFDD00"
 
     # specify whether you want to show Table of Contents in reading page
     toc:

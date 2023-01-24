@@ -1,5 +1,5 @@
 [build]
-command = "rm static/_headers static/_redirects && hugo --gc --minify"
+command = "hugo --gc --minify"
 publish = "public"
 
 [[plugins]]

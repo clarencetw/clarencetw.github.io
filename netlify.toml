@@ -6,14 +6,6 @@ publish = "public"
   # Installs the Lighthouse Build Plugin for all deploy contexts
   package = "@netlify/plugin-lighthouse"
 
-[[headers]]
-  # Define which paths this specific [[headers]] block will cover.
-  for = "/*"
-
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-
 [context.production.environment]
 HUGO_ENABLEGITINFO = "true"
 HUGO_ENV           = "production"
@@ -48,3 +40,11 @@ command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --mini
 
 [context.next.environment]
 HUGO_ENABLEGITINFO = "true"
+
+[[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"

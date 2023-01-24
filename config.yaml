@@ -68,6 +68,26 @@ params:
       counterDev:
         id: me@clarence.tw
 
+    # Enable and configure portfolio
+    portfolio:
+      enable: true
+
+    # Enable and configure blog posts
+    blog:
+      enable: true
+      # Share post on different social media
+      shareButtons:
+        facebook: true
+        twitter: true
+        linkedin: true
+        reddit: true
+        whatsapp: true
+        email: true
+        # tumblr: true
+        # pocket: true
+        # diaspora: true
+        # mastodon: true
+
     # Enable comment
     comment:
       enable: true
@@ -82,14 +102,35 @@ params:
         # metadata: 0
         # inputPosition: bottom
         # crossOrigin: anonymous
-        
+
     support:
       enabled: true
-      kofi:
+      # kofi:
+      #   user: clarencetw
+      #   text: Tip Me
+      #   textColor: '#f9fafc'
+      #   backgroundColor: '#248aaa'
+      buymeacoffee:
         user: clarencetw
-        text: Tip Me
-        textColor: '#f9fafc'
-        backgroundColor: '#248aaa'
+        text: Support me on Buy me a coffee!
+        info: Buy me a coffee!
+        color: "#FFDD00"
+
+    # specify whether you want to show Table of Contents in reading page
+    toc:
+      enable: true
+
+    # Show tags under the post title
+    tags:
+      enable: true
+
+    # Specify whether to show flag in the language selector. Default is true.
+    flags:
+      enable: true
+      # # If you want to use different country flag for a language, specify them here.
+      # flagOverwrites:
+      #   - languageCode: en
+      #     countryCode: us
 
   # specify whether you want to show Table of Contents in reading page
   enableTOC: true

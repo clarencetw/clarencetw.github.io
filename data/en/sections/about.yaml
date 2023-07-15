@@ -60,12 +60,12 @@ badges:
 - type: certification
   name: NSE 1 Network Security Associate
   url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_1"
-  badge: "files/badges/1-associate-logo.png"
+  badge: "../files/badges/1-associate-logo.png"
 
 - type: certification
   name: NSE 2 Network Security Associate
   url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_2"
-  badge: "files/badges/2-associate-logo.png"
+  badge: "../files/badges/2-associate-logo.png"
 
 - type: certification
   name: Key Applications

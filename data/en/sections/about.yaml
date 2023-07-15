@@ -58,6 +58,16 @@ socialLinks:
 # You can also show a circular bar indicating the level of expertise on a certain skill
 badges:
 - type: certification
+  name: NSE 1 Network Security Associate
+  url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_1"
+  badge: "files/badges/1-associate-logo.png"
+
+- type: certification
+  name: NSE 2 Network Security Associate
+  url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_2"
+  badge: "files/badges/2-associate-logo.png"
+
+- type: certification
   name: Key Applications
   url: "https://www.credly.com/org/certiport/badge/key-applications"
   badge: "https://images.credly.com/size/680x680/images/8a8f3497-95a1-4e87-8cbf-4859dd4c4a85/IC3_key_applications.png"

@@ -11,64 +11,81 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
-  - name: Cloud Architecture
-    logo: /images/sections/skills/cloud.png
-    summary: "雲端服務架構包括 AWS, GCP, Azure, DigitalOcean, Linode etc."
-
   - name: AWS
     logo: /images/sections/skills/cloud.png
-    summary: "使用 AWS 雲端服務包誇 EC2, S3, RDS, Lambda, VPC, ECS, ECR, Fargate etc."
+    summary: "使用 AWS 雲端服務來建立和運行應用程式。涉及 EC2 虛擬伺服器、S3 雲端儲存、RDS 關聯式資料庫、Lambda 事件驅動的運算等。"
+    url: "https://aws.amazon.com/"
 
-  - name: Docker
-    logo: /images/sections/skills/docker.svg
-    summary: "撰寫 Docker 容器化，包括重新 compile 與容器安全."
-    url: "https://www.docker.com/"
-
-  - name: Linux
-    logo: /images/sections/skills/linux.png
-    summary: "伺服器作業系統維護以及使用純指令操作系統依照需求撰寫 shell 腳本."
-
-  - name: Git
-    logo: /images/sections/skills/git.png
-    summary: "軟體版本控管使用 GitHub 以及 GitLab."
-    url: "https://git-scm.com/"
+  - name: Azure
+    logo: /images/sections/skills/cloud.png
+    summary: "在 Azure 上使用虛擬機 (VM) 來進行雲端架構。"
 
   - name: CI/CD
     logo:
-    summary: "撰寫 GitHub 或 GitLab 自動化部署以及測試腳本."
-    url: "https://dev.to/"
+    summary: "撰寫 GitHub 或 GitLab 上的持續整合 (CI) 和持續部署 (CD) 腳本，實現自動化的程式碼測試和部署流程。"
+    url: https://dev.to/
 
-  - name: Node.js
-    logo: /images/sections/skills/nodejs.png
-    summary: "使用 Node.js 開發伺服器軟體、網路應用程式以及桌面應用程式."
-    url: "https://nodejs.org/"
+  - name: Cloud Architecture
+    logo: /images/sections/skills/cloud.png
+    summary: "雲端服務架構的設計和實施，包括 AWS, GCP, Azure, DigitalOcean, Linode 等。這涉及到應用程式的可擴展性、高可用性和安全性。"
+
+  - name: Docker
+    logo: /images/sections/skills/docker.svg
+    summary: "撰寫 Docker 容器化，將應用程式和其相依性封裝成可攜帶的容器。這有助於跨環境一致性和更有效的部署。"
+    url: "https://blog.clarence.tw/category/docker/"
+
+  - name: Fortinet
+    logo: 
+    summary: "配置各種防火牆設定，確保網路安全性。"
+
+  - name: Git
+    logo: /images/sections/skills/git.png
+    summary: "使用 Git 版本控制系統，協助團隊協同開發，並有效地追蹤、管理程式碼的變更。常與 GitHub 和 GitLab 等平台搭配使用。"
+    url: "https://git-scm.com/"
 
   - name: Go
     logo: /images/sections/skills/go.png
-    summary: "網路應用程式開發以及伺服器軟體開發."
-    url: "https://go.dev/"
+    summary: "使用 Go 語言進行網路應用程式和伺服器軟體的開發。Go 以其高效的併發性能而聞名。 "
+    url: https://go.dev/
 
-  - name: Python
-    logo: /images/sections/skills/python.jpeg
-    summary: "API 程式開發以及自動化腳本程式開發."
-    url: "https://www.python.org/"
+  - name: HPE
+    logo: 
+    summary: "進行 HPE 設備的各種設定，包括 Switch 設定等。"
 
-  - name: Vue
-    logo: /images/sections/skills/vue.png
-    summary: "基礎的前端網頁開發"
-    url: "https://vuejs.org/"
-
-  - name: PHP
-    logo: /images/sections/skills/php.png
-    summary: "使用 PHP 開發 API 應用程式以及後台網站."
-    url: "https://www.php.net/"
+  - name: Linux
+    logo: /images/sections/skills/linux.png
+    summary: "熟練於 Linux 伺服器操作，包括安裝、設定、網路設定，以及使用指令行介面。同時能夠根據需求編寫 shell 腳本。"
 
   - name: MySQL
     logo: /images/sections/skills/mysql.png
-    summary: "API 網站使用資料庫"
-    url: "https://www.mysql.com/"
+    summary: "使用 MySQL 資料庫管理系統，為 API 網站提供可靠的資料存儲和擷取。 "
+    url: "https://blog.clarence.tw/category/%e8%b3%87%e6%96%99%e5%ba%ab/mysql/"
+
+  - name: Node.js
+    logo: /images/sections/skills/nodejs.png
+    summary: "使用 Node.js 開發伺服器端應用程式、網路應用程式，以及桌面應用程式。Node.js 提供了非阻塞、事件驅動的編程環境。 "
+    url: https://blog.clarence.tw/category/programming-language/node-js/
+
+  - name: PHP
+    logo: /images/sections/skills/php.png
+    summary: "使用 PHP 開發 API 應用程式和後台網站。PHP 是一種強大的伺服器端腳本語言，適用於動態內容生成。"
+    url: "https://blog.clarence.tw/category/programming-language/php/"
 
   - name: PostgreSQL
     logo: /images/sections/skills/postgresql.png
-    summary: "API 網站使用資料庫"
-    url: "https://www.postgresql.org/"
+    summary: "使用 PostgreSQL 資料庫管理系統，為 API 網站提供可靠的資料存儲和擷取。lar"
+    url: "https://blog.clarence.tw/category/%e8%b3%87%e6%96%99%e5%ba%ab/postgresql/"
+
+  - name: Proxmox VE
+    logo: 
+    summary: "在 Proxmox VE 上進行地端虛擬機機房架設，提供虛擬化環境。"
+    url: "https://blog.clarence.tw/category/proxmox-ve/"
+
+  - name: Vue
+    logo: 
+    summary: "基礎的前端網頁開發，使用 Vue.js 框架。Vue.js 提供了簡單、靈活的方式來構建使用者界面。"
+    url: "https://vuejs.org/"
+
+  - name: WordPress
+    logo: 
+    summary: "進行 WordPress 的部署和維護，用於博客或網站建設。"

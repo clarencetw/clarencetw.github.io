@@ -1,0 +1,195 @@
+# section information
+section:
+  name: 成就
+  id: accomplishments
+  enable: true
+  weight: 9
+  showOnNavbar: true
+  # 可選擇性地隱藏標題
+  # hideTitle: true
+
+# 您的成就
+accomplishments:
+- name: 電腦硬體裝修 乙級
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "此證書驗證您在電腦硬體裝修領域的技術能力，具備乙級的專業認證。"
+  certificateURL: ""
+
+- name: 電腦軟體應用 丙級
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "此證書驗證您在電腦軟體應用方面的基本技能，具備丙級的專業認證。"
+  certificateURL: ""
+
+- name: 電腦硬體裝修 丙級
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "此證書驗證您在電腦硬體裝修領域的基礎知識與技能，具備丙級認證。"
+  certificateURL: ""
+
+- name: 電腦軟體設計 丙級
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "此證書證明您具備設計和開發軟體的能力，通過了丙級認證。"
+  certificateURL: ""
+
+- name: 網頁設計 丙級
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "此證書表明您具備基本的網頁設計技能，獲得丙級認證。"
+  certificateURL: ""
+
+- name: 網路架設 丙級
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "此證書驗證了您在網路架設方面的基礎能力，具備丙級認證。"
+  certificateURL: ""
+
+- name: Microsoft Office Specialist 2007 Master
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "此證書表示您精通 Microsoft Office 2007 套件的所有主要應用程式。"
+  certificateURL: ""
+
+- name: Microsoft Office Word 2007
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "此證書表明您精通 Microsoft Word 2007 的使用。"
+  certificateURL: ""
+
+- name: Microsoft Office Excel 2007
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "此證書表明您精通 Microsoft Excel 2007 的使用。"
+  certificateURL: ""
+
+- name: Microsoft Office PowerPoint 2007
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "此證書表明您精通 Microsoft PowerPoint 2007 的使用。"
+  certificateURL: ""
+
+- name: Microsoft Office Outlook 2007
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "此證書表明您精通 Microsoft Outlook 2007 的使用。"
+  certificateURL: ""
+
+- name: Web Communication using Adobe Dreamweaver CS3
+  timeline: ""
+  organization:
+    name: Adobe
+    url: https://www.adobe.com
+  courseOverview: "此認證表明您精通使用 Adobe Dreamweaver CS3 進行網頁通訊。"
+  certificateURL: ""
+
+- name: Rich Media Communication using Adobe Flash CS3
+  timeline: ""
+  organization:
+    name: Adobe
+    url: https://www.adobe.com
+  courseOverview: "此認證表明您精通使用 Adobe Flash CS3 進行富媒體通訊。"
+  certificateURL: ""
+
+- name: Visual Communication using Adobe Photoshop CS3
+  timeline: ""
+  organization:
+    name: Adobe
+    url: https://www.adobe.com
+  courseOverview: "此認證表明您精通使用 Adobe Photoshop CS3 進行視覺通訊。"
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification 際網路及行動通訊 實用級
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "此證書驗證您在網路及行動通訊領域的實用知識。"
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification 際網路及行動通訊 進階級
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "此證書證明您具備網路及行動通訊的進階技能。"
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification 際網路及行動通訊 專業級
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "此證書表明您具備網路及行動通訊的專業級技能。"
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification HTML 實用級
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "此證書驗證了您在 HTML 基礎應用方面的知識與技能。"
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification HTML 進階級
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "此證書證明您具備進階 HTML 技能。"
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification HTML 專業級
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "此證書表明您具備專業級的 HTML 技能。"
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification 動裝置作業系統應用 實用級
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "此證書驗證您在動裝置作業系統應用領域的基礎知識。"
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification 動裝置作業系統應用 進階級
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "此證書證明您具備進階的動裝置作業系統應用技能。"
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification 動裝置作業系統應用 專業級
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "此證書表明您具備專業級的動裝置作業系統應用技能。"
+  certificateURL: ""

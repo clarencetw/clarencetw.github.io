@@ -1,0 +1,195 @@
+# section information
+section:
+  name: Accomplishments
+  id: accomplishments
+  enable: true
+  weight: 9
+  showOnNavbar: true
+  # Can optionally hide the title in sections
+  # hideTitle: true
+
+# Your accomplishments
+accomplishments:
+- name: Computer Hardware Maintenance Level B
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "This certificate verifies your technical skills in computer hardware maintenance at Level B."
+  certificateURL: ""
+
+- name: Computer Software Application Level C
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "This certificate verifies your foundational skills in computer software applications at Level C."
+  certificateURL: ""
+
+- name: Computer Hardware Maintenance Level C
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "This certificate certifies your foundational knowledge and skills in computer hardware maintenance at Level C."
+  certificateURL: ""
+
+- name: Computer Software Design Level C
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "This certificate proves your ability to design and develop software at Level C."
+  certificateURL: ""
+
+- name: Web Design Level C
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "This certificate shows your basic skills in web design at Level C."
+  certificateURL: ""
+
+- name: Network Setup Level C
+  timeline: ""
+  organization:
+    name: ""
+    url: ""
+  courseOverview: "This certificate verifies your foundational skills in network setup at Level C."
+  certificateURL: ""
+
+- name: Microsoft Office Specialist 2007 Master
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "This certificate indicates mastery of the core Microsoft Office 2007 suite applications."
+  certificateURL: ""
+
+- name: Microsoft Office Word 2007
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "This certificate shows proficiency in using Microsoft Word 2007."
+  certificateURL: ""
+
+- name: Microsoft Office Excel 2007
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "This certificate shows proficiency in using Microsoft Excel 2007."
+  certificateURL: ""
+
+- name: Microsoft Office PowerPoint 2007
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "This certificate shows proficiency in using Microsoft PowerPoint 2007."
+  certificateURL: ""
+
+- name: Microsoft Office Outlook 2007
+  timeline: ""
+  organization:
+    name: Microsoft
+    url: https://www.microsoft.com
+  courseOverview: "This certificate shows proficiency in using Microsoft Outlook 2007."
+  certificateURL: ""
+
+- name: Web Communication using Adobe Dreamweaver CS3
+  timeline: ""
+  organization:
+    name: Adobe
+    url: https://www.adobe.com
+  courseOverview: "This certification shows proficiency in using Adobe Dreamweaver CS3 for web communication."
+  certificateURL: ""
+
+- name: Rich Media Communication using Adobe Flash CS3
+  timeline: ""
+  organization:
+    name: Adobe
+    url: https://www.adobe.com
+  courseOverview: "This certification shows proficiency in using Adobe Flash CS3 for rich media communication."
+  certificateURL: ""
+
+- name: Visual Communication using Adobe Photoshop CS3
+  timeline: ""
+  organization:
+    name: Adobe
+    url: https://www.adobe.com
+  courseOverview: "This certification shows proficiency in using Adobe Photoshop CS3 for visual communication."
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification Internet and Mobile Communication Practical Level
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "This certificate verifies your practical knowledge in internet and mobile communication."
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification Internet and Mobile Communication Advanced Level
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "This certificate proves your advanced skills in internet and mobile communication."
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification Internet and Mobile Communication Professional Level
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "This certificate shows your professional-level skills in internet and mobile communication."
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification HTML Practical Level
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "This certificate verifies your basic knowledge and skills in HTML."
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification HTML Advanced Level
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "This certificate proves your advanced skills in HTML."
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification HTML Professional Level
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "This certificate shows your professional-level skills in HTML."
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification Mobile Device OS Applications Practical Level
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "This certificate verifies your practical knowledge in mobile device OS applications."
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification Mobile Device OS Applications Advanced Level
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "This certificate proves your advanced skills in mobile device OS applications."
+  certificateURL: ""
+
+- name: Techficiency Quotient Certification Mobile Device OS Applications Professional Level
+  timeline: ""
+  organization:
+    name: Techficiency Quotient
+    url: ""
+  courseOverview: "This certificate shows your professional-level skills in mobile device OS applications."
+  certificateURL: ""

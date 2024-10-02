@@ -13,22 +13,84 @@ experiences:
   - company:
       name: BRONCI Technology Inc.
       url: "https://bronci.com.tw/"
-      location: Cloud
-      overview: Cloud software development, cloud architecture and automated system deployment
+      location: Taipei
+      overview: Cloud software development, cloud architecture, and system automation deployment, covering various advanced technologies applied across multiple business areas.
     positions:
-      - designation: Backend Developer
+      - designation: Senior Backend Developer
         start: 11 2020
-        # end: May 2017
         responsibilities:
-          - Backend software development - Node.js, Python, Go, C/C++, Shell Script, Java, PostgreSQL, MySQL, Docker
-          - Cloud integration - AWS, GCP, Azure
-          - Automated deployment - GitLab CI/CD, GitHub Actions
-          - Automated testing - Jest
-          - Cloud Architecture - AWS
-          - Infrastructure as Code (IaC) - AWS CDK
-          - Japanese home camera solution - Cloud service integration project
-          - Japan IOT Smart Home Solution - Voice command service integration project
-          - Taiwan home appliance voice control home appliance solution - Cloud service integration project
+          - Backend development using Node.js, Python, Go, C/C++, Shell Script, Java, PostgreSQL, MySQL, Docker to build high-performance backend applications.
+          - Cloud integration with AWS, GCP, and Azure, providing cross-platform cloud solutions.
+          - Automated deployment using GitLab CI/CD and GitHub Actions, enhancing workflow automation.
+          - Automated testing with Jest, ensuring high-quality software through test-driven development.
+          - Cloud architecture design on AWS, focusing on scalability and high availability.
+          - Infrastructure as Code (IaC) using AWS CDK for flexible infrastructure management.
+          - On-premises data center management, ensuring smooth operation of hardware facilities.
+          - Cloud data center management, optimizing cloud resources for efficient operations.
+          - Office network design and maintenance, ensuring stable and efficient internal networking.
+          - Office network planning, designing and deploying internal and external office network structures for optimal performance.
+          - Office data center planning, overseeing the setup and layout of in-office data centers for system stability and scalability.
+          - External data center planning, ensuring offsite redundancy and high availability.
+          - Server planning and cluster management using PVE (Proxmox Virtual Environment) for efficient virtualization management.
+          - Physical data center management, maintaining and managing physical infrastructure for optimal server and network operation.
+          - Physical network management with SD-WAN for distributed network performance and security enhancement.
+          - Implemented PVE Backup System (PBS) for ensuring data safety and system recovery.
+          - System monitoring with Librenms to proactively detect and address potential issues.
+          - Deployed Harbor for private container image registry, offering secure and efficient image management.
+          - GitLab deployment and setup for version control and CI/CD management, improving development efficiency.
+          - Office Wi-Fi setup with Aruba, providing secure and high-performance wireless networking.
+          - Overall network architecture design, ensuring performance and security.
+          - LDAP implementation for centralized authentication and management.
+          - GPU server planning and setup for supporting AI training and inference.
+          - Server system optimization, ensuring peak performance and stability.
+          - Led the cloud service integration for a Japanese home camera solution, providing reliable remote monitoring capabilities.
+          - Led the cloud integration for Japan's IoT smart home voice command services.
+          - Cloud service integration for Taiwan's home appliance voice control solution.
+          - OpenAI API integration and development for innovative AI-driven applications.
+
+  - company:
+      name: CyberCube - Taipei Office
+      url: "https://www.cybercube.com.tw/"
+      location: Taipei
+    positions:
+      - designation: Network Planning and Setup
+        start: 2024
+        end: 2024
+        responsibilities:
+          - Network planning and setup
+
+  - company:
+      name: CyberCube - Taipei Flagship Store
+      url: "https://www.cybercube.com.tw/"
+      location: Taipei
+    positions:
+      - designation: Network Planning and Setup
+        start: 2024
+        end: 2024
+        responsibilities:
+          - Network planning and setup
+
+  - company:
+      name: CyberCube - Taichung Flagship Store
+      url: "https://www.cybercube.com.tw/"
+      location: Taichung
+    positions:
+      - designation: Network Planning and Setup
+        start: 2024
+        end: 2024
+        responsibilities:
+          - Network planning and setup
+
+  - company:
+      name: CyberCube - Kaohsiung Flagship Store
+      url: "https://www.cybercube.com.tw/"
+      location: Kaohsiung
+    positions:
+      - designation: Network Planning and Setup
+        start: 2024
+        end: 2024
+        responsibilities:
+          - Network planning and setup
 
   - company:
       name: Business Next Media Corp. 

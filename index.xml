@@ -1,3 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clarence</title><link>https://clarence.tw/</link><description>Recent content on Clarence</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 21 Jan 2023 02:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/index.xml" rel="self" type="application/rss+xml"/><item><title>託管高流量網站經驗</title><link>https://clarence.tw/posts/hosting-high-bandwidth-web-server/</link><pubDate>Sat, 21 Jan 2023 02:00:00 +0800</pubDate><guid>https://clarence.tw/posts/hosting-high-bandwidth-web-server/</guid><description>在伺服器管理經驗上有在託管高流量站台，此站台上託管的網站數量有 4000 個以上，平常維運除了定期更新之外還會設定監控系統異常指標減少人力維護的成本。
-CloudFlare 30 天的數據 可以由下圖看到月流量統計
-請求高達 1900 萬 流量高達 2 TB 造訪次數高達 70 萬以上 點閱率高達 100 萬以上</description></item><item><title>Mac Launchpad</title><link>https://clarence.tw/notes/mac/launchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/mac/launchpad/</guid><description> Launchpad reset defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clarence</title><link>https://clarence.tw/</link><description>Recent content on Clarence</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 21 Jan 2023 02:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/index.xml" rel="self" type="application/rss+xml"/><item><title>託管高流量網站經驗</title><link>https://clarence.tw/posts/hosting-high-bandwidth-web-server/</link><pubDate>Sat, 21 Jan 2023 02:00:00 +0800</pubDate><guid>https://clarence.tw/posts/hosting-high-bandwidth-web-server/</guid><description>&lt;p>在伺服器管理經驗上有在託管高流量站台，此站台上託管的網站數量有 4000 個以上，平常維運除了定期更新之外還會設定監控系統異常指標減少人力維護的成本。&lt;/p>
+&lt;h3 id="cloudflare-30-天的數據">CloudFlare 30 天的數據&lt;/h3>
+&lt;p>可以由下圖看到月流量統計&lt;/p>
+&lt;ul>
+&lt;li>請求高達 1900 萬&lt;/li>
+&lt;li>流量高達 2 TB&lt;/li>
+&lt;li>造訪次數高達 70 萬以上&lt;/li>
+&lt;li>點閱率高達 100 萬以上&lt;/li>
+&lt;/ul>
+&lt;img src="https://clarence.tw/posts/hosting-high-bandwidth-web-server/images/cf-30day-bandwidth.png"
+alt="CloudFlare 30 Day Bandwidth"
+class="center"
+>
+&lt;div style="margin-top: rem;">&lt;/div></description></item><item><title>Mac Launchpad</title><link>https://clarence.tw/notes/mac/launchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/mac/launchpad/</guid><description>&lt;!-- raw HTML omitted -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>Launchpad reset&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock ResetLaunchPad -bool true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

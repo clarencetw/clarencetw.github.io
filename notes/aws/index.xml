@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Clarence</title><link>https://clarence.tw/notes/aws/</link><description>Recent content in AWS on Clarence</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><atom:link href="https://clarence.tw/notes/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS CDK 實用技巧</title><link>https://clarence.tw/notes/aws/cdk-tips/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/aws/cdk-tips/</guid><description>&lt;!-- CDK 常用指令 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>CDK 常用指令&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 初始化新專案&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cdk init app --language typescript
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 部署所有 Stack&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cdk deploy --all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看差異&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cdk diff
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 銷毀資源&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cdk destroy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- CDK 最佳實踐 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>CDK 最佳實踐&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;ol>
+&lt;li>&lt;strong>使用 Environment 變數&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">env&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">account&lt;/span>: &lt;span style="color:#66d9ef">process.env.CDK_DEFAULT_ACCOUNT&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">region&lt;/span>: &lt;span style="color:#66d9ef">process.env.CDK_DEFAULT_REGION&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>&lt;strong>標籤管理&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-typescript" data-lang="typescript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Tags&lt;/span>.&lt;span style="color:#66d9ef">of&lt;/span>(&lt;span style="color:#66d9ef">this&lt;/span>).&lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Project&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;MyProject&amp;#39;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Tags&lt;/span>.&lt;span style="color:#66d9ef">of&lt;/span>(&lt;span style="color:#66d9ef">this&lt;/span>).&lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Environment&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Production&amp;#39;&lt;/span>);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div></description></item><item><title>AWS CLI 基礎指令</title><link>https://clarence.tw/notes/aws/aws-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/aws/aws-cli/</guid><description>&lt;!-- AWS CLI 安裝與設定 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>AWS CLI 安裝與設定&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;p>&lt;strong>安裝 AWS CLI：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># macOS (使用 Homebrew)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install awscli
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Ubuntu/Debian&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install awscli
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用 pip 安裝&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pip install awscli
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安裝 AWS CLI v2 (推薦)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl &lt;span style="color:#e6db74">&amp;#34;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&amp;#34;&lt;/span> -o &lt;span style="color:#e6db74">&amp;#34;awscliv2.zip&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip awscliv2.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ./aws/install
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 驗證安裝&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws --version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>設定 AWS CLI：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 基本設定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws configure
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 會提示輸入：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># AWS Access Key ID&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># AWS Secret Access Key &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Default region name (例如: us-east-1)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Default output format (json/text/table)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定特定 profile&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws configure --profile myprofile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看設定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws configure list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws configure list --profile myprofile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定單一參數&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws configure set region ap-northeast-1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aws configure set output json --profile myprofile
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>環境變數設定：&lt;/strong>&lt;/p></description></item></channel></rss>

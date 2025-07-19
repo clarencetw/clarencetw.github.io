@@ -1,0 +1,374 @@
+<!doctype html><html lang=zh-tw><head><title>System Administration</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=stylesheet href=/application.a671c53c7cf3735bfdfe99730357e6f244a0007a0e507b307277a2e095f98127.css integrity="sha256-pnHFPHzzc1v9/plzA1fm8kSgAHoOUHswcnei4JX5gSc="><link rel=icon type=image/png href=/images/site/favicon_hu_6b83fda92133ca8.jpeg><link rel=alternate type=application/rss+xml href=https://clarence.tw/notes/system/index.xml title=Clarence><meta property="og:title" content="Clarence 個人介紹"><meta property="og:type" content="website"><meta property="og:description" content="本網站為 Clarence 個人簡歷紀錄."><meta property="og:image" content="/clarencetw-og.png"><meta property="og:url" content="https://clarence.tw"><script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4DH6TDZN"></script><script>var dnt,doNotTrack=!1;if(null&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-PG4DH6TDZN")}</script><script src=https://cdn.counter.dev/script.js data-id=me@clarence.tw data-utcoffset=1></script><script data-goatcounter=https://clarence.goatcounter.com/count async src=//gc.zgo.at/count.js></script><script integrity="sha256-DO4ugzEwhTW1Id1UIWn0gUJWaebCYOypeTit6LW4QB4=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-notes kind-section" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
+<i data-feather=sidebar></i>
+</button>
+<a class=navbar-brand href=/><img src=/images/site/main-logo_hu_6b83fda92133ca8.jpeg id=logo alt=Logo>
+Clarence</a>
+<button class="navbar-toggler navbar-light" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-label=menu>
+<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar" id=top-nav-items><ul class="nav navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/#home>首頁</a></li><li class=nav-item><a class=nav-link href=/#about>關於我</a></li><li class=nav-item><a class=nav-link href=/#skills>技能</a></li><li class=nav-item><a class=nav-link href=/#experiences>經歷</a></li><li class=nav-item><a class=nav-link href=/#education>學歷</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>更多的</a><div class=dropdown-menu aria-labelledby=navbarDropdown><a class=dropdown-item href=/#projects>專案</a>
+<a class=dropdown-item href=/#publications>出版</a>
+<a class=dropdown-item href=/#accomplishments>成就</a></div></li><div id=top-navbar-divider></div><li class=nav-item><a class=nav-link id=blog-link href=/posts>文章</a></li><li class=nav-item><a class=nav-link id=note-link href=/notes>筆記</a></li><li class=nav-item><a class=nav-link href=https://blog.clarence.tw/>部落格</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=themeSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false><img id=navbar-theme-icon-svg class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme"></a><div id=themeMenu class="dropdown-menu dropdown-menu-icons-only" aria-labelledby=themeSelector><a class="dropdown-item nav-link" href=# data-scheme=light><img class=theme-icon src=/icons/sun-svgrepo-com.svg width=20 alt="Light Theme">
+</a><a class="dropdown-item nav-link" href=# data-scheme=dark><img class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme">
+</a><a class="dropdown-item nav-link" href=# data-scheme=system><img class=theme-icon src=/icons/computer-svgrepo-com.svg width=20 alt="System Theme"></a></div></li></ul></div></div><img src=/images/site/main-logo_hu_6b83fda92133ca8.jpeg class=d-none id=main-logo alt=Logo></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=搜尋 data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/notes data-filter=all>筆記</a></li><div class=subtree><li><i data-feather=plus-circle></i><a class=list-link href=/notes/mac/> Mac</a><ul><li><a class=list-link href=/notes/mac/launchpad/ title="Mac Commands">Mac Commands</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/aws/> AWS</a><ul><li><a class=list-link href=/notes/aws/cdk-tips/ title="CDK Tips">CDK Tips</a></li><li><a class=list-link href=/notes/aws/aws-cli/ title="AWS CLI">AWS CLI</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/llm/> LLM & AI</a><ul><li><a class=list-link href=/notes/llm/ollama-setup/ title="Ollama Setup">Ollama Setup</a></li></ul></li><li><i data-feather=minus-circle></i><a class="active list-link" href=/notes/system/> System Administration</a><ul class=active><li><a class=list-link href=/notes/system/package-management/ title="Package Management">Package Management</a></li><li><a class=list-link href=/notes/system/system-commands/ title="System Commands">System Commands</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/docker/> Docker</a><ul><li><a class=list-link href=/notes/docker/docker-commands/ title="Docker Commands">Docker Commands</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class="content container-fluid" id=content><div class="container-fluid note-card-holder" id=note-card-holder><div class=note-card><div class=item><h5 class=note-title><span>Homebrew (macOS)</span></h5><div class=card><div class=card-body><p><strong>安裝 Homebrew：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安裝 Homebrew</span>
+</span></span><span style=display:flex><span>/bin/bash -c <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定環境變數 (Apple Silicon Mac)</span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;eval &#34;$(/opt/homebrew/bin/brew shellenv)&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style=display:flex><span>source ~/.zshrc
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定環境變數 (Intel Mac)</span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;eval &#34;$(/usr/local/bin/brew shellenv)&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style=display:flex><span>source ~/.zshrc
+</span></span></code></pre></div><p><strong>常用指令：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安裝套件</span>
+</span></span><span style=display:flex><span>brew install git
+</span></span><span style=display:flex><span>brew install node
+</span></span><span style=display:flex><span>brew install docker
+</span></span><span style=display:flex><span>brew install hugo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安裝 GUI 應用程式</span>
+</span></span><span style=display:flex><span>brew install --cask visual-studio-code
+</span></span><span style=display:flex><span>brew install --cask docker
+</span></span><span style=display:flex><span>brew install --cask google-chrome
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 更新套件</span>
+</span></span><span style=display:flex><span>brew update          <span style=color:#75715e># 更新 Homebrew 本身</span>
+</span></span><span style=display:flex><span>brew upgrade         <span style=color:#75715e># 更新所有套件</span>
+</span></span><span style=display:flex><span>brew upgrade git     <span style=color:#75715e># 更新特定套件</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 搜尋套件</span>
+</span></span><span style=display:flex><span>brew search nginx
+</span></span><span style=display:flex><span>brew search --cask chrome
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝套件</span>
+</span></span><span style=display:flex><span>brew list
+</span></span><span style=display:flex><span>brew list --cask
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除套件</span>
+</span></span><span style=display:flex><span>brew uninstall git
+</span></span><span style=display:flex><span>brew uninstall --cask docker
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 清理舊版本</span>
+</span></span><span style=display:flex><span>brew cleanup
+</span></span><span style=display:flex><span>brew cleanup git
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件資訊</span>
+</span></span><span style=display:flex><span>brew info git
+</span></span><span style=display:flex><span>brew deps git        <span style=color:#75715e># 查看相依性</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>APT (Ubuntu/Debian)</span></h5><div class=card><div class=card-body><p><strong>更新套件清單：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 更新套件清單</span>
+</span></span><span style=display:flex><span>sudo apt update
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 升級所有套件</span>
+</span></span><span style=display:flex><span>sudo apt upgrade
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 升級系統 (包含核心)</span>
+</span></span><span style=display:flex><span>sudo apt full-upgrade
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 更新並升級 (一次完成)</span>
+</span></span><span style=display:flex><span>sudo apt update <span style=color:#f92672>&amp;&amp;</span> sudo apt upgrade -y
+</span></span></code></pre></div><p><strong>安裝套件：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安裝單一套件</span>
+</span></span><span style=display:flex><span>sudo apt install git
+</span></span><span style=display:flex><span>sudo apt install nginx
+</span></span><span style=display:flex><span>sudo apt install docker.io
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安裝多個套件</span>
+</span></span><span style=display:flex><span>sudo apt install git curl wget vim
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安裝特定版本</span>
+</span></span><span style=display:flex><span>sudo apt install nginx<span style=color:#f92672>=</span>1.18.0-0ubuntu1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 從 .deb 檔案安裝</span>
+</span></span><span style=display:flex><span>sudo dpkg -i package.deb
+</span></span><span style=display:flex><span>sudo apt install -f  <span style=color:#75715e># 修復相依性問題</span>
+</span></span></code></pre></div><p><strong>移除套件：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 移除套件 (保留設定檔)</span>
+</span></span><span style=display:flex><span>sudo apt remove nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 完全移除套件 (包含設定檔)</span>
+</span></span><span style=display:flex><span>sudo apt purge nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除不需要的相依套件</span>
+</span></span><span style=display:flex><span>sudo apt autoremove
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除並清理</span>
+</span></span><span style=display:flex><span>sudo apt remove nginx <span style=color:#f92672>&amp;&amp;</span> sudo apt autoremove
+</span></span></code></pre></div><p><strong>搜尋與查詢：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 搜尋套件</span>
+</span></span><span style=display:flex><span>apt search nginx
+</span></span><span style=display:flex><span>apt search <span style=color:#e6db74>&#34;web server&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件資訊</span>
+</span></span><span style=display:flex><span>apt show nginx
+</span></span><span style=display:flex><span>apt info docker.io
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝套件</span>
+</span></span><span style=display:flex><span>apt list --installed
+</span></span><span style=display:flex><span>apt list --installed | grep nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看可升級套件</span>
+</span></span><span style=display:flex><span>apt list --upgradable
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件相依性</span>
+</span></span><span style=display:flex><span>apt depends nginx
+</span></span><span style=display:flex><span>apt rdepends nginx  <span style=color:#75715e># 反向相依性</span>
+</span></span></code></pre></div><p><strong>清理系統：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 清理下載的套件檔案</span>
+</span></span><span style=display:flex><span>sudo apt clean
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 清理部分快取</span>
+</span></span><span style=display:flex><span>sudo apt autoclean
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 修復損壞的套件</span>
+</span></span><span style=display:flex><span>sudo apt install -f
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 重新設定套件</span>
+</span></span><span style=display:flex><span>sudo dpkg-reconfigure package-name
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>YUM/DNF (CentOS/RHEL/Fedora)</span></h5><div class=card><div class=card-body><p><strong>DNF (Fedora)：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 更新套件清單</span>
+</span></span><span style=display:flex><span>sudo dnf check-update
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 升級所有套件</span>
+</span></span><span style=display:flex><span>sudo dnf upgrade
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安裝套件</span>
+</span></span><span style=display:flex><span>sudo dnf install git
+</span></span><span style=display:flex><span>sudo dnf install nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除套件</span>
+</span></span><span style=display:flex><span>sudo dnf remove nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 搜尋套件</span>
+</span></span><span style=display:flex><span>dnf search nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件資訊</span>
+</span></span><span style=display:flex><span>dnf info nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝套件</span>
+</span></span><span style=display:flex><span>dnf list installed
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 清理快取</span>
+</span></span><span style=display:flex><span>sudo dnf clean all
+</span></span></code></pre></div><p><strong>YUM (CentOS 7)：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 更新套件</span>
+</span></span><span style=display:flex><span>sudo yum update
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安裝套件</span>
+</span></span><span style=display:flex><span>sudo yum install git
+</span></span><span style=display:flex><span>sudo yum install epel-release  <span style=color:#75715e># EPEL 倉庫</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除套件</span>
+</span></span><span style=display:flex><span>sudo yum remove nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 搜尋套件</span>
+</span></span><span style=display:flex><span>yum search nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件資訊</span>
+</span></span><span style=display:flex><span>yum info nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝套件</span>
+</span></span><span style=display:flex><span>yum list installed
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 清理快取</span>
+</span></span><span style=display:flex><span>sudo yum clean all
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>Snap (Universal Packages)</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安裝 snapd (如果尚未安裝)</span>
+</span></span><span style=display:flex><span>sudo apt install snapd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安裝 snap 套件</span>
+</span></span><span style=display:flex><span>sudo snap install code --classic
+</span></span><span style=display:flex><span>sudo snap install docker
+</span></span><span style=display:flex><span>sudo snap install hugo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝的 snap</span>
+</span></span><span style=display:flex><span>snap list
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 更新 snap 套件</span>
+</span></span><span style=display:flex><span>sudo snap refresh
+</span></span><span style=display:flex><span>sudo snap refresh code
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除 snap 套件</span>
+</span></span><span style=display:flex><span>sudo snap remove code
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 搜尋 snap 套件</span>
+</span></span><span style=display:flex><span>snap find <span style=color:#e6db74>&#34;text editor&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看 snap 資訊</span>
+</span></span><span style=display:flex><span>snap info code
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看 snap 版本</span>
+</span></span><span style=display:flex><span>snap version
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>常用開發工具快速安裝</span></h5><div class=card><div class=card-body><p><strong>Node.js 與 npm：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ubuntu/Debian</span>
+</span></span><span style=display:flex><span>curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+</span></span><span style=display:flex><span>sudo apt-get install -y nodejs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># macOS</span>
+</span></span><span style=display:flex><span>brew install node
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 驗證安裝</span>
+</span></span><span style=display:flex><span>node --version
+</span></span><span style=display:flex><span>npm --version
+</span></span></code></pre></div><p><strong>Docker：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ubuntu</span>
+</span></span><span style=display:flex><span>sudo apt update
+</span></span><span style=display:flex><span>sudo apt install apt-transport-https ca-certificates curl software-properties-common
+</span></span><span style=display:flex><span>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+</span></span><span style=display:flex><span>sudo add-apt-repository <span style=color:#e6db74>&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span style=color:#66d9ef>$(</span>lsb_release -cs<span style=color:#66d9ef>)</span><span style=color:#e6db74> stable&#34;</span>
+</span></span><span style=display:flex><span>sudo apt update
+</span></span><span style=display:flex><span>sudo apt install docker-ce
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># macOS</span>
+</span></span><span style=display:flex><span>brew install --cask docker
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 啟動 Docker 服務</span>
+</span></span><span style=display:flex><span>sudo systemctl start docker
+</span></span><span style=display:flex><span>sudo systemctl enable docker
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 將使用者加入 docker 群組</span>
+</span></span><span style=display:flex><span>sudo usermod -aG docker $USER
+</span></span></code></pre></div><p><strong>Git：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ubuntu/Debian</span>
+</span></span><span style=display:flex><span>sudo apt install git
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># macOS</span>
+</span></span><span style=display:flex><span>brew install git
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定 Git</span>
+</span></span><span style=display:flex><span>git config --global user.name <span style=color:#e6db74>&#34;Your Name&#34;</span>
+</span></span><span style=display:flex><span>git config --global user.email <span style=color:#e6db74>&#34;your.email@example.com&#34;</span>
+</span></span></code></pre></div><p><strong>Hugo：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ubuntu (從 GitHub 下載)</span>
+</span></span><span style=display:flex><span>wget https://github.com/gohugoio/hugo/releases/download/v0.148.1/hugo_extended_0.148.1_linux-amd64.deb
+</span></span><span style=display:flex><span>sudo dpkg -i hugo_extended_0.148.1_linux-amd64.deb
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># macOS</span>
+</span></span><span style=display:flex><span>brew install hugo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 驗證安裝</span>
+</span></span><span style=display:flex><span>hugo version
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>系統資訊查詢</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看系統資訊</span>
+</span></span><span style=display:flex><span>uname -a                <span style=color:#75715e># 完整系統資訊</span>
+</span></span><span style=display:flex><span>uname -r                <span style=color:#75715e># 核心版本</span>
+</span></span><span style=display:flex><span>lsb_release -a          <span style=color:#75715e># 發行版資訊 (Ubuntu/Debian)</span>
+</span></span><span style=display:flex><span>cat /etc/os-release     <span style=color:#75715e># 系統版本資訊</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看硬體資訊</span>
+</span></span><span style=display:flex><span>lscpu                   <span style=color:#75715e># CPU 資訊</span>
+</span></span><span style=display:flex><span>free -h                 <span style=color:#75715e># 記憶體使用情況</span>
+</span></span><span style=display:flex><span>df -h                   <span style=color:#75715e># 磁碟使用情況</span>
+</span></span><span style=display:flex><span>lsblk                   <span style=color:#75715e># 區塊設備資訊</span>
+</span></span><span style=display:flex><span>lsusb                   <span style=color:#75715e># USB 設備</span>
+</span></span><span style=display:flex><span>lspci                   <span style=color:#75715e># PCI 設備</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看網路資訊</span>
+</span></span><span style=display:flex><span>ip addr show            <span style=color:#75715e># 網路介面資訊</span>
+</span></span><span style=display:flex><span>ip route show           <span style=color:#75715e># 路由表</span>
+</span></span><span style=display:flex><span>netstat -tuln           <span style=color:#75715e># 網路連線狀態</span>
+</span></span><span style=display:flex><span>ss -tuln                <span style=color:#75715e># 現代版 netstat</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看程序資訊</span>
+</span></span><span style=display:flex><span>ps aux                  <span style=color:#75715e># 所有程序</span>
+</span></span><span style=display:flex><span>top                     <span style=color:#75715e># 即時程序監控</span>
+</span></span><span style=display:flex><span>htop                    <span style=color:#75715e># 更好的 top (需安裝)</span>
+</span></span><span style=display:flex><span>pgrep nginx             <span style=color:#75715e># 尋找特定程序</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>檔案與目錄操作</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 檔案操作</span>
+</span></span><span style=display:flex><span>ls -la                  <span style=color:#75715e># 詳細列出檔案</span>
+</span></span><span style=display:flex><span>find /path -name <span style=color:#e6db74>&#34;*.log&#34;</span> <span style=color:#75715e># 尋找檔案</span>
+</span></span><span style=display:flex><span>locate filename         <span style=color:#75715e># 快速尋找檔案 (需 updatedb)</span>
+</span></span><span style=display:flex><span>which command           <span style=color:#75715e># 尋找指令位置</span>
+</span></span><span style=display:flex><span>whereis command         <span style=color:#75715e># 尋找指令、手冊等</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 檔案權限</span>
+</span></span><span style=display:flex><span>chmod <span style=color:#ae81ff>755</span> file          <span style=color:#75715e># 設定檔案權限</span>
+</span></span><span style=display:flex><span>chmod +x script.sh      <span style=color:#75715e># 加入執行權限</span>
+</span></span><span style=display:flex><span>chown user:group file   <span style=color:#75715e># 變更擁有者</span>
+</span></span><span style=display:flex><span>chgrp group file        <span style=color:#75715e># 變更群組</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 檔案內容</span>
+</span></span><span style=display:flex><span>cat file.txt            <span style=color:#75715e># 顯示檔案內容</span>
+</span></span><span style=display:flex><span>less file.txt           <span style=color:#75715e># 分頁顯示</span>
+</span></span><span style=display:flex><span>head -n <span style=color:#ae81ff>10</span> file.txt     <span style=color:#75715e># 顯示前 10 行</span>
+</span></span><span style=display:flex><span>tail -f /var/log/syslog <span style=color:#75715e># 即時顯示檔案末尾</span>
+</span></span><span style=display:flex><span>grep <span style=color:#e6db74>&#34;error&#34;</span> file.txt   <span style=color:#75715e># 搜尋文字</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 壓縮與解壓縮</span>
+</span></span><span style=display:flex><span>tar -czf archive.tar.gz folder/     <span style=color:#75715e># 壓縮</span>
+</span></span><span style=display:flex><span>tar -xzf archive.tar.gz             <span style=color:#75715e># 解壓縮</span>
+</span></span><span style=display:flex><span>zip -r archive.zip folder/          <span style=color:#75715e># ZIP 壓縮</span>
+</span></span><span style=display:flex><span>unzip archive.zip                   <span style=color:#75715e># ZIP 解壓縮</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>服務管理 (systemd)</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 服務狀態</span>
+</span></span><span style=display:flex><span>sudo systemctl status nginx        <span style=color:#75715e># 查看服務狀態</span>
+</span></span><span style=display:flex><span>sudo systemctl is-active nginx     <span style=color:#75715e># 檢查是否運行</span>
+</span></span><span style=display:flex><span>sudo systemctl is-enabled nginx    <span style=color:#75715e># 檢查是否開機啟動</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 服務控制</span>
+</span></span><span style=display:flex><span>sudo systemctl start nginx         <span style=color:#75715e># 啟動服務</span>
+</span></span><span style=display:flex><span>sudo systemctl stop nginx          <span style=color:#75715e># 停止服務</span>
+</span></span><span style=display:flex><span>sudo systemctl restart nginx       <span style=color:#75715e># 重啟服務</span>
+</span></span><span style=display:flex><span>sudo systemctl reload nginx        <span style=color:#75715e># 重新載入設定</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 開機啟動</span>
+</span></span><span style=display:flex><span>sudo systemctl enable nginx        <span style=color:#75715e># 設定開機啟動</span>
+</span></span><span style=display:flex><span>sudo systemctl disable nginx       <span style=color:#75715e># 取消開機啟動</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看日誌</span>
+</span></span><span style=display:flex><span>sudo journalctl -u nginx           <span style=color:#75715e># 查看服務日誌</span>
+</span></span><span style=display:flex><span>sudo journalctl -u nginx -f        <span style=color:#75715e># 即時查看日誌</span>
+</span></span><span style=display:flex><span>sudo journalctl -u nginx --since <span style=color:#e6db74>&#34;1 hour ago&#34;</span>  <span style=color:#75715e># 查看最近一小時日誌</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 列出服務</span>
+</span></span><span style=display:flex><span>systemctl list-units --type<span style=color:#f92672>=</span>service            <span style=color:#75715e># 所有服務</span>
+</span></span><span style=display:flex><span>systemctl list-units --type<span style=color:#f92672>=</span>service --state<span style=color:#f92672>=</span>running  <span style=color:#75715e># 運行中服務</span>
+</span></span><span style=display:flex><span>systemctl list-unit-files --type<span style=color:#f92672>=</span>service       <span style=color:#75715e># 所有服務檔案</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>網路診斷工具</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 連線測試</span>
+</span></span><span style=display:flex><span>ping google.com         <span style=color:#75715e># 測試連線</span>
+</span></span><span style=display:flex><span>ping -c <span style=color:#ae81ff>4</span> 8.8.8.8      <span style=color:#75715e># 發送 4 個封包</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 路由追蹤</span>
+</span></span><span style=display:flex><span>traceroute google.com   <span style=color:#75715e># 追蹤路由</span>
+</span></span><span style=display:flex><span>mtr google.com          <span style=color:#75715e># 持續追蹤 (需安裝)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 埠掃描</span>
+</span></span><span style=display:flex><span>nmap localhost          <span style=color:#75715e># 掃描本機埠</span>
+</span></span><span style=display:flex><span>nmap -p 80,443 example.com  <span style=color:#75715e># 掃描特定埠</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 網路連線</span>
+</span></span><span style=display:flex><span>netstat -tuln           <span style=color:#75715e># 查看監聽埠</span>
+</span></span><span style=display:flex><span>ss -tuln                <span style=color:#75715e># 現代版 netstat</span>
+</span></span><span style=display:flex><span>lsof -i :80             <span style=color:#75715e># 查看使用特定埠的程序</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 下載工具</span>
+</span></span><span style=display:flex><span>wget https://example.com/file.zip       <span style=color:#75715e># 下載檔案</span>
+</span></span><span style=display:flex><span>curl -O https://example.com/file.zip    <span style=color:#75715e># 使用 curl 下載</span>
+</span></span><span style=display:flex><span>curl -I https://example.com             <span style=color:#75715e># 只取得 HTTP 標頭</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>效能監控</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># CPU 監控</span>
+</span></span><span style=display:flex><span>top                     <span style=color:#75715e># 基本監控</span>
+</span></span><span style=display:flex><span>htop                    <span style=color:#75715e># 進階監控 (需安裝)</span>
+</span></span><span style=display:flex><span>iotop                   <span style=color:#75715e># I/O 監控 (需安裝)</span>
+</span></span><span style=display:flex><span>vmstat <span style=color:#ae81ff>1</span>                <span style=color:#75715e># 虛擬記憶體統計</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 記憶體監控</span>
+</span></span><span style=display:flex><span>free -h                 <span style=color:#75715e># 記憶體使用情況</span>
+</span></span><span style=display:flex><span>cat /proc/meminfo       <span style=color:#75715e># 詳細記憶體資訊</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 磁碟監控</span>
+</span></span><span style=display:flex><span>df -h                   <span style=color:#75715e># 磁碟使用情況</span>
+</span></span><span style=display:flex><span>du -sh /path/*          <span style=color:#75715e># 目錄大小</span>
+</span></span><span style=display:flex><span>iostat <span style=color:#ae81ff>1</span>                <span style=color:#75715e># I/O 統計 (需安裝 sysstat)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 網路監控</span>
+</span></span><span style=display:flex><span>iftop                   <span style=color:#75715e># 網路流量監控 (需安裝)</span>
+</span></span><span style=display:flex><span>nethogs                 <span style=color:#75715e># 按程序顯示網路使用 (需安裝)</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>定時任務 (Cron)</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 編輯 crontab</span>
+</span></span><span style=display:flex><span>crontab -e              <span style=color:#75715e># 編輯當前使用者的 crontab</span>
+</span></span><span style=display:flex><span>sudo crontab -e         <span style=color:#75715e># 編輯 root 的 crontab</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看 crontab</span>
+</span></span><span style=display:flex><span>crontab -l              <span style=color:#75715e># 列出當前使用者的 crontab</span>
+</span></span><span style=display:flex><span>sudo crontab -l         <span style=color:#75715e># 列出 root 的 crontab</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Cron 時間格式</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 分 時 日 月 週 指令</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 0  2  *  *  *  /path/to/script.sh</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 常用範例</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> <span style=color:#ae81ff>2</span> * * *               <span style=color:#75715e># 每天凌晨 2 點</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> */6 * * *             <span style=color:#75715e># 每 6 小時</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>1</span> * *               <span style=color:#75715e># 每月 1 號</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span> * * <span style=color:#ae81ff>0</span>               <span style=color:#75715e># 每週日</span>
+</span></span><span style=display:flex><span>*/5 * * * *             <span style=color:#75715e># 每 5 分鐘</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看 cron 日誌</span>
+</span></span><span style=display:flex><span>sudo tail -f /var/log/cron      <span style=color:#75715e># CentOS/RHEL</span>
+</span></span><span style=display:flex><span>sudo tail -f /var/log/syslog    <span style=color:#75715e># Ubuntu/Debian</span>
+</span></span></code></pre></div></div></div></div></div></div><div class=paginator></div></div></section></div><footer id=footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-start"><div class="col-md-4 col-sm-12"><h5>導覽列</h5><ul><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#about>關於我</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#skills>技能</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#experiences>經歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#education>學歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#projects>專案</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#publications>出版</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#accomplishments>成就</a></li><li class=nav-item><a class=smooth-scroll href=https://blog.clarence.tw/>部落格</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>聯絡方式:</h5><ul><li><a href=mailto:me@clarence.tw target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>me@clarence.tw</span></a></li><li><a href=https://github.com/clarencetw target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>clarencetw</span></a></li><li><a href=https://www.linkedin.com/in/clarencetw target=_blank rel=noopener><span><i class="fab fa-linkedin"></i></span> <span>Clarence Lin</span></a></li><li><a href=https://stackoverflow.com/users/19384998/clarence target=_blank rel=noopener><span><i class="fab fa-stack-overflow"></i></span> <span>Clarence</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-start"><div class=col-md-4><a id=theme href=https://github.com/hugo-toha/toha target=_blank rel=noopener><img src=/images/theme-logo_hu_b3360284c55cf72d.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">© 2024 Copyright.</div><div class="col-md-4 text-end"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/application.8391a244f6d15695c80acbfaa94c7bf3c1c2f13e843f765823e8d0e0eb7cb7d6.js integrity="sha256-g5GiRPbRVpXICsv6qUx788HC8T6EP3ZYI+jQ4Ot8t9Y=" defer></script><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=clarencetw data-description="Support me on Buy me a coffee!" data-message="Buy me a coffee!" data-color=#FFDD00 data-position=Right data-x_margin=10 data-y_margin=18></script></body></html>

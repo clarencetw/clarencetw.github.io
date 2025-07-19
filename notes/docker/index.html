@@ -1,0 +1,246 @@
+<!doctype html><html lang=zh-tw><head><title>Docker</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=stylesheet href=/application.a671c53c7cf3735bfdfe99730357e6f244a0007a0e507b307277a2e095f98127.css integrity="sha256-pnHFPHzzc1v9/plzA1fm8kSgAHoOUHswcnei4JX5gSc="><link rel=icon type=image/png href=/images/site/favicon_hu_6b83fda92133ca8.jpeg><link rel=alternate type=application/rss+xml href=https://clarence.tw/notes/docker/index.xml title=Clarence><meta property="og:title" content="Clarence 個人介紹"><meta property="og:type" content="website"><meta property="og:description" content="本網站為 Clarence 個人簡歷紀錄."><meta property="og:image" content="/clarencetw-og.png"><meta property="og:url" content="https://clarence.tw"><script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4DH6TDZN"></script><script>var dnt,doNotTrack=!1;if(null&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-PG4DH6TDZN")}</script><script src=https://cdn.counter.dev/script.js data-id=me@clarence.tw data-utcoffset=1></script><script data-goatcounter=https://clarence.goatcounter.com/count async src=//gc.zgo.at/count.js></script><script integrity="sha256-DO4ugzEwhTW1Id1UIWn0gUJWaebCYOypeTit6LW4QB4=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-notes kind-section" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
+<i data-feather=sidebar></i>
+</button>
+<a class=navbar-brand href=/><img src=/images/site/main-logo_hu_6b83fda92133ca8.jpeg id=logo alt=Logo>
+Clarence</a>
+<button class="navbar-toggler navbar-light" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-label=menu>
+<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar" id=top-nav-items><ul class="nav navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/#home>首頁</a></li><li class=nav-item><a class=nav-link href=/#about>關於我</a></li><li class=nav-item><a class=nav-link href=/#skills>技能</a></li><li class=nav-item><a class=nav-link href=/#experiences>經歷</a></li><li class=nav-item><a class=nav-link href=/#education>學歷</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>更多的</a><div class=dropdown-menu aria-labelledby=navbarDropdown><a class=dropdown-item href=/#projects>專案</a>
+<a class=dropdown-item href=/#publications>出版</a>
+<a class=dropdown-item href=/#accomplishments>成就</a></div></li><div id=top-navbar-divider></div><li class=nav-item><a class=nav-link id=blog-link href=/posts>文章</a></li><li class=nav-item><a class=nav-link id=note-link href=/notes>筆記</a></li><li class=nav-item><a class=nav-link href=https://blog.clarence.tw/>部落格</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=themeSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false><img id=navbar-theme-icon-svg class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme"></a><div id=themeMenu class="dropdown-menu dropdown-menu-icons-only" aria-labelledby=themeSelector><a class="dropdown-item nav-link" href=# data-scheme=light><img class=theme-icon src=/icons/sun-svgrepo-com.svg width=20 alt="Light Theme">
+</a><a class="dropdown-item nav-link" href=# data-scheme=dark><img class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme">
+</a><a class="dropdown-item nav-link" href=# data-scheme=system><img class=theme-icon src=/icons/computer-svgrepo-com.svg width=20 alt="System Theme"></a></div></li></ul></div></div><img src=/images/site/main-logo_hu_6b83fda92133ca8.jpeg class=d-none id=main-logo alt=Logo></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=搜尋 data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/notes data-filter=all>筆記</a></li><div class=subtree><li><i data-feather=plus-circle></i><a class=list-link href=/notes/mac/> Mac</a><ul><li><a class=list-link href=/notes/mac/launchpad/ title="Mac Commands">Mac Commands</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/aws/> AWS</a><ul><li><a class=list-link href=/notes/aws/cdk-tips/ title="CDK Tips">CDK Tips</a></li><li><a class=list-link href=/notes/aws/aws-cli/ title="AWS CLI">AWS CLI</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/llm/> LLM & AI</a><ul><li><a class=list-link href=/notes/llm/ollama-setup/ title="Ollama Setup">Ollama Setup</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/system/> System Administration</a><ul><li><a class=list-link href=/notes/system/package-management/ title="Package Management">Package Management</a></li><li><a class=list-link href=/notes/system/system-commands/ title="System Commands">System Commands</a></li></ul></li><li><i data-feather=minus-circle></i><a class="active list-link" href=/notes/docker/> Docker</a><ul class=active><li><a class=list-link href=/notes/docker/docker-commands/ title="Docker Commands">Docker Commands</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class="content container-fluid" id=content><div class="container-fluid note-card-holder" id=note-card-holder><div class=note-card><div class=item><h5 class=note-title><span>Docker 基本指令</span></h5><div class=card><div class=card-body><p><strong>映像檔管理：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 搜尋映像檔</span>
+</span></span><span style=display:flex><span>docker search nginx
+</span></span><span style=display:flex><span>docker search ubuntu
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 下載映像檔</span>
+</span></span><span style=display:flex><span>docker pull nginx
+</span></span><span style=display:flex><span>docker pull nginx:1.21
+</span></span><span style=display:flex><span>docker pull ubuntu:20.04
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 列出映像檔</span>
+</span></span><span style=display:flex><span>docker images
+</span></span><span style=display:flex><span>docker image ls
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除映像檔</span>
+</span></span><span style=display:flex><span>docker rmi nginx
+</span></span><span style=display:flex><span>docker rmi nginx:1.21
+</span></span><span style=display:flex><span>docker image rm ubuntu:20.04
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 清理未使用的映像檔</span>
+</span></span><span style=display:flex><span>docker image prune
+</span></span><span style=display:flex><span>docker image prune -a  <span style=color:#75715e># 移除所有未使用的映像檔</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>容器操作</span></h5><div class=card><div class=card-body><p><strong>啟動容器：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 基本啟動</span>
+</span></span><span style=display:flex><span>docker run nginx
+</span></span><span style=display:flex><span>docker run -d nginx                    <span style=color:#75715e># 背景執行</span>
+</span></span><span style=display:flex><span>docker run -it ubuntu bash             <span style=color:#75715e># 互動模式</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 埠對應</span>
+</span></span><span style=display:flex><span>docker run -d -p 8080:80 nginx         <span style=color:#75715e># 對應埠 8080 到容器的 80</span>
+</span></span><span style=display:flex><span>docker run -d -p 127.0.0.1:8080:80 nginx  <span style=color:#75715e># 只綁定本機</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 掛載目錄</span>
+</span></span><span style=display:flex><span>docker run -d -v /host/path:/container/path nginx
+</span></span><span style=display:flex><span>docker run -d -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>:/app node      <span style=color:#75715e># 掛載當前目錄</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 環境變數</span>
+</span></span><span style=display:flex><span>docker run -d -e ENV_VAR<span style=color:#f92672>=</span>value nginx
+</span></span><span style=display:flex><span>docker run -d --env-file .env nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 容器命名</span>
+</span></span><span style=display:flex><span>docker run -d --name my-nginx nginx
+</span></span></code></pre></div><p><strong>容器管理：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 列出容器</span>
+</span></span><span style=display:flex><span>docker ps                              <span style=color:#75715e># 運行中的容器</span>
+</span></span><span style=display:flex><span>docker ps -a                           <span style=color:#75715e># 所有容器</span>
+</span></span><span style=display:flex><span>docker container ls
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 停止容器</span>
+</span></span><span style=display:flex><span>docker stop container_id
+</span></span><span style=display:flex><span>docker stop my-nginx
+</span></span><span style=display:flex><span>docker kill container_id               <span style=color:#75715e># 強制停止</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 啟動已停止的容器</span>
+</span></span><span style=display:flex><span>docker start container_id
+</span></span><span style=display:flex><span>docker restart container_id
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除容器</span>
+</span></span><span style=display:flex><span>docker rm container_id
+</span></span><span style=display:flex><span>docker rm my-nginx
+</span></span><span style=display:flex><span>docker rm -f container_id              <span style=color:#75715e># 強制移除運行中的容器</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 清理停止的容器</span>
+</span></span><span style=display:flex><span>docker container prune
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>容器互動與除錯</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 進入運行中的容器</span>
+</span></span><span style=display:flex><span>docker exec -it container_id bash
+</span></span><span style=display:flex><span>docker exec -it my-nginx sh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看容器日誌</span>
+</span></span><span style=display:flex><span>docker logs container_id
+</span></span><span style=display:flex><span>docker logs -f container_id             <span style=color:#75715e># 即時查看日誌</span>
+</span></span><span style=display:flex><span>docker logs --tail <span style=color:#ae81ff>100</span> container_id     <span style=color:#75715e># 查看最後 100 行</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看容器資訊</span>
+</span></span><span style=display:flex><span>docker inspect container_id
+</span></span><span style=display:flex><span>docker stats container_id               <span style=color:#75715e># 即時資源使用情況</span>
+</span></span><span style=display:flex><span>docker top container_id                 <span style=color:#75715e># 容器內程序</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 複製檔案</span>
+</span></span><span style=display:flex><span>docker cp file.txt container_id:/path/  <span style=color:#75715e># 複製到容器</span>
+</span></span><span style=display:flex><span>docker cp container_id:/path/file.txt . <span style=color:#75715e># 從容器複製出來</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看容器變更</span>
+</span></span><span style=display:flex><span>docker diff container_id
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>Docker Compose</span></h5><div class=card><div class=card-body><p><strong>基本指令：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 啟動服務</span>
+</span></span><span style=display:flex><span>docker-compose up
+</span></span><span style=display:flex><span>docker-compose up -d                    <span style=color:#75715e># 背景執行</span>
+</span></span><span style=display:flex><span>docker-compose up --build               <span style=color:#75715e># 重新建置映像檔</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 停止服務</span>
+</span></span><span style=display:flex><span>docker-compose down
+</span></span><span style=display:flex><span>docker-compose down -v                  <span style=color:#75715e># 同時移除 volumes</span>
+</span></span><span style=display:flex><span>docker-compose stop
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看服務狀態</span>
+</span></span><span style=display:flex><span>docker-compose ps
+</span></span><span style=display:flex><span>docker-compose logs
+</span></span><span style=display:flex><span>docker-compose logs -f service_name     <span style=color:#75715e># 查看特定服務日誌</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 執行指令</span>
+</span></span><span style=display:flex><span>docker-compose exec service_name bash
+</span></span><span style=display:flex><span>docker-compose run service_name command
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 重啟服務</span>
+</span></span><span style=display:flex><span>docker-compose restart
+</span></span><span style=display:flex><span>docker-compose restart service_name
+</span></span></code></pre></div><p><strong>範例 docker-compose.yml：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3.8&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>web</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>nginx:latest</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;8080:80&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./html:/usr/share/nginx/html</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>  <span style=color:#f92672>db</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>mysql:8.0</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>MYSQL_ROOT_PASSWORD</span>: <span style=color:#ae81ff>password</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>MYSQL_DATABASE</span>: <span style=color:#ae81ff>myapp</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>db_data:/var/lib/mysql</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>db_data</span>:
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>映像檔建置 (Dockerfile)</span></h5><div class=card><div class=card-body><p><strong>基本 Dockerfile：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=display:flex><span><span style=color:#75715e># Node.js 應用程式範例</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> node:18-alpine</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>WORKDIR</span><span style=color:#e6db74> /app</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>COPY</span> package*.json ./<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> npm ci --only<span style=color:#f92672>=</span>production<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>COPY</span> . .<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>EXPOSE</span><span style=color:#e6db74> 3000</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>USER</span><span style=color:#e6db74> node</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>CMD</span> [<span style=color:#e6db74>&#34;npm&#34;</span>, <span style=color:#e6db74>&#34;start&#34;</span>]<span style=color:#960050;background-color:#1e0010>
+</span></span></span></code></pre></div><p><strong>建置指令：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 建置映像檔</span>
+</span></span><span style=display:flex><span>docker build -t my-app .
+</span></span><span style=display:flex><span>docker build -t my-app:v1.0 .
+</span></span><span style=display:flex><span>docker build -f Dockerfile.prod -t my-app:prod .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 多階段建置</span>
+</span></span><span style=display:flex><span>docker build --target production -t my-app:prod .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 建置時傳入參數</span>
+</span></span><span style=display:flex><span>docker build --build-arg NODE_ENV<span style=color:#f92672>=</span>production -t my-app .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看建置歷史</span>
+</span></span><span style=display:flex><span>docker history my-app
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>Docker 網路</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 列出網路</span>
+</span></span><span style=display:flex><span>docker network ls
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 建立網路</span>
+</span></span><span style=display:flex><span>docker network create my-network
+</span></span><span style=display:flex><span>docker network create --driver bridge my-bridge
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 連接容器到網路</span>
+</span></span><span style=display:flex><span>docker network connect my-network container_id
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 中斷網路連接</span>
+</span></span><span style=display:flex><span>docker network disconnect my-network container_id
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看網路詳細資訊</span>
+</span></span><span style=display:flex><span>docker network inspect my-network
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除網路</span>
+</span></span><span style=display:flex><span>docker network rm my-network
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 清理未使用的網路</span>
+</span></span><span style=display:flex><span>docker network prune
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>Docker Volumes</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 列出資料卷</span>
+</span></span><span style=display:flex><span>docker volume ls
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 建立資料卷</span>
+</span></span><span style=display:flex><span>docker volume create my-volume
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看資料卷詳細資訊</span>
+</span></span><span style=display:flex><span>docker volume inspect my-volume
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 使用資料卷</span>
+</span></span><span style=display:flex><span>docker run -d -v my-volume:/data nginx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除資料卷</span>
+</span></span><span style=display:flex><span>docker volume rm my-volume
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 清理未使用的資料卷</span>
+</span></span><span style=display:flex><span>docker volume prune
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 備份資料卷</span>
+</span></span><span style=display:flex><span>docker run --rm -v my-volume:/data -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>:/backup ubuntu tar czf /backup/backup.tar.gz -C /data .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 還原資料卷</span>
+</span></span><span style=display:flex><span>docker run --rm -v my-volume:/data -v <span style=color:#66d9ef>$(</span>pwd<span style=color:#66d9ef>)</span>:/backup ubuntu tar xzf /backup/backup.tar.gz -C /data
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>Docker 系統清理</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看 Docker 使用空間</span>
+</span></span><span style=display:flex><span>docker system df
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 清理未使用的資源</span>
+</span></span><span style=display:flex><span>docker system prune                     <span style=color:#75715e># 清理停止的容器、未使用的網路、映像檔</span>
+</span></span><span style=display:flex><span>docker system prune -a                  <span style=color:#75715e># 包含未使用的映像檔</span>
+</span></span><span style=display:flex><span>docker system prune -a --volumes        <span style=color:#75715e># 包含未使用的資料卷</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 分別清理</span>
+</span></span><span style=display:flex><span>docker container prune                  <span style=color:#75715e># 清理停止的容器</span>
+</span></span><span style=display:flex><span>docker image prune                      <span style=color:#75715e># 清理未使用的映像檔</span>
+</span></span><span style=display:flex><span>docker image prune -a                   <span style=color:#75715e># 清理所有未使用的映像檔</span>
+</span></span><span style=display:flex><span>docker network prune                    <span style=color:#75715e># 清理未使用的網路</span>
+</span></span><span style=display:flex><span>docker volume prune                     <span style=color:#75715e># 清理未使用的資料卷</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 強制移除所有容器</span>
+</span></span><span style=display:flex><span>docker rm -f <span style=color:#66d9ef>$(</span>docker ps -aq<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除所有映像檔</span>
+</span></span><span style=display:flex><span>docker rmi -f <span style=color:#66d9ef>$(</span>docker images -q<span style=color:#66d9ef>)</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>Docker Registry</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 登入 Registry</span>
+</span></span><span style=display:flex><span>docker login
+</span></span><span style=display:flex><span>docker login registry.example.com
+</span></span><span style=display:flex><span>docker login -u username -p password registry.example.com
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 標記映像檔</span>
+</span></span><span style=display:flex><span>docker tag my-app:latest registry.example.com/my-app:latest
+</span></span><span style=display:flex><span>docker tag my-app:latest harbor.company.com/project/my-app:v1.0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 推送映像檔</span>
+</span></span><span style=display:flex><span>docker push registry.example.com/my-app:latest
+</span></span><span style=display:flex><span>docker push harbor.company.com/project/my-app:v1.0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 從私有 Registry 拉取</span>
+</span></span><span style=display:flex><span>docker pull harbor.company.com/project/my-app:v1.0
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 登出</span>
+</span></span><span style=display:flex><span>docker logout
+</span></span><span style=display:flex><span>docker logout registry.example.com
+</span></span></code></pre></div></div></div></div></div></div><div class=paginator></div></div></section></div><footer id=footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-start"><div class="col-md-4 col-sm-12"><h5>導覽列</h5><ul><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#about>關於我</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#skills>技能</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#experiences>經歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#education>學歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#projects>專案</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#publications>出版</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#accomplishments>成就</a></li><li class=nav-item><a class=smooth-scroll href=https://blog.clarence.tw/>部落格</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>聯絡方式:</h5><ul><li><a href=mailto:me@clarence.tw target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>me@clarence.tw</span></a></li><li><a href=https://github.com/clarencetw target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>clarencetw</span></a></li><li><a href=https://www.linkedin.com/in/clarencetw target=_blank rel=noopener><span><i class="fab fa-linkedin"></i></span> <span>Clarence Lin</span></a></li><li><a href=https://stackoverflow.com/users/19384998/clarence target=_blank rel=noopener><span><i class="fab fa-stack-overflow"></i></span> <span>Clarence</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-start"><div class=col-md-4><a id=theme href=https://github.com/hugo-toha/toha target=_blank rel=noopener><img src=/images/theme-logo_hu_b3360284c55cf72d.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">© 2024 Copyright.</div><div class="col-md-4 text-end"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/application.8391a244f6d15695c80acbfaa94c7bf3c1c2f13e843f765823e8d0e0eb7cb7d6.js integrity="sha256-g5GiRPbRVpXICsv6qUx788HC8T6EP3ZYI+jQ4Ot8t9Y=" defer></script><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=clarencetw data-description="Support me on Buy me a coffee!" data-message="Buy me a coffee!" data-color=#FFDD00 data-position=Right data-x_margin=10 data-y_margin=18></script></body></html>

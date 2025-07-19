@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Clarence</title><link>https://clarence.tw/notes/docker/</link><description>Recent content in Docker on Clarence</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><atom:link href="https://clarence.tw/notes/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker 常用指令</title><link>https://clarence.tw/notes/docker/docker-commands/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/docker/docker-commands/</guid><description>&lt;!-- Docker 基本指令 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>Docker 基本指令&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;p>&lt;strong>映像檔管理：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 搜尋映像檔&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker search nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker search ubuntu
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下載映像檔&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker pull nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker pull nginx:1.21
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker pull ubuntu:20.04
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 列出映像檔&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker images
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker image ls
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移除映像檔&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker rmi nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker rmi nginx:1.21
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker image rm ubuntu:20.04
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 清理未使用的映像檔&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker image prune
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker image prune -a &lt;span style="color:#75715e"># 移除所有未使用的映像檔&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- 容器操作 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>容器操作&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;p>&lt;strong>啟動容器：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 基本啟動&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d nginx &lt;span style="color:#75715e"># 背景執行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -it ubuntu bash &lt;span style="color:#75715e"># 互動模式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 埠對應&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d -p 8080:80 nginx &lt;span style="color:#75715e"># 對應埠 8080 到容器的 80&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d -p 127.0.0.1:8080:80 nginx &lt;span style="color:#75715e"># 只綁定本機&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 掛載目錄&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d -v /host/path:/container/path nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d -v &lt;span style="color:#66d9ef">$(&lt;/span>pwd&lt;span style="color:#66d9ef">)&lt;/span>:/app node &lt;span style="color:#75715e"># 掛載當前目錄&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 環境變數&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d -e ENV_VAR&lt;span style="color:#f92672">=&lt;/span>value nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d --env-file .env nginx
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 容器命名&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -d --name my-nginx nginx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>容器管理：&lt;/strong>&lt;/p></description></item></channel></rss>

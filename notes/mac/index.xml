@@ -1,10 +1,309 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mac Notes on Clarence</title><link>https://clarence.tw/notes/mac/</link><description>Recent content in Mac Notes on Clarence</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><atom:link href="https://clarence.tw/notes/mac/index.xml" rel="self" type="application/rss+xml"/><item><title>Mac Launchpad</title><link>https://clarence.tw/notes/mac/launchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/mac/launchpad/</guid><description>&lt;!-- raw HTML omitted -->
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mac Notes on Clarence</title><link>https://clarence.tw/notes/mac/</link><description>Recent content in Mac Notes on Clarence</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><atom:link href="https://clarence.tw/notes/mac/index.xml" rel="self" type="application/rss+xml"/><item><title>Mac 系統管理指令</title><link>https://clarence.tw/notes/mac/launchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/mac/launchpad/</guid><description>&lt;!-- Launchpad 管理 -->
 &lt;div class="note-card ">
 &lt;div class="item">
-&lt;h5 class="note-title">&lt;span>Launchpad reset&lt;/span>&lt;/h5>
+&lt;h5 class="note-title">&lt;span>Launchpad 管理&lt;/span>&lt;/h5>
 &lt;div class="card">
-&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock ResetLaunchPad -bool true;
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重置 Launchpad 排列&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock ResetLaunchPad -bool true
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定 Launchpad 每頁顯示的 app 數量&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定每行顯示數量 (預設 7)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock springboard-columns -int &lt;span style="color:#ae81ff">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定每列顯示數量 (預設 5) &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock springboard-rows -int &lt;span style="color:#ae81ff">6&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 恢復預設設定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults delete com.apple.dock springboard-columns
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults delete com.apple.dock springboard-rows
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- Dock 設定 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>Dock 設定&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 隱藏/顯示 Dock&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock autohide -bool true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock autohide -bool false
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定 Dock 大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock tilesize -int &lt;span style="color:#ae81ff">50&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定 Dock 位置 (left, bottom, right)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock orientation -string &lt;span style="color:#e6db74">&amp;#34;left&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移除 Dock 中所有 app (只保留 Finder 和垃圾桶)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock persistent-apps -array
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 顯示隱藏的 app 圖示 (半透明效果)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock showhidden -bool true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 加快 Dock 動畫速度&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.dock autohide-time-modifier -float 0.5
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Dock
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- Finder 設定 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>Finder 設定&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 顯示隱藏檔案&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.finder AppleShowAllFiles -bool true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Finder
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 隱藏隱藏檔案&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.finder AppleShowAllFiles -bool false
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Finder
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 顯示副檔名&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall Finder
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 顯示路徑列&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.finder ShowPathbar -bool true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 顯示狀態列&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.finder ShowStatusBar -bool true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定預設檢視方式 (icnv=圖示, Nlsv=列表, clmv=欄位, Flwv=Cover Flow)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.finder FXPreferredViewStyle -string &lt;span style="color:#e6db74">&amp;#34;Nlsv&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定新 Finder 視窗開啟位置為家目錄&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.finder NewWindowTarget -string &lt;span style="color:#e6db74">&amp;#34;PfHm&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 停用清空垃圾桶警告&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.finder WarnOnEmptyTrash -bool false
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- 截圖設定 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>截圖設定&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更改截圖儲存位置&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.screencapture location ~/Desktop/Screenshots
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall SystemUIServer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更改截圖檔案格式 (png, jpg, gif, pdf, tiff)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.screencapture type -string &lt;span style="color:#e6db74">&amp;#34;jpg&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移除截圖檔名中的陰影&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.screencapture disable-shadow -bool true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 截圖不顯示浮動縮圖&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>defaults write com.apple.screencapture show-thumbnail -bool false
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 截圖快捷鍵&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Cmd+Shift+3: 全螢幕截圖&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Cmd+Shift+4: 選取區域截圖 &lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Cmd+Shift+4+Space: 視窗截圖&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Cmd+Shift+5: 截圖工具列&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- 系統資訊查詢 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>系統資訊查詢&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看 macOS 版本&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sw_vers
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sw_vers -productVersion
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系統資訊&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>system_profiler SPSoftwareDataType
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>system_profiler SPHardwareDataType
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看 CPU 資訊&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sysctl -n machdep.cpu.brand_string
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sysctl -n hw.ncpu &lt;span style="color:#75715e"># CPU 核心數&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看記憶體資訊&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sysctl -n hw.memsize &lt;span style="color:#75715e"># 總記憶體 (bytes)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>vm_stat &lt;span style="color:#75715e"># 記憶體使用統計&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看磁碟使用情況&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>df -h
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>diskutil list
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看網路介面&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ifconfig
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>networksetup -listallhardwareports
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看已安裝的應用程式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls /Applications
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>system_profiler SPApplicationsDataType
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- 網路設定 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>網路設定&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看網路設定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>networksetup -listallhardwareports
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>networksetup -getinfo &lt;span style="color:#e6db74">&amp;#34;Wi-Fi&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定 DNS&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo networksetup -setdnsservers &lt;span style="color:#e6db74">&amp;#34;Wi-Fi&amp;#34;&lt;/span> 8.8.8.8 1.1.1.1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo networksetup -setdnsservers &lt;span style="color:#e6db74">&amp;#34;Wi-Fi&amp;#34;&lt;/span> Empty &lt;span style="color:#75715e"># 清除 DNS&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重新整理 DNS 快取&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo dscacheutil -flushcache
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo killall -HUP mDNSResponder
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看 Wi-Fi 密碼 (需要管理員密碼)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>security find-generic-password -wa &lt;span style="color:#e6db74">&amp;#34;WiFi名稱&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 掃描 Wi-Fi 網路&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 連接 Wi-Fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>networksetup -setairportnetwork en0 &lt;span style="color:#e6db74">&amp;#34;WiFi名稱&amp;#34;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;密碼&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- 電源管理 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>電源管理&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看電池資訊&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pmset -g batt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>system_profiler SPPowerDataType
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看電源設定&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pmset -g
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定睡眠時間 (分鐘)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pmset -a displaysleep &lt;span style="color:#ae81ff">10&lt;/span> &lt;span style="color:#75715e"># 螢幕睡眠&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo pmset -a sleep &lt;span style="color:#ae81ff">30&lt;/span> &lt;span style="color:#75715e"># 系統睡眠&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 防止系統睡眠&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>caffeinate -d &lt;span style="color:#75715e"># 防止螢幕睡眠&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>caffeinate -i &lt;span style="color:#75715e"># 防止系統睡眠&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>caffeinate -s &lt;span style="color:#75715e"># 防止系統睡眠 (AC 電源時)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 立即睡眠&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pmset sleepnow
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看睡眠/喚醒歷史&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pmset -g log | grep -E &lt;span style="color:#e6db74">&amp;#34;(Sleep|Wake)&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- 應用程式管理 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>應用程式管理&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 強制結束應用程式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>killall &lt;span style="color:#e6db74">&amp;#34;應用程式名稱&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pkill -f &lt;span style="color:#e6db74">&amp;#34;應用程式名稱&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看運行中的程序&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ps aux | grep &lt;span style="color:#e6db74">&amp;#34;應用程式名稱&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>top -o cpu &lt;span style="color:#75715e"># 按 CPU 使用率排序&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 開啟應用程式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>open -a &lt;span style="color:#e6db74">&amp;#34;應用程式名稱&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>open /Applications/Safari.app
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 開啟檔案 (使用預設應用程式)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>open file.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>open . &lt;span style="color:#75715e"># 在 Finder 中開啟當前目錄&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看應用程式資訊&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mdls /Applications/Safari.app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- 檔案系統操作 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>檔案系統操作&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 顯示檔案/目錄的詳細資訊&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -la@ &lt;span style="color:#75715e"># 包含擴展屬性&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>stat filename
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看檔案類型&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>file filename
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 建立符號連結&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ln -s /path/to/original /path/to/link
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看目錄大小&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>du -sh /path/to/directory
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>du -h -d &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e"># 只顯示一層深度&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 尋找檔案&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>find /path -name &lt;span style="color:#e6db74">&amp;#34;*.txt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mdfind &lt;span style="color:#e6db74">&amp;#34;檔案名稱&amp;#34;&lt;/span> &lt;span style="color:#75715e"># 使用 Spotlight 搜尋&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 壓縮/解壓縮&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>zip -r archive.zip folder/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip archive.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -czf archive.tar.gz folder/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -xzf archive.tar.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 計算檔案雜湊值&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>md5 filename
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>shasum -a &lt;span style="color:#ae81ff">256&lt;/span> filename
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;!-- 系統維護 -->
+&lt;div class="note-card ">
+&lt;div class="item">
+&lt;h5 class="note-title">&lt;span>系統維護&lt;/span>&lt;/h5>
+&lt;div class="card">
+&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 清理系統快取&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo rm -rf ~/Library/Caches/*
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo rm -rf /Library/Caches/*
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo rm -rf /System/Library/Caches/*
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重建 Spotlight 索引&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mdutil -E /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 修復磁碟權限 (macOS 10.11 之前)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo diskutil repairPermissions /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 驗證/修復磁碟&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>diskutil verifyVolume /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo diskutil repairVolume /
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系統日誌&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>log show --predicate &lt;span style="color:#e6db74">&amp;#39;process == &amp;#34;kernel&amp;#34;&amp;#39;&lt;/span> --last 1h
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>console &lt;span style="color:#75715e"># 開啟 Console 應用程式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重置 NVRAM/PRAM&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 開機時按住 Option+Command+P+R&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 重置 SMC (系統管理控制器)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># MacBook: 關機後按住 Shift+Control+Option+電源鍵 10 秒&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
 &lt;/div>
 &lt;/div>

@@ -1,14 +1,233 @@
-<!doctype html><html lang=zh-tw><head><title>Mac Launchpad</title>
-<meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=stylesheet href=/application.8754fec908c4ae88fd04a3d1dd9723f304378ae81a69d7abfdb4625bdeaf351f.css integrity="sha256-h1T+yQjEroj9BKPR3Zcj8wQ3iugaader/bRiW96vNR8="><link rel=icon type=image/png href=/images/site/favicon_hu25403586158276472.jpeg><meta property="og:url" content="https://clarence.tw/notes/mac/launchpad/"><meta property="og:site_name" content="Clarence"><meta property="og:title" content="Mac Launchpad"><meta property="og:description" content=" Launchpad reset defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock "><meta property="og:locale" content="zh_tw"><meta property="og:type" content="article"><meta property="article:section" content="notes"><meta name=twitter:card content="summary"><meta name=twitter:title content="Mac Launchpad"><meta name=twitter:description content=" Launchpad reset defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock "><script src=https://cdn.counter.dev/script.js data-id=me@clarence.tw data-utcoffset=1></script><script data-goatcounter=https://clarence.goatcounter.com/count async src=//gc.zgo.at/count.js></script><script>theme=localStorage.getItem("darkmode:color-scheme")||"system",theme=="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-notes kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
+<!doctype html><html lang=zh-tw><head><title>Mac 系統管理指令</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=stylesheet href=/application.a671c53c7cf3735bfdfe99730357e6f244a0007a0e507b307277a2e095f98127.css integrity="sha256-pnHFPHzzc1v9/plzA1fm8kSgAHoOUHswcnei4JX5gSc="><link rel=icon type=image/png href=/images/site/favicon_hu_6b83fda92133ca8.jpeg><meta property="og:title" content="Clarence 個人介紹"><meta property="og:type" content="website"><meta property="og:description" content="本網站為 Clarence 個人簡歷紀錄."><meta property="og:image" content="/clarencetw-og.png"><meta property="og:url" content="https://clarence.tw"><script async src="https://www.googletagmanager.com/gtag/js?id=G-PG4DH6TDZN"></script><script>var dnt,doNotTrack=!1;if(null&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-PG4DH6TDZN")}</script><script src=https://cdn.counter.dev/script.js data-id=me@clarence.tw data-utcoffset=1></script><script data-goatcounter=https://clarence.goatcounter.com/count async src=//gc.zgo.at/count.js></script><script integrity="sha256-DO4ugzEwhTW1Id1UIWn0gUJWaebCYOypeTit6LW4QB4=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-notes kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
 <i data-feather=sidebar></i>
 </button>
-<a class=navbar-brand href=/><img src=/images/site/main-logo_hu25403586158276472.jpeg id=logo alt=Logo>
+<a class=navbar-brand href=/><img src=/images/site/main-logo_hu_6b83fda92133ca8.jpeg id=logo alt=Logo>
 Clarence</a>
 <button class="navbar-toggler navbar-light" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-label=menu>
 <i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar" id=top-nav-items><ul class="nav navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/#home>首頁</a></li><li class=nav-item><a class=nav-link href=/#about>關於我</a></li><li class=nav-item><a class=nav-link href=/#skills>技能</a></li><li class=nav-item><a class=nav-link href=/#experiences>經歷</a></li><li class=nav-item><a class=nav-link href=/#education>學歷</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>更多的</a><div class=dropdown-menu aria-labelledby=navbarDropdown><a class=dropdown-item href=/#projects>專案</a>
 <a class=dropdown-item href=/#publications>出版</a>
-<a class=dropdown-item href=/#accomplishments>成就</a></div></li><div id=top-navbar-divider></div><li class=nav-item><a class=nav-link id=blog-link href=/posts>文章</a></li><li class=nav-item><a class=nav-link id=note-link href=/notes>筆記</a></li><li class=nav-item><a class=nav-link href=https://blog.clarence.tw/>部落格</a></li></ul></div></div><img src=/images/site/main-logo_hu25403586158276472.jpeg class=d-none id=main-logo alt=Logo></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=搜索 data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/notes data-filter=all>筆記</a></li><div class=subtree><li><i data-feather=minus-circle></i><a class="active list-link" href=/notes/mac/> Mac</a><ul class=active><li><a class="active list-link" href=/notes/mac/launchpad/ title=Launchpad>Launchpad</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class="content container-fluid" id=content><div class="container-fluid note-card-holder" id=note-card-holder><div class=note-card><div class=item><h5 class=note-title><span>Launchpad reset</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>defaults write com.apple.dock ResetLaunchPad -bool true;
+<a class=dropdown-item href=/#accomplishments>成就</a></div></li><div id=top-navbar-divider></div><li class=nav-item><a class=nav-link id=blog-link href=/posts>文章</a></li><li class=nav-item><a class=nav-link id=note-link href=/notes>筆記</a></li><li class=nav-item><a class=nav-link href=https://blog.clarence.tw/>部落格</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=themeSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false><img id=navbar-theme-icon-svg class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme"></a><div id=themeMenu class="dropdown-menu dropdown-menu-icons-only" aria-labelledby=themeSelector><a class="dropdown-item nav-link" href=# data-scheme=light><img class=theme-icon src=/icons/sun-svgrepo-com.svg width=20 alt="Light Theme">
+</a><a class="dropdown-item nav-link" href=# data-scheme=dark><img class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme">
+</a><a class="dropdown-item nav-link" href=# data-scheme=system><img class=theme-icon src=/icons/computer-svgrepo-com.svg width=20 alt="System Theme"></a></div></li></ul></div></div><img src=/images/site/main-logo_hu_6b83fda92133ca8.jpeg class=d-none id=main-logo alt=Logo></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=搜尋 data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/notes data-filter=all>筆記</a></li><div class=subtree><li><i data-feather=minus-circle></i><a class="active list-link" href=/notes/mac/> Mac</a><ul class=active><li><a class="active list-link" href=/notes/mac/launchpad/ title="Mac Commands">Mac Commands</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/aws/> AWS</a><ul><li><a class=list-link href=/notes/aws/cdk-tips/ title="CDK Tips">CDK Tips</a></li><li><a class=list-link href=/notes/aws/aws-cli/ title="AWS CLI">AWS CLI</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/llm/> LLM & AI</a><ul><li><a class=list-link href=/notes/llm/ollama-setup/ title="Ollama Setup">Ollama Setup</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/system/> System Administration</a><ul><li><a class=list-link href=/notes/system/package-management/ title="Package Management">Package Management</a></li><li><a class=list-link href=/notes/system/system-commands/ title="System Commands">System Commands</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/docker/> Docker</a><ul><li><a class=list-link href=/notes/docker/docker-commands/ title="Docker Commands">Docker Commands</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><div class="content container-fluid" id=content><div class="container-fluid note-card-holder" id=note-card-holder><div class=note-card><div class=item><h5 class=note-title><span>Launchpad 管理</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 重置 Launchpad 排列</span>
+</span></span><span style=display:flex><span>defaults write com.apple.dock ResetLaunchPad -bool true
 </span></span><span style=display:flex><span>killall Dock
-</span></span></code></pre></div></div></div></div></div></div></div></section></div><footer id=footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-start"><div class="col-md-4 col-sm-12"><h5>導覽列</h5><ul><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#about>關於我</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#skills>技能</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#experiences>經歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#education>學歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#projects>專案</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#publications>出版</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#accomplishments>成就</a></li><li class=nav-item><a class=smooth-scroll href=https://blog.clarence.tw/>部落格</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>聯絡方式:</h5><ul><li><a href=mailto:me@clarence.tw target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>me@clarence.tw</span></a></li><li><a href=https://github.com/clarencetw target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>clarencetw</span></a></li><li><a href=https://www.linkedin.com/in/clarencetw target=_blank rel=noopener><span><i class="fab fa-linkedin"></i></span> <span>Clarence Lin</span></a></li><li><a href=https://stackoverflow.com/users/19384998/clarence target=_blank rel=noopener><span><i class="fab fa-stack-overflow"></i></span> <span>Clarence</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-start"><div class=col-md-4><a id=theme href=https://github.com/hugo-toha/toha target=_blank rel=noopener><img src=/images/theme-logo_hu16779671404603505019.png alt="Toha Theme Logo">
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定 Launchpad 每頁顯示的 app 數量</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定每行顯示數量 (預設 7)</span>
+</span></span><span style=display:flex><span>defaults write com.apple.dock springboard-columns -int <span style=color:#ae81ff>8</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定每列顯示數量 (預設 5)  </span>
+</span></span><span style=display:flex><span>defaults write com.apple.dock springboard-rows -int <span style=color:#ae81ff>6</span>
+</span></span><span style=display:flex><span>killall Dock
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 恢復預設設定</span>
+</span></span><span style=display:flex><span>defaults delete com.apple.dock springboard-columns
+</span></span><span style=display:flex><span>defaults delete com.apple.dock springboard-rows
+</span></span><span style=display:flex><span>killall Dock
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>Dock 設定</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 隱藏/顯示 Dock</span>
+</span></span><span style=display:flex><span>defaults write com.apple.dock autohide -bool true
+</span></span><span style=display:flex><span>defaults write com.apple.dock autohide -bool false
+</span></span><span style=display:flex><span>killall Dock
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定 Dock 大小</span>
+</span></span><span style=display:flex><span>defaults write com.apple.dock tilesize -int <span style=color:#ae81ff>50</span>
+</span></span><span style=display:flex><span>killall Dock
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定 Dock 位置 (left, bottom, right)</span>
+</span></span><span style=display:flex><span>defaults write com.apple.dock orientation -string <span style=color:#e6db74>&#34;left&#34;</span>
+</span></span><span style=display:flex><span>killall Dock
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除 Dock 中所有 app (只保留 Finder 和垃圾桶)</span>
+</span></span><span style=display:flex><span>defaults write com.apple.dock persistent-apps -array
+</span></span><span style=display:flex><span>killall Dock
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 顯示隱藏的 app 圖示 (半透明效果)</span>
+</span></span><span style=display:flex><span>defaults write com.apple.dock showhidden -bool true
+</span></span><span style=display:flex><span>killall Dock
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 加快 Dock 動畫速度</span>
+</span></span><span style=display:flex><span>defaults write com.apple.dock autohide-time-modifier -float 0.5
+</span></span><span style=display:flex><span>killall Dock
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>Finder 設定</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 顯示隱藏檔案</span>
+</span></span><span style=display:flex><span>defaults write com.apple.finder AppleShowAllFiles -bool true
+</span></span><span style=display:flex><span>killall Finder
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 隱藏隱藏檔案</span>
+</span></span><span style=display:flex><span>defaults write com.apple.finder AppleShowAllFiles -bool false
+</span></span><span style=display:flex><span>killall Finder
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 顯示副檔名</span>
+</span></span><span style=display:flex><span>defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+</span></span><span style=display:flex><span>killall Finder
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 顯示路徑列</span>
+</span></span><span style=display:flex><span>defaults write com.apple.finder ShowPathbar -bool true
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 顯示狀態列</span>
+</span></span><span style=display:flex><span>defaults write com.apple.finder ShowStatusBar -bool true
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定預設檢視方式 (icnv=圖示, Nlsv=列表, clmv=欄位, Flwv=Cover Flow)</span>
+</span></span><span style=display:flex><span>defaults write com.apple.finder FXPreferredViewStyle -string <span style=color:#e6db74>&#34;Nlsv&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定新 Finder 視窗開啟位置為家目錄</span>
+</span></span><span style=display:flex><span>defaults write com.apple.finder NewWindowTarget -string <span style=color:#e6db74>&#34;PfHm&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 停用清空垃圾桶警告</span>
+</span></span><span style=display:flex><span>defaults write com.apple.finder WarnOnEmptyTrash -bool false
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>截圖設定</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 更改截圖儲存位置</span>
+</span></span><span style=display:flex><span>defaults write com.apple.screencapture location ~/Desktop/Screenshots
+</span></span><span style=display:flex><span>killall SystemUIServer
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 更改截圖檔案格式 (png, jpg, gif, pdf, tiff)</span>
+</span></span><span style=display:flex><span>defaults write com.apple.screencapture type -string <span style=color:#e6db74>&#34;jpg&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移除截圖檔名中的陰影</span>
+</span></span><span style=display:flex><span>defaults write com.apple.screencapture disable-shadow -bool true
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 截圖不顯示浮動縮圖</span>
+</span></span><span style=display:flex><span>defaults write com.apple.screencapture show-thumbnail -bool false
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 截圖快捷鍵</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Cmd+Shift+3: 全螢幕截圖</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Cmd+Shift+4: 選取區域截圖  </span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Cmd+Shift+4+Space: 視窗截圖</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Cmd+Shift+5: 截圖工具列</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>系統資訊查詢</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看 macOS 版本</span>
+</span></span><span style=display:flex><span>sw_vers
+</span></span><span style=display:flex><span>sw_vers -productVersion
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看系統資訊</span>
+</span></span><span style=display:flex><span>system_profiler SPSoftwareDataType
+</span></span><span style=display:flex><span>system_profiler SPHardwareDataType
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看 CPU 資訊</span>
+</span></span><span style=display:flex><span>sysctl -n machdep.cpu.brand_string
+</span></span><span style=display:flex><span>sysctl -n hw.ncpu  <span style=color:#75715e># CPU 核心數</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看記憶體資訊</span>
+</span></span><span style=display:flex><span>sysctl -n hw.memsize  <span style=color:#75715e># 總記憶體 (bytes)</span>
+</span></span><span style=display:flex><span>vm_stat  <span style=color:#75715e># 記憶體使用統計</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看磁碟使用情況</span>
+</span></span><span style=display:flex><span>df -h
+</span></span><span style=display:flex><span>diskutil list
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看網路介面</span>
+</span></span><span style=display:flex><span>ifconfig
+</span></span><span style=display:flex><span>networksetup -listallhardwareports
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝的應用程式</span>
+</span></span><span style=display:flex><span>ls /Applications
+</span></span><span style=display:flex><span>system_profiler SPApplicationsDataType
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>網路設定</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看網路設定</span>
+</span></span><span style=display:flex><span>networksetup -listallhardwareports
+</span></span><span style=display:flex><span>networksetup -getinfo <span style=color:#e6db74>&#34;Wi-Fi&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定 DNS</span>
+</span></span><span style=display:flex><span>sudo networksetup -setdnsservers <span style=color:#e6db74>&#34;Wi-Fi&#34;</span> 8.8.8.8 1.1.1.1
+</span></span><span style=display:flex><span>sudo networksetup -setdnsservers <span style=color:#e6db74>&#34;Wi-Fi&#34;</span> Empty  <span style=color:#75715e># 清除 DNS</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 重新整理 DNS 快取</span>
+</span></span><span style=display:flex><span>sudo dscacheutil -flushcache
+</span></span><span style=display:flex><span>sudo killall -HUP mDNSResponder
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看 Wi-Fi 密碼 (需要管理員密碼)</span>
+</span></span><span style=display:flex><span>security find-generic-password -wa <span style=color:#e6db74>&#34;WiFi名稱&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 掃描 Wi-Fi 網路</span>
+</span></span><span style=display:flex><span>/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 連接 Wi-Fi</span>
+</span></span><span style=display:flex><span>networksetup -setairportnetwork en0 <span style=color:#e6db74>&#34;WiFi名稱&#34;</span> <span style=color:#e6db74>&#34;密碼&#34;</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>電源管理</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看電池資訊</span>
+</span></span><span style=display:flex><span>pmset -g batt
+</span></span><span style=display:flex><span>system_profiler SPPowerDataType
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看電源設定</span>
+</span></span><span style=display:flex><span>pmset -g
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 設定睡眠時間 (分鐘)</span>
+</span></span><span style=display:flex><span>sudo pmset -a displaysleep <span style=color:#ae81ff>10</span>  <span style=color:#75715e># 螢幕睡眠</span>
+</span></span><span style=display:flex><span>sudo pmset -a sleep <span style=color:#ae81ff>30</span>         <span style=color:#75715e># 系統睡眠</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 防止系統睡眠</span>
+</span></span><span style=display:flex><span>caffeinate -d  <span style=color:#75715e># 防止螢幕睡眠</span>
+</span></span><span style=display:flex><span>caffeinate -i  <span style=color:#75715e># 防止系統睡眠</span>
+</span></span><span style=display:flex><span>caffeinate -s  <span style=color:#75715e># 防止系統睡眠 (AC 電源時)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 立即睡眠</span>
+</span></span><span style=display:flex><span>pmset sleepnow
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看睡眠/喚醒歷史</span>
+</span></span><span style=display:flex><span>pmset -g log | grep -E <span style=color:#e6db74>&#34;(Sleep|Wake)&#34;</span>
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>應用程式管理</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 強制結束應用程式</span>
+</span></span><span style=display:flex><span>killall <span style=color:#e6db74>&#34;應用程式名稱&#34;</span>
+</span></span><span style=display:flex><span>pkill -f <span style=color:#e6db74>&#34;應用程式名稱&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看運行中的程序</span>
+</span></span><span style=display:flex><span>ps aux | grep <span style=color:#e6db74>&#34;應用程式名稱&#34;</span>
+</span></span><span style=display:flex><span>top -o cpu  <span style=color:#75715e># 按 CPU 使用率排序</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 開啟應用程式</span>
+</span></span><span style=display:flex><span>open -a <span style=color:#e6db74>&#34;應用程式名稱&#34;</span>
+</span></span><span style=display:flex><span>open /Applications/Safari.app
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 開啟檔案 (使用預設應用程式)</span>
+</span></span><span style=display:flex><span>open file.txt
+</span></span><span style=display:flex><span>open .  <span style=color:#75715e># 在 Finder 中開啟當前目錄</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看應用程式資訊</span>
+</span></span><span style=display:flex><span>mdls /Applications/Safari.app
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>檔案系統操作</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 顯示檔案/目錄的詳細資訊</span>
+</span></span><span style=display:flex><span>ls -la@  <span style=color:#75715e># 包含擴展屬性</span>
+</span></span><span style=display:flex><span>stat filename
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看檔案類型</span>
+</span></span><span style=display:flex><span>file filename
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 建立符號連結</span>
+</span></span><span style=display:flex><span>ln -s /path/to/original /path/to/link
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看目錄大小</span>
+</span></span><span style=display:flex><span>du -sh /path/to/directory
+</span></span><span style=display:flex><span>du -h -d <span style=color:#ae81ff>1</span>  <span style=color:#75715e># 只顯示一層深度</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 尋找檔案</span>
+</span></span><span style=display:flex><span>find /path -name <span style=color:#e6db74>&#34;*.txt&#34;</span>
+</span></span><span style=display:flex><span>mdfind <span style=color:#e6db74>&#34;檔案名稱&#34;</span>  <span style=color:#75715e># 使用 Spotlight 搜尋</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 壓縮/解壓縮</span>
+</span></span><span style=display:flex><span>zip -r archive.zip folder/
+</span></span><span style=display:flex><span>unzip archive.zip
+</span></span><span style=display:flex><span>tar -czf archive.tar.gz folder/
+</span></span><span style=display:flex><span>tar -xzf archive.tar.gz
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 計算檔案雜湊值</span>
+</span></span><span style=display:flex><span>md5 filename
+</span></span><span style=display:flex><span>shasum -a <span style=color:#ae81ff>256</span> filename
+</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>系統維護</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 清理系統快取</span>
+</span></span><span style=display:flex><span>sudo rm -rf ~/Library/Caches/*
+</span></span><span style=display:flex><span>sudo rm -rf /Library/Caches/*
+</span></span><span style=display:flex><span>sudo rm -rf /System/Library/Caches/*
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 重建 Spotlight 索引</span>
+</span></span><span style=display:flex><span>sudo mdutil -E /
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 修復磁碟權限 (macOS 10.11 之前)</span>
+</span></span><span style=display:flex><span>sudo diskutil repairPermissions /
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 驗證/修復磁碟</span>
+</span></span><span style=display:flex><span>diskutil verifyVolume /
+</span></span><span style=display:flex><span>sudo diskutil repairVolume /
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看系統日誌</span>
+</span></span><span style=display:flex><span>log show --predicate <span style=color:#e6db74>&#39;process == &#34;kernel&#34;&#39;</span> --last 1h
+</span></span><span style=display:flex><span>console  <span style=color:#75715e># 開啟 Console 應用程式</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 重置 NVRAM/PRAM</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 開機時按住 Option+Command+P+R</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 重置 SMC (系統管理控制器)</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># MacBook: 關機後按住 Shift+Control+Option+電源鍵 10 秒</span>
+</span></span></code></pre></div></div></div></div></div></div></div></section></div><footer id=footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-start"><div class="col-md-4 col-sm-12"><h5>導覽列</h5><ul><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#about>關於我</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#skills>技能</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#experiences>經歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#education>學歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#projects>專案</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#publications>出版</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#accomplishments>成就</a></li><li class=nav-item><a class=smooth-scroll href=https://blog.clarence.tw/>部落格</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>聯絡方式:</h5><ul><li><a href=mailto:me@clarence.tw target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>me@clarence.tw</span></a></li><li><a href=https://github.com/clarencetw target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>clarencetw</span></a></li><li><a href=https://www.linkedin.com/in/clarencetw target=_blank rel=noopener><span><i class="fab fa-linkedin"></i></span> <span>Clarence Lin</span></a></li><li><a href=https://stackoverflow.com/users/19384998/clarence target=_blank rel=noopener><span><i class="fab fa-stack-overflow"></i></span> <span>Clarence</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-start"><div class=col-md-4><a id=theme href=https://github.com/hugo-toha/toha target=_blank rel=noopener><img src=/images/theme-logo_hu_b3360284c55cf72d.png alt="Toha Theme Logo">
 Toha</a></div><div class="col-md-4 text-center">© 2024 Copyright.</div><div class="col-md-4 text-end"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/application.745fcbd85a8a6f48b4d75ff93b192994541b644795417ce5f22a880bebf5c2eb.js integrity="sha256-dF/L2FqKb0i011/5OxkplFQbZEeVQXzl8iqIC+v1wus=" defer></script></body></html>
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/application.8391a244f6d15695c80acbfaa94c7bf3c1c2f13e843f765823e8d0e0eb7cb7d6.js integrity="sha256-g5GiRPbRVpXICsv6qUx788HC8T6EP3ZYI+jQ4Ot8t9Y=" defer></script><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=clarencetw data-description="Support me on Buy me a coffee!" data-message="Buy me a coffee!" data-color=#FFDD00 data-position=Right data-x_margin=10 data-y_margin=18></script></body></html>

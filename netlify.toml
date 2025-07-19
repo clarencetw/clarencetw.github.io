@@ -1,45 +1,45 @@
 [build]
-command = "hugo --gc --minify"
-publish = "public"
+  command = "hugo --gc --minify"
+  publish = "public"
 
 [[plugins]]
   # Installs the Lighthouse Build Plugin for all deploy contexts
   package = "@netlify/plugin-lighthouse"
 
 [context.production.environment]
-HUGO_ENABLEGITINFO = "true"
-HUGO_ENV           = "production"
-HUGO_VERSION       = "0.148.1"
-NODE_VERSION       = "v20.11.1"
-NPM_VERSION        = "10.5.0"
+  HUGO_ENABLEGITINFO = "true"
+  HUGO_ENV           = "production"
+  HUGO_VERSION       = "0.148.1"
+  NODE_VERSION       = "v20.11.1"
+  NPM_VERSION        = "10.5.0"
 
 [context.split1]
-command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify --enableGitInfo"
+  command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify --enableGitInfo"
 
-    [context.split1.environment]
+  [context.split1.environment]
     HUGO_ENV     = "production"
     HUGO_VERSION = "0.148.1"
     NODE_VERSION = "v20.11.1"
     NPM_VERSION  = "10.5.0"
 
 [context.deploy-preview]
-command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+  command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
-    [context.deploy-preview.environment]
+  [context.deploy-preview.environment]
     HUGO_VERSION = "0.148.1"
     NODE_VERSION = "v20.11.1"
     NPM_VERSION  = "10.5.0"
 
 [context.branch-deploy]
-command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+  command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
-    [context.branch-deploy.environment]
+  [context.branch-deploy.environment]
     HUGO_VERSION = "0.148.1"
     NODE_VERSION = "v20.11.1"
     NPM_VERSION  = "10.5.0"
 
 [context.next.environment]
-HUGO_ENABLEGITINFO = "true"
+  HUGO_ENABLEGITINFO = "true"
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.

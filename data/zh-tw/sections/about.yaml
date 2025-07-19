@@ -8,7 +8,7 @@ section:
   template: sections/about.html
 
 # your designation
-designation: Backend Developer
+designation: Senior Backend Developer / LLM Engineer
 # your company information
 company:
   name: 長問科技股份有限公司
@@ -18,7 +18,13 @@ company:
 #resume: "files/resume.pdf"
 
 # a summary about you
-summary: "我是一位具有豐富網站後端開發、DevOps、Linux 作業系統、雲端系統架構設計以及雲端系統安全經驗的專業人士。擁有多年的技術累積，為 [AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）](https://www.tenlong.com.tw/products/9789864349203)的作者，詳盡分享雲端架構開發的實踐心得。在個人部落格上，我以樂於分享技術知識見稱，將開發過程中所遇到的問題與解決方法透過文章呈現，以期為讀者提供實用的技術參考。我於 BRONCI Technology Inc. 長問科技股份有限公司擔任 Backend Developer，負責雲端軟體開發、雲端架構與系統自動化部署。公司於 2022 年開始AI開發轉型，主要涉及 Kaldi 與 Whisper，因此具備長期使用 GPU 系統的經驗。在職務上，我參與了許多重要專案，包括雲端整合（AWS、GCP、Azure）、自動化部署（GitLab CI/CD、GitHub Actions）、自動化測試（Jest）、雲端架構（AWS）、以及基礎架構程式碼（IaC）的應用（AWS CDK）。同時，我也負責地端機房管理、雲端機房管理，以及辦公室網路的設計和維護。此外，我將 OpenAI 相關 API 納入開發與應用，為公司帶來更多創新性的解決方案。我的經歷不僅豐富而多元，更體現了對技術不斷學習與應用的熱忱。除了經營個人部落格，我也以 [AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203) 的作者身份，深入探討雲端基礎架構程式碼的實際應用。致力於分享與學習，我將這份熱情與專業帶入每一個專案，為團隊創造價值並不斷追求卓越。"
+summary: "我是一位具有豐富網站後端開發、DevOps、Linux 作業系統、雲端系統架構設計以及雲端系統安全經驗的專業人士。擁有多年的技術累積，為 [AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）](https://www.tenlong.com.tw/products/9789864349203) 的作者，詳盡分享雲端架構開發的實踐心得。
+
+我於 BRONCI Technology Inc. 長問科技股份有限公司擔任 Senior Backend Developer，主要專精於後端開發與 DevOps 工作。在公司轉型前，我的核心工作包括雲端軟體開發、雲端架構設計、系統自動化部署等雲端相關技術工作。
+
+自 2022 年起，隨著公司開始 AI 開發轉型，我的工作範圍不僅擴展至大型語言模型（LLM）的控制與相關功能開發，同時也承擔了多處地端機房管理、辦公室有線與無線網路規劃等基礎設施管理工作。目前主要涉及 Kaldi、Whisper 以及各種 LLM 應用開發，因此具備長期使用 GPU 系統的經驗。除了持續進行原有的後端開發與 DevOps 工作外，我也負責公司的基礎設施採購規劃。
+
+在個人部落格上，我樂於分享技術知識，將開發過程中所遇到的問題與解決方法透過文章呈現，以期為讀者提供實用的技術參考。"
 
 # your social links
 # give as many as you want. use font-awesome for the icons.

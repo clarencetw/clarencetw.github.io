@@ -11,81 +11,127 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
+  # 核心雲端技能
   - name: AWS
     logo: /images/sections/skills/cloud.png
-    summary: "使用 AWS 雲端服務來建立和運行應用程式。涉及 EC2 虛擬伺服器、S3 雲端儲存、RDS 關聯式資料庫、Lambda 事件驅動的運算等。"
+    summary: "深度使用 AWS 雲端服務，包括 EC2、RDS、Lambda、Route 53、ElastiCache、IAM、CloudWatch、ECR、ECS、ALB/ELB、VPC、CloudFormation、Auto Scaling、Certificate Manager、WAF、EBS、S3、Fargate、AppRunner、API Gateway、CloudFront 等完整服務生態系統。"
     url: "https://aws.amazon.com/"
+
+  - name: AWS CDK
+    logo: /images/sections/skills/cloud.png
+    summary: "基礎架構程式碼 (IaC) 專家，[AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203) 作者，使用 TypeScript/Python 進行雲端基礎設施自動化管理。"
+    url: "https://aws.amazon.com/cdk/"
+
+  - name: GCP
+    logo: /images/sections/skills/cloud.png
+    summary: "使用 Google Cloud Platform 的 VM、CDN、Load Balancer、MySQL 等服務進行雲端架構部署。"
 
   - name: Azure
     logo: /images/sections/skills/cloud.png
-    summary: "在 Azure 上使用虛擬機 (VM) 來進行雲端架構。"
+    summary: "在 Azure 上使用虛擬機 (VM) 來進行雲端架構部署。"
 
-  - name: CI/CD
-    logo:
-    summary: "撰寫 GitHub 或 GitLab 上的持續整合 (CI) 和持續部署 (CD) 腳本，實現自動化的程式碼測試和部署流程。"
-    url: https://dev.to/
-
-  - name: Cloud Architecture
-    logo: /images/sections/skills/cloud.png
-    summary: "雲端服務架構的設計和實施，包括 AWS, GCP, Azure, DigitalOcean, Linode 等。這涉及到應用程式的可擴展性、高可用性和安全性。"
-
-  - name: Docker
-    logo: /images/sections/skills/docker.svg
-    summary: "撰寫 Docker 容器化，將應用程式和其相依性封裝成可攜帶的容器。這有助於跨環境一致性和更有效的部署。"
-    url: "https://blog.clarence.tw/category/docker/"
-
-  - name: Fortinet
-    logo: 
-    summary: "配置各種防火牆設定，確保網路安全性。"
-
-  - name: Git
-    logo: /images/sections/skills/git.png
-    summary: "使用 Git 版本控制系統，協助團隊協同開發，並有效地追蹤、管理程式碼的變更。常與 GitHub 和 GitLab 等平台搭配使用。"
-    url: "https://git-scm.com/"
+  # 程式語言
+  - name: Node.js
+    logo: /images/sections/skills/nodejs.png
+    summary: "主要後端開發語言，使用 Node.js 開發伺服器端應用程式、API 服務、網路應用程式。Node.js 提供了非阻塞、事件驅動的編程環境。"
+    url: "https://blog.clarence.tw/category/programming-language/node-js/"
 
   - name: Go
     logo: /images/sections/skills/go.png
-    summary: "使用 Go 語言進行網路應用程式和伺服器軟體的開發。Go 以其高效的併發性能而聞名。 "
-    url: https://go.dev/
+    summary: "使用 Go 語言進行高效能網路應用程式和伺服器軟體開發，特別適合併發處理和微服務架構。"
+    url: "https://go.dev/"
 
-  - name: HPE
-    logo: 
-    summary: "進行 HPE 設備的各種設定，包括 Switch 設定等。"
-
-  - name: Linux
-    logo: /images/sections/skills/linux.png
-    summary: "熟練於 Linux 伺服器操作，包括安裝、設定、網路設定，以及使用指令行介面。同時能夠根據需求編寫 shell 腳本。"
-
-  - name: MySQL
-    logo: /images/sections/skills/mysql.png
-    summary: "使用 MySQL 資料庫管理系統，為 API 網站提供可靠的資料存儲和擷取。 "
-    url: "https://blog.clarence.tw/category/%e8%b3%87%e6%96%99%e5%ba%ab/mysql/"
-
-  - name: Node.js
-    logo: /images/sections/skills/nodejs.png
-    summary: "使用 Node.js 開發伺服器端應用程式、網路應用程式，以及桌面應用程式。Node.js 提供了非阻塞、事件驅動的編程環境。 "
-    url: https://blog.clarence.tw/category/programming-language/node-js/
+  - name: Python
+    logo: /images/sections/skills/python.jpeg
+    summary: "主要用於 LLM 開發、自動化腳本程式開發，以及 AI 相關應用程式開發。"
+    url: "https://www.python.org/"
 
   - name: PHP
     logo: /images/sections/skills/php.png
-    summary: "使用 PHP 開發 API 應用程式和後台網站。PHP 是一種強大的伺服器端腳本語言，適用於動態內容生成。"
+    summary: "使用 PHP 開發 API 應用程式和後台網站，適用於動態內容生成和 Web 應用程式開發。"
     url: "https://blog.clarence.tw/category/programming-language/php/"
 
+  # DevOps 與容器化
+  - name: Docker
+    logo: /images/sections/skills/docker.svg
+    summary: "容器化專家，撰寫 Docker 容器化解決方案，將應用程式和相依性封裝成可攜帶的容器，確保跨環境一致性和高效部署。"
+    url: "https://blog.clarence.tw/category/docker/"
+
+  - name: CI/CD
+    logo: /images/sections/skills/ci-cd.png
+    summary: "精通 GitLab CI/CD 和 GitHub Actions，撰寫自動化的持續整合和持續部署流程，包括自動化測試 (Jest)、程式碼品質檢查和部署自動化。"
+
+  - name: Git
+    logo: /images/sections/skills/git.png
+    summary: "版本控制專家，使用 Git 進行團隊協同開發，熟練使用 GitHub 和 GitLab 平台，有效追蹤和管理程式碼變更。"
+    url: "https://git-scm.com/"
+
+  # AI 與機器學習
+  - name: Large Language Models (LLM)
+    logo: 
+    summary: "自 2022 年起專精於大型語言模型的控制與開發，主要專注於文本摘要 (Summary) 應用，包括模型整合、優化與應用開發。使用 Ollama 進行本地模型部署。"
+
+  - name: OpenAI API
+    logo: 
+    summary: "深入整合 OpenAI API，開發基於 AI 的創新解決方案與應用，特別專精於文本處理和摘要生成功能。"
+
+  - name: Kaldi & Whisper
+    logo: 
+    summary: "語音識別與處理技術專家，整合 Kaldi 和 Whisper 等 AI 模型提供企業級語音解決方案。"
+
+  - name: GPU Computing
+    logo: 
+    summary: "長期管理和優化 GPU 伺服器，支援 AI 模型訓練與推理需求，具備 GPU 叢集管理經驗。"
+
+  # 資料庫
   - name: PostgreSQL
     logo: /images/sections/skills/postgresql.png
-    summary: "使用 PostgreSQL 資料庫管理系統，為 API 網站提供可靠的資料存儲和擷取。lar"
+    summary: "使用 PostgreSQL 進行資料庫設計與管理，包括資料的增刪改查、效能優化，為 API 應用程式提供可靠的資料存儲服務。"
     url: "https://blog.clarence.tw/category/%e8%b3%87%e6%96%99%e5%ba%ab/postgresql/"
+
+  - name: MySQL
+    logo: /images/sections/skills/mysql.png
+    summary: "MySQL 資料庫管理與優化，為 API 網站和應用程式提供高效的資料存儲和擷取服務。"
+    url: "https://blog.clarence.tw/category/%e8%b3%87%e6%96%99%e5%ba%ab/mysql/"
+
+  - name: Redis
+    logo: 
+    summary: "記憶體快取資料庫，用於提升應用程式效能，實現高速資料存取和 Session 管理。"
+
+  # 系統與虛擬化
+  - name: Linux
+    logo: /images/sections/skills/linux.png
+    summary: "Linux 系統管理專家，熟練進行伺服器安裝、設定、網路配置，精通指令行操作和 Shell Script 編寫，主要使用 Ubuntu 發行版。"
 
   - name: Proxmox VE
     logo: 
-    summary: "在 Proxmox VE 上進行地端虛擬機機房架設，提供虛擬化環境。"
+    summary: "虛擬化平台專家，使用 Proxmox VE 進行地端虛擬機機房架設，提供企業級虛擬化環境管理，搭配 PBS (Proxmox Backup Server) 進行備份管理。"
     url: "https://blog.clarence.tw/category/proxmox-ve/"
 
-  - name: Vue
+  # 網路與安全
+  - name: Network Management
     logo: 
-    summary: "基礎的前端網頁開發，使用 Vue.js 框架。Vue.js 提供了簡單、靈活的方式來構建使用者界面。"
+    summary: "網路設備管理專家，熟練配置 Cisco、Juniper、HP Switch，以及 Sophos、UniFi、Aruba 等設備。具備 VLAN、VPN、防火牆規則、SD-WAN 等網路技術經驗。"
+
+  - name: Network Security
+    logo: 
+    summary: "網路安全專家，配置防火牆規則、IPS/IDS、VPN (OpenVPN、L2TP)、SSL/TLS 等安全機制，確保網路環境安全性。"
+
+  # 監控與自動化
+  - name: LibreNMS
+    logo: 
+    summary: "網路監控系統專家，使用 LibreNMS 進行網路設備監控，及時發現和解決網路問題。"
+
+  - name: Ansible
+    logo: 
+    summary: "自動化配置管理工具，用於大規模伺服器部署和配置管理自動化。"
+
+  # 前端與其他工具
+  - name: Vue.js
+    logo: /images/sections/skills/vue.png
+    summary: "前端開發框架，使用 Vue.js 進行基礎的前端網頁開發，構建現代化使用者界面。"
     url: "https://vuejs.org/"
 
-  - name: WordPress
+  - name: Nginx
     logo: 
-    summary: "進行 WordPress 的部署和維護，用於博客或網站建設。"
+    summary: "Web 伺服器和反向代理伺服器配置與管理，用於負載平衡和高效能 Web 服務部署。"

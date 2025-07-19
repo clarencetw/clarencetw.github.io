@@ -11,64 +11,126 @@ section:
 # Your Skills.
 # Give a summary of you each skill in the summary section.
 skills:
-  - name: Cloud Architecture
-    logo: /images/sections/skills/cloud.png
-    summary: "Cloud service architecture includes AWS, GCP, Azure, DigitalOcean, Linode etc."
-
+  # Core Cloud Skills
   - name: AWS
     logo: /images/sections/skills/cloud.png
-    summary: "Use AWS cloud service packages like EC2, S3, RDS, Lambda, VPC, ECS, ECR, Fargate etc."
+    summary: "Extensive use of AWS cloud services including EC2, RDS, Lambda, Route 53, ElastiCache, IAM, CloudWatch, ECR, ECS, ALB/ELB, VPC, CloudFormation, Auto Scaling, Certificate Manager, WAF, EBS, S3, Fargate, AppRunner, API Gateway, CloudFront and complete service ecosystem."
+    url: "https://aws.amazon.com/"
 
-  - name: Docker
-    logo: /images/sections/skills/docker.svg
-    summary: "Compose Docker containerization, including recompile and container security."
-    url: "https://www.docker.com/"
+  - name: AWS CDK
+    logo: /images/sections/skills/cloud.png
+    summary: "Infrastructure as Code (IaC) expert, author of [AWS CDK Complete Learning Guide](https://www.tenlong.com.tw/products/9789864349203), using TypeScript/Python for cloud infrastructure automation management."
+    url: "https://aws.amazon.com/cdk/"
 
-  - name: Linux
-    logo: /images/sections/skills/linux.png
-    summary: "OS maintenance and use no-gui linux.  write shell scripting."
+  - name: GCP
+    logo: /images/sections/skills/cloud.png
+    summary: "Using Google Cloud Platform services including VM, CDN, Load Balancer, MySQL for cloud architecture deployment."
 
-  - name: Git
-    logo: /images/sections/skills/git.png
-    summary: "Software version control using GitHub and GitLab."
-    url: "https://git-scm.com/"
+  - name: Azure
+    logo: /images/sections/skills/cloud.png
+    summary: "Using Azure Virtual Machines (VM) for cloud architecture deployment."
 
-  - name: CI/CD
-    logo:
-    summary: "Compose GitHub or GitLab automated deployments."
-    url: "https://dev.to/"
-
+  # Programming Languages
   - name: Node.js
     logo: /images/sections/skills/nodejs.png
-    summary: "Develop server software, web applications, and desktop applications with Node.js"
+    summary: "Primary backend development language, developing server-side applications, API services, and web applications with Node.js. Provides non-blocking, event-driven programming environment."
     url: "https://nodejs.org/"
 
   - name: Go
     logo: /images/sections/skills/go.png
-    summary: "Web application development and server software development."
+    summary: "High-performance web application and server software development using Go language, particularly suitable for concurrent processing and microservice architecture."
     url: "https://go.dev/"
 
   - name: Python
     logo: /images/sections/skills/python.jpeg
-    summary: "API program development and automated script program development."
+    summary: "Primarily used for LLM development, automated script development, and AI-related application development."
     url: "https://www.python.org/"
-
-  - name: Vue
-    logo: /images/sections/skills/vue.png
-    summary: "Basic front-end web development"
-    url: "https://vuejs.org/"
 
   - name: PHP
     logo: /images/sections/skills/php.png
-    summary: "Develop API applications and backend websites using PHP."
+    summary: "Developing API applications and backend websites using PHP, suitable for dynamic content generation and web application development."
     url: "https://www.php.net/"
+
+  # DevOps & Containerization
+  - name: Docker
+    logo: /images/sections/skills/docker.svg
+    summary: "Containerization expert, creating Docker containerization solutions, packaging applications and dependencies into portable containers, ensuring cross-environment consistency and efficient deployment."
+    url: "https://www.docker.com/"
+
+  - name: CI/CD
+    logo: /images/sections/skills/ci-cd.png
+    summary: "Proficient in GitLab CI/CD and GitHub Actions, creating automated continuous integration and deployment processes, including automated testing (Jest), code quality checks, and deployment automation."
+
+  - name: Git
+    logo: /images/sections/skills/git.png
+    summary: "Version control expert, using Git for team collaboration development, proficient with GitHub and GitLab platforms, effectively tracking and managing code changes."
+    url: "https://git-scm.com/"
+
+  # AI & Machine Learning
+  - name: Large Language Models (LLM)
+    logo: 
+    summary: "Specialized in LLM control and development since 2022, primarily focused on text summarization applications, including model integration, optimization, and application development. Using Ollama for local model deployment."
+
+  - name: OpenAI API
+    logo: 
+    summary: "Deep integration of OpenAI API for developing innovative AI-driven solutions and applications, particularly specialized in text processing and summarization functions."
+
+  - name: Kaldi & Whisper
+    logo: 
+    summary: "Speech recognition and processing technology expert, integrating AI models like Kaldi and Whisper to provide enterprise-level voice solutions."
+
+  - name: GPU Computing
+    logo: 
+    summary: "Long-term management and optimization of GPU servers to support AI model training and inference requirements, with GPU cluster management experience."
+
+  # Databases
+  - name: PostgreSQL
+    logo: /images/sections/skills/postgresql.png
+    summary: "Database design and management using PostgreSQL, including CRUD operations and performance optimization, providing reliable data storage services for API applications."
+    url: "https://www.postgresql.org/"
 
   - name: MySQL
     logo: /images/sections/skills/mysql.png
-    summary: "API website usage database"
+    summary: "MySQL database management and optimization, providing efficient data storage and retrieval services for API websites and applications."
     url: "https://www.mysql.com/"
 
-  - name: PostgreSQL
-    logo: /images/sections/skills/postgresql.png
-    summary: "API website usage database"
-    url: "https://www.postgresql.org/"
+  - name: Redis
+    logo: 
+    summary: "In-memory cache database for improving application performance, implementing high-speed data access and session management."
+
+  # System & Virtualization
+  - name: Linux
+    logo: /images/sections/skills/linux.png
+    summary: "Linux system administration expert, proficient in server installation, configuration, network setup, command-line operations, and Shell Script development, primarily using Ubuntu distribution."
+
+  - name: Proxmox VE
+    logo: 
+    summary: "Virtualization platform expert, using Proxmox VE for on-premises virtual machine data center setup, providing enterprise-level virtualization environment management, with PBS (Proxmox Backup Server) for backup management."
+
+  # Network & Security
+  - name: Network Management
+    logo: 
+    summary: "Network equipment management expert, proficient in configuring Cisco, Juniper, HP Switch, as well as Sophos, UniFi, Aruba equipment. Experienced with VLAN, VPN, firewall rules, SD-WAN technologies."
+
+  - name: Network Security
+    logo: 
+    summary: "Network security expert, configuring firewall rules, IPS/IDS, VPN (OpenVPN, L2TP), SSL/TLS security mechanisms to ensure network environment security."
+
+  # Monitoring & Automation
+  - name: LibreNMS
+    logo: 
+    summary: "Network monitoring system expert, using LibreNMS for network equipment monitoring, timely detection and resolution of network issues."
+
+  - name: Ansible
+    logo: 
+    summary: "Automated configuration management tool for large-scale server deployment and configuration management automation."
+
+  # Frontend & Other Tools
+  - name: Vue.js
+    logo: /images/sections/skills/vue.png
+    summary: "Frontend development framework, using Vue.js for basic frontend web development, building modern user interfaces."
+    url: "https://vuejs.org/"
+
+  - name: Nginx
+    logo: 
+    summary: "Web server and reverse proxy server configuration and management for load balancing and high-performance web service deployment."

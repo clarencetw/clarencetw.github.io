@@ -8,7 +8,7 @@ section:
   template: sections/about.html
 
 # your designation
-designation: Backend Developer
+designation: Senior Backend Developer / LLM Engineer
 # your company information
 company:
   name: BRONCI TECHNOLOGY INC.
@@ -18,7 +18,13 @@ company:
 #resume: "files/resume.pdf"
 
 # a summary about you
-summary: "Engaged in website back-end development, DevOps, Linux operating system, cloud system architecture design and cloud system security. Run a personal blog, willing to share technical knowledge, and write articles about the problems encountered in the usual development process to share solutions with readers. Author of [AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）](https://www.tenlong.com.tw/products/9789864349203)。"
+summary: "Experienced professional in website backend development, DevOps, Linux operating systems, cloud system architecture design, and cloud system security. Author of [AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）](https://www.tenlong.com.tw/products/9789864349203), sharing practical insights on cloud architecture development.
+
+Currently serving as Senior Backend Developer at BRONCI Technology Inc., specializing in backend development and DevOps work. Before the company's transformation, my core responsibilities included cloud software development, cloud architecture design, and system automation deployment.
+
+Since 2022, with the company's AI transformation, my role has expanded to include Large Language Model (LLM) control and related feature development, as well as multiple on-premises data center management and office wired and wireless network planning. I now primarily work with Kaldi, Whisper, and various LLM applications, gaining extensive experience with GPU systems. While continuing my original backend development and DevOps work, I also handle infrastructure procurement planning for the company.
+
+I maintain a personal blog where I share technical knowledge and solutions to development challenges, providing practical technical references for readers."
 
 # You can put custom buttons to link your relevant resources.
 # For example, you can put link for your resume.

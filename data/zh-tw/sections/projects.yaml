@@ -18,12 +18,16 @@ buttons:
     filter: "cdk"
   - name: Constructs
     filter: "construct"
+  - name: AI/LLM
+    filter: "ai"
   - name: LINE
     filter: "line"
   - name: Hugo
     filter: "hugo"
   - name: Node.js
     filter: "nodejs"
+  - name: Network
+    filter: "network"
 
 # your projects
 projects:
@@ -101,3 +105,22 @@ projects:
     #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
     summary: The LINE Messaging API SDK for PHP makes it easy to develop bots using LINE Messaging API, and you can create a sample bot within minutes..
     tags: ["line"]
+
+  # 建議新增的 AI/LLM 專案
+  - name: LLM Text Summarization System
+    role: Owner
+    timeline: "2022 - Present"
+    summary: "企業級文本摘要系統，整合多種 LLM 模型，支援批量處理和 API 服務。使用 Ollama 進行本地模型部署，提供高效的文本摘要功能。"
+    tags: ["ai", "llm", "python", "ollama"]
+
+  - name: GPU Cluster Management Platform
+    role: Owner  
+    timeline: "2022 - Present"
+    summary: "GPU 叢集管理平台，提供 GPU 資源監控、任務調度和效能優化功能。支援多種 AI 框架，簡化 GPU 伺服器管理流程。"
+    tags: ["ai", "gpu", "monitoring", "nodejs"]
+
+  - name: Enterprise Network Automation
+    role: Owner
+    timeline: "2020 - Present" 
+    summary: "企業網路自動化管理系統，支援多品牌網路設備配置、監控和故障排除。整合 LibreNMS 和 Ansible，提供統一的網路管理介面。"
+    tags: ["network", "automation", "ansible", "monitoring"]

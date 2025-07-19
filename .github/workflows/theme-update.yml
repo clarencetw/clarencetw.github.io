@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: master
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -47,6 +47,6 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          base: main
+          base: master
           title: Update theme
           labels: automerge

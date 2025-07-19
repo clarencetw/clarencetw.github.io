@@ -16,7 +16,7 @@ experiences:
       location: Taipei
       overview: Cloud software development, cloud architecture, and system automation deployment, covering various advanced technologies applied across multiple business areas.
     positions:
-      - designation: Senior Backend Developer
+      - designation: Senior Backend Developer / LLM Engineer
         start: 11 2020
         responsibilities:
           - Backend development using Node.js, Python, Go, C/C++, Shell Script, Java, PostgreSQL, MySQL, Docker to build high-performance backend applications.
@@ -47,6 +47,10 @@ experiences:
           - Led the cloud integration for Japan's IoT smart home voice command services.
           - Cloud service integration for Taiwan's home appliance voice control solution.
           - OpenAI API integration and development for innovative AI-driven applications.
+          - Large Language Model (LLM) control and development - Specialized in LLM control technologies since 2022, developing various language model-related features and applications.
+          - AI model integration and optimization - Integrated AI models including Kaldi and Whisper for speech recognition and processing solutions.
+          - GPU system management and optimization - Long-term management and optimization of GPU servers to support AI model training and inference requirements.
+          - Infrastructure procurement planning - Responsible for evaluating and planning procurement of company hardware, network equipment, servers, and other infrastructure.
 
   - company:
       name: CyberCube - Taipei Office

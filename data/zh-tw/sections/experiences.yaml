@@ -16,7 +16,7 @@ experiences:
       location: Taipei
       overview: 雲端軟體開發、雲端架構與系統自動化部署，涵蓋多種專業技術，並應用於不同業務領域
     positions:
-      - designation: Senior Backend Developer
+      - designation: Senior Backend Developer / LLM Engineer
         start: 11 2020
         # end: May 2017
         responsibilities:
@@ -48,6 +48,10 @@ experiences:
           - 日本 IOT 智慧家庭方案 - 負責日本 IOT 智慧家庭語音指令服務的雲端整合
           - 台灣家電語音控制家電方案 - 整合雲端服務，開發家電語音控制解決方案
           - OpenAI 相關 API 開發與應用 - 深入整合 OpenAI API，開發基於 AI 的創新解決方案
+          - 大型語言模型（LLM）控制與開發 - 自 2022 年起專精於 LLM 控制技術，開發各種語言模型相關功能與應用
+          - AI 模型整合與優化 - 整合 Kaldi、Whisper 等 AI 模型，提供語音識別與處理解決方案
+          - GPU 系統管理與優化 - 長期管理和優化 GPU 伺服器，支援 AI 模型訓練與推理需求
+          - 基礎設施採購規劃 - 負責公司硬體設備、網路設備、伺服器等基礎設施的採購評估與規劃
 
   - company:
       name: 閃動格子 - 台北辦公室

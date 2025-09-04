@@ -1,250 +1,250 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Administration on Clarence</title><link>https://clarence.tw/notes/system/</link><description>Recent content in System Administration on Clarence</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><atom:link href="https://clarence.tw/notes/system/index.xml" rel="self" type="application/rss+xml"/><item><title>套件管理指令</title><link>https://clarence.tw/notes/system/package-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/system/package-management/</guid><description>&lt;!-- Homebrew 安裝與使用 -->
-&lt;div class="note-card ">
-&lt;div class="item">
-&lt;h5 class="note-title">&lt;span>Homebrew (macOS)&lt;/span>&lt;/h5>
-&lt;div class="card">
-&lt;div class="card-body">&lt;p>&lt;strong>安裝 Homebrew：&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安裝 Homebrew&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/bin/bash -c &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定環境變數 (Apple Silicon Mac)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#39;eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34;&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.zshrc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>source ~/.zshrc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 設定環境變數 (Intel Mac)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#39;eval &amp;#34;$(/usr/local/bin/brew shellenv)&amp;#34;&amp;#39;&lt;/span> &amp;gt;&amp;gt; ~/.zshrc
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>source ~/.zshrc
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>常用指令：&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安裝套件&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install node
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install docker
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install hugo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 安裝 GUI 應用程式&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install --cask visual-studio-code
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install --cask docker
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew install --cask google-chrome
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 更新套件&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew update &lt;span style="color:#75715e"># 更新 Homebrew 本身&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew upgrade &lt;span style="color:#75715e"># 更新所有套件&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew upgrade git &lt;span style="color:#75715e"># 更新特定套件&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 搜尋套件&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew search nginx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew search --cask chrome
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看已安裝套件&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew list
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew list --cask
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移除套件&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew uninstall git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew uninstall --cask docker
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 清理舊版本&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew cleanup
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew cleanup git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看套件資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew info git
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>brew deps git &lt;span style="color:#75715e"># 查看相依性&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;!-- APT 套件管理 (Ubuntu/Debian) -->
-&lt;div class="note-card ">
-&lt;div class="item">
-&lt;h5 class="note-title">&lt;span>APT (Ubuntu/Debian)&lt;/span>&lt;/h5>
-&lt;div class="card">
-&lt;div class="card-body">&lt;p>&lt;strong>更新套件清單：&lt;/strong>&lt;/p></description></item><item><title>系統管理指令</title><link>https://clarence.tw/notes/system/system-commands/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/system/system-commands/</guid><description>&lt;!-- 系統資訊查詢 -->
-&lt;div class="note-card ">
-&lt;div class="item">
-&lt;h5 class="note-title">&lt;span>系統資訊查詢&lt;/span>&lt;/h5>
-&lt;div class="card">
-&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看系統資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uname -a &lt;span style="color:#75715e"># 完整系統資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>uname -r &lt;span style="color:#75715e"># 核心版本&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lsb_release -a &lt;span style="color:#75715e"># 發行版資訊 (Ubuntu/Debian)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /etc/os-release &lt;span style="color:#75715e"># 系統版本資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看硬體資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lscpu &lt;span style="color:#75715e"># CPU 資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>free -h &lt;span style="color:#75715e"># 記憶體使用情況&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>df -h &lt;span style="color:#75715e"># 磁碟使用情況&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lsblk &lt;span style="color:#75715e"># 區塊設備資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lsusb &lt;span style="color:#75715e"># USB 設備&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lspci &lt;span style="color:#75715e"># PCI 設備&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看網路資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ip addr show &lt;span style="color:#75715e"># 網路介面資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ip route show &lt;span style="color:#75715e"># 路由表&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>netstat -tuln &lt;span style="color:#75715e"># 網路連線狀態&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ss -tuln &lt;span style="color:#75715e"># 現代版 netstat&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看程序資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ps aux &lt;span style="color:#75715e"># 所有程序&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>top &lt;span style="color:#75715e"># 即時程序監控&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>htop &lt;span style="color:#75715e"># 更好的 top (需安裝)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>pgrep nginx &lt;span style="color:#75715e"># 尋找特定程序&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;!-- 檔案與目錄操作 -->
-&lt;div class="note-card ">
-&lt;div class="item">
-&lt;h5 class="note-title">&lt;span>檔案與目錄操作&lt;/span>&lt;/h5>
-&lt;div class="card">
-&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 檔案操作&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ls -la &lt;span style="color:#75715e"># 詳細列出檔案&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>find /path -name &lt;span style="color:#e6db74">&amp;#34;*.log&amp;#34;&lt;/span> &lt;span style="color:#75715e"># 尋找檔案&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>locate filename &lt;span style="color:#75715e"># 快速尋找檔案 (需 updatedb)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>which command &lt;span style="color:#75715e"># 尋找指令位置&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>whereis command &lt;span style="color:#75715e"># 尋找指令、手冊等&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 檔案權限&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chmod &lt;span style="color:#ae81ff">755&lt;/span> file &lt;span style="color:#75715e"># 設定檔案權限&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chmod +x script.sh &lt;span style="color:#75715e"># 加入執行權限&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chown user:group file &lt;span style="color:#75715e"># 變更擁有者&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chgrp group file &lt;span style="color:#75715e"># 變更群組&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 檔案內容&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat file.txt &lt;span style="color:#75715e"># 顯示檔案內容&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>less file.txt &lt;span style="color:#75715e"># 分頁顯示&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>head -n &lt;span style="color:#ae81ff">10&lt;/span> file.txt &lt;span style="color:#75715e"># 顯示前 10 行&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tail -f /var/log/syslog &lt;span style="color:#75715e"># 即時顯示檔案末尾&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>grep &lt;span style="color:#e6db74">&amp;#34;error&amp;#34;&lt;/span> file.txt &lt;span style="color:#75715e"># 搜尋文字&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 壓縮與解壓縮&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -czf archive.tar.gz folder/ &lt;span style="color:#75715e"># 壓縮&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tar -xzf archive.tar.gz &lt;span style="color:#75715e"># 解壓縮&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>zip -r archive.zip folder/ &lt;span style="color:#75715e"># ZIP 壓縮&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip archive.zip &lt;span style="color:#75715e"># ZIP 解壓縮&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;!-- 服務管理 (systemd) -->
-&lt;div class="note-card ">
-&lt;div class="item">
-&lt;h5 class="note-title">&lt;span>服務管理 (systemd)&lt;/span>&lt;/h5>
-&lt;div class="card">
-&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 服務狀態&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl status nginx &lt;span style="color:#75715e"># 查看服務狀態&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl is-active nginx &lt;span style="color:#75715e"># 檢查是否運行&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl is-enabled nginx &lt;span style="color:#75715e"># 檢查是否開機啟動&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 服務控制&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl start nginx &lt;span style="color:#75715e"># 啟動服務&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl stop nginx &lt;span style="color:#75715e"># 停止服務&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl restart nginx &lt;span style="color:#75715e"># 重啟服務&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl reload nginx &lt;span style="color:#75715e"># 重新載入設定&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 開機啟動&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable nginx &lt;span style="color:#75715e"># 設定開機啟動&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl disable nginx &lt;span style="color:#75715e"># 取消開機啟動&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看日誌&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo journalctl -u nginx &lt;span style="color:#75715e"># 查看服務日誌&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo journalctl -u nginx -f &lt;span style="color:#75715e"># 即時查看日誌&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo journalctl -u nginx --since &lt;span style="color:#e6db74">&amp;#34;1 hour ago&amp;#34;&lt;/span> &lt;span style="color:#75715e"># 查看最近一小時日誌&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 列出服務&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl list-units --type&lt;span style="color:#f92672">=&lt;/span>service &lt;span style="color:#75715e"># 所有服務&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl list-units --type&lt;span style="color:#f92672">=&lt;/span>service --state&lt;span style="color:#f92672">=&lt;/span>running &lt;span style="color:#75715e"># 運行中服務&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>systemctl list-unit-files --type&lt;span style="color:#f92672">=&lt;/span>service &lt;span style="color:#75715e"># 所有服務檔案&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;!-- 網路工具 -->
-&lt;div class="note-card ">
-&lt;div class="item">
-&lt;h5 class="note-title">&lt;span>網路診斷工具&lt;/span>&lt;/h5>
-&lt;div class="card">
-&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 連線測試&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ping google.com &lt;span style="color:#75715e"># 測試連線&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ping -c &lt;span style="color:#ae81ff">4&lt;/span> 8.8.8.8 &lt;span style="color:#75715e"># 發送 4 個封包&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 路由追蹤&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>traceroute google.com &lt;span style="color:#75715e"># 追蹤路由&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mtr google.com &lt;span style="color:#75715e"># 持續追蹤 (需安裝)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 埠掃描&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nmap localhost &lt;span style="color:#75715e"># 掃描本機埠&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nmap -p 80,443 example.com &lt;span style="color:#75715e"># 掃描特定埠&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 網路連線&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>netstat -tuln &lt;span style="color:#75715e"># 查看監聽埠&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ss -tuln &lt;span style="color:#75715e"># 現代版 netstat&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>lsof -i :80 &lt;span style="color:#75715e"># 查看使用特定埠的程序&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下載工具&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://example.com/file.zip &lt;span style="color:#75715e"># 下載檔案&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -O https://example.com/file.zip &lt;span style="color:#75715e"># 使用 curl 下載&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl -I https://example.com &lt;span style="color:#75715e"># 只取得 HTTP 標頭&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;!-- 效能監控 -->
-&lt;div class="note-card ">
-&lt;div class="item">
-&lt;h5 class="note-title">&lt;span>效能監控&lt;/span>&lt;/h5>
-&lt;div class="card">
-&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># CPU 監控&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>top &lt;span style="color:#75715e"># 基本監控&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>htop &lt;span style="color:#75715e"># 進階監控 (需安裝)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>iotop &lt;span style="color:#75715e"># I/O 監控 (需安裝)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>vmstat &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e"># 虛擬記憶體統計&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 記憶體監控&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>free -h &lt;span style="color:#75715e"># 記憶體使用情況&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /proc/meminfo &lt;span style="color:#75715e"># 詳細記憶體資訊&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 磁碟監控&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>df -h &lt;span style="color:#75715e"># 磁碟使用情況&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>du -sh /path/* &lt;span style="color:#75715e"># 目錄大小&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>iostat &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#75715e"># I/O 統計 (需安裝 sysstat)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 網路監控&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>iftop &lt;span style="color:#75715e"># 網路流量監控 (需安裝)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nethogs &lt;span style="color:#75715e"># 按程序顯示網路使用 (需安裝)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;!-- 定時任務 -->
-&lt;div class="note-card ">
-&lt;div class="item">
-&lt;h5 class="note-title">&lt;span>定時任務 (Cron)&lt;/span>&lt;/h5>
-&lt;div class="card">
-&lt;div class="card-body">&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 編輯 crontab&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>crontab -e &lt;span style="color:#75715e"># 編輯當前使用者的 crontab&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo crontab -e &lt;span style="color:#75715e"># 編輯 root 的 crontab&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看 crontab&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>crontab -l &lt;span style="color:#75715e"># 列出當前使用者的 crontab&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo crontab -l &lt;span style="color:#75715e"># 列出 root 的 crontab&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Cron 時間格式&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 分 時 日 月 週 指令&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 0 2 * * * /path/to/script.sh&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 常用範例&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> * * * &lt;span style="color:#75715e"># 每天凌晨 2 點&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0&lt;/span> */6 * * * &lt;span style="color:#75715e"># 每 6 小時&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> * * &lt;span style="color:#75715e"># 每月 1 號&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> * * &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#75715e"># 每週日&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>*/5 * * * * &lt;span style="color:#75715e"># 每 5 分鐘&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 查看 cron 日誌&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo tail -f /var/log/cron &lt;span style="color:#75715e"># CentOS/RHEL&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo tail -f /var/log/syslog &lt;span style="color:#75715e"># Ubuntu/Debian&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/div>
-&lt;/div>
-&lt;/div>
-&lt;/div></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Administration on Clarence</title><link>https://clarence.tw/notes/system/</link><description>Recent content in System Administration on Clarence</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><atom:link href="https://clarence.tw/notes/system/index.xml" rel="self" type="application/rss+xml"/><item><title>套件管理指令</title><link>https://clarence.tw/notes/system/package-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/system/package-management/</guid><description>&lt;!-- Homebrew 安裝與使用 --&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;Homebrew (macOS)&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;安裝 Homebrew：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安裝 Homebrew&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/bin/bash -c &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span style="color:#66d9ef"&gt;)&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 設定環境變數 (Apple Silicon Mac)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#39;eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;source ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 設定環境變數 (Intel Mac)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#e6db74"&gt;&amp;#39;eval &amp;#34;$(/usr/local/bin/brew shellenv)&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;source ~/.zshrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;常用指令：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安裝套件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install node
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install docker
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安裝 GUI 應用程式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install --cask visual-studio-code
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install --cask docker
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install --cask google-chrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 更新套件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew update &lt;span style="color:#75715e"&gt;# 更新 Homebrew 本身&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew upgrade &lt;span style="color:#75715e"&gt;# 更新所有套件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew upgrade git &lt;span style="color:#75715e"&gt;# 更新特定套件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 搜尋套件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew search nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew search --cask chrome
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看已安裝套件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew list --cask
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 移除套件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew uninstall git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew uninstall --cask docker
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 清理舊版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew cleanup
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew cleanup git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看套件資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew info git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew deps git &lt;span style="color:#75715e"&gt;# 查看相依性&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- APT 套件管理 (Ubuntu/Debian) --&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;APT (Ubuntu/Debian)&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;更新套件清單：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>系統管理指令</title><link>https://clarence.tw/notes/system/system-commands/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/system/system-commands/</guid><description>&lt;!-- 系統資訊查詢 --&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;系統資訊查詢&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看系統資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uname -a &lt;span style="color:#75715e"&gt;# 完整系統資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uname -r &lt;span style="color:#75715e"&gt;# 核心版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsb_release -a &lt;span style="color:#75715e"&gt;# 發行版資訊 (Ubuntu/Debian)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat /etc/os-release &lt;span style="color:#75715e"&gt;# 系統版本資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看硬體資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lscpu &lt;span style="color:#75715e"&gt;# CPU 資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;free -h &lt;span style="color:#75715e"&gt;# 記憶體使用情況&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df -h &lt;span style="color:#75715e"&gt;# 磁碟使用情況&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsblk &lt;span style="color:#75715e"&gt;# 區塊設備資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsusb &lt;span style="color:#75715e"&gt;# USB 設備&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lspci &lt;span style="color:#75715e"&gt;# PCI 設備&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看網路資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip addr show &lt;span style="color:#75715e"&gt;# 網路介面資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip route show &lt;span style="color:#75715e"&gt;# 路由表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;netstat -tuln &lt;span style="color:#75715e"&gt;# 網路連線狀態&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ss -tuln &lt;span style="color:#75715e"&gt;# 現代版 netstat&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看程序資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ps aux &lt;span style="color:#75715e"&gt;# 所有程序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;top &lt;span style="color:#75715e"&gt;# 即時程序監控&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;htop &lt;span style="color:#75715e"&gt;# 更好的 top (需安裝)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pgrep nginx &lt;span style="color:#75715e"&gt;# 尋找特定程序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 檔案與目錄操作 --&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;檔案與目錄操作&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 檔案操作&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls -la &lt;span style="color:#75715e"&gt;# 詳細列出檔案&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;find /path -name &lt;span style="color:#e6db74"&gt;&amp;#34;*.log&amp;#34;&lt;/span&gt; &lt;span style="color:#75715e"&gt;# 尋找檔案&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;locate filename &lt;span style="color:#75715e"&gt;# 快速尋找檔案 (需 updatedb)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;which command &lt;span style="color:#75715e"&gt;# 尋找指令位置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;whereis command &lt;span style="color:#75715e"&gt;# 尋找指令、手冊等&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 檔案權限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chmod &lt;span style="color:#ae81ff"&gt;755&lt;/span&gt; file &lt;span style="color:#75715e"&gt;# 設定檔案權限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chmod +x script.sh &lt;span style="color:#75715e"&gt;# 加入執行權限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chown user:group file &lt;span style="color:#75715e"&gt;# 變更擁有者&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;chgrp group file &lt;span style="color:#75715e"&gt;# 變更群組&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 檔案內容&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat file.txt &lt;span style="color:#75715e"&gt;# 顯示檔案內容&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;less file.txt &lt;span style="color:#75715e"&gt;# 分頁顯示&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;head -n &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; file.txt &lt;span style="color:#75715e"&gt;# 顯示前 10 行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tail -f /var/log/syslog &lt;span style="color:#75715e"&gt;# 即時顯示檔案末尾&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grep &lt;span style="color:#e6db74"&gt;&amp;#34;error&amp;#34;&lt;/span&gt; file.txt &lt;span style="color:#75715e"&gt;# 搜尋文字&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 壓縮與解壓縮&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -czf archive.tar.gz folder/ &lt;span style="color:#75715e"&gt;# 壓縮&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -xzf archive.tar.gz &lt;span style="color:#75715e"&gt;# 解壓縮&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zip -r archive.zip folder/ &lt;span style="color:#75715e"&gt;# ZIP 壓縮&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unzip archive.zip &lt;span style="color:#75715e"&gt;# ZIP 解壓縮&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 服務管理 (systemd) --&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;服務管理 (systemd)&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 服務狀態&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl status nginx &lt;span style="color:#75715e"&gt;# 查看服務狀態&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl is-active nginx &lt;span style="color:#75715e"&gt;# 檢查是否運行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl is-enabled nginx &lt;span style="color:#75715e"&gt;# 檢查是否開機啟動&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 服務控制&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl start nginx &lt;span style="color:#75715e"&gt;# 啟動服務&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl stop nginx &lt;span style="color:#75715e"&gt;# 停止服務&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl restart nginx &lt;span style="color:#75715e"&gt;# 重啟服務&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl reload nginx &lt;span style="color:#75715e"&gt;# 重新載入設定&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 開機啟動&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl enable nginx &lt;span style="color:#75715e"&gt;# 設定開機啟動&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl disable nginx &lt;span style="color:#75715e"&gt;# 取消開機啟動&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看日誌&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo journalctl -u nginx &lt;span style="color:#75715e"&gt;# 查看服務日誌&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo journalctl -u nginx -f &lt;span style="color:#75715e"&gt;# 即時查看日誌&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo journalctl -u nginx --since &lt;span style="color:#e6db74"&gt;&amp;#34;1 hour ago&amp;#34;&lt;/span&gt; &lt;span style="color:#75715e"&gt;# 查看最近一小時日誌&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 列出服務&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl list-units --type&lt;span style="color:#f92672"&gt;=&lt;/span&gt;service &lt;span style="color:#75715e"&gt;# 所有服務&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl list-units --type&lt;span style="color:#f92672"&gt;=&lt;/span&gt;service --state&lt;span style="color:#f92672"&gt;=&lt;/span&gt;running &lt;span style="color:#75715e"&gt;# 運行中服務&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl list-unit-files --type&lt;span style="color:#f92672"&gt;=&lt;/span&gt;service &lt;span style="color:#75715e"&gt;# 所有服務檔案&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 網路工具 --&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;網路診斷工具&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 連線測試&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ping google.com &lt;span style="color:#75715e"&gt;# 測試連線&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ping -c &lt;span style="color:#ae81ff"&gt;4&lt;/span&gt; 8.8.8.8 &lt;span style="color:#75715e"&gt;# 發送 4 個封包&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 路由追蹤&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;traceroute google.com &lt;span style="color:#75715e"&gt;# 追蹤路由&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mtr google.com &lt;span style="color:#75715e"&gt;# 持續追蹤 (需安裝)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 埠掃描&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap localhost &lt;span style="color:#75715e"&gt;# 掃描本機埠&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -p 80,443 example.com &lt;span style="color:#75715e"&gt;# 掃描特定埠&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 網路連線&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;netstat -tuln &lt;span style="color:#75715e"&gt;# 查看監聽埠&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ss -tuln &lt;span style="color:#75715e"&gt;# 現代版 netstat&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsof -i :80 &lt;span style="color:#75715e"&gt;# 查看使用特定埠的程序&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 下載工具&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://example.com/file.zip &lt;span style="color:#75715e"&gt;# 下載檔案&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -O https://example.com/file.zip &lt;span style="color:#75715e"&gt;# 使用 curl 下載&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -I https://example.com &lt;span style="color:#75715e"&gt;# 只取得 HTTP 標頭&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 效能監控 --&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;效能監控&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# CPU 監控&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;top &lt;span style="color:#75715e"&gt;# 基本監控&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;htop &lt;span style="color:#75715e"&gt;# 進階監控 (需安裝)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iotop &lt;span style="color:#75715e"&gt;# I/O 監控 (需安裝)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vmstat &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#75715e"&gt;# 虛擬記憶體統計&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 記憶體監控&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;free -h &lt;span style="color:#75715e"&gt;# 記憶體使用情況&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat /proc/meminfo &lt;span style="color:#75715e"&gt;# 詳細記憶體資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 磁碟監控&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df -h &lt;span style="color:#75715e"&gt;# 磁碟使用情況&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;du -sh /path/* &lt;span style="color:#75715e"&gt;# 目錄大小&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iostat &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#75715e"&gt;# I/O 統計 (需安裝 sysstat)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 網路監控&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iftop &lt;span style="color:#75715e"&gt;# 網路流量監控 (需安裝)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nethogs &lt;span style="color:#75715e"&gt;# 按程序顯示網路使用 (需安裝)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 定時任務 --&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;定時任務 (Cron)&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 編輯 crontab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crontab -e &lt;span style="color:#75715e"&gt;# 編輯當前使用者的 crontab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo crontab -e &lt;span style="color:#75715e"&gt;# 編輯 root 的 crontab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看 crontab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crontab -l &lt;span style="color:#75715e"&gt;# 列出當前使用者的 crontab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo crontab -l &lt;span style="color:#75715e"&gt;# 列出 root 的 crontab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Cron 時間格式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 分 時 日 月 週 指令&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 0 2 * * * /path/to/script.sh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 常用範例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; * * * &lt;span style="color:#75715e"&gt;# 每天凌晨 2 點&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; */6 * * * &lt;span style="color:#75715e"&gt;# 每 6 小時&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; * * &lt;span style="color:#75715e"&gt;# 每月 1 號&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; * * &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;# 每週日&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;*/5 * * * * &lt;span style="color:#75715e"&gt;# 每 5 分鐘&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看 cron 日誌&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo tail -f /var/log/cron &lt;span style="color:#75715e"&gt;# CentOS/RHEL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo tail -f /var/log/syslog &lt;span style="color:#75715e"&gt;# Ubuntu/Debian&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>

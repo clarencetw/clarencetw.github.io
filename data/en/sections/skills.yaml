@@ -25,10 +25,12 @@ skills:
   - name: GCP
     logo: /images/sections/skills/cloud.png
     summary: "Using Google Cloud Platform services including VM, CDN, Load Balancer, MySQL for cloud architecture deployment."
+    url: "https://cloud.google.com/"
 
   - name: Azure
     logo: /images/sections/skills/cloud.png
     summary: "Using Azure Virtual Machines (VM) for cloud architecture deployment."
+    url: "https://azure.microsoft.com/"
 
   # Programming Languages
   - name: Node.js
@@ -60,6 +62,7 @@ skills:
   - name: CI/CD
     logo: /images/sections/skills/ci-cd.png
     summary: "Proficient in GitLab CI/CD and GitHub Actions, creating automated continuous integration and deployment processes, including automated testing (Jest), code quality checks, and deployment automation."
+    url: "https://docs.github.com/en/actions"
 
   - name: Git
     logo: /images/sections/skills/git.png
@@ -68,20 +71,24 @@ skills:
 
   # AI & Machine Learning
   - name: Large Language Models (LLM)
-    logo: 
+    logo: /images/sections/skills/llm.svg
     summary: "Specialized in LLM control and development since 2022, primarily focused on text summarization applications, including model integration, optimization, and application development. Using Ollama for local model deployment."
+    url: "https://ollama.com/"
 
   - name: OpenAI API
-    logo: 
+    logo: /images/sections/skills/openai.svg
     summary: "Deep integration of OpenAI API for developing innovative AI-driven solutions and applications, particularly specialized in text processing and summarization functions."
+    url: "https://platform.openai.com/"
 
   - name: Kaldi & Whisper
-    logo: 
+    logo: /images/sections/skills/whisper.svg
     summary: "Speech recognition and processing technology expert, integrating AI models like Kaldi and Whisper to provide enterprise-level voice solutions."
+    url: "https://github.com/openai/whisper"
 
   - name: GPU Computing
-    logo: 
-    summary: "Long-term management and optimization of GPU servers to support AI model training and inference requirements, with GPU cluster management experience."
+    logo: /images/sections/skills/nvidia.svg
+    summary: "NVIDIA GPU server deployment and management, supporting AI model training and inference. Experienced in CUDA environment configuration."
+    url: "https://developer.nvidia.com/cuda-toolkit"
 
   # Databases
   - name: PostgreSQL
@@ -95,35 +102,40 @@ skills:
     url: "https://www.mysql.com/"
 
   - name: Redis
-    logo: 
+    logo: /images/sections/skills/redis.svg
     summary: "In-memory cache database for improving application performance, implementing high-speed data access and session management."
+    url: "https://redis.io/"
 
   # System & Virtualization
   - name: Linux
     logo: /images/sections/skills/linux.png
     summary: "Linux system administration expert, proficient in server installation, configuration, network setup, command-line operations, and Shell Script development, primarily using Ubuntu distribution."
+    url: "https://ubuntu.com/"
 
   - name: Proxmox VE
-    logo: 
+    logo: /images/sections/skills/proxmox.png
     summary: "Virtualization platform expert, using Proxmox VE for on-premises virtual machine data center setup, providing enterprise-level virtualization environment management, with PBS (Proxmox Backup Server) for backup management."
+    url: "https://www.proxmox.com/"
 
   # Network & Security
   - name: Network Management
-    logo: 
-    summary: "Network equipment management expert, proficient in configuring Cisco, Juniper, HP Switch, as well as Sophos, UniFi, Aruba equipment. Experienced with VLAN, VPN, firewall rules, SD-WAN technologies."
+    logo: /images/sections/skills/network.svg
+    summary: "Enterprise network equipment management expert. Switches: Cisco, Juniper, HP, Netgear, Extreme Networks. Firewalls: Sophos, Fortinet. Wireless: UniFi, Aruba. Proficient in VLAN, VPN, SD-WAN, QoS, and STP/RSTP protocols."
 
   - name: Network Security
-    logo: 
+    logo: /images/sections/skills/security.svg
     summary: "Network security expert, configuring firewall rules, IPS/IDS, VPN (OpenVPN, L2TP), SSL/TLS security mechanisms to ensure network environment security."
 
   # Monitoring & Automation
   - name: LibreNMS
-    logo: 
+    logo: /images/sections/skills/librenms.svg
     summary: "Network monitoring system expert, using LibreNMS for network equipment monitoring, timely detection and resolution of network issues."
+    url: "https://www.librenms.org/"
 
   - name: Ansible
-    logo: 
+    logo: /images/sections/skills/ansible.svg
     summary: "Automated configuration management tool for large-scale server deployment and configuration management automation."
+    url: "https://www.ansible.com/"
 
   # Frontend & Other Tools
   - name: Vue.js
@@ -132,5 +144,10 @@ skills:
     url: "https://vuejs.org/"
 
   - name: Nginx
-    logo: 
+    logo: /images/sections/skills/nginx.svg
     summary: "Web server and reverse proxy server configuration and management for load balancing and high-performance web service deployment."
+    url: "https://nginx.org/"
+
+  - name: Homelab
+    logo: /images/sections/skills/homelab.svg
+    summary: "Self-built personal lab environment for technical research, testing, and continuous learning. Includes Proxmox VE virtualization platform, NAS storage systems, and enterprise-grade network equipment to simulate real enterprise architectures for technology validation."

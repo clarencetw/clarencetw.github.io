@@ -19,38 +19,49 @@ experiences:
       - designation: Senior Backend Developer / LLM Engineer
         start: 11 2020
         responsibilities:
-          - Backend development using Node.js, Python, Go, C/C++, Shell Script, Java, PostgreSQL, MySQL, Docker to build high-performance backend applications.
-          - Cloud integration with AWS, GCP, and Azure, providing cross-platform cloud solutions.
-          - Automated deployment using GitLab CI/CD and GitHub Actions, enhancing workflow automation.
-          - Automated testing with Jest, ensuring high-quality software through test-driven development.
-          - Cloud architecture design on AWS, focusing on scalability and high availability.
-          - Infrastructure as Code (IaC) using AWS CDK for flexible infrastructure management.
-          - On-premises data center management, ensuring smooth operation of hardware facilities.
-          - Cloud data center management, optimizing cloud resources for efficient operations.
-          - Office network design and maintenance, ensuring stable and efficient internal networking.
-          - Office network planning, designing and deploying internal and external office network structures for optimal performance.
-          - Office data center planning, overseeing the setup and layout of in-office data centers for system stability and scalability.
-          - External data center planning, ensuring offsite redundancy and high availability.
-          - Server planning and cluster management using PVE (Proxmox Virtual Environment) for efficient virtualization management.
-          - Physical data center management, maintaining and managing physical infrastructure for optimal server and network operation.
-          - Physical network management with SD-WAN for distributed network performance and security enhancement.
-          - Implemented PVE Backup System (PBS) for ensuring data safety and system recovery.
-          - System monitoring with Librenms to proactively detect and address potential issues.
-          - Deployed Harbor for private container image registry, offering secure and efficient image management.
-          - GitLab deployment and setup for version control and CI/CD management, improving development efficiency.
-          - Office Wi-Fi setup with Aruba, providing secure and high-performance wireless networking.
-          - Overall network architecture design, ensuring performance and security.
-          - LDAP implementation for centralized authentication and management.
-          - GPU server planning and setup for supporting AI training and inference.
-          - Server system optimization, ensuring peak performance and stability.
-          - Led the cloud service integration for a Japanese home camera solution, providing reliable remote monitoring capabilities.
-          - Led the cloud integration for Japan's IoT smart home voice command services.
-          - Cloud service integration for Taiwan's home appliance voice control solution.
-          - OpenAI API integration and development for innovative AI-driven applications.
-          - Large Language Model (LLM) control and development - Specialized in LLM control technologies since 2022, developing various language model-related features and applications.
-          - AI model integration and optimization - Integrated AI models including Kaldi and Whisper for speech recognition and processing solutions.
-          - GPU system management and optimization - Long-term management and optimization of GPU servers to support AI model training and inference requirements.
-          - Infrastructure procurement planning - Responsible for evaluating and planning procurement of company hardware, network equipment, servers, and other infrastructure.
+          # === Software Development ===
+          - "[Software Dev] Proficient in Node.js, Python, Go, C/C++, Shell Script, Java for high-performance backend applications"
+          - "[Software Dev] Jest automated testing and test-driven development for software quality assurance"
+          - "[Software Dev] Japanese home camera cloud service integration for reliable remote monitoring"
+          - "[Software Dev] Japanese IoT smart home voice command service development"
+          - "[Software Dev] Taiwan home appliance voice control solution development"
+
+          # === AI Development ===
+          - "[AI Dev] LLM control technologies and application development (since 2022)"
+          - "[AI Dev] OpenAI API integration and AI-driven solution development"
+          - "[AI Dev] Kaldi, Whisper speech recognition model integration and optimization"
+          - "[AI Dev] GPU system management and optimization for AI model training and inference"
+
+          # === Cloud Architecture ===
+          - "[Cloud] AWS, GCP, Azure multi-platform cloud solution integration"
+          - "[Cloud] AWS architecture design for high availability and scalability"
+          - "[Cloud] AWS CDK Infrastructure as Code (IaC) automation management"
+          - "[DevOps] GitLab CI/CD and GitHub Actions continuous integration and deployment"
+
+          # === Data Center Management ===
+          - "[Data Center] On-premises, cloud, and physical data center management and hardware maintenance"
+          - "[Data Center] PVE (Proxmox VE) server cluster design and virtualization management"
+          - "[Data Center] PBS (Proxmox Backup Server) backup system deployment"
+          - "[Data Center] NVIDIA GPU server deployment, planning, and system optimization"
+          - "[Data Center] Server system tuning for high performance and stability"
+          - "[Data Center] Internal and external data center planning for disaster recovery and high availability"
+
+          # === Network Architecture ===
+          - "[Network] Overall network architecture design and planning"
+          - "[Network] SD-WAN distributed network management for enhanced performance and security"
+          - "[Network] Aruba, UniFi office Wi-Fi wireless network deployment"
+          - "[Network] Office wired network planning and optimization"
+
+          # === Monitoring & Services ===
+          - "[Monitoring] LibreNMS system monitoring and issue detection"
+          - "[Services] Harbor private container image registry deployment and management"
+          - "[Services] GitLab deployment and version control management"
+          - "[Services] LDAP centralized authentication and management"
+
+          # === Procurement Management ===
+          - "[Procurement] Server hardware procurement evaluation (Dell, HP, Supermicro)"
+          - "[Procurement] Network equipment procurement (switches, firewalls, wireless APs)"
+          - "[Procurement] Vendor management and quote comparison"
 
   - company:
       name: CyberCube - Taipei Office

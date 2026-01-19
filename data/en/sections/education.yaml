@@ -15,16 +15,18 @@ degrees:
     timeframe: 2015-2017
     institution:
       name: National Taipei University of Technology, Taipei Tech
-      url: "#"
-  - name: B.S. 
+      url: "https://www.ntut.edu.tw/"
+      logo: /images/sections/education/ntut.png
+  - name: B.S.
     icon: fa-graduation-cap
     timeframe: 2011-2015
     institution:
       name: National Taipei University of Technology, Taipei Tech
-      url: "#"
+      url: "https://www.ntut.edu.tw/"
+      logo: /images/sections/education/ntut.png
   - name: Higher Vocational (Information)
     icon: fa-university
     timeframe: 2008-2011
     institution:
       name: Xiehe Youde Senior High School
-      url: "#"
+      url: "https://www.hhvs.tp.edu.tw/"

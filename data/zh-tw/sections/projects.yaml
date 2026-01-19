@@ -113,14 +113,35 @@ projects:
     summary: "企業級文本摘要系統，整合多種 LLM 模型，支援批量處理和 API 服務。使用 Ollama 進行本地模型部署，提供高效的文本摘要功能。"
     tags: ["ai", "llm", "python", "ollama"]
 
-  - name: GPU Cluster Management Platform
-    role: Owner  
-    timeline: "2022 - Present"
-    summary: "GPU 叢集管理平台，提供 GPU 資源監控、任務調度和效能優化功能。支援多種 AI 框架，簡化 GPU 伺服器管理流程。"
-    tags: ["ai", "gpu", "monitoring", "nodejs"]
+  - name: Harbor
+    logo: /images/sections/projects/harbor.svg
+    role: Contributor
+    timeline: "2023 - Present"
+    repo: https://github.com/goharbor/harbor
+    summary: "Harbor 是 CNCF 開源的雲原生容器映像檔倉庫，提供安全掃描、存取控制、映像簽章等企業級功能。"
+    tags: ["devops", "docker", "kubernetes"]
 
-  - name: Enterprise Network Automation
-    role: Owner
-    timeline: "2020 - Present" 
-    summary: "企業網路自動化管理系統，支援多品牌網路設備配置、監控和故障排除。整合 LibreNMS 和 Ansible，提供統一的網路管理介面。"
-    tags: ["network", "automation", "ansible", "monitoring"]
+  - name: Proxmox Backup Server
+    logo: /images/sections/skills/proxmox.png
+    role: Contributor
+    timeline: "2023 - Present"
+    repo: https://github.com/proxmox/proxmox-backup
+    summary: "PBS 是 Proxmox 開源的企業級備份解決方案，支援增量備份、重複資料刪除和加密功能。"
+    tags: ["devops", "backup"]
+
+  - name: GitLab
+    logo: /images/sections/projects/gitlab.svg
+    role: Contributor
+    timeline: "2022 - Present"
+    repo: https://github.com/gitlabhq/gitlabhq
+    summary: "GitLab 是開源的 DevOps 平台，提供 Git 儲存庫管理、CI/CD、議題追蹤和程式碼審查功能。"
+    tags: ["devops", "git"]
+
+  - name: GitLab Runner
+    logo: /images/sections/projects/gitlab.svg
+    role: Contributor
+    timeline: "2022 - Present"
+    repo: https://github.com/gitlabhq/gitlab-runner
+    summary: "GitLab Runner 是 GitLab CI/CD 的執行器，負責執行 Pipeline 任務並回報結果。"
+    tags: ["devops", "ci-cd"]
+

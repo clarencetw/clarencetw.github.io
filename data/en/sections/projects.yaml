@@ -101,3 +101,35 @@ projects:
     #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
     summary: The LINE Messaging API SDK for PHP makes it easy to develop bots using LINE Messaging API, and you can create a sample bot within minutes..
     tags: ["line"]
+
+  - name: Harbor
+    logo: /images/sections/projects/harbor.svg
+    role: Contributor
+    timeline: "2023 - Present"
+    repo: https://github.com/goharbor/harbor
+    summary: "Harbor is a CNCF open source cloud native container registry with security scanning, access control, and image signing capabilities."
+    tags: ["devops", "docker", "kubernetes"]
+
+  - name: Proxmox Backup Server
+    logo: /images/sections/skills/proxmox.png
+    role: Contributor
+    timeline: "2023 - Present"
+    repo: https://github.com/proxmox/proxmox-backup
+    summary: "PBS is an open-source enterprise backup solution by Proxmox, featuring incremental backups, deduplication, and encryption."
+    tags: ["devops", "backup"]
+
+  - name: GitLab
+    logo: /images/sections/projects/gitlab.svg
+    role: Contributor
+    timeline: "2022 - Present"
+    repo: https://github.com/gitlabhq/gitlabhq
+    summary: "GitLab is an open-source DevOps platform with Git repository management, CI/CD, issue tracking, and code review features."
+    tags: ["devops", "git"]
+
+  - name: GitLab Runner
+    logo: /images/sections/projects/gitlab.svg
+    role: Contributor
+    timeline: "2022 - Present"
+    repo: https://github.com/gitlabhq/gitlab-runner
+    summary: "GitLab Runner is the CI/CD executor that runs pipeline jobs and reports results back to GitLab."
+    tags: ["devops", "ci-cd"]

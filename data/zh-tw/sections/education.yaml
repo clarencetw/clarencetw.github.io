@@ -15,16 +15,18 @@ degrees:
     timeframe: 2015-2017
     institution:
       name: 國立臺北科技大學
-      url: "#"
+      url: "https://www.ntut.edu.tw/"
+      logo: /images/sections/education/ntut.png
   - name: 學士
     icon: fa-graduation-cap
     timeframe: 2011-2015
     institution:
       name: 國立臺北科技大學
-      url: "#"
+      url: "https://www.ntut.edu.tw/"
+      logo: /images/sections/education/ntut.png
   - name: 高職 (資訊科)
     icon: fa-university
     timeframe: 2008-2011
     institution:
       name: 協和工商
-      url: "#"
+      url: "https://www.hhvs.tp.edu.tw/"

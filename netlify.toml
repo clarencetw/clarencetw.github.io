@@ -9,8 +9,8 @@
 [context.production.environment]
   HUGO_ENABLEGITINFO = "true"
   HUGO_ENV           = "production"
-  HUGO_VERSION       = "0.148.1"
-  NODE_VERSION       = "v20.11.1"
+  HUGO_VERSION       = "0.159.1"
+  NODE_VERSION       = "v20.20.1"
   NPM_VERSION        = "10.5.0"
 
 [context.split1]
@@ -18,24 +18,24 @@
 
   [context.split1.environment]
     HUGO_ENV     = "production"
-    HUGO_VERSION = "0.148.1"
-    NODE_VERSION = "v20.11.1"
+    HUGO_VERSION = "0.159.1"
+    NODE_VERSION = "v20.20.1"
     NPM_VERSION  = "10.5.0"
 
 [context.deploy-preview]
   command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
 
   [context.deploy-preview.environment]
-    HUGO_VERSION = "0.148.1"
-    NODE_VERSION = "v20.11.1"
+    HUGO_VERSION = "0.159.1"
+    NODE_VERSION = "v20.20.1"
     NPM_VERSION  = "10.5.0"
 
 [context.branch-deploy]
   command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
   [context.branch-deploy.environment]
-    HUGO_VERSION = "0.148.1"
-    NODE_VERSION = "v20.11.1"
+    HUGO_VERSION = "0.159.1"
+    NODE_VERSION = "v20.20.1"
     NPM_VERSION  = "10.5.0"
 
 [context.next.environment]
@@ -48,3 +48,5 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

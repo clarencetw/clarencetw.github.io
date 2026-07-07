@@ -18,51 +18,33 @@ experiences:
     positions:
       - designation: Senior Backend Developer / LLM Engineer
         start: 11 2020
-        responsibilityGroups:
-          - name: Backend / Product Integration
-            summary: "Backend services, APIs, IoT, and voice-control systems"
-            items:
-              - "Build backend services and internal tools with Node.js, Python, Go, C/C++, Shell Script, and Java."
-              - "Design APIs, background jobs, data processing flows, and third-party service integrations."
-              - "Integrate Japanese home camera cloud services for remote monitoring and device-management scenarios."
-              - "Develop Japanese IoT smart-home voice command services."
-              - "Develop Taiwan home-appliance voice-control solutions across devices, cloud services, and voice workflows."
-              - "Maintain Jest automated tests and regression checks so backend releases remain repeatable."
-          - name: AI / LLM / Speech
-            summary: "LLM applications, speech recognition, and GPU runtime"
-            items:
-              - "Work on LLM applications, tool calling, agent workflows, and production integration since 2022."
-              - "Integrate OpenAI API, Ollama, and internal AI workflows for product and operations use cases."
-              - "Integrate Kaldi and Whisper speech recognition for ASR, transcription, and model deployment."
-              - "Operate NVIDIA GPU servers, drivers, runtimes, inference environments, and system tuning."
-          - name: Cloud / DevOps
-            summary: "Cloud architecture, IaC, CI/CD, and deployment workflow"
-            items:
-              - "Design AWS architecture across availability, scalability, networking, and deployment paths."
-              - "Use AWS CDK and Infrastructure as Code to manage repeatable cloud resources."
-              - "Connect AWS, GCP, Azure, and on-prem services so cloud and self-hosted systems work together."
-              - "Maintain GitLab CI/CD, GitHub Actions, container image builds, and deployment workflows."
-          - name: On-prem / Internal Platform
-            summary: "Data center, virtualization, backup, and internal platforms"
-            items:
-              - "Manage on-prem, cloud, and physical data-center environments, including hardware maintenance and capacity planning."
-              - "Design and operate Proxmox VE clusters, virtualization, storage, and VM lifecycle."
-              - "Deploy Proxmox Backup Server for backup, restore, and disaster recovery workflows."
-              - "Deploy and maintain Harbor private registry, GitLab, LDAP, and related internal platforms."
-          - name: Network / Observability
-            summary: "Enterprise network, SD-WAN, Wi-Fi, and monitoring"
-            items:
-              - "Plan office and enterprise wired networks, VLANs, routing, firewall policy, and switching."
-              - "Manage SD-WAN distributed networks for cross-site connectivity, performance, and security."
-              - "Deploy Aruba and UniFi Wi-Fi for office wireless coverage, roaming, and operations."
-              - "Use LibreNMS for network/server monitoring, alerting, and issue detection."
-              - "Plan internal and external data-center paths for site-to-site backup and high availability."
-          - name: Procurement / Vendor Evaluation
-            summary: "Turn technical requirements into purchasable and maintainable specifications"
-            items:
-              - "Evaluate Dell, HP, Supermicro server hardware and GPU server specifications."
-              - "Evaluate network equipment such as switches, firewalls, and wireless APs."
-              - "Compare vendor quotes and turn technical requirements into maintainable purchase specifications."
+        responsibilities:
+          - "Build backend services and internal tools with Node.js, Python, Go, C/C++, Shell Script, and Java."
+          - "Design APIs, background jobs, data processing flows, and third-party service integrations."
+          - "Integrate Japanese home camera cloud services for remote monitoring and device-management scenarios."
+          - "Develop Japanese IoT smart-home voice command services."
+          - "Develop Taiwan home-appliance voice-control solutions across devices, cloud services, and voice workflows."
+          - "Maintain Jest automated tests and regression checks so backend releases remain repeatable."
+          - "Work on LLM applications, tool calling, agent workflows, and production integration since 2022."
+          - "Integrate OpenAI API, Ollama, and internal AI workflows for product and operations use cases."
+          - "Integrate Kaldi and Whisper speech recognition for ASR, transcription, and model deployment."
+          - "Operate NVIDIA GPU servers, drivers, runtimes, inference environments, and system tuning."
+          - "Design AWS architecture across availability, scalability, networking, and deployment paths."
+          - "Use AWS CDK and Infrastructure as Code to manage repeatable cloud resources."
+          - "Connect AWS, GCP, Azure, and on-prem services so cloud and self-hosted systems work together."
+          - "Maintain GitLab CI/CD, GitHub Actions, container image builds, and deployment workflows."
+          - "Manage on-prem, cloud, and physical data-center environments, including hardware maintenance and capacity planning."
+          - "Design and operate Proxmox VE clusters, virtualization, storage, and VM lifecycle."
+          - "Deploy Proxmox Backup Server for backup, restore, and disaster recovery workflows."
+          - "Deploy and maintain Harbor private registry, GitLab, LDAP, and related internal platforms."
+          - "Plan office and enterprise wired networks, VLANs, routing, firewall policy, and switching."
+          - "Manage SD-WAN distributed networks for cross-site connectivity, performance, and security."
+          - "Deploy Aruba and UniFi Wi-Fi for office wireless coverage, roaming, and operations."
+          - "Use LibreNMS for network/server monitoring, alerting, and issue detection."
+          - "Plan internal and external data-center paths for site-to-site backup and high availability."
+          - "Evaluate Dell, HP, Supermicro server hardware and GPU server specifications."
+          - "Evaluate network equipment such as switches, firewalls, and wireless APs."
+          - "Compare vendor quotes and turn technical requirements into maintainable purchase specifications."
 
   - company:
       name: CyberCube - Taipei Office

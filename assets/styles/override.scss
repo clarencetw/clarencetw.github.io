@@ -26,6 +26,7 @@ a:focus {
 }
 
 .home {
+  position: relative;
   min-height: 94vh;
   overflow: hidden;
 }
@@ -72,6 +73,10 @@ a:focus {
 
 .typing-carousel {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 92vw;
+  max-width: 30rem;
   min-height: 3.25rem;
   margin-top: 0.8rem;
   padding: 0.7rem 1rem;
@@ -82,8 +87,24 @@ a:focus {
   backdrop-filter: blur(8px);
 }
 
+.typing-carousel .typed {
+  display: inline-block;
+  min-height: 1.45em;
+}
+
 .ityped-cursor {
   color: var(--clarence-amber);
+}
+
+.ityped-cursor::before {
+  content: "|";
+  animation: clarence-caret-blink 1s steps(2, start) infinite;
+}
+
+@keyframes clarence-caret-blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 .arrow-center .arrow {
@@ -161,7 +182,7 @@ a:focus {
 }
 
 .social-link a:hover,
-.social-link a:focus {
+social-link a:focus {
   color: #fff;
   background: var(--clarence-teal);
   border-color: var(--clarence-teal);
@@ -246,69 +267,20 @@ a:focus {
   margin-top: 0.85rem;
 }
 
+.experiences-section .positions,
+.experiences-section .positions .designation,
+.experiences-section .positions ul,
+.experiences-section .positions li,
+.timeline-section .designation,
+.timeline-section .responsibilities {
+  text-align: left;
+}
+
 .experiences-section .positions li,
 .timeline-section .responsibilities li,
 .timeline-section ul.responsibilities li {
   margin-bottom: 0.42rem;
   line-height: 1.62;
-}
-
-.responsibility-groups {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 0.9rem;
-  margin-top: 0.95rem;
-}
-
-.responsibility-group {
-  padding: 0.95rem 1rem 0.85rem;
-  background: rgba(255, 255, 255, 0.68);
-  border: 1px solid var(--clarence-line);
-  border-left: 3px solid var(--clarence-teal);
-  border-radius: 6px;
-}
-
-.responsibility-group-header {
-  display: grid;
-  gap: 0.35rem;
-  margin-bottom: 0.7rem;
-}
-
-.responsibility-group-label {
-  display: inline-flex;
-  width: fit-content;
-  max-width: 100%;
-  padding: 0.16rem 0.5rem;
-  color: var(--clarence-teal-dark);
-  font-size: 0.78rem;
-  font-weight: 700;
-  background: rgba(15, 118, 110, 0.1);
-  border: 1px solid rgba(15, 118, 110, 0.18);
-  border-radius: 4px;
-}
-
-.responsibility-group-summary {
-  color: var(--clarence-ink);
-  font-size: 0.92rem;
-  font-weight: 650;
-  line-height: 1.45;
-}
-
-.responsibility-group-summary p {
-  margin-bottom: 0;
-}
-
-.experiences-section .positions .responsibility-group ul {
-  margin: 0;
-  padding-left: 1.1rem;
-}
-
-.experiences-section .positions .responsibility-group li {
-  margin-bottom: 0.36rem;
-}
-
-.experiences-section .positions .responsibility-group li:last-child {
-  margin-bottom: 0;
 }
 
 footer {
@@ -335,8 +307,7 @@ html[data-theme='dark'] .section-holder.bg-secondary {
 }
 
 html[data-theme='dark'] .card,
-html[data-theme='dark'] .certificate-badge,
-html[data-theme='dark'] .responsibility-group {
+html[data-theme='dark'] .certificate-badge {
   background: var(--clarence-panel);
   border-color: var(--clarence-line);
 }

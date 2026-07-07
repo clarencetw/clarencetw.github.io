@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Operations on Clarence</title><link>https://clarence.tw/categories/operations/</link><description>Recent content in Operations on Clarence</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 21 Jan 2023 02:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/categories/operations/index.xml" rel="self" type="application/rss+xml"/><item><title>高流量網站 Hosting 與維運經驗</title><link>https://clarence.tw/posts/hosting-high-bandwidth-web-server/</link><pubDate>Sat, 21 Jan 2023 02:00:00 +0800</pubDate><guid>https://clarence.tw/posts/hosting-high-bandwidth-web-server/</guid><description>&lt;p&gt;我曾長期維運高流量 hosting environment，同一組環境上承載 4000 個以上網站。這類工作不是單純把 Web server 架起來，而是要同時處理 capacity、monitoring、updates、security、DNS / CDN、incident response 與日常維護成本。&lt;/p&gt;
+&lt;p&gt;對大量站台來說，最重要的是讓日常維運可以被標準化。每一次更新、憑證、設定調整或異常告警，都不能只靠人工記憶處理，否則規模一大就會變成風險。&lt;/p&gt;
+&lt;h3 id="cloudflare-30-天的數據"&gt;CloudFlare 30 天的數據&lt;/h3&gt;
+&lt;p&gt;可以由下圖看到月流量統計&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Requests 約 1900 萬&lt;/li&gt;
+&lt;li&gt;Bandwidth 約 2 TB&lt;/li&gt;
+&lt;li&gt;Visits 超過 70 萬&lt;/li&gt;
+&lt;li&gt;Page views 超過 100 萬&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src="https://clarence.tw/posts/hosting-high-bandwidth-web-server/images/cf-30day-bandwidth.png"
+alt="CloudFlare 30 Day Bandwidth"
+class="center"
+&gt;
+&lt;h2 id="維運重點"&gt;維運重點&lt;/h2&gt;
+&lt;h3 id="monitoring-先於人工巡檢"&gt;Monitoring 先於人工巡檢&lt;/h3&gt;
+&lt;p&gt;大量網站環境不能只靠人工打開頁面檢查。比較有效的做法是把系統資源、Web server 狀態、憑證、DNS、HTTP response、error rate 與流量趨勢納入 monitoring，讓異常先變成可見訊號。&lt;/p&gt;
+&lt;p&gt;Monitoring 的價值不只是告警，而是讓維運人員可以判斷問題是 application、network、CDN、DNS、storage，還是 upstream service 造成。&lt;/p&gt;
+&lt;h3 id="更新要可控"&gt;更新要可控&lt;/h3&gt;
+&lt;p&gt;Hosting environment 通常會面臨兩種相反壓力：一方面要定期更新以降低 security risk，另一方面又不能讓更新破壞大量既有網站。因此更新流程必須能分批、能 rollback，並且在更新前後觀察關鍵指標。&lt;/p&gt;
+&lt;p&gt;這類環境的維護重點，不是追求一次改很多，而是讓每次變更都能被確認影響範圍。&lt;/p&gt;
+&lt;h3 id="capacity-planning-不能只看平均值"&gt;Capacity planning 不能只看平均值&lt;/h3&gt;
+&lt;p&gt;網站流量會有尖峰，平均值通常不夠用。除了 CPU、memory、disk I/O、network throughput，也要觀察 CDN cache hit ratio、static assets、database pressure 與 log growth。&lt;/p&gt;</description></item></channel></rss>

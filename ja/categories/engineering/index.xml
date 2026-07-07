@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Engineering on Clarence</title><link>https://clarence.tw/ja/categories/engineering/</link><description>Recent content in Engineering on Clarence</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 08 Jul 2026 00:30:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/categories/engineering/index.xml" rel="self" type="application/rss+xml"/><item><title>私の技術的な仕事の進め方：Backend、AI、DevOps、Infrastructure</title><link>https://clarence.tw/ja/posts/technical-delivery-chain/</link><pubDate>Wed, 08 Jul 2026 00:30:00 +0800</pubDate><guid>https://clarence.tw/ja/posts/technical-delivery-chain/</guid><description>&lt;p&gt;私は Backend、AI、DevOps、Infrastructure、Network を別々の領域としてではなく、実際に動くプロダクトを支えるひとつの delivery chain として扱っています。&lt;/p&gt;
+&lt;p&gt;機能を使える状態にするには API が安定している必要があります。サービスを更新するには CI/CD が必要です。長期運用するには monitoring、backup、network、security が必要です。LLM、Speech AI、GPU runtime を使う場合も、model integration は deployable、observable、operable でなければなりません。&lt;/p&gt;
+&lt;h2 id="主に扱う領域"&gt;主に扱う領域&lt;/h2&gt;
+&lt;h3 id="backend--api"&gt;Backend / API&lt;/h3&gt;
+&lt;p&gt;Backend は私の中心的な領域です。API design、service integration、database access、既存システム連携、admin workflow を扱います。Node.js、Python、Go、PHP、C/C++、Shell Script、Java を、既存アーキテクチャや運用性に合わせて使います。&lt;/p&gt;
+&lt;p&gt;重視しているのは、API が明確であること、data flow を追跡できること、error を診断できること、そして次の担当者が保守できることです。&lt;/p&gt;
+&lt;h3 id="llm--speech-ai"&gt;LLM / Speech AI&lt;/h3&gt;
+&lt;p&gt;2022 年から LLM と Speech AI を実際のプロダクト workflow に組み込んでいます。単に model API を呼ぶだけではなく、prompt、batch processing、local model、GPU runtime、OpenAI API、Ollama、Kaldi、Whisper、既存 backend workflow を接続します。&lt;/p&gt;
+&lt;p&gt;入力データの整理、出力の検証、retry、cost control、local model と cloud API の選択、runtime environment の再現性を重視します。&lt;/p&gt;</description></item></channel></rss>

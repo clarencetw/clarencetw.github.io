@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Monitoring on Clarence</title><link>https://clarence.tw/ja/tags/monitoring/</link><description>Recent content in Monitoring on Clarence</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 21 Jan 2023 02:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/tags/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>High-traffic Web Hosting Operations</title><link>https://clarence.tw/ja/posts/hosting-high-bandwidth-web-server/</link><pubDate>Sat, 21 Jan 2023 02:00:00 +0800</pubDate><guid>https://clarence.tw/ja/posts/hosting-high-bandwidth-web-server/</guid><description>&lt;p&gt;私は 4000 以上の Web サイトを載せる high-traffic hosting environment を長期運用した経験があります。この種の仕事は Web server を立てるだけではなく、capacity planning、monitoring、updates、security、DNS / CDN、incident response、日常運用の標準化が必要です。&lt;/p&gt;
+&lt;p&gt;規模が大きくなるほど、設定変更、証明書、更新、alert 対応を人の記憶だけに頼ることはリスクになります。&lt;/p&gt;
+&lt;h3 id="cloudflare-30-day-metrics"&gt;Cloudflare 30-day Metrics&lt;/h3&gt;
+&lt;p&gt;1 か月の traffic 例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Requests 約 1900 万&lt;/li&gt;
+&lt;li&gt;Bandwidth 約 2 TB&lt;/li&gt;
+&lt;li&gt;Visits 70 万以上&lt;/li&gt;
+&lt;li&gt;Page views 100 万以上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;img src="https://clarence.tw/posts/hosting-high-bandwidth-web-server/images/cf-30day-bandwidth.png"
+alt="Cloudflare 30 Day Bandwidth"
+class="center"
+&gt;
+&lt;h2 id="運用で重視すること"&gt;運用で重視すること&lt;/h2&gt;
+&lt;h3 id="monitoring-は手動確認より先にある"&gt;Monitoring は手動確認より先にある&lt;/h3&gt;
+&lt;p&gt;大量サイトの環境では、ページを手で開いて確認するだけでは足りません。System resources、Web server status、certificates、DNS、HTTP response、error rate、traffic trend を monitoring に入れる必要があります。&lt;/p&gt;
+&lt;p&gt;Monitoring は alert のためだけではなく、問題が application、network、CDN、DNS、storage、upstream service のどこにあるか判断するための材料です。&lt;/p&gt;
+&lt;h3 id="updates-は-controlled-に行う"&gt;Updates は controlled に行う&lt;/h3&gt;
+&lt;p&gt;Hosting environment では security update が必要ですが、同時に既存サイトを壊してはいけません。更新は段階的に行い、観測でき、rollback できる状態にする必要があります。&lt;/p&gt;</description></item></channel></rss>

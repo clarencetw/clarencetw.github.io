@@ -33,28 +33,7 @@
             <p class="text-muted">{{ $position.start }} - {{if $position.end }} {{ $position.end }} {{else}} {{ i18n "present" }} {{end}}</p>
         </div>
         <!-- Add the responsibilities handled at this position -->
-        {{ if $position.responsibilityGroups }}
-            <h6 class="text-heading">{{ i18n "responsibilities" }}</h6>
-            <div class="responsibility-groups">
-                {{ range $group := $position.responsibilityGroups }}
-                    <section class="responsibility-group">
-                        <div class="responsibility-group-header">
-                            <span class="responsibility-group-label">{{ $group.name }}</span>
-                            {{ if $group.summary }}
-                                <span class="responsibility-group-summary">{{ $group.summary | markdownify }}</span>
-                            {{ end }}
-                        </div>
-                        {{ if $group.items }}
-                            <ul>
-                                {{ range $group.items }}
-                                    <li>{{ . | markdownify }}</li>
-                                {{ end }}
-                            </ul>
-                        {{ end }}
-                    </section>
-                {{ end }}
-            </div>
-        {{ else if $position.responsibilities }}
+        {{ if $position.responsibilities }}
             <h6 class="text-heading">{{ i18n "responsibilities" }}</h6>
             <ul class="justify-content-around">
                 {{ range $position.responsibilities }}

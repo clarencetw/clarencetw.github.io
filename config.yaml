@@ -89,7 +89,7 @@ params:
       services:
         light: true # enable light theme. default "true"
         dark: true # enable dark theme. default "true"
-        default: system # can be either light, dark or system. default "system"
+        default: light # can be either light, dark or system. default "system"
 
     # Enable and configure portfolio
     portfolio:

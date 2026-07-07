@@ -78,6 +78,16 @@ npm run theme:update
 - GitHub Pages 會將產出的 `public` directory 發佈到 `gh-pages` branch。
 - 這個 repository 的多數 npm packages 由 Toha Hugo module 透過 `hugo mod npm pack` 產生；除非 Toha module metadata 已更新，不建議手動升級 major version，避免和 theme 需求衝突。
 
+## Vercel
+
+- Project name：`clarence-tw`。
+- Framework preset：`Hugo`。
+- Install command：`yum install golang -y && npm ci`。
+- Build command：`npm run build`。
+- Output directory：`public`。
+- 必要 environment variables：`HUGO_VERSION=0.164.0`、`NODE_VERSION=24`、`GO_VERSION=1.23.0`。
+- `vercel.json` 會在 repository 內固定 deploy settings 與 security headers；Vercel 不會部署 `gh-pages` branch。
+
 ## License
 
 本 repository 使用 [Apache License 2.0](LICENSE)。

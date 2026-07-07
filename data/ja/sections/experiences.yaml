@@ -14,51 +14,33 @@ experiences:
     positions:
       - designation: Senior Backend Developer / LLM Engineer
         start: 11 2020
-        responsibilityGroups:
-          - name: Backend / Product Integration
-            summary: "Backend service、API、IoT、voice-control systems"
-            items:
-              - "Node.js、Python、Go、C/C++、Shell Script、Java で Backend service と internal tools を開発。"
-              - "API、background jobs、data processing flow、third-party service integration を設計。"
-              - "日本向け home camera cloud service を統合し、remote monitoring と device management を支援。"
-              - "日本向け IoT smart home voice command service を開発。"
-              - "台湾向け home appliance voice-control solution を device、cloud、voice workflow まで接続。"
-              - "Jest automated tests と regression checks を整備し、backend release の再現性を維持。"
-          - name: AI / LLM / Speech
-            summary: "LLM application、speech recognition、GPU runtime"
-            items:
-              - "2022 年から LLM application、tool calling、agent workflow、production integration に取り組む。"
-              - "OpenAI API、Ollama、internal AI workflow を product / operations use case に統合。"
-              - "Kaldi、Whisper speech recognition を統合し、ASR、transcription、model deployment を担当。"
-              - "NVIDIA GPU server、driver / runtime、inference environment、system tuning を運用。"
-          - name: Cloud / DevOps
-            summary: "Cloud architecture、IaC、CI/CD、deployment workflow"
-            items:
-              - "AWS architecture を availability、scalability、networking、deployment path の観点で設計。"
-              - "AWS CDK / Infrastructure as Code で再現可能な cloud resources を管理。"
-              - "AWS、GCP、Azure、On-prem services を接続し、cloud と self-hosted systems を連携。"
-              - "GitLab CI/CD、GitHub Actions、container image build、deployment workflow を維持。"
-          - name: On-prem / Internal Platform
-            summary: "Data center、virtualization、backup、internal platforms"
-            items:
-              - "On-prem、cloud、physical data center の運用、hardware maintenance、capacity planning を担当。"
-              - "Proxmox VE cluster、virtualization、storage、VM lifecycle を設計・運用。"
-              - "Proxmox Backup Server を構築し、backup、restore、disaster recovery workflow を整備。"
-              - "Harbor private registry、GitLab、LDAP など internal platforms を導入・維持。"
-          - name: Network / Observability
-            summary: "Enterprise network、SD-WAN、Wi-Fi、monitoring"
-            items:
-              - "Office / enterprise wired network、VLAN、routing、firewall policy、switching を計画。"
-              - "SD-WAN distributed network を管理し、cross-site connectivity、performance、security を支援。"
-              - "Aruba、UniFi Wi-Fi を構築し、office wireless coverage、roaming、operations を担当。"
-              - "LibreNMS で network / server monitoring、alerting、issue detection を実施。"
-              - "Internal / external data-center path、site-to-site backup、high availability を計画。"
-          - name: Procurement / Vendor Evaluation
-            summary: "Technical requirements を保守可能な purchase specification に整理"
-            items:
-              - "Dell、HP、Supermicro server hardware と GPU server specification を評価。"
-              - "Switch、firewall、wireless AP など network equipment を評価。"
-              - "Vendor quote と solution comparison を整理し、保守可能な purchase specification に落とし込む。"
+        responsibilities:
+          - "Node.js、Python、Go、C/C++、Shell Script、Java で Backend service と internal tools を開発。"
+          - "API、background jobs、data processing flow、third-party service integration を設計。"
+          - "日本向け home camera cloud service を統合し、remote monitoring と device management を支援。"
+          - "日本向け IoT smart home voice command service を開発。"
+          - "台湾向け home appliance voice-control solution を device、cloud、voice workflow まで接続。"
+          - "Jest automated tests と regression checks を整備し、backend release の再現性を維持。"
+          - "2022 年から LLM application、tool calling、agent workflow、production integration に取り組む。"
+          - "OpenAI API、Ollama、internal AI workflow を product / operations use case に統合。"
+          - "Kaldi、Whisper speech recognition を統合し、ASR、transcription、model deployment を担当。"
+          - "NVIDIA GPU server、driver / runtime、inference environment、system tuning を運用。"
+          - "AWS architecture を availability、scalability、networking、deployment path の観点で設計。"
+          - "AWS CDK / Infrastructure as Code で再現可能な cloud resources を管理。"
+          - "AWS、GCP、Azure、On-prem services を接続し、cloud と self-hosted systems を連携。"
+          - "GitLab CI/CD、GitHub Actions、container image build、deployment workflow を維持。"
+          - "On-prem、cloud、physical data center の運用、hardware maintenance、capacity planning を担当。"
+          - "Proxmox VE cluster、virtualization、storage、VM lifecycle を設計・運用。"
+          - "Proxmox Backup Server を構築し、backup、restore、disaster recovery workflow を整備。"
+          - "Harbor private registry、GitLab、LDAP など internal platforms を導入・維持。"
+          - "Office / enterprise wired network、VLAN、routing、firewall policy、switching を計画。"
+          - "SD-WAN distributed network を管理し、cross-site connectivity、performance、security を支援。"
+          - "Aruba、UniFi Wi-Fi を構築し、office wireless coverage、roaming、operations を担当。"
+          - "LibreNMS で network / server monitoring、alerting、issue detection を実施。"
+          - "Internal / external data-center path、site-to-site backup、high availability を計画。"
+          - "Dell、HP、Supermicro server hardware と GPU server specification を評価。"
+          - "Switch、firewall、wireless AP など network equipment を評価。"
+          - "Vendor quote と solution comparison を整理し、保守可能な purchase specification に落とし込む。"
 
   - company:
       name: CyberCube offices and flagship stores

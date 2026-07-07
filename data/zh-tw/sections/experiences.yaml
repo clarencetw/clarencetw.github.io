@@ -19,51 +19,33 @@ experiences:
       - designation: Senior Backend Developer / LLM Engineer
         start: 11 2020
         # end: May 2017
-        responsibilityGroups:
-          - name: Backend / Product Integration
-            summary: "Backend service、API、IoT 與 voice control 系統"
-            items:
-              - "使用 Node.js、Python、Go、C/C++、Shell Script、Java 開發 Backend service 與 internal tools。"
-              - "設計 API、background jobs、data processing flow 與第三方 service integration。"
-              - "整合日本家用攝影機 cloud service，支援遠端監控與裝置管理場景。"
-              - "開發日本 IoT smart home voice command service。"
-              - "開發台灣家電 voice control solution，串接 device、cloud 與 voice workflow。"
-              - "建置 Jest automated tests 與 regression checks，讓 backend release 可以被重複驗證。"
-          - name: AI / LLM / Speech
-            summary: "LLM application、speech recognition 與 GPU runtime"
-            items:
-              - "自 2022 年起投入 LLM application、tool calling、agent workflow 與 production integration。"
-              - "整合 OpenAI API、Ollama 與 internal AI workflow，支援實際產品與營運工具。"
-              - "整合 Kaldi、Whisper speech recognition，處理語音辨識、轉寫與模型部署。"
-              - "管理 NVIDIA GPU server、driver / runtime、inference environment 與系統調校。"
-          - name: Cloud / DevOps
-            summary: "Cloud architecture、IaC、CI/CD 與 deployment workflow"
-            items:
-              - "設計 AWS architecture，處理 availability、scalability、networking 與 deployment path。"
-              - "使用 AWS CDK / Infrastructure as Code 管理可重複部署的 cloud resources。"
-              - "串接 AWS、GCP、Azure 與 On-prem services，讓 cloud 與地端系統可以協作。"
-              - "維護 GitLab CI/CD、GitHub Actions、container image build 與 deployment workflow。"
-          - name: On-prem / Internal Platform
-            summary: "Data center、virtualization、backup 與內部平台"
-            items:
-              - "管理地端、雲端與實體機房環境，包含硬體維護、容量規劃與故障排查。"
-              - "設計與維運 Proxmox VE cluster、virtualization、storage 與 VM lifecycle。"
-              - "建置 Proxmox Backup Server，規劃 backup、restore 與 disaster recovery 流程。"
-              - "部署與維護 Harbor private registry、GitLab、LDAP 等 internal platforms。"
-          - name: Network / Observability
-            summary: "Enterprise network、SD-WAN、Wi-Fi 與 monitoring"
-            items:
-              - "規劃 office / enterprise wired network、VLAN、routing、firewall policy 與 switching。"
-              - "管理 SD-WAN distributed network，支援跨站點連線、效能與安全需求。"
-              - "建置 Aruba、UniFi Wi-Fi，處理 office wireless coverage、roaming 與維運。"
-              - "使用 LibreNMS 進行 network / server monitoring、alerting 與問題偵測。"
-              - "規劃內外部機房、site-to-site backup 與 high availability 路徑。"
-          - name: Procurement / Vendor Evaluation
-            summary: "把技術需求轉成可採購、可維運的規格"
-            items:
-              - "評估 Dell、HP、Supermicro server hardware 與 GPU server 規格。"
-              - "評估 switch、firewall、wireless AP 等 network equipment。"
-              - "整理 vendor quote、solution comparison 與可採購、可維運的技術規格。"
+        responsibilities:
+          - "使用 Node.js、Python、Go、C/C++、Shell Script、Java 開發 Backend service 與 internal tools。"
+          - "設計 API、background jobs、data processing flow 與第三方 service integration。"
+          - "整合日本家用攝影機 cloud service，支援遠端監控與裝置管理場景。"
+          - "開發日本 IoT smart home voice command service。"
+          - "開發台灣家電 voice control solution，串接 device、cloud 與 voice workflow。"
+          - "建置 Jest automated tests 與 regression checks，讓 backend release 可以被重複驗證。"
+          - "自 2022 年起投入 LLM application、tool calling、agent workflow 與 production integration。"
+          - "整合 OpenAI API、Ollama 與 internal AI workflow，支援實際產品與營運工具。"
+          - "整合 Kaldi、Whisper speech recognition，處理語音辨識、轉寫與模型部署。"
+          - "管理 NVIDIA GPU server、driver / runtime、inference environment 與系統調校。"
+          - "設計 AWS architecture，處理 availability、scalability、networking 與 deployment path。"
+          - "使用 AWS CDK / Infrastructure as Code 管理可重複部署的 cloud resources。"
+          - "串接 AWS、GCP、Azure 與 On-prem services，讓 cloud 與地端系統可以協作。"
+          - "維護 GitLab CI/CD、GitHub Actions、container image build 與 deployment workflow。"
+          - "管理地端、雲端與實體機房環境，包含硬體維護、容量規劃與故障排查。"
+          - "設計與維運 Proxmox VE cluster、virtualization、storage 與 VM lifecycle。"
+          - "建置 Proxmox Backup Server，規劃 backup、restore 與 disaster recovery 流程。"
+          - "部署與維護 Harbor private registry、GitLab、LDAP 等 internal platforms。"
+          - "規劃 office / enterprise wired network、VLAN、routing、firewall policy 與 switching。"
+          - "管理 SD-WAN distributed network，支援跨站點連線、效能與安全需求。"
+          - "建置 Aruba、UniFi Wi-Fi，處理 office wireless coverage、roaming 與維運。"
+          - "使用 LibreNMS 進行 network / server monitoring、alerting 與問題偵測。"
+          - "規劃內外部機房、site-to-site backup 與 high availability 路徑。"
+          - "評估 Dell、HP、Supermicro server hardware 與 GPU server 規格。"
+          - "評估 switch、firewall、wireless AP 等 network equipment。"
+          - "整理 vendor quote、solution comparison 與可採購、可維運的技術規格。"
 
   - company:
       name: 閃動格子 - 台北辦公室

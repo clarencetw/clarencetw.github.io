@@ -1,0 +1,140 @@
+section:
+  name: Experience
+  id: experiences
+  enable: true
+  weight: 3
+  showOnNavbar: true
+
+experiences:
+  - company:
+      name: BRONCI Technology Inc. 長問科技股份有限公司
+      url: "https://bronci.com.tw/"
+      location: Taipei
+      overview: Backend、AI Application、Cloud / On-prem Infrastructure、DevOps automation を担当
+    positions:
+      - designation: Senior Backend Developer / LLM Engineer
+        start: 11 2020
+        responsibilityGroups:
+          - name: Backend / Product Integration
+            summary: "Backend service、API、IoT、voice-control systems"
+            items:
+              - "Node.js、Python、Go、C/C++、Shell Script、Java で Backend service と internal tools を開発。"
+              - "API、background jobs、data processing flow、third-party service integration を設計。"
+              - "日本向け home camera cloud service を統合し、remote monitoring と device management を支援。"
+              - "日本向け IoT smart home voice command service を開発。"
+              - "台湾向け home appliance voice-control solution を device、cloud、voice workflow まで接続。"
+              - "Jest automated tests と regression checks を整備し、backend release の再現性を維持。"
+          - name: AI / LLM / Speech
+            summary: "LLM application、speech recognition、GPU runtime"
+            items:
+              - "2022 年から LLM application、tool calling、agent workflow、production integration に取り組む。"
+              - "OpenAI API、Ollama、internal AI workflow を product / operations use case に統合。"
+              - "Kaldi、Whisper speech recognition を統合し、ASR、transcription、model deployment を担当。"
+              - "NVIDIA GPU server、driver / runtime、inference environment、system tuning を運用。"
+          - name: Cloud / DevOps
+            summary: "Cloud architecture、IaC、CI/CD、deployment workflow"
+            items:
+              - "AWS architecture を availability、scalability、networking、deployment path の観点で設計。"
+              - "AWS CDK / Infrastructure as Code で再現可能な cloud resources を管理。"
+              - "AWS、GCP、Azure、On-prem services を接続し、cloud と self-hosted systems を連携。"
+              - "GitLab CI/CD、GitHub Actions、container image build、deployment workflow を維持。"
+          - name: On-prem / Internal Platform
+            summary: "Data center、virtualization、backup、internal platforms"
+            items:
+              - "On-prem、cloud、physical data center の運用、hardware maintenance、capacity planning を担当。"
+              - "Proxmox VE cluster、virtualization、storage、VM lifecycle を設計・運用。"
+              - "Proxmox Backup Server を構築し、backup、restore、disaster recovery workflow を整備。"
+              - "Harbor private registry、GitLab、LDAP など internal platforms を導入・維持。"
+          - name: Network / Observability
+            summary: "Enterprise network、SD-WAN、Wi-Fi、monitoring"
+            items:
+              - "Office / enterprise wired network、VLAN、routing、firewall policy、switching を計画。"
+              - "SD-WAN distributed network を管理し、cross-site connectivity、performance、security を支援。"
+              - "Aruba、UniFi Wi-Fi を構築し、office wireless coverage、roaming、operations を担当。"
+              - "LibreNMS で network / server monitoring、alerting、issue detection を実施。"
+              - "Internal / external data-center path、site-to-site backup、high availability を計画。"
+          - name: Procurement / Vendor Evaluation
+            summary: "Technical requirements を保守可能な purchase specification に整理"
+            items:
+              - "Dell、HP、Supermicro server hardware と GPU server specification を評価。"
+              - "Switch、firewall、wireless AP など network equipment を評価。"
+              - "Vendor quote と solution comparison を整理し、保守可能な purchase specification に落とし込む。"
+
+  - company:
+      name: CyberCube offices and flagship stores
+      url: "https://www.cybercube.com.tw/"
+      location: Taipei / Taichung / Kaohsiung
+    positions:
+      - designation: Network Planning / Deployment
+        start: 2024
+        end: 2024
+        responsibilities:
+          - Office and store network planning、wiring、Wi-Fi、network device deployment を支援。
+
+  - company:
+      name: Business Next
+      url: "https://www.bnext.com.tw/author/4039"
+      location: Writer
+    positions:
+      - designation: Column Writer
+        start: 06 2022
+
+  - company:
+      name: DrMaster Press
+      url: "https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149"
+      location: Author
+      overview: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC"
+    positions:
+      - designation: Book Author
+        start: 11 2021
+        responsibilities:
+          - AWS CDK を基礎から解説する中国語書籍を執筆。
+          - 豊富な sample code を用意し、IaC の実践を学びやすく整理。
+
+  - company:
+      name: National Taipei University of Technology
+      url: "https://www.ntut.edu.tw/"
+      location: Taipei
+      overview: Cloud system software research and development
+    positions:
+      - designation: Full-time Research Assistant
+        start: 11 2015
+        end: 11 2020
+        responsibilities:
+          - Network application development - Node.js, Go, C/C++, PostgreSQL
+          - Backend development - Node.js, PostgreSQL, Docker
+
+  - company:
+      name: Students' Information Technology Conference
+      url: "https://sitcon.org/"
+      location: Volunteer
+      overview: SITCON Credits の公開記録に基づく年次カンファレンス運営スタッフ履歴
+    positions:
+      - designation: SITCON 2018 製播組メンバー
+        start: 2018
+        end: 2018
+      - designation: SITCON 2017 行銷組メンバー
+        start: 2017
+        end: 2017
+      - designation: SITCON 2016 行政組チケット担当・行銷組メンバー
+        start: 2016
+        end: 2016
+      - designation: SITCON 2015 行銷副組長
+        start: 2015
+        end: 2015
+      - designation: SITCON 2014 場務組メンバー
+        start: 2014
+        end: 2014
+
+  - company:
+      name: SITCON Summer Camp
+      url: "https://sitcon.camp/"
+      location: Volunteer
+      overview: SITCON Credits の公開記録に基づくキャンプ運営スタッフ履歴
+    positions:
+      - designation: SITCON Summer Camp 2015 - 副召
+        start: 2015
+        end: 2015
+      - designation: SITCON Summer Camp 2014 - 課程組長
+        start: 2014
+        end: 2014

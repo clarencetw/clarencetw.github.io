@@ -1,0 +1,32 @@
+# Local overrides for Toha's incomplete Japanese translations.
+
+[share_on]
+other = "共有"
+
+[read]
+other = "読む"
+
+[project_star]
+other = "スター"
+
+[project_details]
+other = "詳細"
+
+[responsibilities]
+other = "担当:"
+
+[present]
+other = "現在"
+
+[comments_javascript]
+other = "コメントを表示するには JavaScript を有効にしてください"
+
+[comments_by]
+other = "comments powered by"
+
+[err_404]
+other = "お探しのページはまだありません。"
+
+[minute]
+one = "分"
+other = "分"

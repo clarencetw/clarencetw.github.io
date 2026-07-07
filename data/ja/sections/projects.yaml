@@ -1,0 +1,94 @@
+section:
+  name: Projects
+  id: projects
+  enable: true
+  weight: 5
+  showOnNavbar: true
+
+buttons:
+  - name: All
+    filter: "all"
+  - name: AWS
+    filter: "aws"
+  - name: CDK
+    filter: "cdk"
+  - name: AI/LLM
+    filter: "ai"
+  - name: DevOps
+    filter: "devops"
+  - name: Network
+    filter: "network"
+  - name: Hugo
+    filter: "hugo"
+  - name: Node.js
+    filter: "nodejs"
+  - name: Writing
+    filter: "writing"
+
+projects:
+  - name: clarence.tw
+    logo: /images/sections/skills/homelab.svg
+    role: Owner
+    timeline: "Current"
+    repo: https://github.com/clarencetw/clarencetw.github.io
+    summary: "Hugo Toha で構築した multilingual personal site。Backend、AI/LLM、DevOps、Cloud / On-prem Infrastructure、Network Operations を整理しています。"
+    tags: ["hugo", "devops"]
+
+  - name: Clarence Tech Blog
+    logo: /images/sections/skills/linux.png
+    role: Author
+    timeline: "Current"
+    url: https://blog.clarence.tw/
+    summary: "LINE、AWS、Ubuntu / Linux、Proxmox VE、Docker、Node.js、GitLab、Network、NVIDIA、troubleshooting notes をまとめる技術ナレッジベース。"
+    tags: ["writing", "devops", "network", "ai"]
+
+  - name: LLM Text Summarization Platform
+    logo: /images/sections/skills/llm.svg
+    role: Builder
+    timeline: "2022 - Present"
+    summary: "OpenAI API、Ollama、local models、batch processing を統合した internal Text Summarization / AI application platform。"
+    tags: ["ai", "llm", "python"]
+
+  - name: Speech AI and GPU Runtime
+    logo: /images/sections/skills/nvidia.svg
+    role: Builder / Operator
+    timeline: "2022 - Present"
+    summary: "Kaldi、Whisper、GPU runtime を統合し、Speech AI、model inference、system deployment を支援。"
+    tags: ["ai", "gpu", "infrastructure"]
+
+  - name: Self-hosted GitLab, Runner and Harbor
+    logo: /images/sections/projects/gitlab.svg
+    role: Operator
+    timeline: "2022 - Present"
+    summary: "Self-hosted GitLab、GitLab Runner、Harbor registry、CI/CD workflow を運用し、source code、container image、deployment を接続。"
+    tags: ["devops", "gitlab", "docker"]
+
+  - name: Proxmox VE / PBS Infrastructure
+    logo: /images/sections/skills/proxmox.png
+    role: Operator
+    timeline: "2023 - Present"
+    summary: "Proxmox VE、Proxmox Backup Server、GPU server、On-prem Infrastructure を運用し、internal services、AI runtime workload、backup strategy を支援。"
+    tags: ["devops", "network", "infrastructure"]
+
+  - name: High-traffic Web Hosting Operations
+    logo: /images/sections/skills/nginx.svg
+    role: Operator
+    timeline: "2023 - Present"
+    url: /ja/posts/hosting-high-bandwidth-web-server/
+    target: self
+    summary: "High-traffic hosting environment と多数の Web サイトを長期運用し、monitoring、updates、capacity planning、security maintenance を担当。"
+    tags: ["network", "devops"]
+
+  - name: node-crypto-ecb
+    role: Owner
+    timeline: "Sep 2022 - Present"
+    repo: https://github.com/clarencetw/node-crypto-ecb
+    summary: "Compatibility-driven な encryption / decryption のための Node.js AES ECB library。"
+    tags: ["crypto", "AES", "nodejs"]
+
+  - name: cdk-wordpress
+    role: Owner
+    timeline: "Oct 2020 - Present"
+    repo: https://github.com/clarencetw/cdk-wordpress
+    summary: "WordPress deployment を AWS CDK Construct Library として再現可能な IaC にしたプロジェクト。"
+    tags: ["aws", "cdk"]

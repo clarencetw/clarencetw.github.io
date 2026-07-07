@@ -1,0 +1,29 @@
+section:
+  name: Education
+  id: education
+  template: sections/education.html
+  enable: true
+  weight: 4
+  showOnNavbar: true
+
+degrees:
+  - name: M.S. Electrical Engineering
+    icon: fa-microscope
+    timeframe: 2015-2017
+    institution:
+      name: National Taipei University of Technology, Taipei Tech
+      url: "https://www.ntut.edu.tw/"
+      logo: /images/sections/education/ntut.png
+  - name: B.S.
+    icon: fa-graduation-cap
+    timeframe: 2011-2015
+    institution:
+      name: National Taipei University of Technology, Taipei Tech
+      url: "https://www.ntut.edu.tw/"
+      logo: /images/sections/education/ntut.png
+  - name: Higher Vocational School, Information Technology
+    icon: fa-university
+    timeframe: 2008-2011
+    institution:
+      name: Xiehe Youde Senior High School
+      url: "https://www.hhvs.tp.edu.tw/"

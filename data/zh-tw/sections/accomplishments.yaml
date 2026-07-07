@@ -1,14 +1,14 @@
 # section information
 section:
-  name: 成就
+  name: 證照
   id: accomplishments
   enable: true
   weight: 9
-  showOnNavbar: true
+  showOnNavbar: false
   # 可選擇性地隱藏標題
   # hideTitle: true
 
-# 您的成就
+# 您的證照
 accomplishments:
 - name: 電腦硬體裝修 乙級
   timeline: ""

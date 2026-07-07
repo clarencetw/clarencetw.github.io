@@ -2,12 +2,12 @@
 copyright: © 2026 Copyright.
 
 # Meta description for your site.  This will help the search engines to find your site.
-description: Clarence 個人簡歷.
+description: Clarence Lin 的個人網站，整理 Backend、LLM / Speech AI、DevOps、Cloud / On-prem Infrastructure 與 Network Operations 經驗。
 
 # specify the list of custom menus that you want to show in the top navbar.
 # they will be separated by a divider from the main menus.
 customMenus:
-  - name: 部落格
+  - name: Blog
     url: https://blog.clarence.tw/
     # specify whether to hide the menu item from top navbar or not.
     hideFromNavbar: false
@@ -17,8 +17,8 @@ customMenus:
 
 # Specify OpenGraph Headers
 openGraph:
-  title: Clarence 個人介紹
+  title: Clarence Lin | Backend, LLM, DevOps, Infrastructure
   type: website
-  description: 本網站為 Clarence 個人簡歷紀錄.
+  description: Backend、LLM / Speech AI、DevOps、Cloud / On-prem Infrastructure 與 Network Operations 的個人作品與技術紀錄。
   image: clarencetw-og.png
   url: https://clarence.tw

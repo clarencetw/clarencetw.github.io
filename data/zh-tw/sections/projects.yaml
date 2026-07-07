@@ -1,6 +1,6 @@
 # section information
 section:
-  name: 專案
+  name: Projects
   id: projects
   enable: true
   weight: 5
@@ -10,16 +10,18 @@ section:
 
 # filter buttons
 buttons:
-  - name: All
+  - name: 全部
     filter: "all"
   - name: AWS
     filter: "aws"
   - name: CDK
     filter: "cdk"
-  - name: Constructs
+  - name: Construct
     filter: "construct"
   - name: AI/LLM
     filter: "ai"
+  - name: DevOps
+    filter: "devops"
   - name: LINE
     filter: "line"
   - name: Hugo
@@ -28,14 +30,69 @@ buttons:
     filter: "nodejs"
   - name: Network
     filter: "network"
+  - name: Writing
+    filter: "writing"
 
 # your projects
 projects:
+  - name: clarence.tw
+    logo: /images/sections/skills/homelab.svg
+    role: Owner
+    timeline: "Current"
+    repo: https://github.com/clarencetw/clarencetw.github.io
+    summary: "以 Hugo Toha 建置的 multilingual personal site，以繁中、英文、日文整理 Backend、AI/LLM、DevOps、Cloud / On-prem Infrastructure 與 Network Operations 經驗。"
+    tags: ["hugo", "devops"]
+
+  - name: Clarence Tech Blog
+    logo: /images/sections/skills/linux.png
+    role: Author
+    timeline: "Current"
+    url: https://blog.clarence.tw/
+    summary: "長期技術知識庫，整理 LINE、AWS、Ubuntu / Linux、Proxmox VE、Docker、Node.js、GitLab、Network、NVIDIA 與各類 troubleshooting 筆記。"
+    tags: ["writing", "devops", "network", "ai"]
+
+  - name: LLM Text Summarization Platform
+    logo: /images/sections/skills/llm.svg
+    role: Builder
+    timeline: "2022 - Present"
+    summary: "Internal Text Summarization / AI application platform，整合 OpenAI API、Ollama、local models 與 batch processing，重點放在可控、可維運的 model usage。"
+    tags: ["ai", "llm", "python"]
+
+  - name: Speech AI and GPU Runtime
+    logo: /images/sections/skills/nvidia.svg
+    role: Builder / Operator
+    timeline: "2022 - Present"
+    summary: "整合 Kaldi、Whisper 與 GPU runtime，支援 Speech AI、model inference、system deployment 與 performance maintenance。"
+    tags: ["ai", "gpu", "infrastructure"]
+
+  - name: Self-hosted GitLab, Runner and Harbor
+    logo: /images/sections/projects/gitlab.svg
+    role: Operator
+    timeline: "2022 - Present"
+    summary: "建置與維護 Self-hosted GitLab、GitLab Runner、Harbor registry 與 CI/CD workflow，串接 source code、container image 與 deployment。"
+    tags: ["devops", "gitlab", "docker"]
+
+  - name: Proxmox VE / PBS Infrastructure
+    logo: /images/sections/skills/proxmox.png
+    role: Operator
+    timeline: "2023 - Present"
+    summary: "規劃與維運 Proxmox VE、Proxmox Backup Server、GPU server 與 On-prem Infrastructure，用於 internal services、AI runtime workload 與 backup strategy。"
+    tags: ["devops", "network", "infrastructure"]
+
+  - name: High-traffic Web Hosting Operations
+    logo: /images/sections/skills/nginx.svg
+    role: Operator
+    timeline: "2023 - Present"
+    url: /posts/hosting-high-bandwidth-web-server/
+    target: self
+    summary: "長期維運 high-traffic hosting environment 與大量站台，處理 monitoring、updates、capacity planning 與 security maintenance。"
+    tags: ["network", "devops"]
+
   - name: node-crypto-ecb
     role: Owner
     timeline: "Sep 2022 - Present"
     repo: https://github.com/clarencetw/node-crypto-ecb
-    summary: Node.js AES ECB Library.
+    summary: "Node.js AES ECB library，補足既有 application 在特定相容性情境下的 encryption / decryption 需求。"
     tags: ["crypto", "AES", "nodejs"]
 
   - name: Toha
@@ -43,21 +100,21 @@ projects:
     role: Contributor
     timeline: "Aug 2022 - Present"
     repo: "https://github.com/hugo-toha/toha"
-    summary: Toha - A Hugo theme for personal portfolio
+    summary: "Toha 是 Hugo personal portfolio theme；本站以 Toha 為基礎，透過 data files 與 local style override 維護。"
     tags: ["hobby", "hugo"]
 
   - name: cdk-wordpress
     role: Owner
     timeline: "Oct 2020 - Present"
     repo: https://github.com/clarencetw/cdk-wordpress
-    summary: A CDK construct library to deploy WordPress.
+    summary: "使用 AWS CDK 部署 WordPress 的 Construct Library，將常見 website architecture 轉成可重複部署的 IaC。"
     tags: ["cdk", "construct"]
 
   - name: cdk-sns-notify
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-sns-notify
-    summary: A CDK construct library to send line notify or discord webhook.
+    summary: "AWS CDK Construct Library，用於把 SNS 訊息串接到 LINE Notify 或 Discord Webhook。"
     tags: ["cdk", "construct"]
 
   - name: Kaldi Speech Recognition Toolkit
@@ -66,28 +123,28 @@ projects:
     timeline: "Dec 2021 - Present"
     repo: https://github.com/kaldi-asr/kaldi # If your project is a public repo on GitHub, then provide this link. it will show star count.
     #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
-    summary: Kaldi is a toolkit for speech recognition, intended for use by speech recognition researchers and professionals.
+    summary: "Kaldi 是 Speech Recognition toolkit，也是我在 Speech AI 專案中長期接觸與整合的核心技術之一。"
     tags: ["kaldi"]
 
   - name: cdk-lambda-layer-wget
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-lambda-layer-wget
-    summary: A CDK construct library supporting lambda layers using wget
+    summary: "AWS Lambda Layer CDK Construct，提供 wget runtime layer 建置能力。"
     tags: ["cdk", "construct"]
 
   - name: cdk-lambda-layer-zip
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-lambda-layer-zip
-    summary: A CDK construct library supporting lambda layers using zip
+    summary: "AWS Lambda Layer CDK Construct，提供 zip runtime layer 建置能力。"
     tags: ["cdk", "construct"]
 
   - name: cdk-lambda-layer-curl
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-lambda-layer-curl
-    summary: A CDK construct library supporting lambda layers using curl
+    summary: "AWS Lambda Layer CDK Construct，提供 curl runtime layer 建置能力。"
     tags: ["cdk", "construct"]
 
   - name: aws-cdk
@@ -103,45 +160,5 @@ projects:
     timeline: "Feb 2019 - Present"
     repo: https://github.com/line/line-bot-sdk-php # If your project is a public repo on GitHub, then provide this link. it will show star count.
     #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
-    summary: The LINE Messaging API SDK for PHP makes it easy to develop bots using LINE Messaging API, and you can create a sample bot within minutes..
+    summary: "LINE Messaging API SDK for PHP，協助 PHP 專案整合 LINE Bot 與 Messaging API。"
     tags: ["line"]
-
-  # 建議新增的 AI/LLM 專案
-  - name: LLM Text Summarization System
-    role: Owner
-    timeline: "2022 - Present"
-    summary: "企業級文本摘要系統，整合多種 LLM 模型，支援批量處理和 API 服務。使用 Ollama 進行本地模型部署，提供高效的文本摘要功能。"
-    tags: ["ai", "llm", "python", "ollama"]
-
-  - name: Harbor
-    logo: /images/sections/projects/harbor.svg
-    role: Contributor
-    timeline: "2023 - Present"
-    repo: https://github.com/goharbor/harbor
-    summary: "Harbor 是 CNCF 開源的雲原生容器映像檔倉庫，提供安全掃描、存取控制、映像簽章等企業級功能。"
-    tags: ["devops", "docker", "kubernetes"]
-
-  - name: Proxmox Backup Server
-    logo: /images/sections/skills/proxmox.png
-    role: Contributor
-    timeline: "2023 - Present"
-    repo: https://github.com/proxmox/proxmox-backup
-    summary: "PBS 是 Proxmox 開源的企業級備份解決方案，支援增量備份、重複資料刪除和加密功能。"
-    tags: ["devops", "backup"]
-
-  - name: GitLab
-    logo: /images/sections/projects/gitlab.svg
-    role: Contributor
-    timeline: "2022 - Present"
-    repo: https://github.com/gitlabhq/gitlabhq
-    summary: "GitLab 是開源的 DevOps 平台，提供 Git 儲存庫管理、CI/CD、議題追蹤和程式碼審查功能。"
-    tags: ["devops", "git"]
-
-  - name: GitLab Runner
-    logo: /images/sections/projects/gitlab.svg
-    role: Contributor
-    timeline: "2022 - Present"
-    repo: https://github.com/gitlabhq/gitlab-runner
-    summary: "GitLab Runner 是 GitLab CI/CD 的執行器，負責執行 Pipeline 任務並回報結果。"
-    tags: ["devops", "ci-cd"]
-

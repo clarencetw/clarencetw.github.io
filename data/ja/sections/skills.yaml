@@ -1,0 +1,127 @@
+section:
+  name: Skills
+  id: skills
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  filter: true
+
+buttons:
+  - name: All
+    filter: "all"
+  - name: Cloud
+    filter: "cloud"
+  - name: Programming
+    filter: "language"
+  - name: AI
+    filter: "ai"
+  - name: DevOps
+    filter: "devops"
+  - name: Database
+    filter: "database"
+  - name: Network
+    filter: "network"
+  - name: Others
+    filter: "others"
+
+skills:
+  - name: AWS
+    logo: /images/sections/skills/cloud.png
+    summary: "EC2、RDS、Lambda、Route 53、ECS、ALB、VPC、CloudFormation、WAF、S3、CloudFront など AWS Cloud Services を実運用で利用しています。"
+    url: "https://aws.amazon.com/"
+    categories: ["cloud"]
+
+  - name: AWS CDK
+    logo: /images/sections/skills/cloud.png
+    summary: "Infrastructure as Code (IaC) の実務経験があり、[AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203) の著者です。TypeScript / Python で Cloud infrastructure を管理します。"
+    url: "https://aws.amazon.com/cdk/"
+    categories: ["cloud", "devops"]
+
+  - name: Node.js
+    logo: /images/sections/skills/nodejs.png
+    summary: "Backend 開発の主要言語として、Server-side application、API service、Web application を開発しています。"
+    url: "https://blog.clarence.tw/category/programming-language/node-js/"
+    categories: ["language"]
+
+  - name: Python
+    logo: /images/sections/skills/python.jpeg
+    summary: "LLM application、automation script、data processing、AI 関連開発で利用しています。"
+    url: "https://www.python.org/"
+    categories: ["language", "ai"]
+
+  - name: Go
+    logo: /images/sections/skills/go.png
+    summary: "Network application、server software、microservices の開発で利用しています。"
+    url: "https://go.dev/"
+    categories: ["language"]
+
+  - name: LINE Platform
+    logo: /images/sections/projects/line.jpg
+    summary: "LINE Messaging API、LINE Bot、LINE Notify、webhook workflow を PHP / Node.js backend application と連携します。"
+    url: "https://blog.clarence.tw/category/line/"
+    categories: ["language"]
+
+  - name: Docker
+    logo: /images/sections/skills/docker.svg
+    summary: "Containerized deployment を構築し、application と dependencies を再現可能な image として管理します。"
+    url: "https://blog.clarence.tw/category/docker/"
+    categories: ["devops"]
+
+  - name: CI/CD
+    logo: /images/sections/skills/ci-cd.png
+    summary: "GitLab CI/CD と GitHub Actions で tests、code quality checks、image build、deployment workflow をつなぎます。"
+    url: "https://docs.github.com/en/actions"
+    categories: ["devops"]
+
+  - name: Large Language Models (LLM)
+    logo: /images/sections/skills/llm.svg
+    summary: "2022 年から LLM application に取り組み、Text Summarization、model integration、workflow control、Ollama local model deployment を扱っています。"
+    url: "https://ollama.com/"
+    categories: ["ai"]
+
+  - name: OpenAI API
+    logo: /images/sections/skills/openai.svg
+    summary: "OpenAI API を利用して text processing、summarization、internal workflow tools を構築します。"
+    url: "https://platform.openai.com/"
+    categories: ["ai"]
+
+  - name: Kaldi & Whisper
+    logo: /images/sections/skills/whisper.svg
+    summary: "Kaldi、Whisper、Speech AI pipeline を統合し、音声認識、model inference、system deployment を扱います。"
+    url: "https://github.com/openai/whisper"
+    categories: ["ai"]
+
+  - name: GPU Computing
+    logo: /images/sections/skills/nvidia.svg
+    summary: "NVIDIA GPU server、CUDA runtime、driver environment を運用し、AI inference / training workload を支援します。"
+    url: "https://blog.clarence.tw/category/nvidia/"
+    categories: ["ai", "others"]
+
+  - name: PostgreSQL / MySQL
+    logo: /images/sections/skills/postgresql.png
+    summary: "API service のための schema design、query optimization、database operations を行います。"
+    categories: ["database"]
+
+  - name: Linux
+    logo: /images/sections/skills/linux.png
+    summary: "Server installation、network configuration、CLI operations、Shell Script automation を扱います。"
+    url: "https://blog.clarence.tw/category/os/ubuntu/"
+    categories: ["others"]
+
+  - name: Proxmox VE
+    logo: /images/sections/skills/proxmox.png
+    summary: "On-prem virtualization environment を構築し、PBS と組み合わせて backup / restore strategy を管理します。"
+    url: "https://blog.clarence.tw/category/proxmox-ve/"
+    categories: ["others"]
+
+  - name: Network Management
+    logo: /images/sections/skills/network.svg
+    summary: "Enterprise network operations。Switch、Firewall、Wi-Fi、VLAN、VPN、SD-WAN、QoS、STP/RSTP を扱います。"
+    url: "https://blog.clarence.tw/category/network/"
+    categories: ["network"]
+
+  - name: LibreNMS
+    logo: /images/sections/skills/librenms.svg
+    summary: "LibreNMS で network devices と infrastructure の状態を監視し、異常検知と原因調査を支援します。"
+    url: "https://www.librenms.org/"
+    categories: ["network", "devops"]

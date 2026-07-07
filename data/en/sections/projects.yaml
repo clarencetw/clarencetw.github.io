@@ -18,20 +18,81 @@ buttons:
     filter: "cdk"
   - name: Constructs
     filter: "construct"
+  - name: AI/LLM
+    filter: "ai"
+  - name: DevOps
+    filter: "devops"
   - name: LINE
     filter: "line"
   - name: Hugo
     filter: "hugo"
   - name: Node.js
     filter: "nodejs"
+  - name: Network
+    filter: "network"
+  - name: Writing
+    filter: "writing"
 
 # your projects
 projects:
+  - name: clarence.tw
+    logo: /images/sections/skills/homelab.svg
+    role: Owner
+    timeline: "Current"
+    repo: https://github.com/clarencetw/clarencetw.github.io
+    summary: "A multilingual Hugo Toha personal site that presents backend engineering, AI/LLM, DevOps, cloud, on-prem infrastructure, and network operations work in Traditional Chinese, English, and Japanese."
+    tags: ["hugo", "devops"]
+
+  - name: Clarence Tech Blog
+    logo: /images/sections/skills/linux.png
+    role: Author
+    timeline: "Current"
+    url: https://blog.clarence.tw/
+    summary: "A long-running technical knowledge base covering LINE, AWS, Ubuntu / Linux, Proxmox VE, Docker, Node.js, GitLab, networking, NVIDIA, and troubleshooting notes."
+    tags: ["writing", "devops", "network", "ai"]
+
+  - name: LLM Text Summarization Platform
+    logo: /images/sections/skills/llm.svg
+    role: Builder
+    timeline: "2022 - Present"
+    summary: "Internal text summarization and AI application platform integrating OpenAI API, Ollama, local models, and batch processing with an emphasis on controlled, maintainable model usage."
+    tags: ["ai", "llm", "python"]
+
+  - name: Speech AI and GPU Runtime
+    logo: /images/sections/skills/nvidia.svg
+    role: Builder / Operator
+    timeline: "2022 - Present"
+    summary: "Kaldi, Whisper, and GPU runtime integration for speech recognition, model inference, deployment, and operational maintenance."
+    tags: ["ai", "gpu", "infrastructure"]
+
+  - name: Self-hosted GitLab, Runner and Harbor
+    logo: /images/sections/projects/gitlab.svg
+    role: Operator
+    timeline: "2022 - Present"
+    summary: "Self-hosted GitLab, GitLab Runner, Harbor registry, and CI/CD operations that connect source code, container images, and deployment workflows."
+    tags: ["devops", "gitlab", "docker"]
+
+  - name: Proxmox VE / PBS Infrastructure
+    logo: /images/sections/skills/proxmox.png
+    role: Operator
+    timeline: "2023 - Present"
+    summary: "Proxmox VE, Proxmox Backup Server, GPU servers, and on-prem infrastructure for internal services, AI runtime workloads, and backup strategy."
+    tags: ["devops", "network", "infrastructure"]
+
+  - name: High-traffic Web Hosting Operations
+    logo: /images/sections/skills/nginx.svg
+    role: Operator
+    timeline: "2023 - Present"
+    url: /en/posts/hosting-high-bandwidth-web-server/
+    target: self
+    summary: "Long-running operation of high-traffic web hosting, including monitoring, updates, capacity planning, and security maintenance."
+    tags: ["network", "devops"]
+
   - name: node-crypto-ecb
     role: Owner
     timeline: "Sep 2022 - Present"
     repo: https://github.com/clarencetw/node-crypto-ecb
-    summary: Node.js AES ECB Library.
+    summary: "A Node.js AES ECB library for compatibility-driven encryption and decryption use cases."
     tags: ["crypto", "AES", "nodejs"]
 
   - name: Toha
@@ -39,21 +100,21 @@ projects:
     role: Contributor
     timeline: "Aug 2022 - Present"
     repo: "https://github.com/hugo-toha/toha"
-    summary: Toha - A Hugo theme for personal portfolio
+    summary: "Toha is a Hugo personal portfolio theme; this site uses it with multilingual data files and a focused local style override."
     tags: ["hobby", "hugo"]
 
   - name: cdk-wordpress
     role: Owner
     timeline: "Oct 2020 - Present"
     repo: https://github.com/clarencetw/cdk-wordpress
-    summary: A CDK construct library to deploy WordPress.
+    summary: "An AWS CDK construct library for repeatable WordPress deployment as infrastructure code."
     tags: ["cdk", "construct"]
 
   - name: cdk-sns-notify
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-sns-notify
-    summary: A CDK construct library to send line notify or discord webhook.
+    summary: "An AWS CDK construct library for routing SNS notifications to LINE Notify or Discord webhooks."
     tags: ["cdk", "construct"]
 
   - name: Kaldi Speech Recognition Toolkit
@@ -62,28 +123,28 @@ projects:
     timeline: "Dec 2021 - Present"
     repo: https://github.com/kaldi-asr/kaldi # If your project is a public repo on GitHub, then provide this link. it will show star count.
     #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
-    summary: Kaldi is a toolkit for speech recognition, intended for use by speech recognition researchers and professionals.
+    summary: "Kaldi is a speech recognition toolkit and one of the core technologies I integrate in speech AI work."
     tags: ["kaldi"]
 
   - name: cdk-lambda-layer-wget
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-lambda-layer-wget
-    summary: A CDK construct library supporting lambda layers using wget
+    summary: "AWS Lambda Layer CDK construct for packaging wget runtime support."
     tags: ["cdk", "construct"]
 
   - name: cdk-lambda-layer-zip
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-lambda-layer-zip
-    summary: A CDK construct library supporting lambda layers using zip
+    summary: "AWS Lambda Layer CDK construct for packaging zip runtime support."
     tags: ["cdk", "construct"]
 
   - name: cdk-lambda-layer-curl
     role: Owner
     timeline: "Dec 2021 - Present"
     repo: https://github.com/clarencetw/cdk-lambda-layer-curl
-    summary: A CDK construct library supporting lambda layers using curl
+    summary: "AWS Lambda Layer CDK construct for packaging curl runtime support."
     tags: ["cdk", "construct"]
 
   - name: aws-cdk
@@ -99,37 +160,5 @@ projects:
     timeline: "Feb 2019 - Present"
     repo: https://github.com/line/line-bot-sdk-php # If your project is a public repo on GitHub, then provide this link. it will show star count.
     #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
-    summary: The LINE Messaging API SDK for PHP makes it easy to develop bots using LINE Messaging API, and you can create a sample bot within minutes..
+    summary: "LINE Messaging API SDK for PHP, used by PHP projects that integrate LINE Bot and Messaging API workflows."
     tags: ["line"]
-
-  - name: Harbor
-    logo: /images/sections/projects/harbor.svg
-    role: Contributor
-    timeline: "2023 - Present"
-    repo: https://github.com/goharbor/harbor
-    summary: "Harbor is a CNCF open source cloud native container registry with security scanning, access control, and image signing capabilities."
-    tags: ["devops", "docker", "kubernetes"]
-
-  - name: Proxmox Backup Server
-    logo: /images/sections/skills/proxmox.png
-    role: Contributor
-    timeline: "2023 - Present"
-    repo: https://github.com/proxmox/proxmox-backup
-    summary: "PBS is an open-source enterprise backup solution by Proxmox, featuring incremental backups, deduplication, and encryption."
-    tags: ["devops", "backup"]
-
-  - name: GitLab
-    logo: /images/sections/projects/gitlab.svg
-    role: Contributor
-    timeline: "2022 - Present"
-    repo: https://github.com/gitlabhq/gitlabhq
-    summary: "GitLab is an open-source DevOps platform with Git repository management, CI/CD, issue tracking, and code review features."
-    tags: ["devops", "git"]
-
-  - name: GitLab Runner
-    logo: /images/sections/projects/gitlab.svg
-    role: Contributor
-    timeline: "2022 - Present"
-    repo: https://github.com/gitlabhq/gitlab-runner
-    summary: "GitLab Runner is the CI/CD executor that runs pipeline jobs and reports results back to GitLab."
-    tags: ["devops", "ci-cd"]

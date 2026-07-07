@@ -1,0 +1,11 @@
+section:
+  name: Featured Posts
+  id: featured-posts
+  enable: true
+  weight: 7
+  showOnNavbar: true
+
+posts:
+  - technical-delivery-chain
+  - hosting-high-bandwidth-web-server
+  - gitlab-cicd-complete-guide

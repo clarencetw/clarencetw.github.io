@@ -1,5 +1,5 @@
 [build]
-  command = "hugo --gc --minify"
+  command = "npm ci && npm run build"
   publish = "public"
 
 [[plugins]]
@@ -9,34 +9,30 @@
 [context.production.environment]
   HUGO_ENABLEGITINFO = "true"
   HUGO_ENV           = "production"
-  HUGO_VERSION       = "0.159.1"
-  NODE_VERSION       = "v20.20.1"
-  NPM_VERSION        = "10.5.0"
+  HUGO_VERSION       = "0.164.0"
+  NODE_VERSION       = "24"
 
 [context.split1]
-  command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify --enableGitInfo"
+  command = "npm ci && npm run build -- --enableGitInfo"
 
   [context.split1.environment]
     HUGO_ENV     = "production"
-    HUGO_VERSION = "0.159.1"
-    NODE_VERSION = "v20.20.1"
-    NPM_VERSION  = "10.5.0"
+    HUGO_VERSION = "0.164.0"
+    NODE_VERSION = "24"
 
 [context.deploy-preview]
-  command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+  command = "npm ci && npm run build:future -- -b $DEPLOY_PRIME_URL"
 
   [context.deploy-preview.environment]
-    HUGO_VERSION = "0.159.1"
-    NODE_VERSION = "v20.20.1"
-    NPM_VERSION  = "10.5.0"
+    HUGO_VERSION = "0.164.0"
+    NODE_VERSION = "24"
 
 [context.branch-deploy]
-  command = "hugo mod tidy && hugo mod npm pack && npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+  command = "npm ci && npm run build -- -b $DEPLOY_PRIME_URL"
 
   [context.branch-deploy.environment]
-    HUGO_VERSION = "0.159.1"
-    NODE_VERSION = "v20.20.1"
-    NPM_VERSION  = "10.5.0"
+    HUGO_VERSION = "0.164.0"
+    NODE_VERSION = "24"
 
 [context.next.environment]
   HUGO_ENABLEGITINFO = "true"
@@ -50,3 +46,5 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "document-domain=()"
+    X-Permitted-Cross-Domain-Policies = "none"

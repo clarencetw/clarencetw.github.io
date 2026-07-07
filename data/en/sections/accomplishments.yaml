@@ -1,14 +1,14 @@
 # section information
 section:
-  name: Accomplishments
+  name: Certifications
   id: accomplishments
   enable: true
   weight: 9
-  showOnNavbar: true
+  showOnNavbar: false
   # Can optionally hide the title in sections
   # hideTitle: true
 
-# Your accomplishments
+# Your certifications
 accomplishments:
 - name: Computer Hardware Maintenance Level B
   timeline: ""

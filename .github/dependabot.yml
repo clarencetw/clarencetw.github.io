@@ -13,3 +13,15 @@ updates:
     labels:
     - "dependencies"
     - "automerge"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+    - "dependencies"
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+    - "dependencies"

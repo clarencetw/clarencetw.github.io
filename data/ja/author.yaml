@@ -1,10 +1,8 @@
 # some information about you
 name: "Clarence Lin"
 nickname: "Clarence"
-# greeting message before your name. it will default to "Hi! I am" if not provided
-greeting: "Hi，我是"
+greeting: "こんにちは、"
 image: "images/author/clarence.jpg"
-# give your some contact information. they will be used in the footer
 contactInfo:
   email: "me@clarence.tw"
   github: clarencetw
@@ -14,11 +12,10 @@ contactInfo:
     url: "https://stackoverflow.com/users/19384998/clarence"
     text: "Clarence"
 
-# some summary about what you do
 summary:
-  - Backend / API 系統開發
-  - LLM / Speech AI 應用整合
-  - DevOps、CI/CD 與 IaC
+  - Backend / API システム開発
+  - LLM / Speech AI アプリケーション統合
+  - DevOps、CI/CD、IaC
   - Cloud / On-prem Infrastructure
   - Network / Security Operations
-  - Tech Writing 與 Open Source
+  - Tech Writing と Open Source

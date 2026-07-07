@@ -1,6 +1,6 @@
 baseURL: https://clarence.tw
 
-languageCode: zh-tw
+locale: zh-tw
 title: "Clarence"
 
 # Use Hugo modules to add theme
@@ -24,15 +24,20 @@ module:
 defaultContentLanguage: zh-tw
 languages:
   zh-tw:
-    languageCode: zh-tw
-    languageName: 繁體中文
+    locale: zh-tw
+    label: 繁體中文
     title: "Clarence"
     weight: 1
   en:
-    languageCode: en
-    languageName: English
+    locale: en
+    label: English
     title: "Clarence"
     weight: 2
+  ja:
+    locale: ja
+    label: 日本語
+    title: "Clarence"
+    weight: 3
 
 # Allow raw html in markdown file
 markup:
@@ -172,6 +177,8 @@ params:
       flagOverwrites:
         - languageCode: zh-tw
           countryCode: tw
+        - languageCode: ja
+          countryCode: jp
 
     # Enables copy code button
     copyCodeButton:

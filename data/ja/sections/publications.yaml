@@ -1,0 +1,27 @@
+section:
+  name: Publications
+  id: publications
+  enable: true
+  weight: 6
+  showOnNavbar: true
+
+buttons:
+  - name: All
+    filter: "all"
+  - name: "AWS CDK"
+    filter: "aws-cdk"
+
+publications:
+  - title: AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）
+    publishedIn:
+      name: TEN-LONG COMPUTER BOOK COMPANY
+      date: 2021-11
+      url: https://www.tenlong.com.tw/products/9789864349203
+    authors:
+      - name: Clarence
+        url: https://clarence.tw
+    paper:
+      summary: AWS CDK を基礎から学ぶための中国語書籍。豊富な sample code を通して Infrastructure as Code を実践できます。
+      url: https://www.tenlong.com.tw/products/9789864349203
+    categories: ["aws-cdk"]
+    tags: ["AWS CDK"]

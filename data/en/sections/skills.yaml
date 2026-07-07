@@ -81,6 +81,12 @@ skills:
     url: "https://www.php.net/"
     categories: ["language"]
 
+  - name: LINE Platform
+    logo: /images/sections/projects/line.jpg
+    summary: "LINE Messaging API, LINE Bot, LINE Notify, and webhook workflow integration for PHP / Node.js backend notifications and interactive services."
+    url: "https://blog.clarence.tw/category/line/"
+    categories: ["language"]
+
   # DevOps & Containerization
   - name: Docker
     logo: /images/sections/skills/docker.svg
@@ -128,7 +134,7 @@ skills:
   - name: GPU Computing
     logo: /images/sections/skills/nvidia.svg
     summary: "NVIDIA GPU server deployment and management, supporting AI model training and inference. Experienced in CUDA environment configuration."
-    url: "https://developer.nvidia.com/cuda-toolkit"
+    url: "https://blog.clarence.tw/category/nvidia/"
     categories: ["ai", "others"]
 
   # Databases
@@ -154,7 +160,7 @@ skills:
   - name: Linux
     logo: /images/sections/skills/linux.png
     summary: "Linux system administration expert, proficient in server installation, configuration, network setup, command-line operations, and Shell Script development, primarily using Ubuntu distribution."
-    url: "https://ubuntu.com/"
+    url: "https://blog.clarence.tw/category/os/ubuntu/"
     categories: ["others"]
 
   - name: Proxmox VE
@@ -167,6 +173,7 @@ skills:
   - name: Network Management
     logo: /images/sections/skills/network.svg
     summary: "Enterprise network equipment management expert. Switches: Cisco, Juniper, HP, Netgear, Extreme Networks. Firewalls: Sophos, Fortinet. Wireless: UniFi, Aruba. Proficient in VLAN, VPN, SD-WAN, QoS, and STP/RSTP protocols."
+    url: "https://blog.clarence.tw/category/network/"
     categories: ["network"]
 
   - name: Network Security

@@ -6,6 +6,13 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -17,25 +24,21 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3.2.1
         with:
-          hugo-version: "0.159.1"
+          hugo-version: "0.164.0"
           extended: true
-
-      - name: Update Hugo Modules
-        run: hugo mod tidy
 
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
+          cache: npm
 
       - name: Install node modules
-        run: |
-          hugo mod npm pack
-          npm install
+        run: npm ci
 
       # build website
       - name: Build
-        run: hugo --gc --minify
+        run: npm run build
 
       # push the generated content into the `main` (former `master`) branch.
       - name: Deploy

@@ -1,0 +1,64 @@
+section:
+  name: About
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+
+designation: Senior Backend Developer / LLM & Infrastructure Engineer
+company:
+  name: BRONCI TECHNOLOGY INC.
+  url: "https://www.bronci.com.tw/"
+
+summary: "Backend、AI Application、DevOps、Infrastructure を中心に、API、CI/CD、Cloud、On-prem、Network、Security をひとつの delivery chain として扱っています。単に機能を作るだけではなく、サービスを安定して公開し、観測でき、運用できる状態にすることを重視しています。必要に応じて LLM、Speech AI、GPU Runtime、Cloud Services、自社運用の infrastructure を実際のプロダクトに統合します。現在は長問科技で Senior Backend Developer / LLM Engineer として、Backend service、API、GitLab CI/CD、GitHub Actions、AWS CDK / IaC、Kaldi、Whisper、OpenAI / Ollama、Proxmox VE、Harbor、LibreNMS、LDAP、Enterprise Wi-Fi / SD-WAN、機材選定を担当しています。[AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203) の著者でもあり、Cloud、DevOps、Linux、Network、AI 開発の経験を記事や Open Source として整理しています。"
+
+resourceLinks:
+  - title: "仕事の進め方"
+    url: "/ja/posts/technical-delivery-chain/"
+  - title: "Tech Blog"
+    url: "https://blog.clarence.tw/"
+  - title: "GitHub"
+    url: "https://github.com/clarencetw"
+
+socialLinks:
+  - name: Email
+    icon: "fas fa-envelope"
+    url: "me@clarence.tw"
+  - name: Github
+    icon: "fab fa-github"
+    url: "https://github.com/clarencetw"
+  - name: Stackoverflow
+    icon: "fab fa-stack-overflow"
+    url: "https://stackoverflow.com/users/19384998/clarence"
+  - name: LinkedIn
+    icon: "fab fa-linkedin"
+    url: "https://www.linkedin.com/in/clarence-lin-89764448/"
+  - name: Twitter
+    icon: "fab fa-twitter"
+    url: "https://twitter.com/Clarence_Lin"
+  - name: Facebook
+    icon: "fab fa-facebook"
+    url: "https://www.facebook.com/ClarenceTaiwan/"
+
+badges:
+  - type: certification
+    name: NSE 1 Network Security Associate
+    url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_1"
+    badge: "../files/badges/1-associate-logo.png"
+  - type: certification
+    name: NSE 2 Network Security Associate
+    url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_2"
+    badge: "../files/badges/2-associate-logo.png"
+  - type: certification
+    name: Key Applications
+    url: "https://www.credly.com/org/certiport/badge/key-applications"
+    badge: "https://images.credly.com/size/680x680/images/8a8f3497-95a1-4e87-8cbf-4859dd4c4a85/IC3_key_applications.png"
+  - type: certification
+    name: Computing Fundamentals
+    url: "https://www.credly.com/org/certiport/badge/computing-fundamentals"
+    badge: "https://images.credly.com/size/680x680/images/bf8594c5-1e2d-4e5b-ab28-09c46bd755a3/IC3_computing_fundamentals.png"
+  - type: certification
+    name: Living Online
+    url: "https://www.credly.com/org/certiport/badge/living-online"
+    badge: "https://images.credly.com/size/680x680/images/b4c97286-a3ec-4c84-9095-518e1496869d/IC3_living_online.png"

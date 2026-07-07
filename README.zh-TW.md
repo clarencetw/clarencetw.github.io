@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/github/license/clarencetw/clarencetw.github.io)
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Fclarence.tw%2F)
 
-Clarence Lin 的個人網站、作品集與技術知識庫。
+Clarence 的個人網站、作品集與技術知識庫。
 
 網站使用 [Hugo](https://gohugo.io/) 與 [Toha](https://github.com/hugo-toha/toha) theme 建置，內容涵蓋 Backend engineering、LLM application、DevOps、Cloud / On-prem infrastructure 與 Network operations，並支援繁體中文、English、日本語。
 
@@ -77,6 +77,7 @@ npm run theme:update
 - 定期 theme update workflow 會從 `dependencies/update-theme` 開 pull request。
 - GitHub Pages 會將產出的 `public` directory 發佈到 `gh-pages` branch。
 - 這個 repository 的多數 npm packages 由 Toha Hugo module 透過 `hugo mod npm pack` 產生；除非 Toha module metadata 已更新，不建議手動升級 major version，避免和 theme 需求衝突。
+- GitHub issue 與 pull request 標題使用英文；內容使用繁體中文，方便日後回看脈絡。
 
 ## Vercel
 

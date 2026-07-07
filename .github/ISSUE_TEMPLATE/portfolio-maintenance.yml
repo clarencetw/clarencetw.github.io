@@ -1,0 +1,40 @@
+name: Portfolio maintenance
+description: 回報或規劃個人網站、內容、部署、依賴與 GitHub metadata 調整。
+title: "[area] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Issue title 請使用英文；內容請使用繁體中文。
+        技術名稱、服務名稱與品牌名稱可保留英文，例如 Hugo、Toha、Vercel、Cloudflare、LINE LIFF、Giscus、Lighthouse。
+  - type: textarea
+    id: summary
+    attributes:
+      label: 摘要
+      description: 簡短說明要處理的問題、文章、功能或維護項目。
+      placeholder: 例如：更新首頁介紹內容，補齊近期專案與部署說明。
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 範圍
+      description: 列出需要調整的頁面、資料、設定或流程。
+      placeholder: |
+        - README / GitHub description
+        - data/zh-tw、data/en、data/ja
+        - Vercel / Cloudflare / GitHub Actions
+    validations:
+      required: false
+  - type: textarea
+    id: done
+    attributes:
+      label: 完成條件
+      description: 說明什麼情況算完成。
+      placeholder: |
+        - 內容已更新並完成 build
+        - 預覽頁面確認正常
+        - 相關 PR description 已補上中文脈絡
+    validations:
+      required: false

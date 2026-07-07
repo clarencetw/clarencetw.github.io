@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/github/license/clarencetw/clarencetw.github.io)
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Fclarence.tw%2F)
 
-Clarence Lin の個人サイト、ポートフォリオ、技術ナレッジベースです。
+Clarence の個人サイト、ポートフォリオ、技術ナレッジベースです。
 
 このサイトは [Hugo](https://gohugo.io/) と [Toha](https://github.com/hugo-toha/toha) theme で構築されています。Backend engineering、LLM application、DevOps、Cloud / On-prem infrastructure、Network operations の経験を、繁體中文、English、日本語で紹介します。
 
@@ -77,6 +77,7 @@ npm run theme:update
 - Scheduled theme update workflow は `dependencies/update-theme` から pull request を作成します。
 - GitHub Pages は生成された `public` directory を `gh-pages` branch に公開します。
 - この repository の npm packages の多くは Toha Hugo module から `hugo mod npm pack` で生成されます。Toha の module metadata が更新されていない場合、manual major upgrade は避けます。
+- GitHub issue と pull request の title は English、description は繁體中文で記録します。
 
 ## Vercel
 

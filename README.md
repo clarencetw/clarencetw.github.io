@@ -7,7 +7,7 @@ English | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md)
 ![License](https://img.shields.io/github/license/clarencetw/clarencetw.github.io)
 ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Fclarence.tw%2F)
 
-Personal portfolio and technical knowledge base for Clarence Lin.
+Personal portfolio and technical knowledge base for Clarence.
 
 The site is built with [Hugo](https://gohugo.io/) and the [Toha](https://github.com/hugo-toha/toha) theme. It presents backend engineering, LLM applications, DevOps, cloud, on-prem infrastructure, and network operations work in Traditional Chinese, English, and Japanese.
 
@@ -77,6 +77,7 @@ npm run theme:update
 - The scheduled theme update workflow opens a pull request from `dependencies/update-theme`.
 - GitHub Pages publishes the generated `public` directory to the `gh-pages` branch.
 - Most npm packages in this repository are generated from the Toha Hugo module by `hugo mod npm pack`; avoid manual major upgrades unless Toha updates its module metadata.
+- GitHub issue and pull request titles should use English; descriptions should use Traditional Chinese so the work history stays easy to review.
 
 ## Vercel
 

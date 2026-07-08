@@ -102,10 +102,13 @@ npm run theme:update
 
 ## Cloudflare Pages
 
-- Build command: `npm ci && npm run build`。
+- Build system: Pages v3 を使い、build image の default に依存せず environment variables で必要な versions を固定します。
+- Build command: `npm run build`。Cloudflare Pages は build command の前に `package-lock.json` から dependencies を自動 install します。install まで手動管理したい場合のみ、`SKIP_DEPENDENCY_INSTALL=1` と `npm ci && npm run build` を使います。
 - Output directory: `public`。
 - `.node-version` で Node.js `24` を固定し、Cloudflare Pages の v2 build image が既定の Node.js 18 を使わないようにします。
-- Required environment variables: `HUGO_VERSION=0.164.0`、`GO_VERSION=1.23.0`。
+- Production と Preview environment variables は揃えます: `HUGO_VERSION=0.164.0`、`GO_VERSION=1.23.0`、`NODE_VERSION=24`、`HUGO_ENV=production`。
+- Production branch: `master`。
+- Preview branch control: Custom branches を使い、Include `*`、Exclude `gh-pages`。GitHub Pages の static output branch を source として再 build しないようにします。
 
 ## License
 

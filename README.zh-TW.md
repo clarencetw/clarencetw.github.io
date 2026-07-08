@@ -102,10 +102,13 @@ npm run theme:update
 
 ## Cloudflare Pages
 
-- Build command：`npm ci && npm run build`。
+- Build system：建議使用 Pages v3，並用環境變數固定必要版本，避免依賴 build image 預設值。
+- Build command：`npm run build`。Cloudflare Pages 會先依照 `package-lock.json` 自動安裝 dependencies；如果要手動控制安裝流程，才改用 `SKIP_DEPENDENCY_INSTALL=1` 搭配 `npm ci && npm run build`。
 - Output directory：`public`。
 - `.node-version` 會固定 Node.js `24`，避免 Cloudflare Pages 使用 v2 build image 預設的 Node.js 18。
-- 必要 environment variables：`HUGO_VERSION=0.164.0`、`GO_VERSION=1.23.0`。
+- Production 與 Preview environment variables 應保持一致：`HUGO_VERSION=0.164.0`、`GO_VERSION=1.23.0`、`NODE_VERSION=24`、`HUGO_ENV=production`。
+- Production branch：`master`。
+- Preview branch control：使用 Custom branches；Include `*`，Exclude `gh-pages`，避免 GitHub Pages 的靜態輸出 branch 被 Cloudflare 當成原始碼重新 build。
 
 ## License
 

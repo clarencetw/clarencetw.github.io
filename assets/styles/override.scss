@@ -255,10 +255,26 @@ a:focus {
 }
 
 .experiences-section .vertical-line::after,
-.experiences-section .horizontal-line div,
-.timeline-section .vertical-line::after,
-.timeline-section .horizontal-line div {
-  background-color: var(--clarence-teal);
+.timeline-section .vertical-line::after {
+  border-left-color: var(--clarence-teal);
+  background-color: transparent;
+}
+
+.experiences-section .timeline > .row {
+  justify-content: flex-start !important;
+}
+
+.experiences-section .timeline > .row > .vertical-line {
+  order: 0;
+}
+
+.experiences-section .timeline > .row > .col-10.col-lg-8 {
+  order: 1;
+}
+
+.experiences-section .horizontal-line,
+.timeline-section .horizontal-line {
+  display: none;
 }
 
 .experiences-section .positions ul,

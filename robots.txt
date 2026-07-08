@@ -1,1 +1,6 @@
 User-agent: *
+Allow: /
+
+Sitemap: https://clarence.tw/sitemap.xml
+
+# LLM guide: https://clarence.tw/llms.txt

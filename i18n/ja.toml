@@ -27,6 +27,13 @@ other = "comments powered by"
 [err_404]
 other = "お探しのページはまだありません。"
 
+[notes]
+other = "技術ノート"
+
+[note_items]
+one = "件のノート"
+other = "件のノート"
+
 [minute]
 one = "分"
 other = "分"

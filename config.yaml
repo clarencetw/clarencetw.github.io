@@ -1,7 +1,7 @@
 baseURL: https://clarence.tw
 
 locale: zh-tw
-title: "Clarence"
+title: "Clarence | Backend, AI, DevOps, Infrastructure"
 
 # Use Hugo modules to add theme
 module:
@@ -26,17 +26,17 @@ languages:
   zh-tw:
     locale: zh-tw
     label: 繁體中文
-    title: "Clarence"
+    title: "Clarence｜Backend、AI、DevOps 與 Infrastructure"
     weight: 1
   en:
     locale: en
     label: English
-    title: "Clarence"
+    title: "Clarence | Backend, AI, DevOps, Infrastructure"
     weight: 2
   ja:
     locale: ja
     label: 日本語
-    title: "Clarence"
+    title: "Clarence｜Backend・AI・DevOps・Infrastructure"
     weight: 3
 
 # Allow raw html in markdown file

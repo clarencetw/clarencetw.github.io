@@ -1,10 +1,10 @@
 ---
-title: GitLab CI/CD Configuration Guide
+title: GitLab CI/CD 設定ガイド
 date: 2024-01-30T15:00:00+08:00
 description: GitLab CI/CD の実務的な設定メモ。Runner、Harbor、multi-environment deployment を扱います。
 menu:
   sidebar:
-    name: GitLab CI/CD Guide
+    name: GitLab CI/CD 設定
     identifier: gitlab-cicd-complete-guide
     weight: 40
 tags: ["GitLab", "CI/CD", "DevOps", "Docker", "Automation"]

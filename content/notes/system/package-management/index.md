@@ -1,9 +1,10 @@
 ---
 title: 套件管理指令
+description: Homebrew、APT、DNF、YUM 與其他 package manager 常用操作。
 weight: 310
 menu:
   notes:
-    name: Package Management
+    name: 套件管理
     identifier: notes-system-package
     parent: notes-system
     weight: 10

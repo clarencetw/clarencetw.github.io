@@ -1,9 +1,10 @@
 ---
 title: Docker 常用指令
+description: Docker image、container、Compose 與清理常用指令。
 weight: 410
 menu:
   notes:
-    name: Docker Commands
+    name: Docker 指令
     identifier: notes-docker-commands
     parent: notes-docker
     weight: 10

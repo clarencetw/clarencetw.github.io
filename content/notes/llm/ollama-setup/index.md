@@ -1,9 +1,10 @@
 ---
 title: Ollama 設定與使用
+description: Ollama 安裝、model 管理與 local API 使用範例。
 weight: 210
 menu:
   notes:
-    name: Ollama Setup
+    name: Ollama
     identifier: notes-llm-ollama
     parent: notes-llm
     weight: 10

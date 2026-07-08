@@ -1,5 +1,5 @@
 section:
-  name: Education
+  name: 学歴
   id: education
   template: sections/education.html
   enable: true

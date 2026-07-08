@@ -1,6 +1,6 @@
 # section information
 section:
-  name: Experience
+  name: 經歷
   id: experiences
   enable: true
   weight: 3

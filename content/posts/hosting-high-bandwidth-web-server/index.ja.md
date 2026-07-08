@@ -1,10 +1,10 @@
 ---
-title: High-traffic Web Hosting Operations
+title: 高トラフィック Web Hosting 運用
 date: 2023-01-21T02:00:00+08:00
-description: 高トラフィック Web hosting と多数サイトの運用経験。Monitoring、updates、capacity planning、security maintenance を扱います。
+description: 高トラフィック Web hosting と多数サイトの運用経験。monitoring、updates、capacity planning、security maintenance を扱います。
 menu:
   sidebar:
-    name: High-traffic Hosting
+    name: Web Hosting 運用
     identifier: hosting-high-bandwidth-web-server
     weight: 10
 tags: ["Hosting", "Nginx", "Cloudflare", "Monitoring", "Operations"]

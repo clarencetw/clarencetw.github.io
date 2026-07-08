@@ -1,9 +1,10 @@
 ---
 title: 系統管理指令
+description: Linux / Unix system information、file operations、systemd 與 network diagnostics。
 weight: 320
 menu:
   notes:
-    name: System Commands
+    name: 系統指令
     identifier: notes-system-commands
     parent: notes-system
     weight: 20

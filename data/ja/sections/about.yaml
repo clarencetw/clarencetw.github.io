@@ -1,5 +1,5 @@
 section:
-  name: About
+  name: プロフィール
   id: about
   enable: true
   weight: 1

@@ -1,9 +1,10 @@
 ---
 title: AWS CDK 實用技巧
+description: AWS CDK init、diff、deploy、destroy 與實務習慣。
 weight: 110
 menu:
   notes:
-    name: CDK Tips
+    name: CDK 技巧
     identifier: notes-aws-cdk-tips
     parent: notes-aws
     weight: 10

@@ -1,9 +1,10 @@
 ---
 title: Mac 系統管理指令
+description: macOS Launchpad、Dock、Finder、screenshot 與系統查詢指令。
 weight: 210
 menu:
   notes:
-    name: Mac Commands
+    name: macOS 指令
     identifier: notes-mac-commands
     parent: notes-mac
     weight: 10

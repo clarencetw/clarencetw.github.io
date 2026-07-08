@@ -1,5 +1,6 @@
 ---
 title: AWS CLI 基礎指令
+description: AWS CLI 安裝、profile、S3、EC2 與 IAM 常用操作。
 weight: 120
 menu:
   notes:

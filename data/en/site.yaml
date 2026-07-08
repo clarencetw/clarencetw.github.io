@@ -2,7 +2,8 @@
 copyright: © 2026 Copyright.
 
 # Meta description for your site.  This will help the search engines to find your site.
-description: Clarence Lin's personal site for backend engineering, LLM applications, DevOps, cloud, on-prem infrastructure, and network operations.
+description: Clarence's personal site for backend engineering, LLM applications, DevOps, cloud, on-prem infrastructure, and network operations.
+navBarTitle: Clarence
 
 # specify the list of custom menus that you want to show in the top navbar.
 # they will be separated by a divider from the main menus.
@@ -17,8 +18,8 @@ customMenus:
 
 # Specify OpenGraph Headers
 openGraph:
-  title: Clarence Lin | Backend, LLM, DevOps, Infrastructure
+  title: Clarence | Backend, AI, DevOps, Infrastructure
   type: website
-  description: Portfolio and technical notes across backend systems, LLM applications, DevOps, cloud, on-prem infrastructure, and network operations.
+  description: Portfolio and technical notes across backend systems, AI applications, DevOps, cloud, on-prem infrastructure, and network operations.
   image: clarencetw-og.png
   url: https://clarence.tw

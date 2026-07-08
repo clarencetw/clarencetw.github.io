@@ -1,5 +1,5 @@
 section:
-  name: Featured Posts
+  name: 注目記事
   id: featured-posts
   enable: true
   weight: 7

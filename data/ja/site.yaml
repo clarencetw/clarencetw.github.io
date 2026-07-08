@@ -1,7 +1,8 @@
 # Copyright Notice
 copyright: © 2026 Copyright.
 
-description: Backend、LLM / Speech AI、DevOps、Cloud / On-prem Infrastructure、Network Operations を整理した Clarence Lin の個人サイトです。
+description: Backend、AI / LLM、DevOps、Cloud / On-prem Infrastructure、Network Operations を整理した Clarence の個人サイトです。
+navBarTitle: Clarence
 
 customMenus:
   - name: Blog
@@ -10,8 +11,8 @@ customMenus:
     showOnFooter: true
 
 openGraph:
-  title: Clarence Lin | Backend, LLM, DevOps, Infrastructure
+  title: Clarence｜Backend・AI・DevOps・Infrastructure
   type: website
-  description: Backend、LLM / Speech AI、DevOps、Cloud / On-prem Infrastructure、Network Operations のポートフォリオと技術記録。
+  description: Backend、AI / LLM、DevOps、Cloud / On-prem Infrastructure、Network Operations のポートフォリオ、記事、技術ノート。
   image: clarencetw-og.png
   url: https://clarence.tw

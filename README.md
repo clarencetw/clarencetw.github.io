@@ -5,7 +5,8 @@ English | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md)
 ![Repository Size](https://img.shields.io/github/repo-size/clarencetw/clarencetw.github.io)
 ![Last Commit](https://img.shields.io/github/last-commit/clarencetw/clarencetw.github.io)
 ![License](https://img.shields.io/github/license/clarencetw/clarencetw.github.io)
-![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Fclarence.tw%2F)
+![Deploy to GitHub Pages](https://github.com/clarencetw/clarencetw.github.io/actions/workflows/deploy-site.yaml/badge.svg)
+![Lighthouse CI](https://github.com/clarencetw/clarencetw.github.io/actions/workflows/lighthouse-ci.yaml/badge.svg)
 
 Personal portfolio and technical knowledge base for Clarence.
 
@@ -77,7 +78,7 @@ npm run theme:update
 - The scheduled theme update workflow opens a pull request from `dependencies/update-theme`.
 - GitHub Pages publishes the generated `public` directory to the `gh-pages` branch.
 - Most npm packages in this repository are generated from the Toha Hugo module by `hugo mod npm pack`; avoid manual major upgrades unless Toha updates its module metadata.
-- GitHub issue and pull request titles should use English; descriptions should use Traditional Chinese so the work history stays easy to review.
+- GitHub issue, pull request, and commit titles should use English Conventional Commits when they map to a change; descriptions should use Traditional Chinese so the work history stays easy to review.
 
 ## Vercel
 
@@ -88,6 +89,13 @@ npm run theme:update
 - Output directory: `public`.
 - Required environment variables: `HUGO_VERSION=0.164.0`, `NODE_VERSION=24`, `GO_VERSION=1.23.0`.
 - `vercel.json` keeps the deploy settings and security headers in the repository. The `gh-pages` branch is disabled for Vercel deployments.
+
+## Cloudflare Pages
+
+- Build command: `npm ci && npm run build`.
+- Output directory: `public`.
+- `.node-version` pins Node.js `24` so Cloudflare Pages does not use the older Node.js 18 default from the v2 build image.
+- Required environment variables: `HUGO_VERSION=0.164.0`, `GO_VERSION=1.23.0`.
 
 ## License
 

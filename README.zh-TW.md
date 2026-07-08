@@ -5,7 +5,8 @@
 ![Repository Size](https://img.shields.io/github/repo-size/clarencetw/clarencetw.github.io)
 ![Last Commit](https://img.shields.io/github/last-commit/clarencetw/clarencetw.github.io)
 ![License](https://img.shields.io/github/license/clarencetw/clarencetw.github.io)
-![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Fclarence.tw%2F)
+![Deploy to GitHub Pages](https://github.com/clarencetw/clarencetw.github.io/actions/workflows/deploy-site.yaml/badge.svg)
+![Lighthouse CI](https://github.com/clarencetw/clarencetw.github.io/actions/workflows/lighthouse-ci.yaml/badge.svg)
 
 Clarence 的個人網站、作品集與技術知識庫。
 
@@ -77,7 +78,7 @@ npm run theme:update
 - 定期 theme update workflow 會從 `dependencies/update-theme` 開 pull request。
 - GitHub Pages 會將產出的 `public` directory 發佈到 `gh-pages` branch。
 - 這個 repository 的多數 npm packages 由 Toha Hugo module 透過 `hugo mod npm pack` 產生；除非 Toha module metadata 已更新，不建議手動升級 major version，避免和 theme 需求衝突。
-- GitHub issue 與 pull request 標題使用英文；內容使用繁體中文，方便日後回看脈絡。
+- GitHub issue、pull request 與 commit title 如果對應到一個變更，應使用英文 Conventional Commits；description 使用繁體中文，方便日後回看脈絡。
 
 ## Vercel
 
@@ -88,6 +89,13 @@ npm run theme:update
 - Output directory：`public`。
 - 必要 environment variables：`HUGO_VERSION=0.164.0`、`NODE_VERSION=24`、`GO_VERSION=1.23.0`。
 - `vercel.json` 會在 repository 內固定 deploy settings 與 security headers；Vercel 不會部署 `gh-pages` branch。
+
+## Cloudflare Pages
+
+- Build command：`npm ci && npm run build`。
+- Output directory：`public`。
+- `.node-version` 會固定 Node.js `24`，避免 Cloudflare Pages 使用 v2 build image 預設的 Node.js 18。
+- 必要 environment variables：`HUGO_VERSION=0.164.0`、`GO_VERSION=1.23.0`。
 
 ## License
 

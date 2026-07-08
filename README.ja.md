@@ -5,7 +5,8 @@
 ![Repository Size](https://img.shields.io/github/repo-size/clarencetw/clarencetw.github.io)
 ![Last Commit](https://img.shields.io/github/last-commit/clarencetw/clarencetw.github.io)
 ![License](https://img.shields.io/github/license/clarencetw/clarencetw.github.io)
-![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Fclarence.tw%2F)
+![Deploy to GitHub Pages](https://github.com/clarencetw/clarencetw.github.io/actions/workflows/deploy-site.yaml/badge.svg)
+![Lighthouse CI](https://github.com/clarencetw/clarencetw.github.io/actions/workflows/lighthouse-ci.yaml/badge.svg)
 
 Clarence の個人サイト、ポートフォリオ、技術ナレッジベースです。
 
@@ -77,7 +78,7 @@ npm run theme:update
 - Scheduled theme update workflow は `dependencies/update-theme` から pull request を作成します。
 - GitHub Pages は生成された `public` directory を `gh-pages` branch に公開します。
 - この repository の npm packages の多くは Toha Hugo module から `hugo mod npm pack` で生成されます。Toha の module metadata が更新されていない場合、manual major upgrade は避けます。
-- GitHub issue と pull request の title は English、description は繁體中文で記録します。
+- GitHub issue、pull request、commit の title は、change に対応する場合 English Conventional Commits を使います。description は繁體中文で記録します。
 
 ## Vercel
 
@@ -88,6 +89,13 @@ npm run theme:update
 - Output directory: `public`。
 - Required environment variables: `HUGO_VERSION=0.164.0`、`NODE_VERSION=24`、`GO_VERSION=1.23.0`。
 - `vercel.json` で deploy settings と security headers を repository 内に固定します。Vercel は `gh-pages` branch を deploy しません。
+
+## Cloudflare Pages
+
+- Build command: `npm ci && npm run build`。
+- Output directory: `public`。
+- `.node-version` で Node.js `24` を固定し、Cloudflare Pages の v2 build image が既定の Node.js 18 を使わないようにします。
+- Required environment variables: `HUGO_VERSION=0.164.0`、`GO_VERSION=1.23.0`。
 
 ## License
 

@@ -1,12 +1,13 @@
 name: Portfolio maintenance
 description: 回報或規劃個人網站、內容、部署、依賴與 GitHub metadata 調整。
-title: "[area] "
+title: "docs: "
 labels: []
 body:
   - type: markdown
     attributes:
       value: |
-        Issue title 請使用英文；內容請使用繁體中文。
+        Issue title 如對應到一個變更，請使用英文 Conventional Commits，例如 `fix: update Cloudflare Pages runtime`。
+        Issue description 請使用繁體中文，方便日後回看脈絡。
         技術名稱、服務名稱與品牌名稱可保留英文，例如 Hugo、Toha、Vercel、Cloudflare、LINE LIFF、Giscus、Lighthouse。
   - type: textarea
     id: summary

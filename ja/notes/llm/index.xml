@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM &amp; AI on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/llm/</link><description>Recent content in LLM &amp; AI on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://clarence.tw/ja/notes/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama 設定と使い方</title><link>https://clarence.tw/ja/notes/llm/ollama-setup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/llm/ollama-setup/</guid><description>&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;Install と実行&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.1:8b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;prompt testing では小さめの model から始め、workflow が安定してから大きな model に移る。&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;Model commands&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run gemma2:9b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama rm gemma2:9b
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;script では model name を明示する。default model の変更で結果が変わるのを避けるため。&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="note-card "&gt;
+&lt;div class="item"&gt;
+&lt;h5 class="note-title"&gt;&lt;span&gt;Local API&lt;/span&gt;&lt;/h5&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl http://localhost:11434/api/generate &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -d &lt;span style="color:#e6db74"&gt;&amp;#39;{&amp;#34;model&amp;#34;:&amp;#34;gemma2:9b&amp;#34;,&amp;#34;prompt&amp;#34;:&amp;#34;Summarize this text.&amp;#34;,&amp;#34;stream&amp;#34;:false}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;local API は private experiment に便利だが、production では timeout、retry、logging boundary が必要。&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>

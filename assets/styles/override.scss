@@ -11,6 +11,10 @@
   --clarence-line: rgba(19, 32, 29, 0.12);
 }
 
+html {
+  scroll-padding-top: 5.25rem;
+}
+
 body {
   color: var(--clarence-ink);
   line-height: 1.72;
@@ -142,6 +146,11 @@ a:focus {
   margin: 0.8rem auto 0;
   background: linear-gradient(90deg, var(--clarence-teal), var(--clarence-amber));
   border-radius: 999px;
+}
+
+.anchor,
+.anchor span[id] {
+  scroll-margin-top: 5.25rem;
 }
 
 .about-section {
@@ -333,6 +342,10 @@ html[data-theme='dark'] .card-header {
 }
 
 @media (max-width: 767px) {
+  html {
+    scroll-padding-top: 4.75rem;
+  }
+
   .home {
     min-height: 88vh;
   }
@@ -352,6 +365,11 @@ html[data-theme='dark'] .card-header {
 
   .section-holder h1 {
     margin-bottom: 1.55rem;
+  }
+
+  .anchor,
+  .anchor span[id] {
+    scroll-margin-top: 4.75rem;
   }
 
   .experiences-section .circle {

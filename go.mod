@@ -1,5 +1,5 @@
 module github.com/clarencetw/clarencetw.github.io
 
-go 1.23
+go 1.23.0
 
 require github.com/hugo-toha/toha/v4 v4.16.0 // indirect

@@ -1,0 +1,79 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<!--================= canonical URL =========================-->
+{{/* Use relcanonical from front matter if set, otherwise use the page's permalink */}}
+{{ with .Params.relcanonical }}
+<link rel="canonical" href="{{ . | relLangURL }}" />
+{{ else }}
+<link rel="canonical" href="{{ .Permalink }}" />
+{{ end }}
+
+<!--================= localized alternates and LLM guide =========================-->
+{{ $defaultPermalink := site.BaseURL }}
+{{ range .AllTranslations }}
+  {{ $hreflang := .Site.Language.Lang }}
+  {{ if eq $hreflang "zh-tw" }}{{ $hreflang = "zh-TW" }}{{ end }}
+  {{ if eq .Site.Language.Lang "zh-tw" }}{{ $defaultPermalink = .Permalink }}{{ end }}
+<link rel="alternate" hreflang="{{ $hreflang }}" href="{{ .Permalink }}" />
+{{ end }}
+<link rel="alternate" hreflang="x-default" href="{{ $defaultPermalink }}" />
+<link rel="alternate" type="text/markdown" href="{{ "llms.txt" | absURL }}" title="llms.txt" />
+
+{{ partial "helpers/style-bundle.html" . }}
+
+<!--================= fab-icon =========================-->
+{{/* add favicon only if the site author has provided the the favicon */}}
+{{ if site.Params.logo.favicon }}
+  {{ $favicon := site.Params.logo.favicon }}
+
+  {{/* resize the favicon. don't resize svg because it is not supported */}}
+  {{ $favicon = resources.Get $favicon }}
+  {{ if and $favicon (ne $favicon.MediaType.SubType "svg") }}
+    {{ $favicon = $favicon.Resize "42x" }}
+  {{ end }}
+  {{ $favicon = $favicon.RelPermalink}}
+
+  <link rel="icon" type="image/png" href="{{ $favicon }}" />
+{{end}}
+
+{{ with .OutputFormats.Get "rss" -}}
+  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+{{ end }}
+
+<!--================= structured data =========================-->
+{{ $siteDescription := site.Params.description }}
+{{ with (index hugo.Data site.Language.Lang).site.description }}
+  {{ $siteDescription = . }}
+{{ end }}
+{{ $sameAs := slice
+  "https://github.com/clarencetw"
+  "https://www.linkedin.com/in/clarence-lin-89764448/"
+  "https://stackoverflow.com/users/19384998/clarence"
+  "https://blog.clarence.tw/"
+  "https://sitcon.org/credits/#person=clarencetw"
+}}
+{{ $person := dict
+  "@type" "Person"
+  "@id" (printf "%s#person" site.BaseURL)
+  "name" "Clarence"
+  "url" site.BaseURL
+  "jobTitle" "Senior Backend Developer / LLM & Infrastructure Engineer"
+  "image" ("clarencetw-og.png" | absURL)
+  "sameAs" $sameAs
+}}
+{{ $website := dict
+  "@type" "WebSite"
+  "@id" (printf "%s#website" site.BaseURL)
+  "name" site.Title
+  "url" site.BaseURL
+  "description" $siteDescription
+  "inLanguage" site.Language.Lang
+  "publisher" (dict "@id" (printf "%s#person" site.BaseURL))
+}}
+{{ $structuredData := dict
+  "@context" "https://schema.org"
+  "@graph" (slice $person $website)
+}}
+<script type="application/ld+json">{{ $structuredData | jsonify | safeJS }}</script>

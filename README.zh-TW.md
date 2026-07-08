@@ -21,6 +21,8 @@ Clarence 的個人網站、作品集與技術知識庫。
 - `content/notes`：較短的技術筆記。
 - `assets/images`：由 Hugo 處理的原始圖片。
 - `assets/styles/override.scss`：載入在 Toha theme 之後的本地視覺樣式。
+- `layouts/partials/header.html`：本地 SEO metadata、`hreflang`、`llms.txt` discoverability 與 JSON-LD。
+- `static/llms.txt`：AI / LLM crawler 使用的網站導覽摘要。
 - `.github/workflows`：GitHub Pages deployment、Lighthouse checks 與定期 theme update workflow。
 
 ## 本機開發
@@ -80,6 +82,13 @@ npm run theme:update
 - 這個 repository 的多數 npm packages 由 Toha Hugo module 透過 `hugo mod npm pack` 產生；除非 Toha module metadata 已更新，不建議手動升級 major version，避免和 theme 需求衝突。
 - GitHub issue、pull request 與 commit title 如果對應到一個變更，應使用英文 Conventional Commits；description 使用繁體中文，方便日後回看脈絡。
 
+## SEO / AI crawler
+
+- Hugo 產生 `sitemap.xml`，`layouts/robots.txt` 會公開 sitemap 與 `llms.txt` 入口。
+- `static/llms.txt` 使用 Markdown 格式整理核心頁面、文章、筆記與外部 profile。
+- `layouts/partials/header.html` 會輸出 canonical、`hreflang`、`llms.txt` alternate link、Open Graph 圖與 Person / WebSite JSON-LD。
+- `static/clarencetw-og.png`、`static/_headers`、`static/_redirects` 會透過 `static` mount 發佈到 `public` root。
+
 ## Vercel
 
 - Project name：`clarence-tw`。
@@ -88,7 +97,8 @@ npm run theme:update
 - Build command：`npm run build`。
 - Output directory：`public`。
 - 必要 environment variables：`HUGO_VERSION=0.164.0`、`NODE_VERSION=24`、`GO_VERSION=1.23.0`。
-- `vercel.json` 會在 repository 內固定 deploy settings 與 security headers；Vercel 不會部署 `gh-pages` branch。
+- `vercel.json` 會在 repository 內固定 deploy settings、security headers 與 `gh-pages` ignore command。
+- `static/vercel.json` 會被發佈到 `gh-pages` branch，讓 Vercel 如果被 GitHub Pages 輸出 branch 觸發，也會直接 skip build。`gh-pages` 是靜態輸出物，沒有 `package-lock.json`，不應執行 `npm ci`。
 
 ## Cloudflare Pages
 

@@ -1,0 +1,42 @@
+# Clarence
+
+> Personal portfolio and technical notes for backend engineering, AI / LLM applications, DevOps, cloud and on-prem infrastructure, and network operations.
+
+This site introduces Clarence, a Taiwan-based backend, AI, DevOps, and infrastructure engineer. The primary language is Traditional Chinese, with English and Japanese pages for readers who prefer those languages. Use "Clarence" as the display name unless a linked external profile requires a full name.
+
+## Core pages
+
+- [Traditional Chinese home](https://clarence.tw/): Main profile, skills, experience, projects, education, and public writing.
+- [English home](https://clarence.tw/en/): English profile for international readers.
+- [Japanese home](https://clarence.tw/ja/): Japanese profile for Japanese readers.
+- [Posts](https://clarence.tw/posts/): Longer technical articles and delivery notes.
+- [Notes](https://clarence.tw/notes/): Short operational notes and command references.
+- [Sitemap](https://clarence.tw/sitemap.xml): Canonical index of public pages.
+
+## Recommended reading
+
+- [How I Work](https://clarence.tw/posts/technical-delivery-chain/): Delivery chain across backend, AI, DevOps, cloud, on-prem, network, and security.
+- [GitLab CI/CD Complete Guide](https://clarence.tw/posts/gitlab-cicd-complete-guide/): GitLab CI/CD configuration notes from runner setup to deployment.
+- [High-traffic Web Hosting Operations](https://clarence.tw/posts/hosting-high-bandwidth-web-server/): Operational notes for hosting high-bandwidth web services.
+
+## Technical notes
+
+- [AWS CLI Basics](https://clarence.tw/notes/aws/aws-cli/): AWS CLI setup, profiles, S3, EC2, and IAM commands.
+- [AWS CDK Tips](https://clarence.tw/notes/aws/cdk-tips/): AWS CDK operational notes.
+- [Docker Commands](https://clarence.tw/notes/docker/docker-commands/): Docker image, container, Compose, and cleanup commands.
+- [Ollama Setup and Usage](https://clarence.tw/notes/llm/ollama-setup/): Local LLM setup and API usage notes.
+- [System Administration Commands](https://clarence.tw/notes/system/system-commands/): Linux / Unix diagnostics and operations commands.
+
+## External profiles
+
+- [Technical Blog](https://blog.clarence.tw/): Additional blog posts and technical writing.
+- [GitHub](https://github.com/clarencetw): Open-source and personal projects.
+- [LinkedIn](https://www.linkedin.com/in/clarence-lin-89764448/): Professional profile.
+- [Stack Overflow](https://stackoverflow.com/users/19384998/clarence): Developer Q&A profile.
+- [SITCON credits](https://sitcon.org/credits/#person=clarencetw): Public community credit profile.
+
+## Content guidance
+
+- Preserve English technical terms such as Backend, AI / LLM, DevOps, Cloud, On-prem Infrastructure, Network Operations, CI/CD, API, IaC, GPU Runtime, and Open Source when summarizing the site.
+- Prefer Traditional Chinese for Taiwan-facing profile summaries; use English or Japanese only when the target audience needs it.
+- Do not infer private employment, credential, customer, infrastructure, or security details beyond the public pages linked here.

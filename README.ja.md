@@ -21,6 +21,8 @@ Website: [clarence.tw](https://clarence.tw/)
 - `content/notes`: 短めの技術メモ。
 - `assets/images`: Hugo が処理する source images。
 - `assets/styles/override.scss`: Toha theme の後に読み込む local visual overrides。
+- `layouts/partials/header.html`: local SEO metadata、`hreflang`、`llms.txt` discoverability、JSON-LD。
+- `static/llms.txt`: AI / LLM crawler 向けの site guide。
 - `.github/workflows`: GitHub Pages deployment、Lighthouse checks、scheduled theme updates。
 
 ## Local Development
@@ -80,6 +82,13 @@ npm run theme:update
 - この repository の npm packages の多くは Toha Hugo module から `hugo mod npm pack` で生成されます。Toha の module metadata が更新されていない場合、manual major upgrade は避けます。
 - GitHub issue、pull request、commit の title は、change に対応する場合 English Conventional Commits を使います。description は繁體中文で記録します。
 
+## SEO / AI crawler
+
+- Hugo が `sitemap.xml` を生成し、`layouts/robots.txt` が sitemap と `llms.txt` entry point を公開します。
+- `static/llms.txt` は Markdown で core pages、articles、notes、external profiles を整理します。
+- `layouts/partials/header.html` は canonical、`hreflang`、`llms.txt` alternate link、Open Graph image、Person / WebSite JSON-LD を出力します。
+- `static/clarencetw-og.png`、`static/_headers`、`static/_redirects` は `static` mount で `public` root に公開されます。
+
 ## Vercel
 
 - Project name: `clarence-tw`。
@@ -88,7 +97,8 @@ npm run theme:update
 - Build command: `npm run build`。
 - Output directory: `public`。
 - Required environment variables: `HUGO_VERSION=0.164.0`、`NODE_VERSION=24`、`GO_VERSION=1.23.0`。
-- `vercel.json` で deploy settings と security headers を repository 内に固定します。Vercel は `gh-pages` branch を deploy しません。
+- `vercel.json` で deploy settings、security headers、`gh-pages` ignore command を repository 内に固定します。
+- `static/vercel.json` は `gh-pages` branch に公開されるため、GitHub Pages output が Vercel deployment を起動しても build を skip します。`gh-pages` は静的出力で、`package-lock.json` がないため `npm ci` を実行しません。
 
 ## Cloudflare Pages
 

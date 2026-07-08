@@ -4,6 +4,7 @@
   "installCommand": "yum install golang -y && npm ci",
   "buildCommand": "npm run build",
   "outputDirectory": "public",
+  "ignoreCommand": "test \"$VERCEL_GIT_COMMIT_REF\" = \"gh-pages\"",
   "git": {
     "deploymentEnabled": {
       "gh-pages": false

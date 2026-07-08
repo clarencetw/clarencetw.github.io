@@ -21,6 +21,8 @@ Website: [clarence.tw](https://clarence.tw/)
 - `content/notes`: shorter technical notes.
 - `assets/images`: source images processed by Hugo.
 - `assets/styles/override.scss`: local visual overrides loaded after the Toha theme.
+- `layouts/partials/header.html`: local SEO metadata, `hreflang`, `llms.txt` discoverability, and JSON-LD.
+- `static/llms.txt`: site guide for AI / LLM crawlers.
 - `.github/workflows`: GitHub Pages deployment, Lighthouse checks, and scheduled theme updates.
 
 ## Local Development
@@ -80,6 +82,13 @@ npm run theme:update
 - Most npm packages in this repository are generated from the Toha Hugo module by `hugo mod npm pack`; avoid manual major upgrades unless Toha updates its module metadata.
 - GitHub issue, pull request, and commit titles should use English Conventional Commits when they map to a change; descriptions should use Traditional Chinese so the work history stays easy to review.
 
+## SEO / AI crawler
+
+- Hugo generates `sitemap.xml`; `layouts/robots.txt` exposes the sitemap and `llms.txt` entry point.
+- `static/llms.txt` uses Markdown to summarize core pages, articles, notes, and external profiles.
+- `layouts/partials/header.html` emits canonical links, `hreflang`, the `llms.txt` alternate link, the Open Graph image, and Person / WebSite JSON-LD.
+- `static/clarencetw-og.png`, `static/_headers`, and `static/_redirects` are published to the `public` root through the `static` mount.
+
 ## Vercel
 
 - Project name: `clarence-tw`.
@@ -88,7 +97,8 @@ npm run theme:update
 - Build command: `npm run build`.
 - Output directory: `public`.
 - Required environment variables: `HUGO_VERSION=0.164.0`, `NODE_VERSION=24`, `GO_VERSION=1.23.0`.
-- `vercel.json` keeps the deploy settings and security headers in the repository. The `gh-pages` branch is disabled for Vercel deployments.
+- `vercel.json` keeps deploy settings, security headers, and the `gh-pages` ignore command in the repository.
+- `static/vercel.json` is published to the `gh-pages` branch so Vercel skips builds if GitHub Pages output triggers a deployment. `gh-pages` is static output, does not include `package-lock.json`, and should not run `npm ci`.
 
 ## Cloudflare Pages
 

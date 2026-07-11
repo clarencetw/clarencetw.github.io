@@ -1,0 +1,602 @@
+{
+  "version": 1,
+  "updated": "2026-07",
+  "shared": {
+    "name": "Clarence Lin",
+    "email": "me@clarence.tw",
+    "website": "https://clarence.tw",
+    "blog": "https://blog.clarence.tw",
+    "github": "https://github.com/clarencetw",
+    "linkedin": "https://www.linkedin.com/in/clarence-lin-89764448/"
+  },
+  "locales": {
+    "zh-tw": {
+      "language": "zh-TW",
+      "title": "資深後端開發 / LLM 與基礎設施工程師",
+      "labels": {
+        "profile": "專業摘要",
+        "expertise": "核心技能",
+        "experience": "工作經歷",
+        "publicWork": "公開成果",
+        "certifications": "證照與認證",
+        "projects": "精選開源",
+        "education": "學歷",
+        "community": "社群參與",
+        "updated": "更新"
+      },
+      "summary": "專注將後端系統、AI 應用、DevOps 與基礎設施整合成可部署、可觀測、可維運的交付系統。具 Node.js、Python、Go、AWS CDK、GitLab CI/CD、Proxmox，以及 LLM / 語音 AI 實務經驗。著有《AWS CDK 完全學習手冊》，並持續透過技術文章與 Open Source 專案分享實務經驗。",
+      "expertise": [
+        {
+          "name": "後端",
+          "items": "Node.js、Go、Python、PHP、API Design、Background Jobs"
+        },
+        {
+          "name": "AI 與語音",
+          "items": "LLM Applications、OpenAI API、Ollama、Kaldi、Whisper、GPU Runtime"
+        },
+        {
+          "name": "Cloud / IaC",
+          "items": "AWS、AWS CDK、GCP、Azure、Infrastructure as Code"
+        },
+        {
+          "name": "交付與平台",
+          "items": "GitLab CI/CD、GitHub Actions、Docker、Linux、Proxmox VE / PBS、Harbor"
+        },
+        {
+          "name": "資料",
+          "items": "PostgreSQL、MySQL、Redis"
+        },
+        {
+          "name": "網路",
+          "items": "VLAN、VPN、SD-WAN、防火牆、有線與無線網路"
+        }
+      ],
+      "experience": [
+        {
+          "date": "2020.11 - Present",
+          "role": "Senior Backend Developer / LLM Engineer",
+          "organization": "BRONCI Technology Inc.（長問科技）",
+          "url": "https://bronci.com.tw/",
+          "bullets": [
+            "設計與開發 Backend Services、API、Background Jobs、資料處理流程與第三方整合。",
+            "將 OpenAI API、Ollama、Kaldi、Whisper 與 GPU Runtime 整合至可維運的 LLM / 語音 AI 流程。",
+            "以 AWS CDK / IaC 建立可重複部署的 Cloud Architecture，並維運 Linux、Proxmox VE / PBS、Harbor 與監控平台。",
+            "維護 GitLab CI/CD、GitHub Actions、自動化測試與 Container Delivery；規劃 VLAN、VPN、防火牆、Wi-Fi 與 SD-WAN。"
+          ]
+        },
+        {
+          "date": "2015.11 - 2020.11",
+          "role": "專題研究計畫專任助理",
+          "organization": "國立臺北科技大學",
+          "url": "https://www.ntut.edu.tw/",
+          "bullets": [
+            "使用 Node.js、Go、C/C++、PostgreSQL 與 Docker 開發 Cloud System Software、Backend 與 Network Applications。"
+          ]
+        },
+        {
+          "date": "2012.06 - 2017.06",
+          "role": "計網中心工讀生",
+          "organization": "國立臺北科技大學",
+          "url": "https://cnc.ntut.edu.tw/",
+          "bullets": [
+            "處理校園網路疑難排解與電腦系統維護。"
+          ]
+        }
+      ],
+      "publicWork": [
+        {
+          "date": "2021",
+          "title": "《AWS CDK 完全學習手冊》作者",
+          "detail": "博碩文化出版；內容源自第 12 屆 iThome 鐵人賽 DevOps 組冠軍系列「用 CDK 定義 AWS 架構」。",
+          "url": "https://clarence.tw/#publications"
+        },
+        {
+          "date": "2022",
+          "title": "五倍紅寶石 AWS 教育訓練講師",
+          "detail": "完成 12 小時 AWS Cloud Deployment 課程與 Hands-on Practice。",
+          "url": "https://5xruby.com/zh/articles/2022-enginner-training"
+        },
+        {
+          "date": "2021.12",
+          "title": "AWS User Group Taiwan 講師",
+          "detail": "分享 AWS CDK 入門與前端一鍵部署。",
+          "url": "https://awsugtw.kktix.cc/events/awsug-202112"
+        },
+        {
+          "date": "2022 起",
+          "title": "《數位時代》作者",
+          "detail": "撰寫 Backend、DevOps、Linux、Cloud Architecture 與 Security 主題。",
+          "url": "https://www.bnext.com.tw/author/4039"
+        }
+      ],
+      "certifications": [
+        {
+          "title": "國家技術士",
+          "focus": "資訊系統實作",
+          "detail": "取得電腦硬體裝修乙級，以及電腦硬體裝修、電腦軟體應用、電腦軟體設計、網頁設計、網路架設丙級，證明硬體維修、軟體操作與設計、網頁製作及網路建置能力。",
+          "url": "https://www.wdasec.gov.tw/News.aspx?n=7A0667A678A1B0AE&sms=4C9F24535BA50B1F"
+        },
+        {
+          "title": "Fortinet NSE 1 / NSE 2",
+          "focus": "網路資安",
+          "detail": "取得 NSE 1 與 NSE 2 認證，證明網路威脅辨識、資安基礎與 Fortinet 安全解決方案知識。",
+          "url": "https://www.fortinet.com/content/dam/fortinet/assets/training/NSE-End-User-Guide.pdf"
+        },
+        {
+          "title": "IC3 Digital Literacy Components",
+          "focus": "數位素養",
+          "detail": "取得 Computing Fundamentals、Key Applications、Living Online 三項認證，證明電腦基礎、生產力工具、網路協作與安全上網能力。",
+          "url": "https://www.certiport.com/ic3"
+        },
+        {
+          "title": "Microsoft Office 2007 Master",
+          "focus": "辦公生產力",
+          "detail": "通過四項 MCAS 認證並取得 Microsoft Office 2007 Master，證明完整的辦公生產力工具能力。",
+          "credentials": [
+            "Word 2007 (77-601) - 文件編排、樣式與版面管理",
+            "Excel 2007 (77-602) - 公式、資料分析、圖表與活頁簿管理",
+            "PowerPoint 2007 (77-603) - 簡報架構、視覺設計與放映",
+            "Outlook 2007 (77-604) - 郵件、行事曆、聯絡人與工作管理"
+          ],
+          "url": "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        },
+        {
+          "title": "Adobe Certified Associate CS3",
+          "focus": "數位內容製作",
+          "detail": "取得三項 Adobe Certified Associate CS3 認證，證明網頁、互動多媒體與視覺內容製作能力。",
+          "credentials": [
+            "Dreamweaver CS3 - 網頁製作、HTML/CSS 與網站管理",
+            "Flash CS3 - 動畫、互動多媒體與發佈",
+            "Photoshop CS3 Extended - 影像編修、視覺設計與輸出"
+          ],
+          "url": "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        },
+        {
+          "title": "TQC",
+          "focus": "網頁與行動應用",
+          "detail": "取得網際網路及行動通訊、HTML 4.01、Windows Mobile 6 行動裝置作業系統應用之實用、進階、專業級認證，證明網路通訊、網頁標記與行動裝置應用能力。",
+          "url": "https://www.tqc.org.tw/"
+        }
+      ],
+      "projects": [
+        {
+          "date": "Current",
+          "title": "clarence.tw",
+          "detail": "以 Hugo 建置的多語個人網站與技術知識庫。",
+          "url": "https://github.com/clarencetw/clarencetw.github.io"
+        },
+        {
+          "date": "2020 - 2024",
+          "title": "cdk-wordpress",
+          "detail": "將 WordPress Architecture 封裝為可重複部署的 AWS CDK Construct Library。",
+          "url": "https://github.com/clarencetw/cdk-wordpress"
+        },
+        {
+          "date": "2022",
+          "title": "node-crypto-ecb",
+          "detail": "Node.js AES ECB 相容性函式庫。",
+          "url": "https://github.com/clarencetw/node-crypto-ecb"
+        },
+        {
+          "date": "2021",
+          "title": "AWS CDK",
+          "detail": "參與 AWS Cloud Development Kit 上游 Open Source 貢獻。",
+          "url": "https://github.com/aws/aws-cdk"
+        }
+      ],
+      "education": [
+        {
+          "date": "2015 - 2017",
+          "title": "電機工程碩士（通訊組）",
+          "organization": "國立臺北科技大學",
+          "url": "https://www.ntut.edu.tw/"
+        },
+        {
+          "date": "2011 - 2015",
+          "title": "學士",
+          "organization": "國立臺北科技大學",
+          "url": "https://www.ntut.edu.tw/"
+        },
+        {
+          "date": "2008 - 2011",
+          "title": "資訊科",
+          "organization": "協和工商",
+          "url": "https://www.hhvs.tp.edu.tw/"
+        }
+      ],
+      "community": "SITCON 2014 - 2018、SITCON Summer Camp 2014 - 2015、COSCUP 2014、HITCON 2014。"
+    },
+    "en": {
+      "language": "en",
+      "title": "Senior Backend Developer / LLM & Infrastructure Engineer",
+      "labels": {
+        "profile": "Profile",
+        "expertise": "Core Expertise",
+        "experience": "Experience",
+        "publicWork": "Selected Public Work",
+        "certifications": "Certifications & Credentials",
+        "projects": "Selected Open Source",
+        "education": "Education",
+        "community": "Community",
+        "updated": "Updated"
+      },
+      "summary": "Senior engineer working across backend systems, AI applications, DevOps, and infrastructure. I build delivery systems that can be deployed, observed, and maintained in production, with hands-on experience in Node.js, Python, Go, AWS CDK, GitLab CI/CD, Proxmox, and LLM and speech AI. I am also the author of AWS CDK 完全學習手冊 and publish practical knowledge through technical writing and open-source projects.",
+      "expertise": [
+        {
+          "name": "Backend",
+          "items": "Node.js, Go, Python, PHP, API design, background jobs"
+        },
+        {
+          "name": "AI & Speech",
+          "items": "LLM applications, OpenAI API, Ollama, Kaldi, Whisper, GPU runtimes"
+        },
+        {
+          "name": "Cloud / IaC",
+          "items": "AWS, AWS CDK, GCP, Azure, infrastructure as code"
+        },
+        {
+          "name": "Delivery & Platforms",
+          "items": "GitLab CI/CD, GitHub Actions, Docker, Linux, Proxmox VE / PBS, Harbor"
+        },
+        {
+          "name": "Data",
+          "items": "PostgreSQL, MySQL, Redis"
+        },
+        {
+          "name": "Networking",
+          "items": "VLAN, VPN, SD-WAN, firewalls, wired and wireless networks"
+        }
+      ],
+      "experience": [
+        {
+          "date": "Nov 2020 - Present",
+          "role": "Senior Backend Developer / LLM Engineer",
+          "organization": "BRONCI Technology Inc.",
+          "url": "https://bronci.com.tw/",
+          "bullets": [
+            "Design and build backend services, APIs, background jobs, data-processing workflows, and third-party integrations.",
+            "Integrate OpenAI API, Ollama, Kaldi, Whisper, and GPU runtimes into maintainable LLM and speech AI workflows.",
+            "Build repeatable cloud architecture with AWS CDK and IaC; operate Linux, Proxmox VE / PBS, Harbor, and monitoring platforms.",
+            "Maintain GitLab CI/CD, GitHub Actions, automated tests, and container delivery; plan VLAN, VPN, firewall, Wi-Fi, and SD-WAN environments."
+          ]
+        },
+        {
+          "date": "Nov 2015 - Nov 2020",
+          "role": "Full-time Research Assistant",
+          "organization": "National Taipei University of Technology, Taipei Tech",
+          "url": "https://www.ntut.edu.tw/",
+          "bullets": [
+            "Developed cloud system software and backend and network applications with Node.js, Go, C/C++, PostgreSQL, and Docker."
+          ]
+        },
+        {
+          "date": "Jun 2012 - Jun 2017",
+          "role": "Part-time Staff, Computer and Information Network Center",
+          "organization": "National Taipei University of Technology, Taipei Tech",
+          "url": "https://cnc.ntut.edu.tw/",
+          "bullets": [
+            "Handled network troubleshooting and computer-system maintenance."
+          ]
+        }
+      ],
+      "publicWork": [
+        {
+          "date": "2021",
+          "title": "Author, AWS CDK 完全學習手冊",
+          "detail": "Published by DrMaster Press; based on the 12th iThome Ironman DevOps champion series, “用 CDK 定義 AWS 架構.”",
+          "url": "https://clarence.tw/en/#publications"
+        },
+        {
+          "date": "2022",
+          "title": "AWS Training Instructor, 5xRuby",
+          "detail": "Delivered 12 hours of cloud deployment instruction and hands-on practice.",
+          "url": "https://5xruby.com/zh/articles/2022-enginner-training"
+        },
+        {
+          "date": "Dec 2021",
+          "title": "Speaker, AWS User Group Taiwan",
+          "detail": "Presented an introductory AWS CDK session about one-command front-end deployment.",
+          "url": "https://awsugtw.kktix.cc/events/awsug-202112"
+        },
+        {
+          "date": "From 2022",
+          "title": "Author, BNext",
+          "detail": "Published articles on backend engineering, DevOps, Linux, cloud architecture, and security.",
+          "url": "https://www.bnext.com.tw/author/4039"
+        }
+      ],
+      "certifications": [
+        {
+          "title": "Taiwan National Technician Certificates",
+          "focus": "IT Systems",
+          "detail": "Earned Class B Computer Hardware Maintenance and Class C credentials in Hardware Maintenance, Software Applications, Software Design, Web Design, and Network Installation, demonstrating practical systems, software, web, and networking skills.",
+          "url": "https://www.wdasec.gov.tw/News.aspx?n=7A0667A678A1B0AE&sms=4C9F24535BA50B1F"
+        },
+        {
+          "title": "Fortinet NSE 1 / NSE 2",
+          "focus": "Network Security",
+          "detail": "Earned NSE 1 and NSE 2 credentials, demonstrating foundational knowledge of cyberthreats, security concepts, and Fortinet security solutions.",
+          "url": "https://www.fortinet.com/content/dam/fortinet/assets/training/NSE-End-User-Guide.pdf"
+        },
+        {
+          "title": "IC3 Digital Literacy Components",
+          "focus": "Digital Literacy",
+          "detail": "Earned Computing Fundamentals, Key Applications, and Living Online credentials, demonstrating digital literacy across computer fundamentals, productivity tools, online collaboration, and safe Internet use.",
+          "url": "https://www.certiport.com/ic3"
+        },
+        {
+          "title": "Microsoft Office 2007 Master",
+          "focus": "Office Productivity",
+          "detail": "Earned Microsoft Office 2007 Master by passing all four required MCAS certification exams.",
+          "credentials": [
+            "Word 2007 (77-601) - document formatting, styles, and layout",
+            "Excel 2007 (77-602) - formulas, data analysis, charts, and workbook management",
+            "PowerPoint 2007 (77-603) - presentation structure, visual design, and delivery",
+            "Outlook 2007 (77-604) - email, calendars, contacts, and task management"
+          ],
+          "url": "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        },
+        {
+          "title": "Adobe Certified Associate CS3",
+          "focus": "Digital Content",
+          "detail": "Earned three Adobe Certified Associate CS3 credentials, demonstrating web, interactive-media, and visual-content production skills.",
+          "credentials": [
+            "Dreamweaver CS3 - web authoring, HTML/CSS, and site management",
+            "Flash CS3 - animation, interactive media, and publishing",
+            "Photoshop CS3 Extended - image editing, visual design, and output"
+          ],
+          "url": "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        },
+        {
+          "title": "TQC",
+          "focus": "Web & Mobile",
+          "detail": "Earned Practical, Advanced, and Professional credentials in Internet and Mobile Communication, HTML 4.01, and Windows Mobile 6 Device OS Applications, demonstrating networking, web-markup, and mobile-device skills.",
+          "url": "https://www.tqc.org.tw/"
+        }
+      ],
+      "projects": [
+        {
+          "date": "Current",
+          "title": "clarence.tw",
+          "detail": "A multilingual Hugo portfolio and technical knowledge site.",
+          "url": "https://github.com/clarencetw/clarencetw.github.io"
+        },
+        {
+          "date": "2020 - 2024",
+          "title": "cdk-wordpress",
+          "detail": "An AWS CDK construct library for repeatable WordPress deployment as infrastructure code.",
+          "url": "https://github.com/clarencetw/cdk-wordpress"
+        },
+        {
+          "date": "2022",
+          "title": "node-crypto-ecb",
+          "detail": "A Node.js AES ECB library for compatibility-driven encryption and decryption use cases.",
+          "url": "https://github.com/clarencetw/node-crypto-ecb"
+        },
+        {
+          "date": "2021",
+          "title": "AWS CDK",
+          "detail": "Public contributions to the AWS Cloud Development Kit project.",
+          "url": "https://github.com/aws/aws-cdk"
+        }
+      ],
+      "education": [
+        {
+          "date": "2015 - 2017",
+          "title": "M.S., Electrical Engineering",
+          "organization": "National Taipei University of Technology, Taipei Tech",
+          "url": "https://www.ntut.edu.tw/"
+        },
+        {
+          "date": "2011 - 2015",
+          "title": "B.S.",
+          "organization": "National Taipei University of Technology, Taipei Tech",
+          "url": "https://www.ntut.edu.tw/"
+        },
+        {
+          "date": "2008 - 2011",
+          "title": "Higher Vocational, Information",
+          "organization": "Xiehe Youde Senior High School",
+          "url": "https://www.hhvs.tp.edu.tw/"
+        }
+      ],
+      "community": "SITCON 2014 - 2018, SITCON Summer Camp 2014 - 2015, COSCUP 2014, and HITCON 2014."
+    },
+    "ja": {
+      "language": "ja",
+      "title": "シニアバックエンド / LLM・インフラエンジニア",
+      "labels": {
+        "profile": "概要",
+        "expertise": "コアスキル",
+        "experience": "職務経歴",
+        "publicWork": "公開実績",
+        "certifications": "資格・認定",
+        "projects": "主なオープンソース",
+        "education": "学歴",
+        "community": "コミュニティ",
+        "updated": "更新"
+      },
+      "summary": "バックエンド、AI Application、DevOps、Infrastructure を横断し、デプロイ・監視・継続運用できる Delivery System を設計するシニアエンジニアです。Node.js、Python、Go、AWS CDK、GitLab CI/CD、Proxmox、LLM / 音声 AI の実務経験を持ち、『AWS CDK 完全學習手冊』を執筆。技術記事と Open Source を通じて知見を公開しています。",
+      "expertise": [
+        {
+          "name": "バックエンド",
+          "items": "Node.js、Go、Python、PHP、API Design、Background Jobs"
+        },
+        {
+          "name": "AI・音声",
+          "items": "LLM Applications、OpenAI API、Ollama、Kaldi、Whisper、GPU Runtime"
+        },
+        {
+          "name": "Cloud / IaC",
+          "items": "AWS、AWS CDK、GCP、Azure、Infrastructure as Code"
+        },
+        {
+          "name": "Delivery・Platform",
+          "items": "GitLab CI/CD、GitHub Actions、Docker、Linux、Proxmox VE / PBS、Harbor"
+        },
+        {
+          "name": "データ",
+          "items": "PostgreSQL、MySQL、Redis"
+        },
+        {
+          "name": "ネットワーク",
+          "items": "VLAN、VPN、SD-WAN、Firewall、有線・無線ネットワーク"
+        }
+      ],
+      "experience": [
+        {
+          "date": "2020.11 - Present",
+          "role": "Senior Backend Developer / LLM Engineer",
+          "organization": "BRONCI Technology Inc.",
+          "url": "https://bronci.com.tw/",
+          "bullets": [
+            "Backend Service、API、Background Jobs、Data Processing Flow、外部サービス連携を設計・開発。",
+            "OpenAI API、Ollama、Kaldi、Whisper、GPU Runtime を、運用可能な LLM / 音声 AI Workflow へ統合。",
+            "AWS CDK / IaC で再現可能な Cloud Architecture を構築し、Linux、Proxmox VE / PBS、Harbor、Monitoring Platform を運用。",
+            "GitLab CI/CD、GitHub Actions、自動テスト、Container Delivery を整備し、VLAN、VPN、Firewall、Wi-Fi、SD-WAN を含む Enterprise Network を設計。"
+          ]
+        },
+        {
+          "date": "2015.11 - 2020.11",
+          "role": "研究プロジェクト専任アシスタント",
+          "organization": "国立台北科技大学",
+          "url": "https://www.ntut.edu.tw/",
+          "bullets": [
+            "Node.js、Go、C/C++、PostgreSQL、Docker を用いた Cloud System Software、Backend、Network Application を開発。"
+          ]
+        },
+        {
+          "date": "2012.06 - 2017.06",
+          "role": "情報ネットワークセンター パートタイムスタッフ",
+          "organization": "国立台北科技大学",
+          "url": "https://cnc.ntut.edu.tw/",
+          "bullets": [
+            "Network Troubleshooting と Computer System Maintenance を担当。"
+          ]
+        }
+      ],
+      "publicWork": [
+        {
+          "date": "2021",
+          "title": "『AWS CDK 完全學習手冊』著者",
+          "detail": "博碩文化より出版。第 12 回 iThome Ironman DevOps 部門優勝シリーズ「用 CDK 定義 AWS 架構」を書籍化。",
+          "url": "https://clarence.tw/ja/#publications"
+        },
+        {
+          "date": "2022",
+          "title": "5xRuby AWS 研修講師",
+          "detail": "AWS Cloud Deployment に関する 12 時間の講義と Hands-on Practice を担当。",
+          "url": "https://5xruby.com/zh/articles/2022-enginner-training"
+        },
+        {
+          "date": "2021.12",
+          "title": "AWS User Group Taiwan 登壇",
+          "detail": "AWS CDK 入門と Front-end の One-command Deployment を紹介。",
+          "url": "https://awsugtw.kktix.cc/events/awsug-202112"
+        },
+        {
+          "date": "2022 年以降",
+          "title": "『數位時代』著者",
+          "detail": "Backend、DevOps、Linux、Cloud Architecture、Security 分野の記事を執筆。",
+          "url": "https://www.bnext.com.tw/author/4039"
+        }
+      ],
+      "certifications": [
+        {
+          "title": "台湾国家技能検定",
+          "focus": "IT システム",
+          "detail": "ハードウェア整備乙級、ならびにハードウェア整備、ソフトウェア活用、ソフトウェア設計、Web デザイン、ネットワーク構築の各丙級に合格。システム、ソフトウェア、Web、ネットワークの実務技能を証明。",
+          "url": "https://www.wdasec.gov.tw/News.aspx?n=7A0667A678A1B0AE&sms=4C9F24535BA50B1F"
+        },
+        {
+          "title": "Fortinet NSE 1 / NSE 2",
+          "focus": "ネットワークセキュリティ",
+          "detail": "NSE 1・NSE 2 を取得し、サイバー脅威、セキュリティ基礎、Fortinet セキュリティソリューションの知識を証明。",
+          "url": "https://www.fortinet.com/content/dam/fortinet/assets/training/NSE-End-User-Guide.pdf"
+        },
+        {
+          "title": "IC3 Digital Literacy Components",
+          "focus": "デジタルリテラシー",
+          "detail": "Computing Fundamentals、Key Applications、Living Online の 3 認定を取得。コンピューター基礎、業務アプリ、オンライン共同作業、安全なインターネット利用の技能を証明。",
+          "url": "https://www.certiport.com/ic3"
+        },
+        {
+          "title": "Microsoft Office 2007 Master",
+          "focus": "オフィス活用",
+          "detail": "4 つの MCAS 認定試験に合格し、Microsoft Office 2007 Master を取得。",
+          "credentials": [
+            "Word 2007 (77-601) - 文書構成、スタイル、レイアウト管理",
+            "Excel 2007 (77-602) - 関数、データ分析、グラフ、ブック管理",
+            "PowerPoint 2007 (77-603) - プレゼンテーション構成、ビジュアル設計、スライドショー",
+            "Outlook 2007 (77-604) - メール、予定表、連絡先、タスク管理"
+          ],
+          "url": "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        },
+        {
+          "title": "Adobe Certified Associate CS3",
+          "focus": "デジタルコンテンツ",
+          "detail": "Adobe Certified Associate CS3 の 3 認定を取得。Web、インタラクティブメディア、ビジュアルコンテンツ制作の技能を証明。",
+          "credentials": [
+            "Dreamweaver CS3 - Web 制作、HTML/CSS、サイト管理",
+            "Flash CS3 - アニメーション、インタラクティブメディア、パブリッシュ",
+            "Photoshop CS3 Extended - 画像編集、ビジュアルデザイン、出力"
+          ],
+          "url": "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        },
+        {
+          "title": "TQC",
+          "focus": "Web・モバイル",
+          "detail": "インターネット・モバイル通信、HTML 4.01、Windows Mobile 6 モバイル端末 OS 活用の実用・上級・専門レベル認定を取得。ネットワーク通信、Web マークアップ、モバイル端末活用の技能を証明。",
+          "url": "https://www.tqc.org.tw/"
+        }
+      ],
+      "projects": [
+        {
+          "date": "Current",
+          "title": "clarence.tw",
+          "detail": "Hugo で構築した多言語 Portfolio / Technical Knowledge Site。",
+          "url": "https://github.com/clarencetw/clarencetw.github.io"
+        },
+        {
+          "date": "2020 - 2024",
+          "title": "cdk-wordpress",
+          "detail": "WordPress を再現可能に Deployment する AWS CDK Construct Library。",
+          "url": "https://github.com/clarencetw/cdk-wordpress"
+        },
+        {
+          "date": "2022",
+          "title": "node-crypto-ecb",
+          "detail": "互換性が必要な用途向けの Node.js AES ECB Library。",
+          "url": "https://github.com/clarencetw/node-crypto-ecb"
+        },
+        {
+          "date": "2021",
+          "title": "AWS CDK",
+          "detail": "AWS Cloud Development Kit の Upstream Open Source Contribution。",
+          "url": "https://github.com/aws/aws-cdk"
+        }
+      ],
+      "education": [
+        {
+          "date": "2015 - 2017",
+          "title": "電機工学修士（通信）",
+          "organization": "国立台北科技大学",
+          "url": "https://www.ntut.edu.tw/"
+        },
+        {
+          "date": "2011 - 2015",
+          "title": "学士",
+          "organization": "国立台北科技大学",
+          "url": "https://www.ntut.edu.tw/"
+        },
+        {
+          "date": "2008 - 2011",
+          "title": "情報科（高等職業課程）",
+          "organization": "Xiehe Youde Senior High School",
+          "url": "https://www.hhvs.tp.edu.tw/"
+        }
+      ],
+      "community": "SITCON 2014 - 2018、SITCON Summer Camp 2014 - 2015、COSCUP 2014、HITCON 2014。"
+    }
+  }
+}

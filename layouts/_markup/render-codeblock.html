@@ -1,0 +1,30 @@
+{{- $language := .Type | default "text" -}}
+{{- $options := dict -}}
+{{- if not (transform.CanHighlight $language) -}}
+  {{- $options = dict "type" "text" -}}
+{{- end -}}
+{{- $result := transform.HighlightCodeBlock . $options -}}
+
+{{- $copyLabel := i18n "copy_code" -}}
+{{- $copiedLabel := i18n "code_copied" -}}
+{{- $copyErrorLabel := i18n "code_copy_error" -}}
+
+<div class="code-shell" data-code-shell>
+  <div class="code-shell__toolbar">
+    <span class="code-shell__language" data-code-language>{{ upper $language }}</span>
+    <button
+      class="code-shell__copy"
+      type="button"
+      data-copy-code
+      data-copy-label="{{ $copyLabel }}"
+      data-copied-label="{{ $copiedLabel }}"
+      data-copy-error-label="{{ $copyErrorLabel }}"
+      aria-label="{{ $copyLabel }}"
+    >
+      <i class="fa-regular fa-copy" aria-hidden="true"></i>
+      <span data-copy-button-label>{{ $copyLabel }}</span>
+    </button>
+  </div>
+  {{ $result.Wrapped }}
+  <span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"></span>
+</div>

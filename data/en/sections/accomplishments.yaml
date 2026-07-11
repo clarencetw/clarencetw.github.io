@@ -1,195 +1,174 @@
-# section information
 section:
-  name: Certifications
+  name: Certifications & Credentials
   id: accomplishments
   enable: true
   weight: 9
   showOnNavbar: false
-  # Can optionally hide the title in sections
-  # hideTitle: true
 
-# Your certifications
-accomplishments:
-- name: Computer Hardware Maintenance Level B
-  timeline: ""
-  organization:
-    name: Workforce Development Agency, Ministry of Labor
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "This certificate verifies technical skills in computer hardware maintenance at Level B (intermediate)."
-  certificateURL: ""
+intro: |-
+  I earned every certification and credential listed below by completing the required assessments. Each entry explains the practical knowledge and skills demonstrated, showing the breadth of my technical foundation.
 
-- name: Computer Software Application Level C
-  timeline: ""
-  organization:
-    name: Workforce Development Agency, Ministry of Labor
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "This certificate verifies foundational skills in computer software applications at Level C."
-  certificateURL: ""
+groups:
+  - name: Professional & Digital Skills
+    description: Credentials I earned across national technical skills, network security, digital literacy, and applied IT, organized by the capabilities they demonstrate.
+    layout: two
+    accomplishments:
+      - name: National Technician Certificates｜Systems & Networking
+        displayName: National Technician｜Hardware & Networking
+        credentialTag: Hardware & Networking
+        organization:
+          name: Workforce Development Agency, Ministry of Labor
+          url: "https://www.wdasec.gov.tw/"
+        courseOverview: |-
+          Passed Taiwan's **Computer Hardware Maintenance Class B, Computer Hardware Maintenance Class C, and Network Installation Class C** skill tests. Demonstrates hands-on ability in PC and peripheral diagnostics and repair, hardware assembly, system installation, network cabling, and network-component setup.
+        references:
+          - label: Hardware standard
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTIwMDDpm7vohabnoazpq5Too53kv64xMDIuMDQwOC5wZGY%3D&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkwMzMvMjAxOTA1MzAxNDM3MzkwLjA0MDgucGRm"
+          - label: Network standard
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTcyMDDntrLot6%2FmnrboqK0ucGRm&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkwNTkvMjAxOTA1MzAxNDU5MTYwLnBkZg%3D%3D"
 
-- name: Computer Hardware Maintenance Level C
-  timeline: ""
-  organization:
-    name: Workforce Development Agency, Ministry of Labor
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "This certificate certifies foundational knowledge and skills in computer hardware maintenance at Level C."
-  certificateURL: ""
+      - name: National Technician Certificates｜Software & Web
+        displayName: National Technician｜Software & Web
+        credentialTag: Software & Web
+        organization:
+          name: Workforce Development Agency, Ministry of Labor
+          url: "https://www.wdasec.gov.tw/"
+        courseOverview: |-
+          Passed Taiwan's **Computer Software Applications, Computer Software Design, and Web Design Class C** skill tests. Demonstrates proficiency with productivity tools, basic programming and testing, technical documentation, and website creation, publishing, administration, and maintenance.
+        references:
+          - label: Software applications
+            url: "https://ws.wda.gov.tw/Download.ashx?n=6Zu76IWm6Luf6auU5oeJ55So6KaP56%2BELnBkZg%3D%3D&u=LzAwMS9VcGxvYWQvMzE1L3JlbEZpbGUvMTAyMzkvMTE0ODkyLzUzM2NkZWI1LTRiZjktNDE1MS1iOGI4LWU5YWYyOTdlODJkYi5wZGY%3D"
+          - label: Software design
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTE5MDDpm7vohabou5%2Fpq5ToqK3oqIgtMTAyLjA0LjA4LnBkZg%3D%3D&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkxMjkvMjAxOTA1MzAxNDM2MDYwLjA0LjA4LnBkZg%3D%3D"
+          - label: Web design
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTczMDDntrLpoIHoqK3oqIgucGRm&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkwNTEvMjAxOTA1MzAxNDU5NDcwLnBkZg%3D%3D"
 
-- name: Computer Software Design Level C
-  timeline: ""
-  organization:
-    name: Workforce Development Agency, Ministry of Labor
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "This certificate proves ability to design and develop software at Level C."
-  certificateURL: ""
+      - name: Fortinet NSE 1 / NSE 2 Network Security Associate
+        displayName: Fortinet NSE 1 + NSE 2
+        credentialName: Network Security Associate
+        credentialTag: Network Security
+        organization:
+          name: Fortinet Training Institute
+          url: "https://www.fortinet.com/training-certification"
+        courseOverview: |-
+          Completed and passed the **NSE 1** and **NSE 2** assessments, earning both credentials. Demonstrates foundational knowledge of cyberthreats, safe online behavior, major security-product categories, and the role of Fortinet solutions.
+        references:
+          - label: Official program guide
+            url: "https://www.fortinet.com/content/dam/fortinet/assets/training/NSE-End-User-Guide.pdf"
+          - label: Fortinet Training
+            url: "https://www.fortinet.com/training-certification"
 
-- name: Web Design Level C
-  timeline: ""
-  organization:
-    name: Workforce Development Agency, Ministry of Labor
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "This certificate shows basic skills in web design at Level C."
-  certificateURL: ""
+      - name: IC3 Digital Literacy｜Three Component Badges
+        displayName: IC3 Digital Literacy
+        credentialName: Computing Fundamentals · Key Applications · Living Online
+        credentialTag: Digital Literacy
+        organization:
+          name: Certiport, a Pearson VUE business
+          url: "https://certiport.pearsonvue.com/"
+        courseOverview: |-
+          Passed the **Computing Fundamentals, Key Applications, and Living Online** assessments and earned all three component badges. Demonstrates digital literacy across computing fundamentals, productivity tools, online collaboration, information evaluation, and online safety.
+        references:
+          - label: Computing Fundamentals
+            url: "https://www.credly.com/org/certiport/badge/computing-fundamentals"
+          - label: Key Applications
+            url: "https://www.credly.com/org/certiport/badge/key-applications"
+          - label: Living Online
+            url: "https://www.credly.com/org/certiport/badge/living-online"
 
-- name: Network Setup Level C
-  timeline: ""
-  organization:
-    name: Workforce Development Agency, Ministry of Labor
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "This certificate verifies foundational skills in network setup at Level C."
-  certificateURL: ""
+      - name: TQC Information-Technology Credentials
+        displayName: TQC Information-Technology Credentials
+        credentialName: Internet & Mobile Communication · HTML 4.01 · Windows Mobile 6
+        credentialTag: Applied IT
+        organization:
+          name: Computer Skills Foundation
+          url: "https://www.tqc.org.tw/"
+        courseOverview: |-
+          Passed and earned the **Internet and Mobile Communication, Web Markup Language HTML 4.01, and Windows Mobile 6 Device OS Applications** credentials. Demonstrates practical skill in online communication and security, HTML document structure, and mobile-device configuration and data handling.
+        references:
+          - label: Internet & mobile communication
+            url: "https://www.tqc.org.tw/teachernet/e_paper/epaper_164.htm"
+          - label: Official HTML sample
+            url: "https://www.tqc.org.tw/tqc/exam_sample/HTML.pdf"
+          - label: Windows Mobile 6 scope
+            url: "https://www.tqc.org.tw/TQCNet/NewsDetail.aspx?CODE=xx4cUYqIvXQCtlyCKS8Phw%3D%3D"
 
-- name: Microsoft Office Specialist 2007 Master
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "This certificate indicates mastery of the core Microsoft Office 2007 suite applications."
-  certificateURL: ""
+  - name: Microsoft Office 2007 Master
+    description: Passed all four MCAS exams - Word, Excel, PowerPoint, and Outlook - and earned the Microsoft Office 2007 Master credential. Together they demonstrate end-to-end Office proficiency across documents, data, presentations, email, and scheduling.
+    layout: two
+    references:
+      - label: Official Master credential FAQ
+        url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+    accomplishments:
+      - name: "MCAS: Using Microsoft Office Word 2007 (77-601)"
+        displayName: Word 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-601
+        credentialTag: Word Processing
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: Passed exam 77-601 and earned the Word 2007 credential. Demonstrates document creation, editing, formatting, page layout, and publication-ready output.
 
-- name: Microsoft Office Word 2007
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "This certificate shows proficiency in using Microsoft Word 2007."
-  certificateURL: ""
+      - name: "MCAS: Using Microsoft Office Excel 2007 (77-602)"
+        displayName: Excel 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-602
+        credentialTag: Spreadsheets & Data Analysis
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: Passed exam 77-602 and earned the Excel 2007 credential. Demonstrates worksheet design, formulas and functions, data organization, and charting.
 
-- name: Microsoft Office Excel 2007
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "This certificate shows proficiency in using Microsoft Excel 2007."
-  certificateURL: ""
+      - name: "MCAS: Using Microsoft Office PowerPoint 2007 (77-603)"
+        displayName: PowerPoint 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-603
+        credentialTag: Presentation Design
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: Passed exam 77-603 and earned the PowerPoint 2007 credential. Demonstrates presentation structure, visual design, animation, and delivery-ready output.
 
-- name: Microsoft Office PowerPoint 2007
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "This certificate shows proficiency in using Microsoft PowerPoint 2007."
-  certificateURL: ""
+      - name: "MCAS: Using Microsoft Office Outlook 2007 (77-604)"
+        displayName: Outlook 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-604
+        credentialTag: Email & Scheduling
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: Passed exam 77-604 and earned the Outlook 2007 credential. Demonstrates integrated management of email, contacts, calendars, meetings, and tasks.
 
-- name: Microsoft Office Outlook 2007
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "This certificate shows proficiency in using Microsoft Outlook 2007."
-  certificateURL: ""
+  - name: Adobe Certified Associate CS3
+    description: Passed the Dreamweaver CS3, Flash CS3, and Photoshop CS3 Extended exams and earned three Adobe Certified Associate credentials. Together they demonstrate capability in web authoring, interactive media, and visual communication.
+    layout: three
+    references:
+      - label: Official credential FAQ
+        url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+    accomplishments:
+      - name: Web Communication using Adobe Dreamweaver CS3
+        displayName: Dreamweaver CS3
+        credentialName: Adobe Certified Associate · Web Communication
+        credentialTag: Web Authoring
+        organization:
+          name: Adobe / Certiport
+          url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        courseOverview: Passed the Dreamweaver CS3 certification exam and earned the ACA credential. Demonstrates website requirements analysis, layout planning, content production, evaluation, and maintenance.
 
-- name: Web Communication using Adobe Dreamweaver CS3
-  timeline: ""
-  organization:
-    name: Adobe
-    url: https://www.adobe.com
-  courseOverview: "This certification shows proficiency in using Adobe Dreamweaver CS3 for web communication."
-  certificateURL: ""
+      - name: Rich Media Communication using Adobe Flash CS3
+        displayName: Flash CS3
+        credentialName: Adobe Certified Associate · Rich Media Communication
+        credentialTag: Interactive Media
+        organization:
+          name: Adobe / Certiport
+          url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        courseOverview: Passed the Flash CS3 certification exam and earned the ACA credential. Demonstrates multimedia requirements analysis, interactive design, content production, and project evaluation.
 
-- name: Rich Media Communication using Adobe Flash CS3
-  timeline: ""
-  organization:
-    name: Adobe
-    url: https://www.adobe.com
-  courseOverview: "This certification shows proficiency in using Adobe Flash CS3 for rich media communication."
-  certificateURL: ""
-
-- name: Visual Communication using Adobe Photoshop CS3
-  timeline: ""
-  organization:
-    name: Adobe
-    url: https://www.adobe.com
-  courseOverview: "This certification shows proficiency in using Adobe Photoshop CS3 for visual communication."
-  certificateURL: ""
-
-- name: TQC Internet and Mobile Communication - Practical Level
-  timeline: ""
-  organization:
-    name: Computer Skills Foundation
-    url: "https://www.csf.org.tw/"
-  courseOverview: "This certificate verifies practical knowledge in internet and mobile communication."
-  certificateURL: ""
-
-- name: TQC Internet and Mobile Communication - Advanced Level
-  timeline: ""
-  organization:
-    name: Computer Skills Foundation
-    url: "https://www.csf.org.tw/"
-  courseOverview: "This certificate proves advanced skills in internet and mobile communication."
-  certificateURL: ""
-
-- name: TQC Internet and Mobile Communication - Professional Level
-  timeline: ""
-  organization:
-    name: Computer Skills Foundation
-    url: "https://www.csf.org.tw/"
-  courseOverview: "This certificate shows professional-level skills in internet and mobile communication."
-  certificateURL: ""
-
-- name: TQC HTML - Practical Level
-  timeline: ""
-  organization:
-    name: Computer Skills Foundation
-    url: "https://www.csf.org.tw/"
-  courseOverview: "This certificate verifies basic knowledge and skills in HTML."
-  certificateURL: ""
-
-- name: TQC HTML - Advanced Level
-  timeline: ""
-  organization:
-    name: Computer Skills Foundation
-    url: "https://www.csf.org.tw/"
-  courseOverview: "This certificate proves advanced skills in HTML."
-  certificateURL: ""
-
-- name: TQC HTML - Professional Level
-  timeline: ""
-  organization:
-    name: Computer Skills Foundation
-    url: "https://www.csf.org.tw/"
-  courseOverview: "This certificate shows professional-level skills in HTML."
-  certificateURL: ""
-
-- name: TQC Mobile Device OS Applications - Practical Level
-  timeline: ""
-  organization:
-    name: Computer Skills Foundation
-    url: "https://www.csf.org.tw/"
-  courseOverview: "This certificate verifies practical knowledge in mobile device OS applications."
-  certificateURL: ""
-
-- name: TQC Mobile Device OS Applications - Advanced Level
-  timeline: ""
-  organization:
-    name: Computer Skills Foundation
-    url: "https://www.csf.org.tw/"
-  courseOverview: "This certificate proves advanced skills in mobile device OS applications."
-  certificateURL: ""
-
-- name: TQC Mobile Device OS Applications - Professional Level
-  timeline: ""
-  organization:
-    name: Computer Skills Foundation
-    url: "https://www.csf.org.tw/"
-  courseOverview: "This certificate shows professional-level skills in mobile device OS applications."
-  certificateURL: ""
+      - name: Visual Communication using Adobe Photoshop CS3 Extended
+        displayName: Photoshop CS3 Extended
+        credentialName: Adobe Certified Associate · Visual Communication
+        credentialTag: Visual Design
+        organization:
+          name: Adobe / Certiport
+          url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        courseOverview: Passed the Photoshop CS3 Extended certification exam and earned the ACA credential. Demonstrates image-project requirements analysis, visual design, image editing, and finished-work evaluation.

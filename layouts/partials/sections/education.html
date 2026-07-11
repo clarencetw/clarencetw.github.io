@@ -1,0 +1,35 @@
+{{ $sectionID := replace (lower .section.name) " " "-" }}
+{{ if .section.id }}{{ $sectionID = .section.id }}{{ end }}
+
+<section class="container-fluid anchor pb-5 education-section" id="{{ $sectionID }}">
+  <h2 class="text-center"{{ if .section.hideTitle }} style="display: none"{{ end }}>{{ .section.name }}</h2>
+  <div class="container">
+    <div class="education-summary-grid">
+      {{ range .degrees }}
+      {{ $degree := . }}
+      {{ $logoImage := false }}
+      {{ with .institution.logo }}{{ $logoImage = resources.Get (strings.TrimPrefix "/" .) }}{{ end }}
+      <article class="card education-summary-card">
+        <div class="education-summary-header">
+          {{ if $logoImage }}
+          {{ if $degree.institution.url }}<a class="education-institution-logo" href="{{ $degree.institution.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $degree.institution.name }}">{{ else }}<span class="education-institution-logo">{{ end }}
+            <img src="{{ $logoImage.RelPermalink }}" alt="{{ $degree.institution.name }}" width="{{ $logoImage.Width }}" height="{{ $logoImage.Height }}" loading="lazy" />
+          {{ if $degree.institution.url }}</a>{{ else }}</span>{{ end }}
+          {{ else }}
+          <span class="education-institution-logo education-institution-logo--fallback" aria-hidden="true">
+            <i class="fas {{ .icon }}"></i>
+          </span>
+          {{ end }}
+          <span>{{ .timeframe }}</span>
+        </div>
+        <h3>{{ .name }}</h3>
+        {{ if .institution.url }}
+        <a class="education-institution-name" href="{{ .institution.url }}" target="_blank" rel="noopener noreferrer">{{ .institution.name }}</a>
+        {{ else }}
+        <p class="education-institution-name">{{ .institution.name }}</p>
+        {{ end }}
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

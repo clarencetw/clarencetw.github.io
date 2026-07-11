@@ -1,6 +1,7 @@
 ---
 title: Docker 常用指令
 description: Docker image、container、Compose 與清理常用指令。
+lastmod: 2026-07-11T00:00:00+08:00
 weight: 410
 menu:
   notes:
@@ -9,6 +10,14 @@ menu:
     parent: notes-docker
     weight: 10
 ---
+
+{{< note title="版本與安全範圍" >}}
+
+**最後檢視：2026-07-11**
+
+這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。
+
+{{< /note >}}
 
 <!-- Docker 基本指令 -->
 {{< note title="Docker 基本指令" >}}
@@ -21,8 +30,8 @@ docker search ubuntu
 
 # 下載映像檔
 docker pull nginx
-docker pull nginx:1.21
-docker pull ubuntu:20.04
+docker pull nginx:alpine
+docker pull ubuntu:24.04
 
 # 列出映像檔
 docker images
@@ -30,8 +39,8 @@ docker image ls
 
 # 移除映像檔
 docker rmi nginx
-docker rmi nginx:1.21
-docker image rm ubuntu:20.04
+docker rmi nginx:alpine
+docker image rm ubuntu:24.04
 
 # 清理未使用的映像檔
 docker image prune
@@ -152,7 +161,6 @@ docker-compose restart service_name
 
 **範例 docker-compose.yml：**
 ```yaml
-version: '3.8'
 services:
   web:
     image: nginx:latest
@@ -162,7 +170,7 @@ services:
       - ./html:/usr/share/nginx/html
     
   db:
-    image: mysql:8.0
+    image: mysql:8.4
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: myapp
@@ -181,12 +189,12 @@ volumes:
 **基本 Dockerfile：**
 ```dockerfile
 # Node.js 應用程式範例
-FROM node:18-alpine
+FROM node:24-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 
 COPY . .
 

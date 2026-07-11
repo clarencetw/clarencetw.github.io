@@ -1,6 +1,7 @@
 ---
 title: GitLab CI/CD Configuration Guide
 date: 2024-01-30T15:00:00+08:00
+lastmod: 2026-07-11T00:00:00+08:00
 description: Practical GitLab CI/CD configuration notes, from runner setup to Harbor integration and multi-environment deployment.
 menu:
   sidebar:
@@ -13,11 +14,15 @@ categories: ["DevOps", "Automation"]
 
 In enterprise DevOps work, I build and maintain GitLab CI/CD workflows from code submission to production deployment. This article summarizes the practical configuration patterns I use most often.
 
+> **Reviewed July 11, 2026:** The examples now use GitLab Runner authentication tokens, Node.js 24 LTS, and Docker 29.6.1. Version and security defaults continue to change; check the current [GitLab Runner registration documentation](https://docs.gitlab.com/runner/register/), [Node.js release status](https://nodejs.org/en/about/previous-releases), and [Docker Engine release notes](https://docs.docker.com/engine/release-notes/29/) before production use, then pin images to a version or digest your team has tested.
+
 ## GitLab CI/CD Foundation
 
 ### GitLab Runner Deployment
 
 Self-hosted runners are useful when a team needs controlled network access, private registry connectivity, or predictable runtime behavior.
+
+Create the runner in the GitLab project, group, or Admin Area first, configure attributes such as tags and protected scope there, and then copy the `glrt-` runner authentication token. The older registration-token workflow is deprecated and might already be disabled by the GitLab instance.
 
 ```bash
 # Install GitLab Runner
@@ -25,14 +30,18 @@ curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/s
 sudo apt-get install gitlab-runner
 
 # Register runner
+export RUNNER_AUTHENTICATION_TOKEN="glrt-REDACTED"
 sudo gitlab-runner register \
+  --non-interactive \
   --url "https://gitlab.company.com/" \
-  --registration-token "YOUR_TOKEN" \
+  --token "$RUNNER_AUTHENTICATION_TOKEN" \
   --executor "docker" \
-  --docker-image "alpine:latest" \
-  --description "Production Runner" \
-  --tag-list "production,docker"
+  --docker-image "alpine:3.23"
 ```
+
+Treat the authentication token as a secret. Do not commit it or expose it in CI logs or shared notes; registration stores it in `config.toml` on the runner host, so restrict access to that file and host.
+
+The Docker-in-Docker jobs below require a Docker executor configured with `privileged = true` and a `/certs/client` volume. Privileged runners have a larger attack surface, so restrict them to trusted projects and users or choose a non-privileged image build method.
 
 For Docker-based builds, the runner configuration needs to match the team's security and build requirements. Docker-in-Docker is convenient, but it should be used intentionally because privileged mode increases risk.
 
@@ -41,7 +50,7 @@ For Docker-based builds, the runner configuration needs to match the team's secu
 A small Node.js project can start with a simple test, build, and deploy pipeline.
 
 ```yaml
-image: node:18-alpine
+image: node:24-alpine
 
 stages:
   - test
@@ -65,11 +74,17 @@ test:
 
 build:
   stage: build
-  image: docker:20.10.16
+  image: docker:29.6.1-cli
   services:
-    - docker:20.10.16-dind
+    - name: docker:29.6.1-dind
+      alias: docker
+  variables:
+    DOCKER_HOST: "tcp://docker:2376"
+    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_TLS_VERIFY: "1"
+    DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
   before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - echo "$CI_REGISTRY_PASSWORD" | docker login --username "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
   script:
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
@@ -89,11 +104,17 @@ variables:
 
 build:harbor:
   stage: build
-  image: docker:20.10.16
+  image: docker:29.6.1-cli
   services:
-    - docker:20.10.16-dind
+    - name: docker:29.6.1-dind
+      alias: docker
+  variables:
+    DOCKER_HOST: "tcp://docker:2376"
+    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_TLS_VERIFY: "1"
+    DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
   before_script:
-    - docker login -u $HARBOR_USERNAME -p $HARBOR_PASSWORD $HARBOR_REGISTRY
+    - echo "$HARBOR_PASSWORD" | docker login --username "$HARBOR_USERNAME" --password-stdin "$HARBOR_REGISTRY"
   script:
     - docker build -t $IMAGE_NAME:$CI_COMMIT_SHA .
     - docker build -t $IMAGE_NAME:latest .
@@ -109,7 +130,7 @@ Multi-environment deployment should make environment differences explicit. Stagi
 
 ```yaml
 .deploy_template:
-  image: alpine:latest
+  image: alpine:3.23
   before_script:
     - apk add --no-cache kubectl
   script:

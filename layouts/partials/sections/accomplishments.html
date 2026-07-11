@@ -1,0 +1,48 @@
+{{ $sectionID := replace (lower .section.name) " " "-" }}
+{{ if .section.id }}
+  {{ $sectionID = .section.id }}
+{{ end }}
+
+<div class="container-fluid anchor pb-5 accomplishments-section">
+  {{ if not (.section.hideTitle) }}
+    <h1 class="text-center"><span id="{{ $sectionID }}"></span>{{ .section.name }}</h1>
+  {{ else }}
+    <h1 class="text-center" style="display: none"><span id="{{ $sectionID }}"></span>{{ .section.name }}</h1>
+  {{ end }}
+
+  <div class="container">
+    {{ with .intro }}
+      <p class="accomplishments-intro">{{ . | markdownify }}</p>
+    {{ end }}
+    <div id="accomplishment-card-holder">
+      {{ if .groups }}
+        {{ range .groups }}
+          <section class="credential-group">
+            <div class="credential-group-header">
+              <h2>{{ .name }}</h2>
+              {{ with .description }}<div class="credential-group-description">{{ . | markdownify }}</div>{{ end }}
+              {{ with .references }}
+                <div class="credential-group-references">
+                  {{ range . }}
+                    <a class="btn btn-outline-info me-1 mb-2" href="{{ .url }}" target="_blank" rel="noopener noreferrer" role="button">{{ .label }}</a>
+                  {{ end }}
+                </div>
+              {{ end }}
+            </div>
+            <div class="credential-grid{{ with .layout }} credential-grid--{{ . }}{{ end }}">
+              {{ range .accomplishments }}
+                {{ partial "cards/accomplishments" . }}
+              {{ end }}
+            </div>
+          </section>
+        {{ end }}
+      {{ else }}
+        <div class="credential-grid">
+          {{ range .accomplishments }}
+            {{ partial "cards/accomplishments" . }}
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

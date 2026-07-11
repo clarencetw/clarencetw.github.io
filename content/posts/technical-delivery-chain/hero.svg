@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="delivery-bg" x1="120" y1="60" x2="1460" y2="840" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#091B20"/>
+      <stop offset="0.55" stop-color="#0D3434"/>
+      <stop offset="1" stop-color="#123F3B"/>
+    </linearGradient>
+    <linearGradient id="delivery-trace" x1="170" y1="0" x2="1430" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5EEAD4"/>
+      <stop offset="0.72" stop-color="#2DD4BF"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <filter id="delivery-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <pattern id="delivery-grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" stroke="#D7FFF8" stroke-opacity="0.055"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" rx="36" fill="url(#delivery-bg)"/>
+  <rect width="1600" height="900" rx="36" fill="url(#delivery-grid)"/>
+  <circle cx="1310" cy="160" r="260" fill="#0F766E" fill-opacity="0.13"/>
+  <circle cx="270" cy="760" r="300" fill="#F59E0B" fill-opacity="0.055"/>
+
+  <path d="M168 470C278 470 285 346 401 346C514 346 520 548 636 548C750 548 757 388 875 388C992 388 1003 516 1113 516C1227 516 1251 394 1432 394" stroke="#2DD4BF" stroke-opacity="0.2" stroke-width="34" stroke-linecap="round" filter="url(#delivery-glow)"/>
+  <path d="M168 470C278 470 285 346 401 346C514 346 520 548 636 548C750 548 757 388 875 388C992 388 1003 516 1113 516C1227 516 1251 394 1432 394" stroke="url(#delivery-trace)" stroke-width="8" stroke-linecap="round"/>
+
+  <g transform="translate(118 374)">
+    <rect width="190" height="190" rx="32" fill="#102A30" stroke="#5EEAD4" stroke-opacity="0.52" stroke-width="3"/>
+    <path d="M78 61L47 95L78 129M112 61L143 95L112 129" stroke="#D9FFFA" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M102 45L88 145" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(354 250)">
+    <rect width="190" height="190" rx="32" fill="#102A30" stroke="#5EEAD4" stroke-opacity="0.52" stroke-width="3"/>
+    <circle cx="95" cy="95" r="31" stroke="#D9FFFA" stroke-width="7"/>
+    <circle cx="95" cy="95" r="9" fill="#F59E0B"/>
+    <path d="M95 42V64M95 126V148M42 95H64M126 95H148M58 58L73 73M117 117L132 132M132 58L117 73M73 117L58 132" stroke="#5EEAD4" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(590 452)">
+    <rect width="190" height="190" rx="32" fill="#102A30" stroke="#5EEAD4" stroke-opacity="0.52" stroke-width="3"/>
+    <circle cx="52" cy="95" r="14" fill="#5EEAD4"/>
+    <circle cx="138" cy="57" r="14" fill="#F59E0B"/>
+    <circle cx="138" cy="133" r="14" fill="#D9FFFA"/>
+    <path d="M66 95H92C111 95 112 57 124 57M92 95C111 95 112 133 124 133" stroke="#D9FFFA" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(828 292)">
+    <rect width="190" height="190" rx="32" fill="#102A30" stroke="#5EEAD4" stroke-opacity="0.52" stroke-width="3"/>
+    <rect x="48" y="46" width="94" height="98" rx="12" stroke="#D9FFFA" stroke-width="7"/>
+    <path d="M65 73H125M65 96H125M65 119H105" stroke="#5EEAD4" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="125" cy="119" r="7" fill="#F59E0B"/>
+  </g>
+
+  <g transform="translate(1066 420)">
+    <rect width="190" height="190" rx="32" fill="#102A30" stroke="#5EEAD4" stroke-opacity="0.52" stroke-width="3"/>
+    <path d="M43 111H68L84 70L105 130L121 93H148" stroke="#D9FFFA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="148" cy="93" r="9" fill="#F59E0B"/>
+    <path d="M52 48H138" stroke="#5EEAD4" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(1304 298)">
+    <circle cx="95" cy="95" r="88" fill="#132F32" stroke="#F59E0B" stroke-width="5"/>
+    <path d="M55 96L82 123L137 68" stroke="#FFF3D4" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g fill="#F59E0B">
+    <circle cx="401" cy="346" r="10"/>
+    <circle cx="636" cy="548" r="10"/>
+    <circle cx="875" cy="388" r="10"/>
+    <circle cx="1113" cy="516" r="10"/>
+  </g>
+</svg>

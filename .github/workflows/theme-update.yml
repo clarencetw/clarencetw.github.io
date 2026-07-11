@@ -44,6 +44,7 @@ jobs:
         uses: peter-evans/create-pull-request@v8
         with:
           base: master
-          title: Update theme
+          commit-message: "chore(deps): update Toha theme"
+          title: "chore(deps): update Toha theme"
           labels: automerge
           branch: dependencies/update-theme

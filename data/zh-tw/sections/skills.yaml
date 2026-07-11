@@ -3,9 +3,12 @@ section:
   name: 技能
   id: skills
   enable: true
-  weight: 2
+  weight: 6
   showOnNavbar: true
   filter: true
+  curated: false
+  description: "完整技術清單涵蓋 Cloud、程式語言、AI、DevOps、Database、Systems 與 Enterprise Network；主力能力優先排列，也可使用分類快速篩選。"
+  inventoryLabel: "項技術能力"
   # Can optionally hide the title in sections
   # hideTitle: true
 
@@ -33,181 +36,187 @@ buttons:
 skills:
   # 核心雲端技能
   - name: AWS
-    logo: /images/sections/skills/cloud.png
     summary: "深度使用 AWS Cloud Services，包括 EC2、RDS、Lambda、Route 53、ElastiCache、IAM、CloudWatch、ECR、ECS、ALB/ELB、VPC、CloudFormation、Auto Scaling、Certificate Manager、WAF、EBS、S3、Fargate、AppRunner、API Gateway、CloudFront 等服務。"
     url: "https://aws.amazon.com/"
     categories: ["cloud"]
 
   - name: AWS CDK
-    logo: /images/sections/skills/cloud.png
-    summary: "Infrastructure as Code (IaC) 實務經驗，[AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203) 作者，使用 TypeScript / Python 管理 Cloud infrastructure。"
+    featured: true
+    summary: "Infrastructure as Code (IaC) 實務經驗，[AWS CDK 完全學習手冊](#publications) 作者，使用 TypeScript / Python 管理 Cloud infrastructure。"
     url: "https://aws.amazon.com/cdk/"
     categories: ["cloud", "devops"]
 
   - name: GCP
-    logo: /images/sections/skills/cloud.png
+    logo: /images/sections/skills/brands/googlecloud.svg
     summary: "使用 Google Cloud Platform 的 VM、CDN、Load Balancer、MySQL 等服務進行 Cloud architecture 部署。"
     url: "https://cloud.google.com/"
     categories: ["cloud"]
 
   - name: Azure
-    logo: /images/sections/skills/cloud.png
     summary: "在 Azure 上使用 Virtual Machine (VM) 進行 Cloud architecture 部署。"
     url: "https://azure.microsoft.com/"
     categories: ["cloud"]
 
+  - name: Cloud Architecture
+    summary: "設計與維運可重複部署的 Cloud Architecture，涵蓋 AWS、GCP、Azure，重點包含 IaC、networking、load balancing、高可用性與安全性。"
+    categories: ["cloud", "devops"]
+
   # 程式語言
   - name: Node.js
-    logo: /images/sections/skills/nodejs.png
+    featured: true
+    logo: /images/sections/skills/brands/nodedotjs.svg
     summary: "主要 Backend 開發語言，使用 Node.js 開發 Server-side application、API service 與 Web application。"
     url: "https://blog.clarence.tw/category/programming-language/node-js/"
     categories: ["language"]
 
   - name: Go
-    logo: /images/sections/skills/go.png
+    logo: /images/sections/skills/brands/go.svg
     summary: "使用 Go 開發高效能 Network application、Server software 與 Microservices，特別適合併發處理。"
     url: "https://go.dev/"
     categories: ["language"]
 
   - name: Python
-    logo: /images/sections/skills/python.jpeg
+    featured: true
+    logo: /images/sections/skills/brands/python.svg
     summary: "主要用於 LLM application、自動化 script、資料處理與 AI 相關開發。"
     url: "https://www.python.org/"
     categories: ["language", "ai"]
 
   - name: PHP
-    logo: /images/sections/skills/php.png
+    logo: /images/sections/skills/brands/php.svg
     summary: "使用 PHP 開發 API、Admin backend 與 Web application，適合既有系統整合與動態內容服務。"
     url: "https://blog.clarence.tw/category/programming-language/php/"
     categories: ["language"]
 
   - name: LINE Platform
-    logo: /images/sections/projects/line.jpg
-    summary: "整合 LINE Messaging API、LINE Bot、LINE Notify 與 webhook workflow，支援 PHP / Node.js backend application 的通知與互動功能。"
+    logo: /images/sections/skills/brands/line.svg
+    summary: "整合 LINE Messaging API、LINE Bot 與 webhook workflow，支援 PHP / Node.js backend application 的通知與互動功能；LINE Notify 僅列為歷史整合經驗（服務已於 2025-03-31 終止）。"
     url: "https://blog.clarence.tw/category/line/"
     categories: ["language"]
 
   # DevOps 與容器化
   - name: Docker
-    logo: /images/sections/skills/docker.svg
+    logo: /images/sections/skills/brands/docker.svg
     summary: "以 Docker 建立 Containerized deployment，將 application 與 dependencies 封裝成可重複部署的 image，維持跨環境一致性。"
     url: "https://blog.clarence.tw/category/docker/"
     categories: ["devops"]
 
   - name: CI/CD
-    logo: /images/sections/skills/ci-cd.png
+    featured: true
     summary: "建置 GitLab CI/CD 與 GitHub Actions workflow，串接 automated tests、code quality checks、image build 與 deployment。"
     url: "https://docs.github.com/en/actions"
     categories: ["devops"]
 
   - name: Git
-    logo: /images/sections/skills/git.png
+    logo: /images/sections/skills/brands/git.svg
     summary: "使用 Git 進行 team collaboration、branching、code review 與 release history 管理。"
     url: "https://git-scm.com/"
     categories: ["devops"]
 
   - name: GitHub
-    logo: /images/sections/skills/github.png
+    logo: /images/sections/skills/brands/github.svg
     summary: "熟悉 GitHub platform、Pull Request review、Issues 管理、GitHub Actions 與 Open Source collaboration。"
     url: "https://github.com/clarencetw"
     categories: ["devops"]
 
   # AI 與機器學習
   - name: Large Language Models (LLM)
-    logo: /images/sections/skills/llm.svg
+    featured: true
     summary: "自 2022 年起投入 LLM application 開發，主要聚焦 Text Summarization、model integration、prompt / workflow control 與 Ollama local model deployment。"
     url: "https://ollama.com/"
     categories: ["ai"]
 
   - name: OpenAI API
-    logo: /images/sections/skills/openai.svg
     summary: "整合 OpenAI API 建立 AI-driven workflow，特別是 text processing、summarization 與內部工具化應用。"
     url: "https://platform.openai.com/"
     categories: ["ai"]
 
   - name: Kaldi & Whisper
-    logo: /images/sections/skills/whisper.svg
+    featured: true
     summary: "整合 Kaldi、Whisper 與 Speech AI pipeline，處理語音辨識、模型推論與系統部署。"
     url: "https://github.com/openai/whisper"
     categories: ["ai"]
 
   - name: GPU Computing
-    logo: /images/sections/skills/nvidia.svg
+    logo: /images/sections/skills/brands/nvidia.svg
     summary: "NVIDIA GPU server 建置與維運，支援 AI inference / training workload，包含 CUDA runtime 與 driver environment。"
     url: "https://blog.clarence.tw/category/nvidia/"
     categories: ["ai", "others"]
 
   # 資料庫
   - name: PostgreSQL
-    logo: /images/sections/skills/postgresql.png
+    featured: true
+    logo: /images/sections/skills/brands/postgresql.svg
     summary: "使用 PostgreSQL 進行 schema design、query optimization 與資料維運，支援 API service 的可靠資料層。"
     url: "https://blog.clarence.tw/category/%e8%b3%87%e6%96%99%e5%ba%ab/postgresql/"
     categories: ["database"]
 
   - name: MySQL
-    logo: /images/sections/skills/mysql.png
     summary: "MySQL database 管理與效能調整，支援 API、網站與既有系統的資料存取需求。"
     url: "https://blog.clarence.tw/category/%e8%b3%87%e6%96%99%e5%ba%ab/mysql/"
     categories: ["database"]
 
   - name: Redis
-    logo: /images/sections/skills/redis.svg
+    logo: /images/sections/skills/brands/redis.svg
     summary: "In-memory cache / data store，用於提升 application performance、Session management 與高速資料存取。"
     url: "https://redis.io/"
     categories: ["database"]
 
   # 系統與虛擬化
   - name: Linux
-    logo: /images/sections/skills/linux.png
     summary: "Linux system administration，處理 server installation、network configuration、CLI operations 與 Shell Script automation，主要使用 Ubuntu。"
     url: "https://blog.clarence.tw/category/os/ubuntu/"
     categories: ["others"]
 
   - name: Proxmox VE
-    logo: /images/sections/skills/proxmox.png
+    featured: true
+    logo: /images/sections/skills/brands/proxmox.svg
     summary: "使用 Proxmox VE 建置 On-prem virtualization environment，搭配 PBS (Proxmox Backup Server) 管理備份與復原策略。"
     url: "https://blog.clarence.tw/category/proxmox-ve/"
     categories: ["others"]
 
   # 網路與安全
   - name: Network Management
-    logo: /images/sections/skills/network.svg
+    featured: true
     summary: "Enterprise network 維運經驗。Switch：Cisco、Juniper、HP、Netgear、Extreme Networks；Firewall：Sophos、Fortinet；Wi-Fi：UniFi、Aruba。熟悉 VLAN、VPN、SD-WAN、QoS、STP/RSTP。"
     url: "https://blog.clarence.tw/category/network/"
     categories: ["network"]
 
   - name: Network Security
-    logo: /images/sections/skills/security.svg
     summary: "Network security 維運，包含 firewall rules、IPS/IDS、VPN (OpenVPN、L2TP)、SSL/TLS 與基礎安全控管。"
     categories: ["network"]
 
   # 監控與自動化
   - name: LibreNMS
-    logo: /images/sections/skills/librenms.svg
     summary: "使用 LibreNMS 監控 network devices 與 infrastructure 狀態，協助及早發現異常與定位問題。"
     url: "https://www.librenms.org/"
     categories: ["network", "devops"]
 
   - name: Ansible
-    logo: /images/sections/skills/ansible.svg
+    logo: /images/sections/skills/brands/ansible.svg
     summary: "Configuration management / automation tool，用於 server deployment、configuration drift 管理與例行維運自動化。"
     url: "https://www.ansible.com/"
     categories: ["devops"]
 
   # 前端與其他工具
   - name: Vue.js
-    logo: /images/sections/skills/vue.png
+    logo: /images/sections/skills/brands/vuedotjs.svg
     summary: "使用 Vue.js 進行前端頁面與 admin UI 開發，協助 Backend / API 系統完成可操作介面。"
     url: "https://vuejs.org/"
     categories: ["language"]
 
+  - name: WordPress
+    logo: /images/sections/skills/brands/wordpress.svg
+    summary: "歷史實務經驗：部署與維護 WordPress，並於 2020–2024 年以 AWS CDK 維護 cdk-wordpress Construct Library，將常見 WordPress architecture 做成可重複部署的 IaC。"
+    url: "https://github.com/clarencetw/cdk-wordpress"
+    categories: ["cloud", "others"]
+
   - name: Nginx
-    logo: /images/sections/skills/nginx.svg
+    logo: /images/sections/skills/brands/nginx.svg
     summary: "Web server / reverse proxy 配置與管理，用於 load balancing、TLS termination 與高流量 Web service 部署。"
     url: "https://nginx.org/"
     categories: ["devops", "others"]
 
   - name: Homelab
-    logo: /images/sections/skills/homelab.svg
     summary: "自建 Homelab / lab environment，用於技術研究、測試與持續學習；包含 Proxmox VE、NAS storage 與 enterprise-grade network devices。"
     categories: ["others"]

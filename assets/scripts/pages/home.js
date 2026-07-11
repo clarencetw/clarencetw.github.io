@@ -10,41 +10,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (strings.length === 0) return
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    target.textContent = strings[0]
-    return
-  }
+  const rail = target.closest('.typing-carousel')
+  rail?.classList.add('delivery-rail')
+  rail?.classList.toggle('delivery-rail--extended', strings.length > 4)
+  rail?.querySelector('.ityped-cursor')?.setAttribute('hidden', '')
 
-  let stringIndex = 0
-  let charIndex = 0
-  let deleting = false
+  target.replaceChildren(
+    ...strings.map((label, index) => {
+      const stage = document.createElement('span')
+      stage.className = 'delivery-stage'
+      const stageIndex = document.createElement('span')
+      stageIndex.className = 'delivery-stage__index'
+      stageIndex.setAttribute('aria-hidden', 'true')
+      stageIndex.textContent = String(index + 1).padStart(2, '0')
 
-  const tick = () => {
-    const chars = Array.from(strings[stringIndex])
-    target.textContent = chars.slice(0, charIndex).join('')
+      const stageLabel = document.createElement('span')
+      stageLabel.className = 'delivery-stage__label'
+      stageLabel.textContent = label
 
-    if (!deleting && charIndex < chars.length) {
-      charIndex += 1
-      window.setTimeout(tick, 82)
-      return
-    }
-
-    if (!deleting) {
-      deleting = true
-      window.setTimeout(tick, 1350)
-      return
-    }
-
-    if (charIndex > 0) {
-      charIndex -= 1
-      window.setTimeout(tick, 36)
-      return
-    }
-
-    deleting = false
-    stringIndex = (stringIndex + 1) % strings.length
-    window.setTimeout(tick, 260)
-  }
-
-  tick()
+      stage.replaceChildren(stageIndex, stageLabel)
+      return stage
+    })
+  )
 })

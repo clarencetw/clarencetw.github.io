@@ -2,8 +2,13 @@ section:
   name: プロジェクト
   id: projects
   enable: true
-  weight: 5
+  weight: 2
   showOnNavbar: true
+  curated: true
+  description: "Backend、AI、Delivery、Infrastructure の実装・運用力を示す代表事例です。"
+  cta:
+    label: 公開プロジェクトをすべて見る
+    url: https://github.com/clarencetw?tab=repositories
 
 buttons:
   - name: All
@@ -43,6 +48,7 @@ projects:
     tags: ["writing", "devops", "network", "ai"]
 
   - name: LLM Text Summarization Platform
+    featured: true
     logo: /images/sections/skills/llm.svg
     role: Builder
     timeline: "2022 - Present"
@@ -50,6 +56,7 @@ projects:
     tags: ["ai", "llm", "python"]
 
   - name: Speech AI and GPU Runtime
+    featured: true
     logo: /images/sections/skills/nvidia.svg
     role: Builder / Operator
     timeline: "2022 - Present"
@@ -57,6 +64,7 @@ projects:
     tags: ["ai", "gpu", "infrastructure"]
 
   - name: Self-hosted GitLab, Runner and Harbor
+    featured: true
     logo: /images/sections/projects/gitlab.svg
     role: Operator
     timeline: "2022 - Present"
@@ -64,6 +72,7 @@ projects:
     tags: ["devops", "gitlab", "docker"]
 
   - name: Proxmox VE / PBS Infrastructure
+    featured: true
     logo: /images/sections/skills/proxmox.png
     role: Operator
     timeline: "2023 - Present"
@@ -71,6 +80,7 @@ projects:
     tags: ["devops", "network", "infrastructure"]
 
   - name: High-traffic Web Hosting Operations
+    featured: true
     logo: /images/sections/skills/nginx.svg
     role: Operator
     timeline: "2023 - Present"
@@ -81,14 +91,15 @@ projects:
 
   - name: node-crypto-ecb
     role: Owner
-    timeline: "Sep 2022 - Present"
+    timeline: "Sep 2022"
     repo: https://github.com/clarencetw/node-crypto-ecb
     summary: "Compatibility-driven な encryption / decryption のための Node.js AES ECB library。"
     tags: ["crypto", "AES", "nodejs"]
 
   - name: cdk-wordpress
+    featured: true
     role: Owner
-    timeline: "Oct 2020 - Present"
+    timeline: "Oct 2020 - Sep 2024"
     repo: https://github.com/clarencetw/cdk-wordpress
     summary: "WordPress deployment を AWS CDK Construct Library として再現可能な IaC にしたプロジェクト。"
     tags: ["aws", "cdk"]

@@ -1,0 +1,74 @@
+{{ $dataCategories := slice "pub-all" }}
+{{ range .categories }}{{ $dataCategories = $dataCategories | append (printf "pub-%s" .) }}{{ end }}
+
+<div class="col-12 p-2 pub-filtr-item" data-category='{{ delimit $dataCategories "," }}'>
+  <article class="card mt-3 publication-card" itemscope itemtype="https://schema.org/Book">
+    <div class="card-header publication-card-header">
+      <div class="publication-heading-copy">
+        <p class="publication-kicker mb-2">
+          {{ if .publishedIn.url }}
+          <a href="{{ .publishedIn.url }}" target="_blank" rel="noopener noreferrer" itemprop="publisher">{{ .publishedIn.name }}</a>
+          {{ else }}
+          <span itemprop="publisher">{{ .publishedIn.name }}</span>
+          {{ end }}
+          <span aria-hidden="true">·</span>
+          <time datetime="{{ .publishedIn.date }}" itemprop="datePublished">{{ .publishedIn.date }}</time>
+        </p>
+        <h3 class="card-title mb-2" itemprop="name">{{ .title }}</h3>
+        <div class="authors publication-authors">
+          {{ range $author := .authors }}
+            {{ if .url }}
+            <a class="publication-author" href="{{ .url }}" target="_blank" rel="noopener noreferrer" itemprop="author">{{ .name }}</a>
+            {{ else }}
+            <span class="publication-author author-name" itemprop="author">{{ .name }}</span>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      {{ with .formats }}
+      <ul class="publication-editions" aria-label="{{ i18n "book_editions" }}">
+        {{ range . }}
+        <li>
+          <span class="publication-edition-name">{{ .name }}</span>
+          {{ range .identifiers }}
+          <span class="publication-edition-id"><span>{{ .label }}</span> <span itemprop="isbn">{{ .value }}</span></span>
+          {{ end }}
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </div>
+    <div class="card-body publication-card-body">
+      <div class="publication-summary" itemprop="description">{{ .paper.summary | markdownify }}</div>
+      {{ with .platformGroups }}
+      <div class="publication-platform-groups">
+        {{ range . }}
+        <section class="publication-platform-group">
+          <div class="publication-platform-heading">
+            <h4>{{ .name }}</h4>
+            <span aria-label="{{ len .platforms }} {{ i18n "book_platform_links" }}">{{ len .platforms }}</span>
+          </div>
+          <ul class="publication-platform-list">
+            {{ range .platforms }}
+            <li>
+              <a class="publication-platform-link" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+                <span>{{ .name }}</span>
+                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        </section>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ with .tags }}
+    <div class="card-footer publication-card-footer">
+      <div class="tags publication-tags">
+        {{ range $tag := . }}<span class="badge publication-tag">{{ $tag }}</span>{{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </article>
+</div>

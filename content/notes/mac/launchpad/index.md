@@ -1,6 +1,7 @@
 ---
 title: Mac 系統管理指令
 description: macOS Launchpad、Dock、Finder、screenshot 與系統查詢指令。
+lastmod: 2026-07-11T00:00:00+08:00
 weight: 210
 menu:
   notes:
@@ -9,6 +10,14 @@ menu:
     parent: notes-mac
     weight: 10
 ---
+
+{{< note title="版本與安全範圍" >}}
+
+**最後檢視：2026-07-11**
+
+這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。
+
+{{< /note >}}
 
 <!-- Launchpad 管理 -->
 {{< note title="Launchpad 管理" >}}

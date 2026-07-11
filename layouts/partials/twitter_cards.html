@@ -1,0 +1,20 @@
+{{ $siteData := (index hugo.Data site.Language.Lang).site }}
+{{ $title := .Title | default site.Title }}
+{{ if .IsHome }}{{ $title = $siteData.openGraph.title | default site.Title }}{{ end }}
+{{ $description := .Description | default $siteData.description }}
+{{ if eq .Type "search" }}{{ $description = $siteData.description }}{{ end }}
+
+{{/* Home and the default post template already provide the document description. */}}
+{{ if not (or .IsHome (and .IsPage (eq .Type "posts"))) }}
+<meta name="description" content="{{ $description }}" />
+{{ end }}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $description }}" />
+{{ with .Params.images }}
+  <meta name="twitter:image" content="{{ index . 0 | absURL }}" />
+{{ else }}
+  {{ with ($siteData.openGraph.image | default (index hugo.Data site.Language.Lang).author.image) }}
+  <meta name="twitter:image" content="{{ . | absURL }}" />
+  {{ end }}
+{{ end }}

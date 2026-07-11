@@ -2,11 +2,14 @@ section:
   name: 経歴
   id: experiences
   enable: true
-  weight: 3
+  weight: 4
   showOnNavbar: true
+  curated: false
+  description: "職歴、コンサルティング、教育、著作、コミュニティ活動を含む全経歴を掲載し、現在の役割には概要と職務の詳細を併記しています。"
 
 experiences:
-  - company:
+  - featured: true
+    company:
       name: BRONCI Technology Inc. 長問科技股份有限公司
       url: "https://bronci.com.tw/"
       location: Taipei
@@ -14,8 +17,15 @@ experiences:
     positions:
       - designation: Senior Backend Developer / LLM Engineer
         start: 11 2020
+        featuredResponsibilities:
+          - "Backend service、API、background job、third-party integration を設計・開発。"
+          - "LLM、OpenAI / Ollama、Kaldi / Whisper、GPU runtime を運用可能な workflow へ統合。"
+          - "AWS CDK / IaC で再現可能な Cloud architecture を構築。"
+          - "GitLab CI/CD、GitHub Actions、automated tests、container delivery を運用。"
+          - "Linux、Proxmox VE / PBS、Harbor、monitoring、On-prem infrastructure を運用。"
+          - "VLAN、VPN、firewall、Wi-Fi、SD-WAN を含む Enterprise Network を設計。"
         responsibilities:
-          - "Node.js、Python、Go、C/C++、Shell Script、Java で Backend service と internal tools を開発。"
+          - "Node.js、Python、Go、C/C++、Shell Script、Java、PostgreSQL、MySQL、Docker を用いて Backend service、API、background jobs、internal tools を開発。"
           - "API、background jobs、data processing flow、third-party service integration を設計。"
           - "日本向け home camera cloud service を統合し、remote monitoring と device management を支援。"
           - "日本向け IoT smart home voice command service を開発。"
@@ -65,7 +75,7 @@ experiences:
       name: DrMaster Press
       url: "https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149"
       location: Author
-      overview: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC"
+      overview: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書） · [紙の書籍・電子書籍の販売サイト](#publications)"
     positions:
       - designation: Book Author
         start: 11 2021
@@ -73,7 +83,8 @@ experiences:
           - AWS CDK を基礎から解説する中国語書籍を執筆。
           - 豊富な sample code を用意し、IaC の実践を学びやすく整理。
 
-  - company:
+  - featured: true
+    company:
       name: National Taipei University of Technology
       url: "https://www.ntut.edu.tw/"
       location: Taipei
@@ -86,7 +97,8 @@ experiences:
           - Network application development - Node.js, Go, C/C++, PostgreSQL
           - Backend development - Node.js, PostgreSQL, Docker
 
-  - company:
+  - featured: true
+    company:
       name: Students' Information Technology Conference
       url: "https://sitcon.org/"
       location: Volunteer

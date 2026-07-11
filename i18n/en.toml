@@ -1,3 +1,60 @@
 [note_items]
 one = "note"
 other = "notes"
+
+[resume]
+other = "Resume"
+
+[official_reference]
+other = "Official reference"
+
+[credential_earned]
+other = "Earned"
+
+[core_skill]
+other = "Primary"
+
+[role_scope]
+other = "Role scope"
+
+[full_responsibilities]
+other = "Full responsibilities"
+
+[notes_library]
+other = "Notes library"
+
+[notes_on_this_page]
+other = "On this page"
+
+[notes_search_label]
+other = "Search technical notes"
+
+[notes_search_placeholder]
+other = "Filter by title or topic"
+
+[notes_filter_results]
+other = "matching notes"
+
+[close_navigation]
+other = "Close navigation"
+
+[copy_code]
+other = "Copy"
+
+[code_copied]
+other = "Copied"
+
+[code_copy_error]
+other = "Copy failed"
+
+[notes_in_section]
+other = "Notes in this topic"
+
+[scroll_to_top]
+other = "Back to top"
+
+[book_editions]
+other = "Editions and ISBNs"
+
+[book_platform_links]
+other = "retailer links"

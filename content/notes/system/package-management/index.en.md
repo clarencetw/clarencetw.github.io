@@ -1,6 +1,7 @@
 ---
 title: Package Management Commands
 description: Common Homebrew, APT, DNF, YUM, and package-manager operations.
+lastmod: 2026-07-11T00:00:00+08:00
 weight: 310
 menu:
   notes:
@@ -9,6 +10,14 @@ menu:
     parent: notes-system
     weight: 10
 ---
+
+{{< note title="Version and safety scope" >}}
+
+**Last reviewed: July 11, 2026**
+
+This is a general command reference, not a version-pinned runbook. Check the installed version, current official documentation, and the target account, host, and path before use. Commands that deploy, destroy, delete, prune, sync, upgrade, or change system settings can cause cost, downtime, or data loss; preview changes and back up where appropriate.
+
+{{< /note >}}
 
 {{< note title="Homebrew" >}}
 

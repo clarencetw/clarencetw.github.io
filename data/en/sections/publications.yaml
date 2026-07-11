@@ -1,46 +1,80 @@
-# section information
 section:
   name: Publications
   id: publications
   enable: true
-  weight: 6
+  weight: 5
   showOnNavbar: true
-  # Can optionally hide the title in sections
-  # hideTitle: true
+  intro: Official bibliographic details and retailer links for the print, PDF, and EPUB editions. Every link below was matched by title or ISBN.
+  linkReview: Links reviewed on 2026-07-11
 
-# filter buttons
-buttons:
-- name: All
-  filter: "all"
-- name: "AWS CDK"
-  filter: "aws-cdk"
-
-# your publications
 publications:
-- title: AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）
-  publishedIn:
-    name: TEN-LONG COMPUTER BOOK COMPANY
-    date: 2021-11
-    url: https://www.tenlong.com.tw/products/9789864349203
-  authors:
-  - name: Clarence
-    url: https://clarence.tw
-  paper:
-    summary: The first Chinese book that teaches you to write AWS CDK from scratch! For those of you who can’t write, there are a lot of sample codes, and you can become an AWS CDK expert by copying them!
-    url: https://www.tenlong.com.tw/products/9789864349203
-  categories: ["aws-cdk"]
-  tags: ["AWS CDK"]
-
-- title: AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）eBook
-  publishedIn:
-    name: Google Play Books
-    date: 2021-11
-    url: https://play.google.com/store/books/details/AWS_CDK_%E5%AE%8C%E5%85%A8%E5%AD%B8%E7%BF%92%E6%89%8B%E5%86%8A_iT%E9%82%A6%E5%B9%AB%E5%BF%99%E9%90%B5%E4%BA%BA%E8%B3%BD%E7%B3%BB%E5%88%97%E6%9B%B8_%E6%89%93%E9%80%A0%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC_IaC
-  authors:
-  - name: Clarence
-    url: https://clarence.tw
-  paper:
-    summary: The first Chinese book that teaches you to write AWS CDK from scratch! For those of you who can’t write, there are a lot of sample codes, and you can become an AWS CDK expert by copying them!
-    url: https://play.google.com/store/books/details/AWS_CDK_%E5%AE%8C%E5%85%A8%E5%AD%B8%E7%BF%92%E6%89%8B%E5%86%8A_iT%E9%82%A6%E5%B9%AB%E5%BF%99%E9%90%B5%E4%BA%BA%E8%B3%BD%E7%B3%BB%E5%88%97%E6%9B%B8_%E6%89%93%E9%80%A0%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC_IaC
-  categories: ["aws-cdk"]
-  tags: ["AWS CDK"]
+  - title: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）"
+    publishedIn:
+      name: DrMaster Press
+      date: 2021-11-12
+      url: https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149
+    authors:
+      - name: Clarence
+        url: https://clarence.tw/en/
+    paper:
+      summary: A Traditional Chinese, example-led guide to building Infrastructure as Code with TypeScript and AWS CDK, covering Serverless, static sites, LAMP, ECS, EKS, and Construct Library development.
+    formats:
+      - name: Paperback
+        identifiers:
+          - label: ISBN
+            value: 978-986-434-920-3
+      - name: PDF
+        identifiers:
+          - label: PDF ISBN
+            value: 978-986-434-985-2
+      - name: EPUB
+        identifiers:
+          - label: EPUB ISBN
+            value: 978-986-434-993-7
+    platformGroups:
+      - name: Print retailers
+        platforms:
+          - name: Tenlong
+            url: https://www.tenlong.com.tw/products/9789864349203
+          - name: Books.com.tw
+            url: https://www.books.com.tw/products/0010907999
+          - name: Kingstone
+            url: https://www.kingstone.com.tw/basic/2013120607446/
+          - name: Eslite
+            url: https://www.eslite.com/product/1001120322682094353002
+          - name: momo
+            url: https://www.momoshop.com.tw/product/9507722
+          - name: San Min
+            url: https://www.sanmin.com.tw/product/index/010046269
+          - name: TAAZE
+            url: https://www.taaze.tw/products/11100970760.html
+          - name: Huatung Books
+            url: https://www.huatung.net/books/341640/show
+      - name: eBook platforms
+        platforms:
+          - name: Google Play Books
+            url: https://play.google.com/store/books/details?id=u9xZEAAAQBAJ
+          - name: Books.com.tw eBook
+            url: https://www.books.com.tw/products/E050121103
+          - name: Kingstone eBook / Readmoo
+            url: https://www.kingstone.com.tw/basic/2800000057209/
+          - name: Rakuten Kobo
+            url: https://www.rakuten.com.tw/shop/kobo/product/0fecd3d7-2eec-3a1e-b553-999e08353990/
+          - name: BOOK☆WALKER
+            url: https://www.bookwalker.com.tw/product/131985
+          - name: Eslite eBook
+            url: https://www.eslite.com/product/10072302132682701397009
+          - name: momoBOOK
+            url: https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=12411319
+          - name: iRead eBooks
+            url: https://www.airitibooks.com/Publication/Details?publicationID=P20230717299
+          - name: Yahoo × Readmoo
+            url: https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11362845
+          - name: PChome × Kobo
+            url: https://24h.pchome.com.tw/books/prod/DJBQ2S-D900DW8MO
+          - name: PChome × HyRead
+            url: https://24h.pchome.com.tw/books/prod/DJBR43-D900IMC3O
+          - name: PChome × Pubu
+            url: https://24h.pchome.com.tw/books/prod/DJBS3S-D900HVHIO
+    categories: ["aws-cdk"]
+    tags: ["AWS CDK", "Infrastructure as Code", "TypeScript"]

@@ -1,0 +1,38 @@
+{{ define "navbar" }}
+    {{ partial "navigators/navbar.html" . }}
+{{ end }}
+
+{{ define "sidebar" }}
+  {{/* The article index is intentionally full-width. */}}
+{{ end }}
+
+{{ define "content" }}
+<section class="content-section posts-index-section" id="content-section" aria-labelledby="posts-index-title">
+  <div class="content container-fluid posts-index" id="content">
+    <header class="posts-index-header">
+      <div class="posts-index-mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+      <h1 id="posts-index-title">{{ .Title }}</h1>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </header>
+
+    <div class="container-fluid post-card-holder posts-grid" id="post-card-holder">
+      {{ $posts := where .RegularPagesRecursive "Layout" "!=" "search" }}
+      {{ $posts = where $posts "Params.hidden" "!=" true }}
+      {{ $numShow := site.Params.features.pagination.maxPostsPerPage | default 12}}
+      {{ $paginator := .Paginate $posts $numShow }}
+      {{ range $index, $post := $paginator.Pages }}
+        {{ if .Layout }}
+          {{/* ignore the search.md file*/}}
+        {{ else }}
+          {{ partial "cards/post.html" (dict "page" $post "featured" (eq $index 0) "limitTags" true) }}
+        {{ end }}
+      {{ end }}
+    </div>
+    <div class="paginator">
+      {{ partial "pagination.html" . }}
+    </div>
+  </div>
+</section>
+{{ end }}

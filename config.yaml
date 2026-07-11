@@ -16,6 +16,10 @@ module:
       target: static/files
     - source: ./node_modules/katex/dist/fonts
       target: static/fonts
+    - source: assets
+      target: assets
+    - source: ./node_modules/simple-icons/icons
+      target: assets/images/sections/skills/brands
 
 # Manage languages
 # For any more details, you can check the official documentation: https://gohugo.io/content-management/multilingual/
@@ -42,6 +46,13 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    lineNos: false
+    noClasses: true
+    style: github-dark
+    tabWidth: 2
   tableOfContents:
     startLevel: 2
     endLevel: 6
@@ -66,8 +77,8 @@ params:
   # Provide logos for your site. The inverted logo will be used in the initial
   # transparent navbar and the main logo will be used in the non-transparent navbar.
   logo:
-    main: /images/site/main-logo.jpeg
-    # inverted: /images/site/inverted-logo.png
+    # Keep the navbar as a text wordmark; the small raster logo was soft on
+    # high-density displays. The portrait remains in the profile content.
     favicon: /images/site/favicon.jpeg
 
   # GitHub repo URL of your site
@@ -132,21 +143,15 @@ params:
 
     # Enable Analytics
     analytics:
-      enabled: true
-      services:
-        # Google Analytics 4 (GA4)
-        google:
-          id: G-PG4DH6TDZN
-        # GoatCounter
-        goatCounter:
-          code: clarence
-        # CounterDev
-        counterDev:
-          id: me@clarence.tw
+      # Production analytics is managed by the serving platform. Keep theme-level
+      # analytics disabled so the site does not load duplicate trackers.
+      enabled: false
 
     # Enable Support
     support:
-      enable: true
+      # Floating donation widgets obscure content on small screens. If support
+      # links return later, keep them as ordinary footer links.
+      enable: false
       services:
         # kofi:
         #   user: clarencetw
@@ -180,11 +185,12 @@ params:
 
     # Enables copy code button
     copyCodeButton:
-      enable: true
+      enable: false
 
     # Enable reading time support in post cards and in post pages
     readingTime:
-      enable: true
+      # Hugo's default word counter substantially undercounts CJK content.
+      enable: false
     
     # Number of posts to show to each page. Default is "12"
     pagination:

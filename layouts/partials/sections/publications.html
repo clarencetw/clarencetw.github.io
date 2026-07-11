@@ -1,0 +1,22 @@
+{{ $sectionID := replace (lower .section.name) " " "-" }}
+{{ if .section.id }}{{ $sectionID = .section.id }}{{ end }}
+
+<section class="container-fluid anchor pb-5 publications-section" id="{{ $sectionID }}">
+  <h2 class="text-center"{{ if .section.hideTitle }} style="display: none"{{ end }}>{{ .section.name }}</h2>
+  {{ with .section.intro }}<p class="section-intro text-center">{{ . }}</p>{{ end }}
+  {{ with .section.linkReview }}<p class="publication-link-review text-center"><i class="fas fa-check-circle" aria-hidden="true"></i> {{ . }}</p>{{ end }}
+  {{ if .buttons }}
+  <div class="container ms-auto text-center">
+    <div class="btn-group flex-wrap" role="group" aria-label="{{ .section.name }}" id="publication-filter-buttons">
+      {{ range .buttons }}
+      <button type="button" class="btn btn-dark pub-filtr-control" data-filter="pub-{{ .filter }}">{{ .name }}</button>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+  <div class="container filtr-publications">
+    <div class="row" id="publication-card-holder">
+      {{ range .publications }}{{ partial "cards/publication" . }}{{ end }}
+    </div>
+  </div>
+</section>

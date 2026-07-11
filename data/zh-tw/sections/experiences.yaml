@@ -3,14 +3,17 @@ section:
   name: 經歷
   id: experiences
   enable: true
-  weight: 3
+  weight: 4
   showOnNavbar: true
+  curated: false
+  description: "完整呈現職涯、顧問、教學、著作與社群參與；目前角色同時保留職務概要與完整職責。"
   # Can optionally hide the title in sections
   # hideTitle: true
 
 # Your experiences
 experiences:
-  - company:
+  - featured: true
+    company:
       name: BRONCI Technology Inc. 長問科技股份有限公司
       url: "https://bronci.com.tw/"
       location: Taipei
@@ -18,9 +21,16 @@ experiences:
     positions:
       - designation: Senior Backend Developer / LLM Engineer
         start: 11 2020
+        featuredResponsibilities:
+          - "設計與開發 Backend service、API、background jobs 與第三方整合。"
+          - "把 LLM、OpenAI / Ollama、Kaldi / Whisper 與 GPU runtime 帶入可維運流程。"
+          - "以 AWS CDK / IaC 建立可重複部署的 Cloud architecture。"
+          - "維護 GitLab CI/CD、GitHub Actions、automated tests 與 container delivery。"
+          - "營運 Linux、Proxmox VE / PBS、Harbor、monitoring 與 On-prem infrastructure。"
+          - "規劃 Enterprise Network、VLAN、VPN、firewall、Wi-Fi 與 SD-WAN。"
         # end: May 2017
         responsibilities:
-          - "使用 Node.js、Python、Go、C/C++、Shell Script、Java 開發 Backend service 與 internal tools。"
+          - "使用 Node.js、Python、Go、C/C++、Shell Script、Java，以及 PostgreSQL、MySQL、Docker，開發 Backend service、API、background jobs 與 internal tools。"
           - "設計 API、background jobs、data processing flow 與第三方 service integration。"
           - "整合日本家用攝影機 cloud service，支援遠端監控與裝置管理場景。"
           - "開發日本 IoT smart home voice command service。"
@@ -133,7 +143,7 @@ experiences:
       url: "https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149"
       location: 作者
       # company overview
-      overview: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC (iT邦幫忙鐵人賽系列書) [紙本書](https://www.tenlong.com.tw/products/9789864349203) [電子書](https://play.google.com/store/books/details/AWS_CDK_%E5%AE%8C%E5%85%A8%E5%AD%B8%E7%BF%92%E6%89%8B%E5%86%8A_iT%E9%82%A6%E5%B9%AB%E5%BF%99%E9%90%B5%E4%BA%BA%E8%B3%BD%E7%B3%BB%E5%88%97%E6%9B%B8_%E6%89%93%E9%80%A0%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC_IaC?id=u9xZEAAAQBAJ)"
+      overview: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書） · [查看紙本與電子書平台](#publications)"
     positions:
       - designation: 書籍作者
         start: 11 2021
@@ -174,7 +184,8 @@ experiences:
         responsibilities:
           - Cloud architecture consulting
 
-  - company:
+  - featured: true
+    company:
       name: 國立臺北科技大學
       url: "https://www.ntut.edu.tw/"
       location: 研發替代役
@@ -200,7 +211,8 @@ experiences:
           - Network troubleshooting，使用 Fluke 進行查線與循線
           - 電腦系統維修
 
-  - company:
+  - featured: true
+    company:
       name: SITCON 學生電子計算機年會 (Students' Information Technology Conference)
       url: "https://sitcon.org/"
       location: 志工

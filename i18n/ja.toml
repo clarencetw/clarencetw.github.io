@@ -3,6 +3,24 @@
 [share_on]
 other = "共有"
 
+[resume]
+other = "履歴書"
+
+[official_reference]
+other = "公式資料"
+
+[credential_earned]
+other = "取得済み"
+
+[core_skill]
+other = "主力"
+
+[role_scope]
+other = "役割の概要"
+
+[full_responsibilities]
+other = "職務の詳細"
+
 [read]
 other = "読む"
 
@@ -34,6 +52,45 @@ other = "技術ノート"
 one = "件のノート"
 other = "件のノート"
 
+[notes_library]
+other = "ノート一覧"
+
+[notes_on_this_page]
+other = "このページ"
+
+[notes_search_label]
+other = "技術ノートを検索"
+
+[notes_search_placeholder]
+other = "タイトルまたはトピックで絞り込み"
+
+[notes_filter_results]
+other = "件のノート"
+
+[close_navigation]
+other = "目次を閉じる"
+
+[copy_code]
+other = "コピー"
+
+[code_copied]
+other = "コピーしました"
+
+[code_copy_error]
+other = "コピーできませんでした"
+
+[notes_in_section]
+other = "このカテゴリのノート"
+
 [minute]
 one = "分"
 other = "分"
+
+[scroll_to_top]
+other = "ページ上部へ戻る"
+
+[book_editions]
+other = "版と ISBN"
+
+[book_platform_links]
+other = "件の販売リンク"

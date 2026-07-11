@@ -1,0 +1,48 @@
+{{- $page := . -}}
+{{- $featured := false -}}
+{{- $limitTags := false -}}
+{{- if reflect.IsMap . -}}
+  {{- $page = .page -}}
+  {{- $featured = .featured | default false -}}
+  {{- $limitTags = .limitTags | default false -}}
+{{- end -}}
+
+<article class="post-card{{ if $featured }} post-card--featured{{ end }}">
+  <div class="card">
+    <a href="{{ $page.RelPermalink }}" class="post-card-cover-link" tabindex="-1" aria-hidden="true">
+      {{ partial "posts/cover.html" (dict "page" $page "class" "post-card-cover" "width" "1000x" "loading" "lazy") }}
+    </a>
+    <div class="post-card-content">
+      <div class="card-body">
+        <div class="post-card-meta">
+          {{ $showDate := site.Params.features.showDate.postCards | default true }}
+          {{ $showReadingTime := site.Params.features.readingTime.enable | default false }}
+          {{ if $showDate }}
+            <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "2006-01-02" }}</time>
+          {{ end }}
+          {{ if and $showDate $showReadingTime }}<span aria-hidden="true">·</span>{{ end }}
+          {{ if $showReadingTime }}<span>{{ $page.ReadingTime }} {{ i18n "minute" $page.ReadingTime }}</span>{{ end }}
+        </div>
+        <a href="{{ $page.RelPermalink }}" class="post-card-link">
+          <h2 class="card-title">{{ $page.Title }}</h2>
+        </a>
+        <p class="card-text post-summary">
+          {{ with $page.Description }}{{ . }}{{ else }}{{ $page.Summary | plainify | truncate 240 }}{{ end }}
+        </p>
+        {{ if and site.Params.features.tags.enable site.Params.features.tags.on_card }}
+          {{ if $limitTags }}
+            {{ partial "misc/tags.html" (first 3 $page.Params.tags) }}
+          {{ else }}
+            {{ partial "misc/tags.html" $page.Params.tags }}
+          {{ end }}
+        {{ end }}
+      </div>
+      <div class="card-footer">
+        <a href="{{ $page.RelPermalink }}" class="post-card-read">
+          <span>{{ i18n "read" }}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</article>

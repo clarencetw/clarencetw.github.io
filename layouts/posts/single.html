@@ -1,0 +1,191 @@
+{{ define "header" }}
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}" />
+{{ end }}
+
+{{ define "navbar" }}
+{{ partial "navigators/navbar.html" . }}
+{{ end }}
+
+{{ define "sidebar" }}
+  {{/* The article keeps its table of contents and uses the full reading width. */}}
+{{ end }}
+
+{{ define "content" }}
+<section class="content-section" id="content-section">
+  <div class="content">
+    <article class="container p-0 read-area post-read-area">
+      {{ partial "posts/cover.html" (dict "page" . "class" "post-article-cover" "width" "1600x" "loading" "eager") }}
+
+      <!--Content Start-->
+      <div class="page-content">
+        {{ $showDate := site.Params.features.showDate.singlePage | default true }}
+        {{ $showReadingTime := site.Params.features.readingTime.enable | default true }}
+        <header class="post-article-header">
+          <a class="post-back-link" href="{{ "/posts/" | relLangURL }}">
+            <span aria-hidden="true">←</span>
+            <span>{{ i18n "posts" }}</span>
+          </a>
+          <h1>{{ .Page.Title }}</h1>
+          {{ with .Description }}<p class="post-article-lede">{{ . }}</p>{{ end }}
+
+          <div class="post-article-meta">
+            {{ if site.Params.features.blog.showAuthor | default true }}
+              <span class="post-author">
+                <img src='{{ partial "helpers/get-author-image.html" . }}' alt="" aria-hidden="true">
+                <span>{{ partial "helpers/get-author-name.html" . }}</span>
+              </span>
+            {{ end }}
+            {{ if $showDate }}
+              <time datetime="{{ .Page.Date.Format "2006-01-02" }}">{{ .Page.Date.Format "2006-01-02" }}</time>
+            {{ end }}
+            {{ if $showReadingTime }}
+              <span>{{ .ReadingTime }} {{ i18n "minute" .ReadingTime }}</span>
+            {{ end }}
+          </div>
+
+          {{ if site.Params.features.tags.enable }}
+            {{ partial "misc/tags.html" .Params.tags }}
+          {{ end }}
+        </header>
+
+        <div class="post-content" id="post-content">
+          {{ .Page.Content }}
+        </div>
+
+        <!-- Share or Contribute -->
+        <div class="row ps-3 pe-3">
+          <!--Social Media Share Buttons-->
+          <div class="col-md-6 share-buttons">
+            {{ if site.Params.features.blog.shareButtons }}
+            <strong>{{ i18n "share_on" }}:</strong>
+            {{ if site.Params.features.blog.shareButtons.facebook }}
+            <a class="btn icon-button bg-facebook" href="https://www.facebook.com/sharer.php?u={{ .Permalink }}"
+              target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.twitter }}
+            <a class="btn icon-button bg-twitter"
+              href="https://twitter.com/share?url={{ .Permalink }}&amp;text={{ .Title }}&amp;via={{- site.Title -}}"
+              target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} X / Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.reddit }}
+            <a class="btn icon-button bg-reddit"
+              href="https://reddit.com/submit?url={{ .Permalink }}&amp;title={{ .Title }}" target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} Reddit">
+              <i class="fab fa-reddit"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.tumblr }}
+            <a class="btn icon-button bg-tumblr"
+              href="https://www.tumblr.com/share/link?url={{ .Permalink }}&amp;name={{ .Title }}{{- with .Params.description -}}&amp;description={{- . -}}{{- end -}}"
+              target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} Tumblr">
+              <i class="fab fa-tumblr"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.pocket }}
+            <a class="btn icon-button bg-pocket"
+              href="https://getpocket.com/save?url={{ .Permalink }}&amp;title={{ .Title }}" target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} Pocket">
+              <i class="fab fa-get-pocket"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.linkedin }}
+            <a class="btn icon-button bg-linkedin"
+              href="https://www.linkedin.com/shareArticle?url={{ .Permalink }}&amp;title={{ .Title }}" target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.diaspora }}
+            <a class="btn icon-button bg-diaspora"
+              href="https://share.diasporafoundation.org/?title={{ .Title }}&amp;url={{ .Permalink }}" rel="nofollow"
+              target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} Diaspora">
+              <i class="fab fa-diaspora"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.mastodon }}
+            <a class="btn icon-button bg-mastodon"
+              href="https://mastodon.social/share?text={{ .Title }}%20-%20{{ .Permalink }}" target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} Mastodon">
+              <i class="fab fa-mastodon"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.whatsapp }}
+            <a class="btn icon-button bg-whatsapp"
+              href="https://api.whatsapp.com/send?text={{ .Title }}%20{{ .Permalink }}" target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            {{ end }}
+            {{ if site.Params.features.blog.shareButtons.email }}
+            <a class="btn icon-button" href="mailto:?subject={{ .Title }}&amp;body={{ .Permalink }}" target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "share_on" }} Email">
+              <i class="fas fa-envelope-open-text"></i>
+            </a>
+            {{ end }}
+            {{ end }}
+          </div>
+
+          <!--- Improve this page button --->
+          {{ if site.Params.GitRepo }}
+          {{ if site.Params.GitBranch }}
+          {{ .Scratch.Set "GitBranch" site.Params.GitBranch }}
+          {{ else }}
+          {{ .Scratch.Set "GitBranch" "main" }}
+          {{ end }}
+          <div class="col-md-6 btn-improve-page">
+            {{ if ( eq site.Params.GitForge "gitlab" ) }}
+            <a href="{{ site.Params.GitRepo }}/-/edit/{{ .Scratch.Get "GitBranch" }}/content/{{ .File.Path }}"
+              title="{{ i18n "improve_this_page" }}" target="_blank" rel="noopener">
+              {{ else if ( eq site.Params.GitForge "gitea" ) }}
+              <a href="{{ site.Params.GitRepo }}/_edit/{{ .Scratch.Get "GitBranch" }}/content/{{ .File.Path }}"
+                title="{{ i18n "improve_this_page" }}" target="_blank" rel="noopener">
+                {{ else }} <!--- Make Github-style the default -->
+                <a href="{{ site.Params.GitRepo }}/edit/{{ .Scratch.Get "GitBranch" }}/content/{{ .File.Path }}"
+                  title="{{ i18n "improve_this_page" }}" target="_blank" rel="noopener">
+                  {{ end }}
+                  <i class="fas fa-code-branch"></i>
+                  {{ i18n "improve_this_page" }}
+                </a>
+          </div>
+          {{ end }}
+        </div>
+
+
+
+        <!---Next and Previous Navigator -->
+        <hr />
+        {{ partial "navigators/next-prev-navigator.html" . }}
+        <hr />
+
+        <!----- Add comment support  ----->
+        {{ if site.Params.features.comment.enable }}
+        {{ partial "comments.html" site.Params.features.comment.services }}
+        {{ end }}
+
+        <!-- Keep backward compatibility with old config.yaml -->
+        {{ if .Site.Config.Services.Disqus.Shortname }}
+        {{ partial "comments/disqus.html" (dict (slice "disqus" "shortName") .Site.Config.Services.Disqus.Shortname) }}
+        {{ end }}
+
+      </div>
+    </article>
+  </div>
+  <!--scroll back to top-->
+  <button id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="{{ i18n "scroll_to_top" }}" aria-label="{{ i18n "scroll_to_top" }}">
+    <i class="fas fa-chevron-circle-up"></i>
+  </button>
+</section>
+{{ end }}
+
+{{ define "toc" }}
+<section class="toc-section" id="toc-section">
+  {{ if and site.Params.features.toc.enable ( .Params.enableTOC | default true ) }}
+  <div class="toc-holder">
+    <h5 class="text-center ps-3">{{ i18n "toc_heading" }}</h5>
+    <hr>
+    <div class="toc">
+      {{ .TableOfContents }}
+    </div>
+  </div>
+  {{ end }}
+</section>
+{{ end }}

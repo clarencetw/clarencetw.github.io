@@ -2,7 +2,7 @@ section:
   name: 精選文章
   id: featured-posts
   enable: true
-  weight: 7
+  weight: 3
   showOnNavbar: true
 
 posts:

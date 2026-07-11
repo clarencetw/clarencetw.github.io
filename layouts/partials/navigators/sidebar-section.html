@@ -1,0 +1,38 @@
+{{ $headingCurrent := eq (strings.TrimSuffix "/" .ctx.RelPermalink) (strings.TrimSuffix "/" .headingURL) }}
+
+<section class="sidebar-section" id="sidebar-section" data-notes-navigation data-navigation-label="{{ i18n "notes_library" }}">
+  <div class="sidebar-holder">
+    <div class="sidebar" id="sidebar">
+      <div class="notes-sidebar-heading">
+        <a class="notes-sidebar-home{{ if $headingCurrent }} active{{ end }}" href="{{ .headingURL }}"{{ if $headingCurrent }} aria-current="page"{{ end }}>{{ i18n "notes_library" }}</a>
+        <button class="notes-sidebar-close" type="button" data-notes-close aria-label="{{ i18n "close_navigation" }}">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form class="notes-filter-form" role="search">
+        <label class="visually-hidden" for="notes-filter">{{ i18n "notes_search_label" }}</label>
+        <input type="search" value="" placeholder="{{ i18n "notes_search_placeholder" }}" autocomplete="off" spellcheck="false" id="notes-filter" aria-controls="notes-menu-root" aria-describedby="notes-filter-status" />
+        <span class="visually-hidden" id="notes-filter-status" data-result-label="{{ i18n "notes_filter_results" }}" aria-live="polite" aria-atomic="true"></span>
+      </form>
+
+      {{ with .pageSections }}
+        <nav class="notes-page-outline" aria-labelledby="notes-page-outline-title">
+          <p class="notes-page-outline-title" id="notes-page-outline-title">{{ i18n "notes_on_this_page" }}</p>
+          <ol>
+            {{ range . }}
+              <li><a href="#{{ .id }}">{{ .title }}</a></li>
+            {{ end }}
+          </ol>
+        </nav>
+      {{ end }}
+
+      <nav class="notes-library-nav sidebar-tree" aria-label="{{ i18n "notes_library" }}">
+        <ul class="tree notes-menu" id="notes-menu-root">
+          {{ partial "navigators/notes-menu.html" (dict "menuName" .menuName "menuItems" .menuItems "ctx" .ctx) }}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>
+<div class="notes-nav-backdrop" data-notes-backdrop aria-hidden="true"></div>

@@ -1,0 +1,33 @@
+<div class="col-xs-12 col-sm-6 col-lg-4 pt-2 filtr-item"
+  data-category='all, {{ with .categories }}{{ delimit . ","}}{{ end }}'>
+  <article class="card h-100{{ if .featured }} skill-card--featured{{ end }}">
+    <div class="card-head d-flex">
+      {{ if .logo }}
+        {{ $logoImage := resources.Get .logo }}
+        {{ if $logoImage }}
+          <span class="skill-logo" aria-hidden="true">
+            {{ if eq $logoImage.MediaType.SubType "svg" }}
+              <span class="card-img-xs card-img-xs--svg">{{ $logoImage.Content | safeHTML }}</span>
+            {{ else }}
+              {{ $logoImage = $logoImage.Fit "24x24" }}
+              <img class="card-img-xs" src="{{ $logoImage.RelPermalink }}" alt="" width="24" height="24">
+            {{ end }}
+          </span>
+        {{ end }}
+      {{ else if .icon }}
+        <span class="skill-logo" aria-hidden="true"><i class="{{ .icon }} card-icon-xs"></i></span>
+      {{ end }}
+      <h3 class="card-title">
+        {{ if .url }}
+          <a href="{{ .url }}" title="{{ .name }}" target="_blank" rel="noopener">{{ .name }}</a>
+        {{ else }}
+          {{ .name }}
+        {{ end }}
+        {{ if .featured }}<span class="skill-core-badge">{{ i18n "core_skill" }}</span>{{ end }}
+      </h3>
+    </div>
+    <div class="card-body text-justify pt-1 pb-1">
+      <div class="card-text">{{ .summary | markdownify }}</div>
+    </div>
+  </article>
+</div>

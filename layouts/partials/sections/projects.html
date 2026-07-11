@@ -1,0 +1,26 @@
+{{ $sectionID := replace (lower .section.name) " " "-" }}
+{{ if .section.id }}{{ $sectionID = .section.id }}{{ end }}
+
+<section class="container-fluid anchor pb-5 projects-section" id="{{ $sectionID }}">
+  <h2 class="text-center"{{ if .section.hideTitle }} style="display: none"{{ end }}>{{ .section.name }}</h2>
+  {{ with .section.description }}<p class="section-intro text-center">{{ . }}</p>{{ end }}
+  {{ $projects := .projects }}
+  {{ if .section.curated }}{{ $projects = where $projects "featured" true }}{{ end }}
+  {{ if not .section.curated }}
+  <div class="container ms-auto text-center">
+    <div class="btn-group flex-wrap" role="group" id="project-filter-buttons-{{ $sectionID }}">
+      {{ range .buttons }}
+      <button type="button" class="btn btn-dark project-filtr-control" data-filter="{{ .filter }}" data-section="{{ $sectionID }}">{{ .name }}</button>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+  <div class="container filtr-projects" data-section="{{ $sectionID }}">
+    <div class="row" id="project-card-holder-{{ $sectionID }}">
+      {{ range $projects }}{{ partial "cards/project" . }}{{ end }}
+    </div>
+  </div>
+  {{ with .section.cta }}
+  <p class="section-cta text-center"><a class="btn btn-info" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }}</a></p>
+  {{ end }}
+</section>

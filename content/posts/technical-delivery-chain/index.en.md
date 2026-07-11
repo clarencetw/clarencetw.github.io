@@ -39,7 +39,7 @@ For me, CI/CD is not only automated deployment. It is the connection between tes
 
 I work across both cloud and on-prem environments. On the cloud side, that includes AWS CDK / IaC, AWS, GCP, Azure, and common service integrations. On-prem work includes Proxmox VE, Proxmox Backup Server, Harbor, GitLab, LDAP, LibreNMS, GPU servers, NAS, and backup planning.
 
-This is also one reason I wrote [AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203): infrastructure should be describable, repeatable, and reviewable, instead of living only in one machine or one person's memory.
+This is also one reason I wrote [AWS CDK 完全學習手冊](https://clarence.tw/en/#publications): infrastructure should be describable, repeatable, and reviewable, instead of living only in one machine or one person's memory.
 
 ### Network / Security Operations
 

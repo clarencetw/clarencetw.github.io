@@ -1,6 +1,7 @@
 ---
 title: GitLab CI/CD 完整配置指南
 date: 2024-01-30T15:00:00+08:00
+lastmod: 2026-07-11T00:00:00+08:00
 description: 分享 GitLab CI/CD 的完整配置經驗，從基礎設定到進階部署策略
 menu:
   sidebar:
@@ -13,9 +14,13 @@ categories: ["DevOps", "Automation"]
 
 在企業 DevOps 實踐中，我負責建置和維護 GitLab CI/CD 流程，涵蓋從程式碼提交到生產部署的完整自動化。這篇文章將分享 GitLab CI/CD 的基礎配置經驗。
 
+> **2026-07-11 檢視：**本文範例已改用 GitLab Runner authentication token、Node.js 24 LTS 與 Docker 29.6.1。版本與安全預設仍會變動；正式環境請先核對 [GitLab Runner 註冊文件](https://docs.gitlab.com/runner/register/)、[Node.js release status](https://nodejs.org/en/about/previous-releases) 與 [Docker Engine release notes](https://docs.docker.com/engine/release-notes/29/)，並將 image 鎖定到團隊驗證過的版本或 digest。
+
 ## GitLab CI/CD 基礎架構
 
 ### 1. GitLab Runner 部署
+
+先在 GitLab 的 project、group 或 Admin Area 建立 runner，設定 tags、protected scope 等屬性，再取得以 `glrt-` 開頭的 runner authentication token。舊的 registration token 流程已 deprecated，且可能已被 GitLab instance 停用；不要再把 `--registration-token` 當成新 runner 的預設做法。
 
 **自建 Runner 配置：**
 ```bash
@@ -24,14 +29,16 @@ curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/s
 sudo apt-get install gitlab-runner
 
 # 註冊 Runner
+export RUNNER_AUTHENTICATION_TOKEN="glrt-REDACTED"
 sudo gitlab-runner register \
+  --non-interactive \
   --url "https://gitlab.company.com/" \
-  --registration-token "YOUR_TOKEN" \
+  --token "$RUNNER_AUTHENTICATION_TOKEN" \
   --executor "docker" \
-  --docker-image "alpine:latest" \
-  --description "Production Runner" \
-  --tag-list "production,docker"
+  --docker-image "alpine:3.23"
 ```
+
+Authentication token 是 secret；不要寫入 repository、CI log 或共用筆記。Runner 註冊後，token 會保存在 runner host 的 `config.toml`，應限制該檔案與主機的存取權限。
 
 **Docker-in-Docker 配置：**
 ```toml
@@ -45,7 +52,7 @@ check_interval = 0
 [[runners]]
   name = "docker-runner"
   url = "https://gitlab.company.com/"
-  token = "YOUR_TOKEN"
+  token = "glrt-REDACTED"
   executor = "docker"
   [runners.custom_build_dir]
   [runners.cache]
@@ -54,12 +61,12 @@ check_interval = 0
     [runners.cache.azure]
   [runners.docker]
     tls_verify = false
-    image = "docker:20.10.16"
+    image = "docker:29.6.1-cli"
     privileged = true
     disable_entrypoint_overwrite = false
     oom_kill_disable = false
     disable_cache = false
-    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+    volumes = ["/certs/client", "/cache"]
     shm_size = 0
 ```
 
@@ -69,7 +76,7 @@ check_interval = 0
 
 ```yaml
 # .gitlab-ci.yml
-image: node:18-alpine
+image: node:24-alpine
 
 # 定義階段
 stages:
@@ -98,11 +105,17 @@ test:
 # 建置階段
 build:
   stage: build
-  image: docker:20.10.16
+  image: docker:29.6.1-cli
   services:
-    - docker:20.10.16-dind
+    - name: docker:29.6.1-dind
+      alias: docker
+  variables:
+    DOCKER_HOST: "tcp://docker:2376"
+    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_TLS_VERIFY: "1"
+    DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
   before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - echo "$CI_REGISTRY_PASSWORD" | docker login --username "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
   script:
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
@@ -137,12 +150,18 @@ variables:
 
 build:harbor:
   stage: build
-  image: docker:20.10.16
+  image: docker:29.6.1-cli
   services:
-    - docker:20.10.16-dind
+    - name: docker:29.6.1-dind
+      alias: docker
+  variables:
+    DOCKER_HOST: "tcp://docker:2376"
+    DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_TLS_VERIFY: "1"
+    DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
   before_script:
     # 登入 Harbor
-    - docker login -u $HARBOR_USERNAME -p $HARBOR_PASSWORD $HARBOR_REGISTRY
+    - echo "$HARBOR_PASSWORD" | docker login --username "$HARBOR_USERNAME" --password-stdin "$HARBOR_REGISTRY"
   script:
     # 建置並推送到 Harbor
     - docker build -t $IMAGE_NAME:$CI_COMMIT_SHA .
@@ -158,7 +177,7 @@ build:harbor:
 # Harbor 內建的映像安全掃描
 scan:harbor:
   stage: test
-  image: alpine:latest
+  image: alpine:3.23
   before_script:
     - apk add --no-cache curl jq
   script:
@@ -182,7 +201,7 @@ scan:harbor:
 ```yaml
 # 簡單的多環境部署
 .deploy_template:
-  image: alpine:latest
+  image: alpine:3.23
   before_script:
     - apk add --no-cache kubectl
   script:
@@ -216,12 +235,12 @@ deploy:production:
 
 ```dockerfile
 # 多階段建置
-FROM node:18-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
+RUN npm ci --omit=dev && npm cache clean --force
 
-FROM node:18-alpine AS runtime
+FROM node:24-alpine AS runtime
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
@@ -237,8 +256,7 @@ CMD ["npm", "start"]
 ### Docker Compose 測試環境
 
 ```yaml
-# docker-compose.test.yml
-version: '3.8'
+# compose.test.yml
 services:
   app:
     build: .
@@ -250,14 +268,14 @@ services:
       - redis
     
   db:
-    image: postgres:13
+    image: postgres:18
     environment:
       POSTGRES_DB: testdb
       POSTGRES_USER: test
       POSTGRES_PASSWORD: test
     
   redis:
-    image: redis:6-alpine
+    image: redis:8-alpine
 ```
 
 

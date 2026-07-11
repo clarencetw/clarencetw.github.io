@@ -1,0 +1,19 @@
+{{ range .menuItems }}
+  {{ $isCurrent := $.ctx.IsMenuCurrent $.menuName . }}
+  {{ $isAncestor := $.ctx.HasMenuCurrent $.menuName . }}
+  {{ if .HasChildren }}
+    <li class="notes-nav-group{{ if $isCurrent }} is-current{{ end }}{{ if $isAncestor }} is-ancestor{{ end }}">
+      <div class="notes-nav-group-heading">
+        <a class="notes-nav-link list-link{{ if or $isCurrent $isAncestor }} active{{ end }}" href="{{ .URL }}" data-notes-group-label{{ if $isCurrent }} aria-current="page"{{ end }}>{{ .Name }}</a>
+        <span class="notes-nav-count" aria-hidden="true">{{ len .Children }}</span>
+      </div>
+      <ul class="notes-nav-children active">
+        {{ partial "navigators/notes-menu.html" (dict "menuName" $.menuName "menuItems" .Children "ctx" $.ctx) }}
+      </ul>
+    </li>
+  {{ else if not .Page.Params.hidden }}
+    <li class="notes-nav-leaf{{ if $isCurrent }} is-current{{ end }}">
+      <a class="notes-nav-link list-link{{ if $isCurrent }} active{{ end }}" href="{{ .URL | default .PageRef }}" title="{{ .Name }}"{{ if $isCurrent }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    </li>
+  {{ end }}
+{{ end }}

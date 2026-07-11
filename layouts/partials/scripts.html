@@ -1,0 +1,4 @@
+{{ partial "helpers/script-bundle.html" }}
+{{ with resources.Get "scripts/site-accessibility.js" | minify | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}"></script>
+{{ end }}

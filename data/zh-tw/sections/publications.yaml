@@ -1,46 +1,80 @@
-# section information
 section:
   name: 出版
   id: publications
   enable: true
-  weight: 6
+  weight: 5
   showOnNavbar: true
-  # Can optionally hide the title in sections
-  # hideTitle: true
+  intro: 紙本、PDF 與 EPUB 版本的官方書目及購買連結；只收錄已核對書名或 ISBN 的正式商品頁。
+  linkReview: 連結核對日期：2026-07-11
 
-# filter buttons
-buttons:
-- name: All
-  filter: "all"
-- name: "AWS CDK"
-  filter: "aws-cdk"
-
-# your publications
 publications:
-- title: AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）
-  publishedIn:
-    name: 天瓏網路書店
-    date: 2021-11
-    url: https://www.tenlong.com.tw/products/9789864349203
-  authors:
-  - name: Clarence
-    url: https://clarence.tw
-  paper:
-    summary: 第一本從無到有教你撰寫 AWS CDK 的中文書籍！為不會寫的你獻上超豐富 Sample Code，照抄也能成為 AWS CDK 達人！
-    url: https://www.tenlong.com.tw/products/9789864349203
-  categories: ["aws-cdk"]
-  tags: ["AWS CDK"]
-
-- title: AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）eBook
-  publishedIn:
-    name: Google Play 圖書
-    date: 2021-11
-    url: https://play.google.com/store/books/details/AWS_CDK_%E5%AE%8C%E5%85%A8%E5%AD%B8%E7%BF%92%E6%89%8B%E5%86%8A_iT%E9%82%A6%E5%B9%AB%E5%BF%99%E9%90%B5%E4%BA%BA%E8%B3%BD%E7%B3%BB%E5%88%97%E6%9B%B8_%E6%89%93%E9%80%A0%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC_IaC
-  authors:
-  - name: Clarence
-    url: https://clarence.tw
-  paper:
-    summary: 第一本從無到有教你撰寫 AWS CDK 的中文書籍！為不會寫的你獻上超豐富 Sample Code，照抄也能成為 AWS CDK 達人！
-    url: https://play.google.com/store/books/details/AWS_CDK_%E5%AE%8C%E5%85%A8%E5%AD%B8%E7%BF%92%E6%89%8B%E5%86%8A_iT%E9%82%A6%E5%B9%AB%E5%BF%99%E9%90%B5%E4%BA%BA%E8%B3%BD%E7%B3%BB%E5%88%97%E6%9B%B8_%E6%89%93%E9%80%A0%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC_IaC
-  categories: ["aws-cdk"]
-  tags: ["AWS CDK"]
+  - title: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）"
+    publishedIn:
+      name: 博碩文化
+      date: 2021-11-12
+      url: https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149
+    authors:
+      - name: Clarence
+        url: https://clarence.tw
+    paper:
+      summary: 以 TypeScript 與 AWS CDK 從基礎開始實作 Infrastructure as Code，涵蓋 Serverless、靜態網站、LAMP、ECS、EKS 與 Construct Library，並提供完整的範例程式碼。
+    formats:
+      - name: 平裝
+        identifiers:
+          - label: ISBN
+            value: 978-986-434-920-3
+      - name: PDF
+        identifiers:
+          - label: PDF ISBN
+            value: 978-986-434-985-2
+      - name: EPUB
+        identifiers:
+          - label: EPUB ISBN
+            value: 978-986-434-993-7
+    platformGroups:
+      - name: 紙本通路
+        platforms:
+          - name: 天瓏網路書店
+            url: https://www.tenlong.com.tw/products/9789864349203
+          - name: 博客來
+            url: https://www.books.com.tw/products/0010907999
+          - name: 金石堂
+            url: https://www.kingstone.com.tw/basic/2013120607446/
+          - name: 誠品
+            url: https://www.eslite.com/product/1001120322682094353002
+          - name: momo
+            url: https://www.momoshop.com.tw/product/9507722
+          - name: 三民網路書店
+            url: https://www.sanmin.com.tw/product/index/010046269
+          - name: TAAZE 讀冊生活
+            url: https://www.taaze.tw/products/11100970760.html
+          - name: 華通書坊
+            url: https://www.huatung.net/books/341640/show
+      - name: 電子書平台
+        platforms:
+          - name: Google Play 圖書
+            url: https://play.google.com/store/books/details?id=u9xZEAAAQBAJ
+          - name: 博客來電子書
+            url: https://www.books.com.tw/products/E050121103
+          - name: 金石堂電子書／Readmoo
+            url: https://www.kingstone.com.tw/basic/2800000057209/
+          - name: 樂天 Kobo
+            url: https://www.rakuten.com.tw/shop/kobo/product/0fecd3d7-2eec-3a1e-b553-999e08353990/
+          - name: BOOK☆WALKER
+            url: https://www.bookwalker.com.tw/product/131985
+          - name: 誠品電子書
+            url: https://www.eslite.com/product/10072302132682701397009
+          - name: momoBOOK
+            url: https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=12411319
+          - name: iRead eBooks 華藝
+            url: https://www.airitibooks.com/Publication/Details?publicationID=P20230717299
+          - name: Yahoo × Readmoo
+            url: https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11362845
+          - name: PChome × Kobo
+            url: https://24h.pchome.com.tw/books/prod/DJBQ2S-D900DW8MO
+          - name: PChome × HyRead
+            url: https://24h.pchome.com.tw/books/prod/DJBR43-D900IMC3O
+          - name: PChome × Pubu
+            url: https://24h.pchome.com.tw/books/prod/DJBS3S-D900HVHIO
+    categories: ["aws-cdk"]
+    tags: ["AWS CDK", "Infrastructure as Code", "TypeScript"]

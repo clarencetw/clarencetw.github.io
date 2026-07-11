@@ -2,9 +2,12 @@ section:
   name: スキル
   id: skills
   enable: true
-  weight: 2
+  weight: 6
   showOnNavbar: true
   filter: true
+  curated: false
+  description: "Cloud、Programming、AI、DevOps、Database、System、Enterprise Network を含む全スキルです。主力スキルを先に表示し、カテゴリで絞り込めます。"
+  inventoryLabel: "件のスキル"
 
 buttons:
   - name: All
@@ -26,102 +29,179 @@ buttons:
 
 skills:
   - name: AWS
-    logo: /images/sections/skills/cloud.png
     summary: "EC2、RDS、Lambda、Route 53、ECS、ALB、VPC、CloudFormation、WAF、S3、CloudFront など AWS Cloud Services を実運用で利用しています。"
     url: "https://aws.amazon.com/"
     categories: ["cloud"]
 
   - name: AWS CDK
-    logo: /images/sections/skills/cloud.png
-    summary: "Infrastructure as Code (IaC) の実務経験があり、[AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203) の著者です。TypeScript / Python で Cloud infrastructure を管理します。"
+    featured: true
+    summary: "Infrastructure as Code (IaC) の実務経験があり、[AWS CDK 完全學習手冊](#publications) の著者です。TypeScript / Python で Cloud infrastructure を管理します。"
     url: "https://aws.amazon.com/cdk/"
     categories: ["cloud", "devops"]
 
+  - name: GCP
+    logo: /images/sections/skills/brands/googlecloud.svg
+    summary: "Google Cloud Platform の VM、CDN、Load Balancer、MySQL などを利用して Cloud Architecture を構築します。"
+    url: "https://cloud.google.com/"
+    categories: ["cloud"]
+
+  - name: Azure
+    summary: "Azure Virtual Machines を利用した Cloud Architecture の構築経験があります。"
+    url: "https://azure.microsoft.com/"
+    categories: ["cloud"]
+
+  - name: Cloud Architecture
+    summary: "AWS・GCP・Azure を中心に再現可能な Cloud Architecture を設計・運用し、IaC、Network、Load Balancing、可用性、Security を扱います。"
+    categories: ["cloud", "devops"]
+
   - name: Node.js
-    logo: /images/sections/skills/nodejs.png
+    featured: true
+    logo: /images/sections/skills/brands/nodedotjs.svg
     summary: "Backend 開発の主要言語として、Server-side application、API service、Web application を開発しています。"
     url: "https://blog.clarence.tw/category/programming-language/node-js/"
     categories: ["language"]
 
   - name: Python
-    logo: /images/sections/skills/python.jpeg
+    featured: true
+    logo: /images/sections/skills/brands/python.svg
     summary: "LLM application、automation script、data processing、AI 関連開発で利用しています。"
     url: "https://www.python.org/"
     categories: ["language", "ai"]
 
   - name: Go
-    logo: /images/sections/skills/go.png
+    logo: /images/sections/skills/brands/go.svg
     summary: "Network application、server software、microservices の開発で利用しています。"
     url: "https://go.dev/"
     categories: ["language"]
 
+  - name: PHP
+    logo: /images/sections/skills/brands/php.svg
+    summary: "PHP を利用して API、Admin backend、Web application を開発し、既存システムとの連携や動的コンテンツを扱います。"
+    url: "https://www.php.net/"
+    categories: ["language"]
+
   - name: LINE Platform
-    logo: /images/sections/projects/line.jpg
-    summary: "LINE Messaging API、LINE Bot、LINE Notify、webhook workflow を PHP / Node.js backend application と連携します。"
+    logo: /images/sections/skills/brands/line.svg
+    summary: "LINE Messaging API、LINE Bot、webhook workflow を PHP / Node.js backend application と連携します。LINE Notify は過去の統合経験としてのみ記載しています（2025年3月31日にサービス終了）。"
     url: "https://blog.clarence.tw/category/line/"
     categories: ["language"]
 
   - name: Docker
-    logo: /images/sections/skills/docker.svg
+    logo: /images/sections/skills/brands/docker.svg
     summary: "Containerized deployment を構築し、application と dependencies を再現可能な image として管理します。"
     url: "https://blog.clarence.tw/category/docker/"
     categories: ["devops"]
 
   - name: CI/CD
-    logo: /images/sections/skills/ci-cd.png
+    featured: true
     summary: "GitLab CI/CD と GitHub Actions で tests、code quality checks、image build、deployment workflow をつなぎます。"
     url: "https://docs.github.com/en/actions"
     categories: ["devops"]
 
+  - name: Git
+    logo: /images/sections/skills/brands/git.svg
+    summary: "Git を利用した team collaboration、branch management、code review、release history 管理を行います。"
+    url: "https://git-scm.com/"
+    categories: ["devops"]
+
+  - name: GitHub
+    logo: /images/sections/skills/brands/github.svg
+    summary: "Pull Request review、Issues、GitHub Actions、Open Source collaboration を含む GitHub workflow を扱います。"
+    url: "https://github.com/clarencetw"
+    categories: ["devops"]
+
   - name: Large Language Models (LLM)
-    logo: /images/sections/skills/llm.svg
+    featured: true
     summary: "2022 年から LLM application に取り組み、Text Summarization、model integration、workflow control、Ollama local model deployment を扱っています。"
     url: "https://ollama.com/"
     categories: ["ai"]
 
   - name: OpenAI API
-    logo: /images/sections/skills/openai.svg
     summary: "OpenAI API を利用して text processing、summarization、internal workflow tools を構築します。"
     url: "https://platform.openai.com/"
     categories: ["ai"]
 
   - name: Kaldi & Whisper
-    logo: /images/sections/skills/whisper.svg
+    featured: true
     summary: "Kaldi、Whisper、Speech AI pipeline を統合し、音声認識、model inference、system deployment を扱います。"
     url: "https://github.com/openai/whisper"
     categories: ["ai"]
 
   - name: GPU Computing
-    logo: /images/sections/skills/nvidia.svg
+    logo: /images/sections/skills/brands/nvidia.svg
     summary: "NVIDIA GPU server、CUDA runtime、driver environment を運用し、AI inference / training workload を支援します。"
     url: "https://blog.clarence.tw/category/nvidia/"
     categories: ["ai", "others"]
 
-  - name: PostgreSQL / MySQL
-    logo: /images/sections/skills/postgresql.png
+  - name: PostgreSQL
+    featured: true
+    logo: /images/sections/skills/brands/postgresql.svg
     summary: "API service のための schema design、query optimization、database operations を行います。"
+    url: "https://www.postgresql.org/"
+    categories: ["database"]
+
+  - name: MySQL
+    summary: "API、Web application、既存システム向けに MySQL の database administration と performance tuning を行います。"
+    url: "https://www.mysql.com/"
+    categories: ["database"]
+
+  - name: Redis
+    logo: /images/sections/skills/brands/redis.svg
+    summary: "In-memory cache / data store として、Application performance、Session management、高速データアクセスを支援します。"
+    url: "https://redis.io/"
     categories: ["database"]
 
   - name: Linux
-    logo: /images/sections/skills/linux.png
     summary: "Server installation、network configuration、CLI operations、Shell Script automation を扱います。"
     url: "https://blog.clarence.tw/category/os/ubuntu/"
     categories: ["others"]
 
   - name: Proxmox VE
-    logo: /images/sections/skills/proxmox.png
+    featured: true
+    logo: /images/sections/skills/brands/proxmox.svg
     summary: "On-prem virtualization environment を構築し、PBS と組み合わせて backup / restore strategy を管理します。"
     url: "https://blog.clarence.tw/category/proxmox-ve/"
     categories: ["others"]
 
   - name: Network Management
-    logo: /images/sections/skills/network.svg
+    featured: true
     summary: "Enterprise network operations。Switch、Firewall、Wi-Fi、VLAN、VPN、SD-WAN、QoS、STP/RSTP を扱います。"
     url: "https://blog.clarence.tw/category/network/"
     categories: ["network"]
 
+  - name: Network Security
+    summary: "Firewall rules、IPS / IDS、OpenVPN・L2TP、SSL / TLS、基本的な security control を含む Network Security operations を行います。"
+    categories: ["network"]
+
   - name: LibreNMS
-    logo: /images/sections/skills/librenms.svg
     summary: "LibreNMS で network devices と infrastructure の状態を監視し、異常検知と原因調査を支援します。"
     url: "https://www.librenms.org/"
     categories: ["network", "devops"]
+
+  - name: Ansible
+    logo: /images/sections/skills/brands/ansible.svg
+    summary: "Server deployment、configuration drift 管理、定期運用を自動化する Configuration Management tool として利用します。"
+    url: "https://www.ansible.com/"
+    categories: ["devops"]
+
+  - name: Vue.js
+    logo: /images/sections/skills/brands/vuedotjs.svg
+    summary: "Backend / API system の操作画面として、Vue.js で Frontend page と Admin UI を開発します。"
+    url: "https://vuejs.org/"
+    categories: ["language"]
+
+  - name: WordPress
+    logo: /images/sections/skills/brands/wordpress.svg
+    summary: "過去の実務経験としてWordPressを導入・保守し、2020〜2024年にはAWS CDKでcdk-wordpress Construct Libraryを保守して、一般的なWordPressアーキテクチャを再現可能なIaCとしてまとめました。"
+    url: "https://github.com/clarencetw/cdk-wordpress"
+    categories: ["cloud", "others"]
+
+  - name: Nginx
+    logo: /images/sections/skills/brands/nginx.svg
+    summary: "Web server / reverse proxy、Load Balancing、TLS termination、高トラフィック Web Service の構成・運用を行います。"
+    url: "https://nginx.org/"
+    categories: ["devops", "others"]
+
+  - name: Homelab
+    summary: "Proxmox VE、NAS storage、Enterprise Network device を含む Homelab を、検証・学習・再現テストに利用しています。"
+    categories: ["others"]

@@ -2,6 +2,7 @@
 /public/
 /resources/_gen/
 /assets/jsconfig.json
+/.lighthouseci/
 hugo_stats.json
 
 # Executable may be added to repository
@@ -19,3 +20,8 @@ node_modules/
 .claude/
 .vercel
 .env*
+
+# Local PDF render intermediates
+/tmp/pdfs/
+/output/
+__pycache__/

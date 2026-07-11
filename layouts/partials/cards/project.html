@@ -1,0 +1,74 @@
+{{- $target := .target | default "blank" -}}
+{{- $targetAttr := "_blank" -}}
+{{- if eq $target "self" -}}{{- $targetAttr = "_self" -}}{{- end -}}
+{{- $destination := .repo | default .url -}}
+<div class="col-sm-12 col-md-6 col-lg-4 p-2 filtr-item" data-category='all, {{ delimit .tags "," }}'>
+  <div class="card mt-1">
+    <div class="card">
+      {{ if $destination }}
+      <a href="{{ $destination }}" target="{{ $targetAttr }}" rel="noopener noreferrer">
+      {{ else }}
+      <div class="project-card-heading">
+      {{ end }}
+        {{ if .image }}
+        <div class="card-head">
+          {{ $imageImage := resources.Get .image }}
+          {{ if $imageImage }}
+            {{ if ne $imageImage.MediaType.SubType "svg" }}{{ $imageImage = $imageImage.Fit "500x500" }}{{ end }}
+          <img class="card-img-top" src="{{ $imageImage.RelPermalink }}" alt="{{ .name }}" loading="lazy"
+            {{ if ne $imageImage.MediaType.SubType "svg" }}width="{{ $imageImage.Width }}" height="{{ $imageImage.Height }}"{{ end }} />
+          {{ end }}
+        </div>
+        {{ end }}
+        <div class="card-header">
+          <div>
+            <div class="d-flex">
+              {{ if .logo }}
+                {{ if eq (len (findRE ".*/.*" .logo)) 0 }}
+                <i style="padding-right: 0.25em" class="{{ .logo }} h4" aria-hidden="true"></i>
+                {{ else }}
+                  {{ $logoImage := resources.Get .logo }}
+                  {{ if $logoImage }}
+                    {{ if ne $logoImage.MediaType.SubType "svg" }}{{ $logoImage = $logoImage.Fit "24x24" }}{{ end }}
+                  <img class="card-img-xs" src="{{ $logoImage.RelPermalink }}" alt="" aria-hidden="true"
+                    {{ if ne $logoImage.MediaType.SubType "svg" }}width="{{ $logoImage.Width }}" height="{{ $logoImage.Height }}"{{ end }} />
+                  {{ end }}
+                {{ end }}
+              {{ end }}
+              <h3 class="card-title mb-0">{{ .name }}</h3>
+            </div>
+            <div class="sub-title">
+              <span>{{ .role }}</span>
+              <span>{{ .timeline }}</span>
+            </div>
+          </div>
+        </div>
+      {{ if $destination }}</a>{{ else }}</div>{{ end }}
+      <div class="card-body text-justify pt-1 pb-2">
+        <p>{{ .summary | markdownify }}</p>
+        <div class="project-card-footer">
+          {{ if .tags }}
+          <div class="project-tags-holder">
+            {{ range $tag := .tags }}
+              {{ if $.linkTags }}
+              <a href="{{ printf "/tags/%s/" (urlize $tag) | relLangURL }}"><span class="btn badge btn-info">{{ $tag }}</span></a>
+              {{ else }}
+              <span class="btn badge btn-info">{{ $tag }}</span>
+              {{ end }}
+            {{ end }}
+          </div>
+          {{ end }}
+          <div class="project-btn-holder">
+            {{ if .repo }}
+            <a class="github-button project-btn d-none" href="{{ .repo }}" data-icon="octicon-standard"
+              data-show-count="true" aria-label="Star {{ .name }}">{{ i18n "project_star" }}</a>
+            {{ else if .url }}
+            <span><a class="btn btn-outline-info btn-sm" href="{{ .url }}" target="{{ $targetAttr }}"
+              rel="noopener noreferrer">{{ i18n "project_details" }}</a></span>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

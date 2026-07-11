@@ -1,0 +1,268 @@
+{
+  "basics": {
+    "email": "me@clarence.tw",
+    "name": "Clarence Lin",
+    "label": "Programmer",
+    "summary": "Backend Developer at BRONCI TECHNOLOGY INC. Engaged in website back-end development, DevOps, Linux operating system, cloud system architecture design and cloud system security. Run a personal blog, willing to share technical knowledge, and write articles about the problems encountered in the usual development process to share solutions with readers. Author of AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）。",
+    "location": {
+      "address": "Taiwan, New Taipei City"
+    },
+    "website": "https://blog.clarence.tw",
+    "profiles": [
+      {
+        "network": "Blog",
+        "username": "Blog",
+        "url": "https://blog.clarence.tw"
+      },
+      {
+        "network": "GitHub",
+        "username": "clarencetw",
+        "url": "https://github.com/clarencetw"
+      },
+      {
+        "network": "Twitter",
+        "username": "clarence_lin",
+        "url": "https://twitter.com/clarence_lin"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "National Taipei University of Technology, Taipei Tech",
+      "studyType": "M.S. ",
+      "endDate": "2015",
+      "startDate": "2014",
+      "area": "Electrical Engineering",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "institution": "National Taipei University of Technology, Taipei Tech",
+      "startDate": "2011",
+      "endDate": "2014",
+      "area": "Electrical Engineering",
+      "studyType": "B.S.",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "institution": "Xiehe Youde Senior High School",
+      "location": "Taipei, Taiwan",
+      "area": "Information",
+      "studyType": "Higher Vocational",
+      "startDate": "2009",
+      "endDate": "2011"
+    }
+  ],
+  "work": [
+    {
+      "company": "BRONCI TECHNOLOGY INC.",
+      "position": "Backend Developer",
+      "website": "",
+      "highlights": [
+        "Backend software development - Node.js, Python, Go, C/C++, Shell Script, Java, PostgreSQL, MySQL, Docker",
+        "Cloud integration - AWS, GCP, Azure",
+        "Automated deployment - GitLab CI/CD, GitHub Actions",
+        "Automated testing - Jest",
+        "Cloud Architecture - AWS",
+        "Infrastructure as Code (IaC) - AWS CDK",
+        "Japanese home camera solution - Cloud service integration project",
+        "Japan IOT Smart Home Solution - Voice command service integration project",
+        "Taiwan home appliance voice control home appliance solution - Cloud service integration project"
+      ],
+      "location": "Taipei, Taiwan",
+      "startDate": "2018-11"
+    },
+    {
+      "position": "Author",
+      "company": "Business Next Media Corp.",
+      "startDate": "2022-06",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "position": "Education training instructor",
+      "company": "5xRuby",
+      "endDate": "2022",
+      "startDate": "2022",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "highlights": [
+        "AWS Beginner - Using AWS CDK, I can also upload the front-end website with one click"
+      ],
+      "company": "AWS User Group Taiwan",
+      "position": "lecturer",
+      "startDate": "2021-12",
+      "endDate": "2021-12",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "highlights": [
+        "AWS CDK Complete Study Manual: Building Cloud Infrastructure Code IaC",
+        "The first Chinese book that teaches you to write AWS CDK from scratch!",
+        "For those of you who don’t know how to write, we will provide you with super rich Sample Code, and you can also become an AWS CDK expert by copying!"
+      ],
+      "position": "Book author",
+      "company": "DrMaster Press Co., Ltd.",
+      "startDate": "2021-11",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "highlights": [
+        "Web development - Node.js, Go, C/C++, PostgreSQL",
+        "Backend program development - Node.js, PostgreSQL, Docker"
+      ],
+      "position": "Full-time assistant of special research project",
+      "startDate": "2015-11",
+      "endDate": "2018-11",
+      "company": "National Taipei University of Technology, Taipei Tech",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "highlights": [
+        "Network Basics Debugging and Tracking with Fluke",
+        "Computer system maintenance"
+      ],
+      "position": "Part-time worker",
+      "company": "Computer and Information Network Center, National Taipei University of Technology, Taipei Tech",
+      "startDate": "2012-06",
+      "endDate": "2016-06",
+      "location": "Taipei, Taiwan"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Students' Information Technology Conference",
+      "position": "Volunteer",
+      "startDate": "2014",
+      "endDate": "2018",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "organization": "COSCUP",
+      "endDate": "2014",
+      "position": "Volunteer",
+      "startDate": "2014",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "organization": "Students' Information Technology Conference Summer Camp",
+      "endDate": "2015",
+      "startDate": "2014",
+      "position": "Volunteer",
+      "location": "Taipei, Taiwan"
+    },
+    {
+      "organization": "HITCON 2014",
+      "startDate": "2014",
+      "endDate": "2014",
+      "position": "Volunteer",
+      "location": "Taipei, Taiwan"
+    }
+  ],
+  "publications": [
+    {
+      "name": "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）",
+      "publisher": "DrMaster Press Co., Ltd.",
+      "releaseDate": "2021-11",
+      "url": "https://play.google.com/store/books/details/AWS_CDK_%E5%AE%8C%E5%85%A8%E5%AD%B8%E7%BF%92%E6%89%8B%E5%86%8A_iT%E9%82%A6%E5%B9%AB%E5%BF%99%E9%90%B5%E4%BA%BA%E8%B3%BD%E7%B3%BB%E5%88%97%E6%9B%B8_%E6%89%93%E9%80%A0%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC_IaC?id=u9xZEAAAQBAJ",
+      "summary": "The first Chinese book that teaches you to write AWS CDK from scratch!"
+    }
+  ],
+  "skills": [
+    {
+      "level": "",
+      "keywords": [
+        "Cloud service architecture includes AWS, GCP, Azure, DigitalOcean, Linode etc."
+      ],
+      "name": "Cloud Architecture"
+    },
+    {
+      "keywords": [
+        "Use AWS cloud service packages like EC2, S3, RDS, Lambda, VPC, ECS, ECR, Fargate etc."
+      ],
+      "name": "AWS"
+    },
+    {
+      "keywords": [
+        "Compose Docker containerization, including recompile and container security."
+      ],
+      "name": "Docker"
+    },
+    {
+      "keywords": [
+        "OS maintenance and use no-gui linux. write shell scripting."
+      ],
+      "name": "Linux"
+    },
+    {
+      "keywords": [
+        "Software version control using GitHub and GitLab."
+      ],
+      "name": "Git"
+    },
+    {
+      "keywords": [
+        "Compose GitHub or GitLab automated deployments."
+      ],
+      "name": "CI/CD"
+    },
+    {
+      "keywords": [
+        "Develop server software, web applications, and desktop applications with Node.js"
+      ],
+      "name": "Node.js"
+    },
+    {
+      "keywords": [
+        "Web application development and server software development."
+      ],
+      "name": "Go"
+    },
+    {
+      "keywords": [
+        "API program development and automated script program development."
+      ],
+      "name": "Python"
+    },
+    {
+      "keywords": [
+        "Basic front-end web development"
+      ],
+      "name": "Vue"
+    },
+    {
+      "keywords": [
+        "Develop API applications and backend websites using PHP."
+      ],
+      "name": "PHP"
+    },
+    {
+      "keywords": [
+        "API website usage database"
+      ],
+      "name": "MySQL"
+    },
+    {
+      "keywords": [
+        "API website usage database"
+      ],
+      "name": "PostgreSQL"
+    }
+  ],
+  "projects": [
+    {
+      "name": "cdk-wordpress",
+      "description": "",
+      "url": "https://github.com/clarencetw/cdk-wordpress",
+      "keywords": [
+        "cdk"
+      ]
+    },
+    {
+      "keywords": [
+        "cdk"
+      ],
+      "url": "https://github.com/clarencetw/cdk-lambda-layer-curl",
+      "name": "AWS Lambda Layer with curl"
+    }
+  ]
+}

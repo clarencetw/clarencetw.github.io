@@ -10,7 +10,7 @@
 
 Clarence の個人サイト、ポートフォリオ、技術ナレッジベースです。
 
-このサイトは [Hugo](https://gohugo.io/) と [Toha](https://github.com/hugo-toha/toha) theme で構築されています。Backend engineering、LLM application、DevOps、Cloud / On-prem infrastructure、Network operations の経験を、繁體中文、English、日本語で紹介します。
+このサイトは [Hugo](https://gohugo.io/) と [Toha](https://github.com/hugo-themes/toha) theme で構築されています。Backend engineering、LLM application、DevOps、Cloud / On-prem infrastructure、Network operations の経験を、繁體中文、English、日本語で紹介します。
 
 Website: [clarence.tw](https://clarence.tw/)
 
@@ -21,6 +21,7 @@ Website: [clarence.tw](https://clarence.tw/)
 - `content/notes`: 短めの技術メモ。
 - `assets/images`: Hugo が処理する source images。
 - `assets/styles/override.scss`: Toha theme の後に読み込む local visual overrides。
+- `resume`: 復元した JSON Resume source、保守的な current draft、provenance notes。
 - `layouts/partials/header.html`: local SEO metadata、`hreflang`、`llms.txt` discoverability、JSON-LD。
 - `static/llms.txt`: AI / LLM crawler 向けの site guide。
 - `.github/workflows`: GitHub Pages deployment、Lighthouse checks、scheduled theme updates。
@@ -30,7 +31,7 @@ Website: [clarence.tw](https://clarence.tw/)
 Requirements:
 
 - Hugo extended `0.163.0` 以上。CI と Netlify は現在 `0.164.0` に固定しています。
-- Node.js `24` 以上。
+- Node.js `24.x`。
 - Go `1.23` 以上。
 
 Local versions を確認:
@@ -59,6 +60,12 @@ Production build:
 
 ```bash
 npm run build
+```
+
+Social preview image を再生成（`rsvg-convert` と ImageMagick が必要）:
+
+```bash
+npm run assets:og
 ```
 
 Security audit:

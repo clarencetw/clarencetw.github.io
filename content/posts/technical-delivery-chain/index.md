@@ -39,7 +39,7 @@ Backend 是我最核心的工作範圍。我常處理 API design、service integ
 
 我同時處理 Cloud 與 On-prem environment。Cloud 端包含 AWS CDK / IaC、AWS、GCP、Azure 與常見 service integration；On-prem 端包含 Proxmox VE、Proxmox Backup Server、Harbor、GitLab、LDAP、LibreNMS、GPU server 與 NAS / backup planning。
 
-這也是我寫 [AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203) 的原因之一：Infrastructure 應該要能被描述、被重複建立、被 review，而不是只存在某台機器或某個人的記憶裡。
+這也是我寫 [AWS CDK 完全學習手冊](https://clarence.tw/#publications) 的原因之一：Infrastructure 應該要能被描述、被重複建立、被 review，而不是只存在某台機器或某個人的記憶裡。
 
 ### Network / Security Operations
 

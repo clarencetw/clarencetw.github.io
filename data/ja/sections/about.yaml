@@ -11,15 +11,28 @@ company:
   name: BRONCI TECHNOLOGY INC.
   url: "https://www.bronci.com.tw/"
 
-summary: "Backend、AI Application、DevOps、Infrastructure を中心に、API、CI/CD、Cloud、On-prem、Network、Security をひとつの delivery chain として扱っています。単に機能を作るだけではなく、サービスを安定して公開し、観測でき、運用できる状態にすることを重視しています。必要に応じて LLM、Speech AI、GPU Runtime、Cloud Services、自社運用の infrastructure を実際のプロダクトに統合します。現在は長問科技で Senior Backend Developer / LLM Engineer として、Backend service、API、GitLab CI/CD、GitHub Actions、AWS CDK / IaC、Kaldi、Whisper、OpenAI / Ollama、Proxmox VE、Harbor、LibreNMS、LDAP、Enterprise Wi-Fi / SD-WAN、機材選定を担当しています。[AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203) の著者でもあり、Cloud、DevOps、Linux、Network、AI 開発の経験を記事や Open Source として整理しています。"
+resume: "files/ja/resume.pdf"
+
+summary: |-
+  バックエンド開発、DevOps、Linux、クラウドアーキテクチャ、システムセキュリティに長く取り組み、バックエンド、AIアプリケーション、クラウド、オンプレミス、ネットワーク、セキュリティを一つのデリバリーチェーンとして捉えています。機能実装にとどまらず、サービスの安定した本番公開、可観測性、継続運用までを重視します。
+
+  現在、長問科技で Senior Backend Developer / LLM Engineer を務めています。同社での実務経験には、バックエンドサービスとAPI、GitLab CI/CD、GitHub Actions、AWS CDK / IaC、Jestによる自動テスト、AWS・GCP・Azureを利用したクラウド連携が含まれます。AI分野ではKaldi、Whisper、OpenAI API、Ollama、LLMアプリケーション、GPUランタイムに取り組んでいます。
+
+  インフラ領域では、クラウド／オンプレミス基盤、Proxmox VE／Proxmox Backup Server（PBS）、Harbor、LibreNMS、LDAP、企業向け有線／Wi-Fiネットワーク、VPN／SD-WAN、機器選定とインフラ調達計画を扱っています。
+
+  [AWS CDK 完全學習手冊](#publications) の著者でもあり、開発で直面した問題、解決方法、実務経験を技術記事、ノート、オープンソースプロジェクトとして公開しています。
 
 resourceLinks:
   - title: "仕事の進め方"
     url: "/ja/posts/technical-delivery-chain/"
+  - title: "主な実績"
+    url: "#projects"
+  - title: "技術ノート"
+    url: "/ja/notes/"
   - title: "Tech Blog"
     url: "https://blog.clarence.tw/"
-  - title: "GitHub"
-    url: "https://github.com/clarencetw"
+  - title: "お問い合わせ"
+    url: "mailto:me@clarence.tw"
 
 socialLinks:
   - name: Email
@@ -41,24 +54,87 @@ socialLinks:
     icon: "fab fa-facebook"
     url: "https://www.facebook.com/ClarenceTaiwan/"
 
+highlights:
+  - value: "4,000+"
+    label: "運用サイト"
+    detail: "大規模Hosting環境の標準化"
+  - value: "1,900万"
+    label: "30日間のrequest"
+    detail: "公開済みの高トラフィック事例"
+  - value: "Backend → Infra"
+    label: "横断的なdelivery"
+    detail: "API、AI、deployment、network"
+  - value: "AWS CDK"
+    label: "技術書著者"
+    detail: "IaCの実務を学習内容へ"
+
+publicProofTitle: "公開実績"
+publicProof:
+  - title: "iThome Ironman DevOps 部門優勝"
+    detail: "第12回シリーズ「用 CDK 定義 AWS 架構」"
+    url: "https://ithelp.ithome.com.tw/articles/10237601"
+  - title: "5xRuby AWS 研修"
+    detail: "クラウドデプロイを扱う12時間の講義とハンズオン"
+    url: "https://5xruby.com/zh/articles/2022-enginner-training"
+  - title: "『數位時代』寄稿者"
+    detail: "Backend、DevOps、Linux、Cloud Architecture、Security に関する執筆"
+    url: "https://www.bnext.com.tw/author/4039"
+
+# Show selected certification badges in the primary profile section.
+certificationsTitle: "資格・認定"
+certificationsNote: "確認できる公式バッジだけを画像で表示します。公式画像がない旧制度の資格は、名称と証明される能力を文章で示します。"
 badges:
   - type: certification
     name: NSE 1 Network Security Associate
+    issuer: Fortinet
+    detail: "取得済み｜サイバー脅威、セキュリティ意識、安全なオンライン利用"
     url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_1"
     badge: "../files/badges/1-associate-logo.png"
   - type: certification
     name: NSE 2 Network Security Associate
+    issuer: Fortinet
+    detail: "取得済み｜セキュリティ製品と Fortinet ソリューション"
     url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_2"
     badge: "../files/badges/2-associate-logo.png"
   - type: certification
     name: Key Applications
+    issuer: Certiport IC3
+    detail: "取得済み｜文書、表計算、データベース、プレゼンテーション"
     url: "https://www.credly.com/org/certiport/badge/key-applications"
     badge: "https://images.credly.com/size/680x680/images/8a8f3497-95a1-4e87-8cbf-4859dd4c4a85/IC3_key_applications.png"
   - type: certification
     name: Computing Fundamentals
+    issuer: Certiport IC3
+    detail: "取得済み｜ハードウェア、ソフトウェア、OS、障害対応"
     url: "https://www.credly.com/org/certiport/badge/computing-fundamentals"
     badge: "https://images.credly.com/size/680x680/images/bf8594c5-1e2d-4e5b-ab28-09c46bd755a3/IC3_computing_fundamentals.png"
   - type: certification
     name: Living Online
+    issuer: Certiport IC3
+    detail: "取得済み｜ネットワーク、共同作業、情報評価、安全な利用"
     url: "https://www.credly.com/org/certiport/badge/living-online"
     badge: "https://images.credly.com/size/680x680/images/b4c97286-a3ec-4c84-9095-518e1496869d/IC3_living_online.png"
+
+  - type: certification
+    name: 台湾の国家技能検定
+    issuer: 労働部労働力発展署
+    detail: "取得済み｜ハードウェア整備、ネットワーク構築、ソフトウェア、Web制作"
+    url: "https://www.wdasec.gov.tw/"
+
+  - type: certification
+    name: Microsoft Office 2007 Master
+    issuer: Microsoft / Certiport
+    detail: "取得済み｜Word、Excel、PowerPoint、Outlook（77-601〜604）"
+    url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+
+  - type: certification
+    name: Adobe Certified Associate CS3
+    issuer: Adobe / Certiport
+    detail: "取得済み｜Dreamweaver、Flash、Photoshop CS3"
+    url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+
+  - type: certification
+    name: TQC 情報技術認定
+    issuer: Computer Skills Foundation
+    detail: "取得済み｜インターネット・モバイル通信、HTML 4.01、Windows Mobile 6"
+    url: "https://www.tqc.org.tw/"

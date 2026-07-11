@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061318" stop-opacity="0.96"/>
+      <stop offset="0.58" stop-color="#0a2427" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#07111d" stop-opacity="0.76"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <clipPath id="portrait-clip">
+      <rect x="873" y="92" width="238" height="286" rx="22"/>
+    </clipPath>
+    <filter id="portrait-shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+
+  <image xlink:href="background.jpeg" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1200" height="630" fill="url(#night)"/>
+  <circle cx="1040" cy="135" r="270" fill="#0f766e" opacity="0.15"/>
+  <circle cx="1080" cy="95" r="155" fill="#d97706" opacity="0.11"/>
+
+  <g transform="translate(76 72)">
+    <text x="0" y="0" dominant-baseline="hanging" fill="#99f6e4" font-family="Arial, 'Noto Sans', sans-serif" font-size="23" font-weight="700" letter-spacing="5">CLARENCE.TW</text>
+    <rect x="0" y="52" width="104" height="5" rx="2.5" fill="url(#accent)"/>
+
+    <text x="0" y="118" dominant-baseline="hanging" fill="#f8fafc" font-family="Arial, 'Noto Sans', sans-serif" font-size="68" font-weight="760" letter-spacing="-2">Backend. AI.</text>
+    <text x="0" y="198" dominant-baseline="hanging" fill="#f8fafc" font-family="Arial, 'Noto Sans', sans-serif" font-size="68" font-weight="760" letter-spacing="-2">Infrastructure.</text>
+    <text x="0" y="298" dominant-baseline="hanging" fill="#cbd5e1" font-family="Arial, 'Noto Sans', sans-serif" font-size="30" font-weight="500">From code to reliable production.</text>
+  </g>
+
+  <g filter="url(#portrait-shadow)">
+    <rect x="863" y="82" width="258" height="306" rx="28" fill="#0f1720" stroke="#99f6e4" stroke-width="3"/>
+  </g>
+
+  <g transform="translate(76 500)" font-family="Arial, 'Noto Sans', sans-serif" font-size="20" font-weight="650">
+    <rect x="0" y="0" width="1048" height="72" rx="12" fill="#071319" fill-opacity="0.74" stroke="#5eead4" stroke-opacity="0.24"/>
+    <text x="40" y="44" fill="#f0fdfa">Backend / API</text>
+    <text x="240" y="44" fill="#fbbf24">→</text>
+    <text x="298" y="44" fill="#f0fdfa">AI / LLM</text>
+    <text x="456" y="44" fill="#fbbf24">→</text>
+    <text x="514" y="44" fill="#f0fdfa">Delivery / CI/CD</text>
+    <text x="739" y="44" fill="#fbbf24">→</text>
+    <text x="797" y="44" fill="#f0fdfa">Infrastructure / Network</text>
+  </g>
+</svg>

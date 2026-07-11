@@ -3,8 +3,13 @@ section:
   name: 專案
   id: projects
   enable: true
-  weight: 5
+  weight: 2
   showOnNavbar: true
+  curated: true
+  description: "精選能代表 Backend、AI、Delivery 與 Infrastructure 交付能力的案例。"
+  cta:
+    label: 查看全部公開專案
+    url: https://github.com/clarencetw?tab=repositories
   # Can optionally hide the title in sections
   # hideTitle: true
 
@@ -52,6 +57,7 @@ projects:
     tags: ["writing", "devops", "network", "ai"]
 
   - name: LLM Text Summarization Platform
+    featured: true
     logo: /images/sections/skills/llm.svg
     role: Builder
     timeline: "2022 - Present"
@@ -59,6 +65,7 @@ projects:
     tags: ["ai", "llm", "python"]
 
   - name: Speech AI and GPU Runtime
+    featured: true
     logo: /images/sections/skills/nvidia.svg
     role: Builder / Operator
     timeline: "2022 - Present"
@@ -66,6 +73,7 @@ projects:
     tags: ["ai", "gpu", "infrastructure"]
 
   - name: Self-hosted GitLab, Runner and Harbor
+    featured: true
     logo: /images/sections/projects/gitlab.svg
     role: Operator
     timeline: "2022 - Present"
@@ -73,6 +81,7 @@ projects:
     tags: ["devops", "gitlab", "docker"]
 
   - name: Proxmox VE / PBS Infrastructure
+    featured: true
     logo: /images/sections/skills/proxmox.png
     role: Operator
     timeline: "2023 - Present"
@@ -80,6 +89,7 @@ projects:
     tags: ["devops", "network", "infrastructure"]
 
   - name: High-traffic Web Hosting Operations
+    featured: true
     logo: /images/sections/skills/nginx.svg
     role: Operator
     timeline: "2023 - Present"
@@ -90,7 +100,7 @@ projects:
 
   - name: node-crypto-ecb
     role: Owner
-    timeline: "Sep 2022 - Present"
+    timeline: "Sep 2022"
     repo: https://github.com/clarencetw/node-crypto-ecb
     summary: "Node.js AES ECB library，補足既有 application 在特定相容性情境下的 encryption / decryption 需求。"
     tags: ["crypto", "AES", "nodejs"]
@@ -98,29 +108,30 @@ projects:
   - name: Toha
     logo: /images/sections/projects/toha.png
     role: Contributor
-    timeline: "Aug 2022 - Present"
-    repo: "https://github.com/hugo-toha/toha"
+    timeline: "Jun 2022"
+    repo: "https://github.com/hugo-themes/toha"
     summary: "Toha 是 Hugo personal portfolio theme；本站以 Toha 為基礎，透過 data files 與 local style override 維護。"
     tags: ["hobby", "hugo"]
 
   - name: cdk-wordpress
+    featured: true
     role: Owner
-    timeline: "Oct 2020 - Present"
+    timeline: "Oct 2020 - Sep 2024"
     repo: https://github.com/clarencetw/cdk-wordpress
     summary: "使用 AWS CDK 部署 WordPress 的 Construct Library，將常見 website architecture 轉成可重複部署的 IaC。"
     tags: ["cdk", "construct"]
 
   - name: cdk-sns-notify
     role: Owner
-    timeline: "Dec 2021 - Present"
+    timeline: "Nov 2020 - Sep 2024"
     repo: https://github.com/clarencetw/cdk-sns-notify
-    summary: "AWS CDK Construct Library，用於把 SNS 訊息串接到 LINE Notify 或 Discord Webhook。"
+    summary: "歷史 AWS CDK Construct Library，用於把 SNS 訊息串接到 LINE Notify（服務已於 2025-03-31 終止）或 Discord Webhook。"
     tags: ["cdk", "construct"]
 
   - name: Kaldi Speech Recognition Toolkit
     logo: /images/sections/projects/kaldi.jpg
     role: Contributor
-    timeline: "Dec 2021 - Present"
+    timeline: "Oct - Dec 2021"
     repo: https://github.com/kaldi-asr/kaldi # If your project is a public repo on GitHub, then provide this link. it will show star count.
     #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
     summary: "Kaldi 是 Speech Recognition toolkit，也是我在 Speech AI 專案中長期接觸與整合的核心技術之一。"
@@ -128,28 +139,28 @@ projects:
 
   - name: cdk-lambda-layer-wget
     role: Owner
-    timeline: "Dec 2021 - Present"
+    timeline: "Dec 2021 - Sep 2024"
     repo: https://github.com/clarencetw/cdk-lambda-layer-wget
     summary: "AWS Lambda Layer CDK Construct，提供 wget runtime layer 建置能力。"
     tags: ["cdk", "construct"]
 
   - name: cdk-lambda-layer-zip
     role: Owner
-    timeline: "Dec 2021 - Present"
+    timeline: "Dec 2021 - Sep 2024"
     repo: https://github.com/clarencetw/cdk-lambda-layer-zip
     summary: "AWS Lambda Layer CDK Construct，提供 zip runtime layer 建置能力。"
     tags: ["cdk", "construct"]
 
   - name: cdk-lambda-layer-curl
     role: Owner
-    timeline: "Dec 2021 - Present"
+    timeline: "Dec 2021 - Sep 2024"
     repo: https://github.com/clarencetw/cdk-lambda-layer-curl
     summary: "AWS Lambda Layer CDK Construct，提供 curl runtime layer 建置能力。"
     tags: ["cdk", "construct"]
 
   - name: aws-cdk
     role: Contributor
-    timeline: "Feb 2021 - Present"
+    timeline: "Feb - Aug 2021"
     repo: https://github.com/aws/aws-cdk
     summary: "The **AWS Cloud Development Kit (AWS CDK)** is an open-source software development framework to define cloud infrastructure in code and provision it through AWS CloudFormation."
     tags: ["aws", "cdk"]
@@ -157,7 +168,7 @@ projects:
   - name: LINE Messaging API SDK for PHP
     logo: /images/sections/projects/line.jpg
     role: Contributor
-    timeline: "Feb 2019 - Present"
+    timeline: "Feb 2019"
     repo: https://github.com/line/line-bot-sdk-php # If your project is a public repo on GitHub, then provide this link. it will show star count.
     #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
     summary: "LINE Messaging API SDK for PHP，協助 PHP 專案整合 LINE Bot 與 Messaging API。"

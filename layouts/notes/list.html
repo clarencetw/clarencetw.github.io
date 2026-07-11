@@ -3,23 +3,13 @@
 {{ end }}
 
 {{ define "sidebar" }}
-  <section class="sidebar-section" id="sidebar-section">
-    <div class="sidebar-holder">
-      <div class="sidebar" id="sidebar">
-        <form class="mx-auto" method="get" action="{{ "search" | relLangURL }}">
-          <input type="text" name="keyword" value="" placeholder="{{ i18n "search" }}" data-search="" id="search-box" />
-        </form>
-        <div class="sidebar-tree">
-          <ul class="tree" id="tree">
-            <li id="list-heading"><a href="{{ .Type | relLangURL }}" data-filter="all">{{ i18n .Type }}</a></li>
-            <div class="subtree">
-                {{ partial "navigators/sidebar.html" (dict "menuName" "notes" "menuItems" site.Menus.notes  "ctx" . ) }}
-            </div>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  {{ partial "navigators/sidebar-section.html" (dict
+    "ctx" .
+    "headingURL" (.Type | relLangURL)
+    "headingLabel" (i18n .Type)
+    "menuName" "notes"
+    "menuItems" site.Menus.notes
+  ) }}
 {{ end }}
 
 {{ define "content" }}
@@ -35,27 +25,35 @@
     {{ if $sections }}
       <div class="note-topic-grid">
         {{ range $sections }}
-          <a class="note-topic-card" href="{{ .RelPermalink }}">
-            <span class="note-topic-label">{{ .Title }}</span>
+          {{ $entries := .RegularPagesRecursive.ByWeight }}
+          <section class="note-topic-card" aria-labelledby="note-topic-{{ .File.UniqueID }}">
+            <a class="note-topic-label" id="note-topic-{{ .File.UniqueID }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
             {{ with .Description }}<span class="note-topic-desc">{{ . }}</span>{{ end }}
-            <span class="note-topic-count">{{ len .RegularPagesRecursive }} {{ i18n "note_items" (len .RegularPagesRecursive) }}</span>
-          </a>
+            {{ with $entries }}
+              <ul class="note-topic-items">
+                {{ range . }}
+                  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{ end }}
+              </ul>
+            {{ end }}
+            <span class="note-topic-count">{{ len $entries }} {{ i18n "note_items" (len $entries) }}</span>
+          </section>
         {{ end }}
       </div>
-    {{ end }}
-
-    {{ $notes := where .RegularPagesRecursive "Layout" "!=" "search" }}
-    {{ $notes = sort $notes "Weight" "asc" }}
-    {{ if $notes }}
-      <div class="note-entry-grid">
-        {{ range $notes }}
-          <a class="note-entry-card" href="{{ .RelPermalink }}">
-            {{ with .CurrentSection }}<span class="note-entry-section">{{ .Title }}</span>{{ end }}
-            <strong>{{ .Title }}</strong>
-            {{ with .Description }}<span>{{ . }}</span>{{ end }}
-          </a>
-        {{ end }}
-      </div>
+    {{ else }}
+      {{ $notes := where .RegularPagesRecursive "Layout" "!=" "search" }}
+      {{ $notes = sort $notes "Weight" "asc" }}
+      {{ if $notes }}
+        <div class="note-entry-grid">
+          {{ range $notes }}
+            <a class="note-entry-card" href="{{ .RelPermalink }}">
+              {{ with .CurrentSection }}<span class="note-entry-section">{{ .Title }}</span>{{ end }}
+              <strong>{{ .Title }}</strong>
+              {{ with .Description }}<span>{{ . }}</span>{{ end }}
+            </a>
+          {{ end }}
+        </div>
+      {{ end }}
     {{ end }}
   </div>
 </section>

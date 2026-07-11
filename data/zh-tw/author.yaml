@@ -3,12 +3,13 @@ name: "Clarence"
 nickname: "Clarence"
 # greeting message before your name. it will default to "Hi! I am" if not provided
 greeting: "Hi，我是"
+subtitle: "把 Backend、AI 與 Infrastructure 從程式碼帶到穩定上線"
 image: "images/author/clarence.jpg"
 # give your some contact information. they will be used in the footer
 contactInfo:
   email: "me@clarence.tw"
   github: clarencetw
-  linkedin: clarencetw
+  linkedin: clarence-lin-89764448
   stack-overflow:
     icon: stack-overflow
     url: "https://stackoverflow.com/users/19384998/clarence"

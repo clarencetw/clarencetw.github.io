@@ -1,0 +1,21 @@
+{{ $title := .Get "title" | default "Note" }}
+{{ $baseSectionID := printf "note-section-%s" ($title | anchorize) }}
+{{ $sectionCountKey := printf "noteSectionCount:%s" $baseSectionID }}
+{{ $sectionCount := .Page.Store.Get $sectionCountKey | default 0 }}
+{{ $sectionID := $baseSectionID }}
+{{ if gt $sectionCount 0 }}
+  {{ $sectionID = printf "%s-%d" $baseSectionID $sectionCount }}
+{{ end }}
+{{ .Page.Store.Set $sectionCountKey (add $sectionCount 1) }}
+{{ .Page.Store.Add "noteSections" (slice (dict "id" $sectionID "title" $title)) }}
+
+<section class="note-card {{ if .Get "size" }}{{ .Get "size" }}-note{{ end }}" aria-labelledby="{{ $sectionID }}">
+  <div class="item">
+    <h2 class="note-title" id="{{ $sectionID }}"><span>{{ $title }}</span></h2>
+    {{ range $idx, $val := split .Inner "---" }}
+      <div class="card">
+        <div class="card-body">{{ $val | markdownify }}</div>
+      </div>
+    {{ end }}
+  </div>
+</section>

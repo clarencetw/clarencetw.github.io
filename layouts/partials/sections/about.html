@@ -10,21 +10,19 @@
 
 <div class="container anchor p-lg-5 about-section" id="{{ $sectionID }}">
   <div class="row pt-sm-2 pt-md-4 align-self-center">
-    <!-- summary -->
-    <!-- takes up full section width if no badges/soft skills are specified -->
-    {{ if or (.softSkills) (.badges) }} <div class="col-sm-6"> {{ else }} <div class="col-sm-12"> {{ end }}
+    {{ if .highlights }} <div class="col-lg-7"> {{ else }} <div class="col-12"> {{ end }}
       <h3 class="p-1">{{ $author.name }}</h3>
       {{ if .designation }}
-      <h5 class="p-1">
+      <p class="p-1 about-role">
         {{ .designation }}
         {{ if .company }}
         {{ i18n "at"}} <a href="{{ .company.url }}" title="{{ .company.name }}" target="_blank" rel="noopener">{{ .company.name }}</a>
         {{ end }}
-      </h5>
-      {{ end }}
-      <p class="p-1 text-justify">
-        {{ .summary | markdownify }}
       </p>
+      {{ end }}
+      <div class="p-1 about-copy">
+        {{ .summary | markdownify }}
+      </div>
       <div class="text-container ms-auto">
         <ul class="social-link d-flex">
           {{ range .socialLinks }}
@@ -41,9 +39,7 @@
         </ul>
       </div>
       {{ if .resume }}
-      <a href="{{ .resume | relURL }}" title="{{ i18n "resume"}}" target="_blank" rel="noopener"
-        ><button class="btn btn-dark">{{ i18n "resume"}}</button></a
-      >
+      <a class="btn btn-dark" href="{{ .resume | relURL }}" title="{{ i18n "resume"}}" target="_blank" rel="noopener">{{ i18n "resume"}}</a>
       {{ end }}
       {{ range .resourceLinks }}
         {{ $target := "_blank" }}
@@ -51,24 +47,72 @@
         {{ if strings.HasPrefix .url "/" }}
           {{ $target = "_self" }}
           {{ $rel = "" }}
+        {{ else if strings.HasPrefix .url "#" }}
+          {{ $target = "_self" }}
+          {{ $rel = "" }}
+        {{ else if strings.HasPrefix .url "mailto:" }}
+          {{ $target = "_self" }}
+          {{ $rel = "" }}
         {{ end }}
-      <a href="{{ .url | relURL }}" title="{{ .title }}" target="{{ $target }}"{{ if $rel }} rel="{{ $rel }}"{{ end }}
-        ><button class="btn btn-dark">{{ .title }}</button></a
-      >
+      <a class="btn btn-dark" href="{{ .url | relURL }}" title="{{ .title }}" target="{{ $target }}"{{ if $rel }} rel="{{ $rel }}"{{ end }}>{{ .title }}</a>
       {{ end }}
     </div>
-    <!-- soft skills circular-progressbar -->
-    <div class="col-sm-6 pt-5 ps-md-4 ps-sm-3 pt-sm-0">
-      <div class="row">
-        {{ range .badges }}
-          {{ partial "misc/badge.html" . }}
-        {{ end }}
-        <!-- TODO: Remove this part in version v4+ -->
-        <!-- Keep backward compatibility with old configuration -->
-        {{ range .softSkills }}
-          {{ partial "misc/soft-skills.html" . }}
+    {{ if .highlights }}
+    <div class="col-lg-5 pt-4 pt-lg-0 ps-lg-5">
+      <div class="about-proof-grid">
+        {{ range .highlights }}
+        <article class="about-proof-card">
+          <strong>{{ .value }}</strong>
+          <span>{{ .label }}</span>
+          {{ with .detail }}<small>{{ . }}</small>{{ end }}
+        </article>
         {{ end }}
       </div>
     </div>
+    {{ end }}
   </div>
+  {{ with .publicProof }}
+  <div class="about-public-record" aria-labelledby="{{ $sectionID }}-public-record-title">
+    <p class="about-public-record-title" id="{{ $sectionID }}-public-record-title">{{ $.publicProofTitle }}</p>
+    <ol class="about-public-record-list">
+      {{ range $index, $item := . }}
+      <li>
+        <a href="{{ $item.url }}" target="_blank" rel="noopener noreferrer">
+          <span class="about-public-record-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+          <span class="about-public-record-copy">
+            <strong>{{ $item.title }}</strong>
+            <small>{{ $item.detail }}</small>
+          </span>
+          <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+  {{ end }}
+  {{ with .badges }}
+  <section class="about-credentials" id="{{ $sectionID }}-credentials" aria-labelledby="{{ $sectionID }}-credentials-title">
+    <p class="about-credentials-title" id="{{ $sectionID }}-credentials-title">{{ $.certificationsTitle }}</p>
+    {{ with $.certificationsNote }}<p class="about-credentials-note">{{ . }}</p>{{ end }}
+    <ul class="about-credential-list">
+      {{ range . }}
+      <li{{ if not .badge }} class="about-credential-item--text"{{ end }}>
+        <a href="{{ .url }}" title="{{ .name }}" target="_blank" rel="noopener noreferrer">
+          {{ with .badge }}
+          <span class="about-credential-media" data-credential-media>
+            <img src="{{ . | relURL }}" alt="" loading="lazy" aria-hidden="true" data-credential-badge-image />
+          </span>
+          {{ end }}
+          <span class="about-credential-copy">
+            <strong>{{ .name }}</strong>
+            {{ with .detail }}<span class="about-credential-detail">{{ . }}</span>{{ end }}
+            {{ with .issuer }}<small>{{ . }}</small>{{ end }}
+          </span>
+          <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
 </div>

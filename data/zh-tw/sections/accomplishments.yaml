@@ -1,195 +1,174 @@
-# section information
 section:
-  name: 證照
+  name: 證照與認證
   id: accomplishments
   enable: true
   weight: 9
   showOnNavbar: false
-  # 可選擇性地隱藏標題
-  # hideTitle: true
 
-# 您的證照
-accomplishments:
-- name: 電腦硬體裝修 乙級
-  timeline: ""
-  organization:
-    name: 勞動部勞動力發展署技能檢定中心
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "此證書驗證在電腦硬體裝修領域的技術能力，具備乙級專業認證。"
-  certificateURL: ""
+intro: |-
+  以下皆為本人完成相關要求並通過評量後取得的證照與認證。每一項都說明通過認證所證明的知識與實作能力，呈現個人的技術廣度與累積。
 
-- name: 電腦軟體應用 丙級
-  timeline: ""
-  organization:
-    name: 勞動部勞動力發展署技能檢定中心
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "此證書驗證在電腦軟體應用方面的基本技能，具備丙級專業認證。"
-  certificateURL: ""
+groups:
+  - name: 專業與數位能力
+    description: 本人已取得的國家技術士、網路安全、數位素養與資訊應用認證，依其所證明的能力領域整理。
+    layout: two
+    accomplishments:
+      - name: 國家技術士｜系統與網路
+        displayName: 國家技術士｜硬體與網路
+        credentialTag: 硬體維修與網路架設
+        organization:
+          name: 勞動部勞動力發展署技能檢定中心
+          url: "https://www.wdasec.gov.tw/"
+        courseOverview: |-
+          已通過**電腦硬體裝修乙級、電腦硬體裝修丙級及網路架設丙級**技能檢定。證明具備電腦與周邊設備診斷維修、硬體組裝、系統安裝、網路佈線及網路元件設定等實作能力。
+        references:
+          - label: 硬體裝修規範
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTIwMDDpm7vohabnoazpq5Too53kv64xMDIuMDQwOC5wZGY%3D&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkwMzMvMjAxOTA1MzAxNDM3MzkwLjA0MDgucGRm"
+          - label: 網路架設規範
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTcyMDDntrLot6%2FmnrboqK0ucGRm&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkwNTkvMjAxOTA1MzAxNDU5MTYwLnBkZg%3D%3D"
 
-- name: 電腦硬體裝修 丙級
-  timeline: ""
-  organization:
-    name: 勞動部勞動力發展署技能檢定中心
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "此證書驗證在電腦硬體裝修領域的基礎知識與技能，具備丙級認證。"
-  certificateURL: ""
+      - name: 國家技術士｜軟體與網頁
+        displayName: 國家技術士｜軟體與網頁
+        credentialTag: 軟體應用與網頁開發
+        organization:
+          name: 勞動部勞動力發展署技能檢定中心
+          url: "https://www.wdasec.gov.tw/"
+        courseOverview: |-
+          已通過**電腦軟體應用、電腦軟體設計及網頁設計丙級**技能檢定。證明具備辦公軟體操作、基礎程式設計與測試、技術文件製作，以及網站製作、發布、管理與維護能力。
+        references:
+          - label: 軟體應用規範
+            url: "https://ws.wda.gov.tw/Download.ashx?n=6Zu76IWm6Luf6auU5oeJ55So6KaP56%2BELnBkZg%3D%3D&u=LzAwMS9VcGxvYWQvMzE1L3JlbEZpbGUvMTAyMzkvMTE0ODkyLzUzM2NkZWI1LTRiZjktNDE1MS1iOGI4LWU5YWYyOTdlODJkYi5wZGY%3D"
+          - label: 軟體設計規範
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTE5MDDpm7vohabou5%2Fpq5ToqK3oqIgtMTAyLjA0LjA4LnBkZg%3D%3D&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkxMjkvMjAxOTA1MzAxNDM2MDYwLjA0LjA4LnBkZg%3D%3D"
+          - label: 網頁設計規範
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTczMDDntrLpoIHoqK3oqIgucGRm&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkwNTEvMjAxOTA1MzAxNDU5NDcwLnBkZg%3D%3D"
 
-- name: 電腦軟體設計 丙級
-  timeline: ""
-  organization:
-    name: 勞動部勞動力發展署技能檢定中心
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "此證書證明具備設計和開發軟體的能力，通過丙級認證。"
-  certificateURL: ""
+      - name: Fortinet NSE 1 / NSE 2 Network Security Associate
+        displayName: Fortinet NSE 1 + NSE 2
+        credentialName: Network Security Associate
+        credentialTag: 網路安全
+        organization:
+          name: Fortinet Training Institute
+          url: "https://www.fortinet.com/training-certification"
+        courseOverview: |-
+          已完成並通過 **NSE 1** 與 **NSE 2** 評量，取得兩項認證。證明具備網路威脅與安全上網基礎知識，並理解主要資安產品類型及 Fortinet 解決方案的定位。
+        references:
+          - label: 官方課程指南
+            url: "https://www.fortinet.com/content/dam/fortinet/assets/training/NSE-End-User-Guide.pdf"
+          - label: Fortinet Training
+            url: "https://www.fortinet.com/training-certification"
 
-- name: 網頁設計 丙級
-  timeline: ""
-  organization:
-    name: 勞動部勞動力發展署技能檢定中心
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "此證書表明具備基本的網頁設計技能，獲得丙級認證。"
-  certificateURL: ""
+      - name: IC3 Digital Literacy｜三項能力徽章
+        displayName: IC3 Digital Literacy
+        credentialName: Computing Fundamentals · Key Applications · Living Online
+        credentialTag: 數位素養
+        organization:
+          name: Certiport, a Pearson VUE business
+          url: "https://certiport.pearsonvue.com/"
+        courseOverview: |-
+          已通過 **Computing Fundamentals、Key Applications、Living Online** 三項評量並取得對應徽章。證明具備電腦基礎、生產力工具、網路協作、資訊判讀及安全上網等完整數位素養。
+        references:
+          - label: Computing Fundamentals
+            url: "https://www.credly.com/org/certiport/badge/computing-fundamentals"
+          - label: Key Applications
+            url: "https://www.credly.com/org/certiport/badge/key-applications"
+          - label: Living Online
+            url: "https://www.credly.com/org/certiport/badge/living-online"
 
-- name: 網路架設 丙級
-  timeline: ""
-  organization:
-    name: 勞動部勞動力發展署技能檢定中心
-    url: "https://www.wdasec.gov.tw/"
-  courseOverview: "此證書驗證在網路架設方面的基礎能力，具備丙級認證。"
-  certificateURL: ""
+      - name: TQC 資訊技能認證
+        displayName: TQC 資訊技能認證
+        credentialName: 網際網路及行動通訊 · HTML 4.01 · Windows Mobile 6
+        credentialTag: 資訊應用
+        organization:
+          name: 財團法人中華民國電腦技能基金會
+          url: "https://www.tqc.org.tw/"
+        courseOverview: |-
+          已通過並取得**網際網路及行動通訊、網頁標記語言 HTML 4.01、Windows Mobile 6 行動裝置作業系統應用**認證。證明具備網路通訊與資訊安全、HTML 網頁結構，以及行動裝置設定與資料應用能力。
+        references:
+          - label: 網際網路及行動通訊
+            url: "https://www.tqc.org.tw/teachernet/e_paper/epaper_164.htm"
+          - label: HTML 官方試卷
+            url: "https://www.tqc.org.tw/tqc/exam_sample/HTML.pdf"
+          - label: Windows Mobile 6 認證範圍
+            url: "https://www.tqc.org.tw/TQCNet/NewsDetail.aspx?CODE=xx4cUYqIvXQCtlyCKS8Phw%3D%3D"
 
-- name: Microsoft Office Specialist 2007 Master
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "此證書表示您精通 Microsoft Office 2007 套件的所有主要應用程式。"
-  certificateURL: ""
+  - name: Microsoft Office 2007 Master
+    description: 已通過 Word、Excel、PowerPoint、Outlook 四項 MCAS 認證考試並取得 Microsoft Office 2007 Master，證明能整合運用文件、資料、簡報、郵件與行程管理工具。
+    layout: two
+    references:
+      - label: Master 官方資格說明
+        url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+    accomplishments:
+      - name: "MCAS: Using Microsoft Office Word 2007（77-601）"
+        displayName: Word 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-601
+        credentialTag: 文書處理
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: 已通過 77-601 並取得 Word 2007 認證，證明具備文件建立、編輯、格式設定、版面配置與完成輸出能力。
 
-- name: Microsoft Office Word 2007
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "此證書表明您精通 Microsoft Word 2007 的使用。"
-  certificateURL: ""
+      - name: "MCAS: Using Microsoft Office Excel 2007（77-602）"
+        displayName: Excel 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-602
+        credentialTag: 試算表與資料分析
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: 已通過 77-602 並取得 Excel 2007 認證，證明具備工作表規劃、公式與函數、資料整理及圖表呈現能力。
 
-- name: Microsoft Office Excel 2007
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "此證書表明您精通 Microsoft Excel 2007 的使用。"
-  certificateURL: ""
+      - name: "MCAS: Using Microsoft Office PowerPoint 2007（77-603）"
+        displayName: PowerPoint 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-603
+        credentialTag: 簡報設計
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: 已通過 77-603 並取得 PowerPoint 2007 認證，證明具備簡報架構、視覺元素、動畫設定及播放輸出能力。
 
-- name: Microsoft Office PowerPoint 2007
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "此證書表明您精通 Microsoft PowerPoint 2007 的使用。"
-  certificateURL: ""
+      - name: "MCAS: Using Microsoft Office Outlook 2007（77-604）"
+        displayName: Outlook 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-604
+        credentialTag: 郵件與行程管理
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: 已通過 77-604 並取得 Outlook 2007 認證，證明具備郵件、聯絡人、行事曆、會議及工作項目的整合管理能力。
 
-- name: Microsoft Office Outlook 2007
-  timeline: ""
-  organization:
-    name: Microsoft
-    url: https://www.microsoft.com
-  courseOverview: "此證書表明您精通 Microsoft Outlook 2007 的使用。"
-  certificateURL: ""
+  - name: Adobe Certified Associate CS3
+    description: 已分別通過 Dreamweaver CS3、Flash CS3、Photoshop CS3 Extended 認證考試並取得三項 Adobe Certified Associate 認證，證明具備網頁製作、互動多媒體及視覺溝通能力。
+    layout: three
+    references:
+      - label: 官方資格說明
+        url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+    accomplishments:
+      - name: Web Communication using Adobe Dreamweaver CS3
+        displayName: Dreamweaver CS3
+        credentialName: Adobe Certified Associate · Web Communication
+        credentialTag: 網頁製作
+        organization:
+          name: Adobe / Certiport
+          url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        courseOverview: 已通過 Dreamweaver CS3 認證考試並取得此項 ACA 認證，證明具備網站需求分析、版面規劃、內容製作、評估與維護能力。
 
-- name: Web Communication using Adobe Dreamweaver CS3
-  timeline: ""
-  organization:
-    name: Adobe
-    url: https://www.adobe.com
-  courseOverview: "此認證表明您精通使用 Adobe Dreamweaver CS3 進行網頁通訊。"
-  certificateURL: ""
+      - name: Rich Media Communication using Adobe Flash CS3
+        displayName: Flash CS3
+        credentialName: Adobe Certified Associate · Rich Media Communication
+        credentialTag: 互動多媒體
+        organization:
+          name: Adobe / Certiport
+          url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        courseOverview: 已通過 Flash CS3 認證考試並取得此項 ACA 認證，證明具備多媒體需求分析、互動設計、內容製作與作品評估能力。
 
-- name: Rich Media Communication using Adobe Flash CS3
-  timeline: ""
-  organization:
-    name: Adobe
-    url: https://www.adobe.com
-  courseOverview: "此認證表明您精通使用 Adobe Flash CS3 進行富媒體通訊。"
-  certificateURL: ""
-
-- name: Visual Communication using Adobe Photoshop CS3
-  timeline: ""
-  organization:
-    name: Adobe
-    url: https://www.adobe.com
-  courseOverview: "此認證表明您精通使用 Adobe Photoshop CS3 進行視覺通訊。"
-  certificateURL: ""
-
-- name: TQC 網際網路及行動通訊 實用級
-  timeline: ""
-  organization:
-    name: 財團法人中華民國電腦技能基金會
-    url: "https://www.csf.org.tw/"
-  courseOverview: "此證書驗證在網路及行動通訊領域的實用知識。"
-  certificateURL: ""
-
-- name: TQC 網際網路及行動通訊 進階級
-  timeline: ""
-  organization:
-    name: 財團法人中華民國電腦技能基金會
-    url: "https://www.csf.org.tw/"
-  courseOverview: "此證書證明具備網路及行動通訊的進階技能。"
-  certificateURL: ""
-
-- name: TQC 網際網路及行動通訊 專業級
-  timeline: ""
-  organization:
-    name: 財團法人中華民國電腦技能基金會
-    url: "https://www.csf.org.tw/"
-  courseOverview: "此證書表明具備網路及行動通訊的專業級技能。"
-  certificateURL: ""
-
-- name: TQC HTML 實用級
-  timeline: ""
-  organization:
-    name: 財團法人中華民國電腦技能基金會
-    url: "https://www.csf.org.tw/"
-  courseOverview: "此證書驗證在 HTML 基礎應用方面的知識與技能。"
-  certificateURL: ""
-
-- name: TQC HTML 進階級
-  timeline: ""
-  organization:
-    name: 財團法人中華民國電腦技能基金會
-    url: "https://www.csf.org.tw/"
-  courseOverview: "此證書證明具備進階 HTML 技能。"
-  certificateURL: ""
-
-- name: TQC HTML 專業級
-  timeline: ""
-  organization:
-    name: 財團法人中華民國電腦技能基金會
-    url: "https://www.csf.org.tw/"
-  courseOverview: "此證書表明具備專業級的 HTML 技能。"
-  certificateURL: ""
-
-- name: TQC 行動裝置作業系統應用 實用級
-  timeline: ""
-  organization:
-    name: 財團法人中華民國電腦技能基金會
-    url: "https://www.csf.org.tw/"
-  courseOverview: "此證書驗證在行動裝置作業系統應用領域的基礎知識。"
-  certificateURL: ""
-
-- name: TQC 行動裝置作業系統應用 進階級
-  timeline: ""
-  organization:
-    name: 財團法人中華民國電腦技能基金會
-    url: "https://www.csf.org.tw/"
-  courseOverview: "此證書證明具備進階的行動裝置作業系統應用技能。"
-  certificateURL: ""
-
-- name: TQC 行動裝置作業系統應用 專業級
-  timeline: ""
-  organization:
-    name: 財團法人中華民國電腦技能基金會
-    url: "https://www.csf.org.tw/"
-  courseOverview: "此證書表明具備專業級的行動裝置作業系統應用技能。"
-  certificateURL: ""
+      - name: Visual Communication using Adobe Photoshop CS3 Extended
+        displayName: Photoshop CS3 Extended
+        credentialName: Adobe Certified Associate · Visual Communication
+        credentialTag: 視覺設計
+        organization:
+          name: Adobe / Certiport
+          url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        courseOverview: 已通過 Photoshop CS3 Extended 認證考試並取得此項 ACA 認證，證明具備影像需求分析、視覺設計、圖片處理與成品評估能力。

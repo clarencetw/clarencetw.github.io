@@ -10,7 +10,7 @@ English | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md)
 
 Personal portfolio and technical knowledge base for Clarence.
 
-The site is built with [Hugo](https://gohugo.io/) and the [Toha](https://github.com/hugo-toha/toha) theme. It presents backend engineering, LLM applications, DevOps, cloud, on-prem infrastructure, and network operations work in Traditional Chinese, English, and Japanese.
+The site is built with [Hugo](https://gohugo.io/) and the [Toha](https://github.com/hugo-themes/toha) theme. It presents backend engineering, LLM applications, DevOps, cloud, on-prem infrastructure, and network operations work in Traditional Chinese, English, and Japanese.
 
 Website: [clarence.tw](https://clarence.tw/)
 
@@ -21,6 +21,7 @@ Website: [clarence.tw](https://clarence.tw/)
 - `content/notes`: shorter technical notes.
 - `assets/images`: source images processed by Hugo.
 - `assets/styles/override.scss`: local visual overrides loaded after the Toha theme.
+- `resume`: recovered JSON Resume source, a conservative current draft, and provenance notes.
 - `layouts/partials/header.html`: local SEO metadata, `hreflang`, `llms.txt` discoverability, and JSON-LD.
 - `static/llms.txt`: site guide for AI / LLM crawlers.
 - `.github/workflows`: GitHub Pages deployment, Lighthouse checks, and scheduled theme updates.
@@ -30,7 +31,7 @@ Website: [clarence.tw](https://clarence.tw/)
 Requirements:
 
 - Hugo extended `0.163.0` or newer. CI and Netlify currently pin `0.164.0`.
-- Node.js `24` or newer.
+- Node.js `24.x`.
 - Go `1.23` or newer.
 
 Check local versions:
@@ -59,6 +60,12 @@ Production build:
 
 ```bash
 npm run build
+```
+
+Rebuild the social preview image (requires `rsvg-convert` and ImageMagick):
+
+```bash
+npm run assets:og
 ```
 
 Audit dependencies:

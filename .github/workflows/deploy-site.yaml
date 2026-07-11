@@ -1,6 +1,6 @@
 name: Deploy to Github Pages
 
-# run when a commit is pushed to "source" branch
+# Run when a commit is pushed to the source branch.
 on:
   push:
     branches:
@@ -40,10 +40,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      # push the generated content into the `main` (former `master`) branch.
+      # Publish the generated site to the dedicated Pages branch.
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages # if your main branch is `master` use that here.
+          publish_branch: gh-pages
           publish_dir: ./public

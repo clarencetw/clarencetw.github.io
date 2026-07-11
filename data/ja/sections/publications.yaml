@@ -2,26 +2,79 @@ section:
   name: 出版
   id: publications
   enable: true
-  weight: 6
+  weight: 5
   showOnNavbar: true
-
-buttons:
-  - name: All
-    filter: "all"
-  - name: "AWS CDK"
-    filter: "aws-cdk"
+  intro: 紙の書籍、PDF、EPUB 版の公式書誌情報と販売リンクです。書名または ISBN を確認できた商品ページのみ掲載しています。
+  linkReview: リンク確認日：2026-07-11
 
 publications:
-  - title: AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）
+  - title: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）"
     publishedIn:
-      name: TEN-LONG COMPUTER BOOK COMPANY
-      date: 2021-11
-      url: https://www.tenlong.com.tw/products/9789864349203
+      name: 博碩文化
+      date: 2021-11-12
+      url: https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149
     authors:
       - name: Clarence
-        url: https://clarence.tw
+        url: https://clarence.tw/ja/
     paper:
-      summary: AWS CDK を基礎から学ぶための中国語書籍。豊富な sample code を通して Infrastructure as Code を実践できます。
-      url: https://www.tenlong.com.tw/products/9789864349203
+      summary: TypeScript と AWS CDK を使い、Infrastructure as Code を基礎から実装する繁体字中国語の実践書です。Serverless、静的サイト、LAMP、ECS、EKS、Construct Library を扱います。
+    formats:
+      - name: 紙の書籍
+        identifiers:
+          - label: ISBN
+            value: 978-986-434-920-3
+      - name: PDF
+        identifiers:
+          - label: PDF ISBN
+            value: 978-986-434-985-2
+      - name: EPUB
+        identifiers:
+          - label: EPUB ISBN
+            value: 978-986-434-993-7
+    platformGroups:
+      - name: 紙の書籍
+        platforms:
+          - name: 天瓏
+            url: https://www.tenlong.com.tw/products/9789864349203
+          - name: 博客來
+            url: https://www.books.com.tw/products/0010907999
+          - name: 金石堂
+            url: https://www.kingstone.com.tw/basic/2013120607446/
+          - name: 誠品
+            url: https://www.eslite.com/product/1001120322682094353002
+          - name: momo
+            url: https://www.momoshop.com.tw/product/9507722
+          - name: 三民書店
+            url: https://www.sanmin.com.tw/product/index/010046269
+          - name: TAAZE
+            url: https://www.taaze.tw/products/11100970760.html
+          - name: 華通書坊
+            url: https://www.huatung.net/books/341640/show
+      - name: 電子書籍
+        platforms:
+          - name: Google Play Books
+            url: https://play.google.com/store/books/details?id=u9xZEAAAQBAJ
+          - name: 博客來電子書
+            url: https://www.books.com.tw/products/E050121103
+          - name: 金石堂電子書／Readmoo
+            url: https://www.kingstone.com.tw/basic/2800000057209/
+          - name: 楽天Kobo
+            url: https://books.rakuten.co.jp/rk/0fecd3d72eec3a1eb553999e08353990/
+          - name: BOOK☆WALKER
+            url: https://www.bookwalker.com.tw/product/131985
+          - name: 誠品電子書
+            url: https://www.eslite.com/product/10072302132682701397009
+          - name: momoBOOK
+            url: https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=12411319
+          - name: iRead eBooks
+            url: https://www.airitibooks.com/Publication/Details?publicationID=P20230717299
+          - name: Yahoo × Readmoo
+            url: https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11362845
+          - name: PChome × Kobo
+            url: https://24h.pchome.com.tw/books/prod/DJBQ2S-D900DW8MO
+          - name: PChome × HyRead
+            url: https://24h.pchome.com.tw/books/prod/DJBR43-D900IMC3O
+          - name: PChome × Pubu
+            url: https://24h.pchome.com.tw/books/prod/DJBS3S-D900HVHIO
     categories: ["aws-cdk"]
-    tags: ["AWS CDK"]
+    tags: ["AWS CDK", "Infrastructure as Code", "TypeScript"]

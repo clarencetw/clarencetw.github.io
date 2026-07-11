@@ -3,14 +3,17 @@ section:
   name: Experiences
   id: experiences
   enable: true
-  weight: 3
+  weight: 4
   showOnNavbar: true
+  curated: false
+  description: "The complete timeline covers employment, consulting, teaching, authorship, and community work; the current role includes both a concise scope and full responsibilities."
   # Can optionally hide the title in sections
   # hideTitle: true
 
 # Your experiences
 experiences:
-  - company:
+  - featured: true
+    company:
       name: BRONCI Technology Inc.
       url: "https://bronci.com.tw/"
       location: Taipei
@@ -18,8 +21,15 @@ experiences:
     positions:
       - designation: Senior Backend Developer / LLM Engineer
         start: 11 2020
+        featuredResponsibilities:
+          - "Design and build backend services, APIs, background jobs, and third-party integrations."
+          - "Bring LLM, OpenAI / Ollama, Kaldi / Whisper, and GPU runtimes into maintainable workflows."
+          - "Build repeatable cloud architecture with AWS CDK and infrastructure as code."
+          - "Maintain GitLab CI/CD, GitHub Actions, automated tests, and container delivery."
+          - "Operate Linux, Proxmox VE / PBS, Harbor, monitoring, and on-prem infrastructure."
+          - "Plan enterprise networks across VLAN, VPN, firewalls, Wi-Fi, and SD-WAN."
         responsibilities:
-          - "Build backend services and internal tools with Node.js, Python, Go, C/C++, Shell Script, and Java."
+          - "Build backend services, APIs, background jobs, and internal tools with Node.js, Python, Go, C/C++, Shell Script, Java, PostgreSQL, MySQL, and Docker."
           - "Design APIs, background jobs, data processing flows, and third-party service integrations."
           - "Integrate Japanese home camera cloud services for remote monitoring and device-management scenarios."
           - "Develop Japanese IoT smart-home voice command services."
@@ -132,7 +142,7 @@ experiences:
       url: "https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149"
       location: Author
       # company overview
-      overview: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC (iT邦幫忙鐵人賽系列書) [Book](https://www.tenlong.com.tw/products/9789864349203) [eBook](https://play.google.com/store/books/details/AWS_CDK_%E5%AE%8C%E5%85%A8%E5%AD%B8%E7%BF%92%E6%89%8B%E5%86%8A_iT%E9%82%A6%E5%B9%AB%E5%BF%99%E9%90%B5%E4%BA%BA%E8%B3%BD%E7%B3%BB%E5%88%97%E6%9B%B8_%E6%89%93%E9%80%A0%E9%9B%B2%E7%AB%AF%E5%9F%BA%E7%A4%8E%E6%9E%B6%E6%A7%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC_IaC?id=u9xZEAAAQBAJ)"
+      overview: "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書） · [View print and eBook retailers](#publications)"
     positions:
       - designation: Book author
         start: 11 2021
@@ -143,7 +153,8 @@ experiences:
           - The first Chinese book that teaches you to write AWS CDK from scratch!
           - For those of you who don't know how to write, we will provide you with super rich Sample Code, and you can also become an AWS CDK expert by copying!
 
-  - company:
+  - featured: true
+    company:
       name: National Taipei University of Technology, Taipei Tech
       url: "https://www.ntut.edu.tw/"
       location: R & D alternative service
@@ -169,7 +180,8 @@ experiences:
           - Network Basics Debugging and Tracking with Fluke
           - Computer system maintenance
 
-  - company:
+  - featured: true
+    company:
       name: Students' Information Technology Conference
       url: "https://sitcon.org/"
       location: Volunteer

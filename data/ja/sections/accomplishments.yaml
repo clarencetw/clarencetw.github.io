@@ -1,0 +1,174 @@
+section:
+  name: 資格・認定
+  id: accomplishments
+  enable: true
+  weight: 9
+  showOnNavbar: false
+
+intro: |-
+  以下は、本人が各試験・評価に合格し、取得した資格・認定です。合格によって証明された知識と実務スキルを示し、技術分野の広がりと積み重ねを紹介します。
+
+groups:
+  - name: 専門・デジタルスキル
+    description: 本人が取得した国家技能検定、ネットワークセキュリティ、デジタルリテラシー、IT 活用資格を、証明する能力ごとに整理しています。
+    layout: two
+    accomplishments:
+      - name: 台湾国家技能検定｜システム・ネットワーク
+        displayName: 台湾国家技能検定｜ハードウェア・ネットワーク
+        credentialTag: ハードウェア・ネットワーク
+        organization:
+          name: 台湾 労働部労働力発展署 技能検定センター
+          url: "https://www.wdasec.gov.tw/"
+        courseOverview: |-
+          **コンピューターハードウェア整備 乙級、ハードウェア整備 丙級、ネットワーク構築 丙級**に合格。PC・周辺機器の診断と修理、ハードウェア組立、OS 導入、ネットワーク配線・機器設定を行う技能を証明しています。
+        references:
+          - label: ハードウェア整備基準
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTIwMDDpm7vohabnoazpq5Too53kv64xMDIuMDQwOC5wZGY%3D&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkwMzMvMjAxOTA1MzAxNDM3MzkwLjA0MDgucGRm"
+          - label: ネットワーク構築基準
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTcyMDDntrLot6%2FmnrboqK0ucGRm&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkwNTkvMjAxOTA1MzAxNDU5MTYwLnBkZg%3D%3D"
+
+      - name: 台湾国家技能検定｜ソフトウェア・Web
+        displayName: 台湾国家技能検定｜ソフトウェア・Web
+        credentialTag: ソフトウェア・Web
+        organization:
+          name: 台湾 労働部労働力発展署 技能検定センター
+          url: "https://www.wdasec.gov.tw/"
+        courseOverview: |-
+          **コンピューターソフトウェア活用、ソフトウェア設計、Web デザインの各丙級**に合格。オフィスソフト活用、基本プログラミングとテスト、技術文書作成、Web サイトの制作・公開・保守能力を証明しています。
+        references:
+          - label: ソフトウェア活用基準
+            url: "https://ws.wda.gov.tw/Download.ashx?n=6Zu76IWm6Luf6auU5oeJ55So6KaP56%2BELnBkZg%3D%3D&u=LzAwMS9VcGxvYWQvMzE1L3JlbEZpbGUvMTAyMzkvMTE0ODkyLzUzM2NkZWI1LTRiZjktNDE1MS1iOGI4LWU5YWYyOTdlODJkYi5wZGY%3D"
+          - label: ソフトウェア設計基準
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTE5MDDpm7vohabou5%2Fpq5ToqK3oqIgtMTAyLjA0LjA4LnBkZg%3D%3D&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkxMjkvMjAxOTA1MzAxNDM2MDYwLjA0LjA4LnBkZg%3D%3D"
+          - label: Web デザイン基準
+            url: "https://ws.wda.gov.tw/Download.ashx?n=MTczMDDntrLpoIHoqK3oqIgucGRm&u=LzAwMS9VcGxvYWQvMzE1L1JlbEZpbGUvMTAyMzkvOTkwNTEvMjAxOTA1MzAxNDU5NDcwLnBkZg%3D%3D"
+
+      - name: Fortinet NSE 1 / NSE 2 Network Security Associate
+        displayName: Fortinet NSE 1 + NSE 2
+        credentialName: Network Security Associate
+        credentialTag: ネットワークセキュリティ
+        organization:
+          name: Fortinet Training Institute
+          url: "https://www.fortinet.com/training-certification"
+        courseOverview: |-
+          **NSE 1** と **NSE 2** の評価に合格し、両認定を取得。サイバー脅威と安全なオンライン行動、主要セキュリティ製品の役割、Fortinet ソリューションの基礎知識を証明しています。
+        references:
+          - label: 公式プログラムガイド
+            url: "https://www.fortinet.com/content/dam/fortinet/assets/training/NSE-End-User-Guide.pdf"
+          - label: Fortinet Training
+            url: "https://www.fortinet.com/training-certification"
+
+      - name: IC3 Digital Literacy｜3 つのコンポーネントバッジ
+        displayName: IC3 Digital Literacy
+        credentialName: Computing Fundamentals · Key Applications · Living Online
+        credentialTag: デジタルリテラシー
+        organization:
+          name: Certiport, a Pearson VUE business
+          url: "https://certiport.pearsonvue.com/"
+        courseOverview: |-
+          **Computing Fundamentals、Key Applications、Living Online** の 3 評価に合格し、各バッジを取得。コンピューター基礎、業務アプリ、オンライン共同作業、情報評価、オンライン安全の総合的なデジタルリテラシーを証明しています。
+        references:
+          - label: Computing Fundamentals
+            url: "https://www.credly.com/org/certiport/badge/computing-fundamentals"
+          - label: Key Applications
+            url: "https://www.credly.com/org/certiport/badge/key-applications"
+          - label: Living Online
+            url: "https://www.credly.com/org/certiport/badge/living-online"
+
+      - name: TQC IT スキル認定
+        displayName: TQC IT スキル認定
+        credentialName: インターネット・モバイル通信 · HTML 4.01 · Windows Mobile 6
+        credentialTag: IT 活用
+        organization:
+          name: 中華民国コンピュータ技能基金会
+          url: "https://www.tqc.org.tw/"
+        courseOverview: |-
+          **インターネット・モバイル通信、Web マークアップ言語 HTML 4.01、Windows Mobile 6 モバイル端末 OS 活用**の認定試験に合格。ネットワーク利用と情報セキュリティ、HTML 構造、モバイル端末設定とデータ活用の実践力を証明しています。
+        references:
+          - label: インターネット・モバイル通信
+            url: "https://www.tqc.org.tw/teachernet/e_paper/epaper_164.htm"
+          - label: HTML 公式サンプル
+            url: "https://www.tqc.org.tw/tqc/exam_sample/HTML.pdf"
+          - label: Windows Mobile 6 試験範囲
+            url: "https://www.tqc.org.tw/TQCNet/NewsDetail.aspx?CODE=xx4cUYqIvXQCtlyCKS8Phw%3D%3D"
+
+  - name: Microsoft Office 2007 Master
+    description: Word、Excel、PowerPoint、Outlook の 4 試験に合格し、Microsoft Office 2007 Master を取得。文書、データ、プレゼンテーション、メール、スケジュール管理を横断する Office 活用力を証明しています。
+    layout: two
+    references:
+      - label: Master 公式資格 FAQ
+        url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+    accomplishments:
+      - name: "MCAS: Using Microsoft Office Word 2007 (77-601)"
+        displayName: Word 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-601
+        credentialTag: 文書作成
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: 77-601 に合格し、Word 2007 認定を取得。文書の作成・編集、書式設定、ページレイアウト、完成物の出力スキルを証明しています。
+
+      - name: "MCAS: Using Microsoft Office Excel 2007 (77-602)"
+        displayName: Excel 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-602
+        credentialTag: 表計算・データ分析
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: 77-602 に合格し、Excel 2007 認定を取得。ワークシート設計、数式・関数、データ整理、グラフ作成のスキルを証明しています。
+
+      - name: "MCAS: Using Microsoft Office PowerPoint 2007 (77-603)"
+        displayName: PowerPoint 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-603
+        credentialTag: プレゼンテーション設計
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: 77-603 に合格し、PowerPoint 2007 認定を取得。プレゼンテーション構成、視覚要素、アニメーション、発表用出力のスキルを証明しています。
+
+      - name: "MCAS: Using Microsoft Office Outlook 2007 (77-604)"
+        displayName: Outlook 2007
+        credentialName: Microsoft Certified Application Specialist
+        credentialCode: 77-604
+        credentialTag: メール・スケジュール管理
+        organization:
+          name: Microsoft / Certiport
+          url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
+        courseOverview: 77-604 に合格し、Outlook 2007 認定を取得。メール、連絡先、カレンダー、会議、タスクを統合管理するスキルを証明しています。
+
+  - name: Adobe Certified Associate CS3
+    description: Dreamweaver CS3、Flash CS3、Photoshop CS3 Extended の各試験に合格し、3 つの Adobe Certified Associate 認定を取得。Web 制作、インタラクティブメディア、ビジュアルコミュニケーションの制作力を証明しています。
+    layout: three
+    references:
+      - label: 公式資格 FAQ
+        url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+    accomplishments:
+      - name: Web Communication using Adobe Dreamweaver CS3
+        displayName: Dreamweaver CS3
+        credentialName: Adobe Certified Associate · Web Communication
+        credentialTag: Web 制作
+        organization:
+          name: Adobe / Certiport
+          url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        courseOverview: Dreamweaver CS3 の認定試験に合格し、ACA 認定を取得。Web サイト要件の整理、レイアウト設計、コンテンツ制作、評価、保守のスキルを証明しています。
+
+      - name: Rich Media Communication using Adobe Flash CS3
+        displayName: Flash CS3
+        credentialName: Adobe Certified Associate · Rich Media Communication
+        credentialTag: インタラクティブメディア
+        organization:
+          name: Adobe / Certiport
+          url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        courseOverview: Flash CS3 の認定試験に合格し、ACA 認定を取得。マルチメディア要件の整理、インタラクティブ設計、コンテンツ制作、作品評価のスキルを証明しています。
+
+      - name: Visual Communication using Adobe Photoshop CS3 Extended
+        displayName: Photoshop CS3 Extended
+        credentialName: Adobe Certified Associate · Visual Communication
+        credentialTag: ビジュアルデザイン
+        organization:
+          name: Adobe / Certiport
+          url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
+        courseOverview: Photoshop CS3 Extended の認定試験に合格し、ACA 認定を取得。画像要件の整理、ビジュアル設計、画像編集、完成物評価のスキルを証明しています。

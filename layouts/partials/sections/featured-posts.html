@@ -1,0 +1,13 @@
+{{ $sectionID := replace (lower .section.name) " " "-" }}
+{{ if .section.id }}{{ $sectionID = .section.id }}{{ end }}
+
+<section class="container-fluid anchor pb-5 recent-posts-section" id="{{ $sectionID }}">
+  <h2 class="text-center"{{ if .section.hideTitle }} style="display: none"{{ end }}>{{ .section.name }}</h2>
+  <div class="container">
+    <div class="row" id="recent-post-cards">
+      {{ range $post := .posts }}
+        {{ with site.GetPage $post }}{{ partial "cards/post.html" . }}{{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>

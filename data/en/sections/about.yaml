@@ -15,20 +15,31 @@ company:
   url: "https://www.bronci.com.tw/"
 
 # your resume. this file path should be relative to you "static" directory
-#resume: "files/resume.pdf"
+resume: "files/en/resume.pdf"
 
 # a summary about you
-summary: "I work across backend systems, AI applications, DevOps, self-hosted infrastructure, and enterprise networking as one delivery chain. My focus is getting services online, observable, secure, and maintainable, then integrating LLMs, speech recognition, GPU runtimes, cloud platforms, and on-prem systems when the product needs them. At BRONCI Technology Inc., I work on APIs and backend services, CI/CD, AWS CDK/IaC, Kaldi, Whisper, OpenAI/Ollama applications, Proxmox, Harbor, LibreNMS, LDAP, office wired/wireless networks, and infrastructure procurement planning. I am also the author of [AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203), and I publish technical notes and open-source work around cloud, DevOps, Linux, networking, and AI development."
+summary: |-
+  I work across backend development, DevOps, Linux, cloud architecture, and infrastructure security, treating backend, AI applications, cloud, on-prem infrastructure, networking, and security as one delivery chain. My work goes beyond feature completion: services need to be reliably deployed, observable, and maintainable.
+
+  My experience at BRONCI Technology Inc. includes backend services and APIs, GitLab CI/CD, GitHub Actions, AWS CDK / IaC, automated testing with Jest, and cloud platforms across AWS, GCP, and Azure. My AI work includes Kaldi, Whisper, OpenAI APIs, Ollama, LLM applications, and GPU runtimes.
+
+  My infrastructure work covers cloud and on-prem platforms, Proxmox VE and Proxmox Backup Server (PBS), Harbor, LibreNMS, LDAP, enterprise wired and Wi-Fi networks, VPN / SD-WAN, and equipment selection and infrastructure procurement planning.
+
+  I am also the author of [AWS CDK 完全學習手冊](#publications), and I turn engineering problems, solutions, and practical experience into technical articles, notes, and open-source projects.
 
 # You can put custom buttons to link your relevant resources.
 # For example, you can put link for your resume.
 resourceLinks:
-  - title: "How I Work"
+  - title: "How I work"
     url: "/en/posts/technical-delivery-chain/"
-  - title: "Technical Blog"
+  - title: "Selected work"
+    url: "#projects"
+  - title: "Technical notes"
+    url: "/en/notes/"
+  - title: "Technical blog"
     url: "https://blog.clarence.tw/"
-  - title: "GitHub"
-    url: "https://github.com/clarencetw"
+  - title: "Work with me"
+    url: "mailto:me@clarence.tw"
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
@@ -57,56 +68,91 @@ socialLinks:
     icon: "fab fa-facebook"
     url: "https://www.facebook.com/ClarenceTaiwan/"
 
-# Show your badges
-# You can show your verifiable certificates from https://www.credly.com.
-# You can also show a circular bar indicating the level of expertise on a certain skill
+highlights:
+  - value: "4,000+"
+    label: "sites operated"
+    detail: "Standardized operations at hosting scale"
+  - value: "19M"
+    label: "requests in 30 days"
+    detail: "A public high-traffic hosting case"
+  - value: "Backend → Infra"
+    label: "cross-layer delivery"
+    detail: "API, AI, deployment, and networking"
+  - value: "AWS CDK"
+    label: "book author"
+    detail: "IaC practice turned into learning material"
+
+publicProofTitle: "Selected Public Work"
+publicProof:
+  - title: "iThome Ironman DevOps Champion"
+    detail: "12th iThome Ironman series, “用 CDK 定義 AWS 架構”"
+    url: "https://ithelp.ithome.com.tw/articles/10237601"
+  - title: "AWS Training at 5xRuby"
+    detail: "12 hours of cloud deployment instruction and hands-on practice"
+    url: "https://5xruby.com/zh/articles/2022-enginner-training"
+  - title: "BNext Author"
+    detail: "Backend, DevOps, Linux, cloud architecture, and security"
+    url: "https://www.bnext.com.tw/author/4039"
+
+# Show selected certification badges in the primary profile section.
+certificationsTitle: "Certifications & Credentials"
+certificationsNote: "Only verifiable issuer badges are shown as images. Legacy credentials without official artwork are presented through their names and demonstrated skills."
 badges:
-- type: certification
-  name: NSE 1 Network Security Associate
-  url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_1"
-  badge: "../files/badges/1-associate-logo.png"
+  - type: certification
+    name: NSE 1 Network Security Associate
+    issuer: Fortinet
+    detail: "Earned · Cyberthreats, security awareness, and safer online use"
+    url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_1"
+    badge: "../files/badges/1-associate-logo.png"
 
-- type: certification
-  name: NSE 2 Network Security Associate
-  url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_2"
-  badge: "../files/badges/2-associate-logo.png"
+  - type: certification
+    name: NSE 2 Network Security Associate
+    issuer: Fortinet
+    detail: "Earned · Security products and Fortinet solutions"
+    url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_2"
+    badge: "../files/badges/2-associate-logo.png"
 
-- type: certification
-  name: Key Applications
-  url: "https://www.credly.com/org/certiport/badge/key-applications"
-  badge: "https://images.credly.com/size/680x680/images/8a8f3497-95a1-4e87-8cbf-4859dd4c4a85/IC3_key_applications.png"
+  - type: certification
+    name: Key Applications
+    issuer: Certiport IC3
+    detail: "Earned · Documents, spreadsheets, databases, and presentations"
+    url: "https://www.credly.com/org/certiport/badge/key-applications"
+    badge: "https://images.credly.com/size/680x680/images/8a8f3497-95a1-4e87-8cbf-4859dd4c4a85/IC3_key_applications.png"
 
-- type: certification
-  name: Computing Fundamentals
-  url: "https://www.credly.com/org/certiport/badge/computing-fundamentals"
-  badge: "https://images.credly.com/size/680x680/images/bf8594c5-1e2d-4e5b-ab28-09c46bd755a3/IC3_computing_fundamentals.png"
+  - type: certification
+    name: Computing Fundamentals
+    issuer: Certiport IC3
+    detail: "Earned · Hardware, software, operating systems, and troubleshooting"
+    url: "https://www.credly.com/org/certiport/badge/computing-fundamentals"
+    badge: "https://images.credly.com/size/680x680/images/bf8594c5-1e2d-4e5b-ab28-09c46bd755a3/IC3_computing_fundamentals.png"
 
-- type: certification
-  name: Living Online
-  url: "https://www.credly.com/org/certiport/badge/living-online"
-  badge: "https://images.credly.com/size/680x680/images/b4c97286-a3ec-4c84-9095-518e1496869d/IC3_living_online.png"
-# - type: certification
-#   name: Microsoft Office Specialist
-#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-office-specialist-master-office-2016"
-#   badge: "https://images.credly.com/size/680x680/images/265436ac-abfb-4199-b536-0fafe5f91e78/MOS_Master.png"
+  - type: certification
+    name: Living Online
+    issuer: Certiport IC3
+    detail: "Earned · Networks, collaboration, information evaluation, and online safety"
+    url: "https://www.credly.com/org/certiport/badge/living-online"
+    badge: "https://images.credly.com/size/680x680/images/b4c97286-a3ec-4c84-9095-518e1496869d/IC3_living_online.png"
 
-# - type: certification
-#   name: Microsoft Word (Office 2016)
-#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-word-office-2016"
-#   badge: "https://images.credly.com/size/680x680/images/fd092703-61db-4e9f-9c7c-2211d44ca87d/MOS_Word.png"
+  - type: certification
+    name: Taiwan National Technician Credentials
+    issuer: Workforce Development Agency
+    detail: "Earned · Hardware repair, network installation, software, and web skills"
+    url: "https://www.wdasec.gov.tw/"
 
-# - type: certification
-#   name: Microsoft Excel (Office 2016)
-#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-excel-office-2016"
-#   badge: "https://images.credly.com/size/680x680/images/d0790dc7-5127-4262-a492-1b60030b0114/MOS_Excel.png"
+  - type: certification
+    name: Microsoft Office 2007 Master
+    issuer: Microsoft / Certiport
+    detail: "Earned · Word, Excel, PowerPoint, and Outlook (77-601–604)"
+    url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
 
-# - type: certification
-#   name: Microsoft PowerPoint (Office 2016)
-#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-powerpoint-office-2016"
-#   badge: "https://images.credly.com/size/680x680/images/96c033ea-d798-45d7-9c2c-80834335706d/MOS_PowerPoint.png"
+  - type: certification
+    name: Adobe Certified Associate CS3
+    issuer: Adobe / Certiport
+    detail: "Earned · Dreamweaver, Flash, and Photoshop CS3"
+    url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
 
-# you can also provide color code instead of the color name
-# - type: soft-skill-indicator
-#   name: Example 1
-#   percentage: 75
-#   color: "#00adb5"
+  - type: certification
+    name: TQC Applied IT Credentials
+    issuer: Computer Skills Foundation
+    detail: "Earned · Internet and mobile communication, HTML 4.01, and Windows Mobile 6"
+    url: "https://www.tqc.org.tw/"

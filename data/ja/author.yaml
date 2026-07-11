@@ -2,20 +2,21 @@
 name: "Clarence"
 nickname: "Clarence"
 greeting: "こんにちは、"
+subtitle: "バックエンド・AI・インフラを、コードから安定運用までつなぐ"
 image: "images/author/clarence.jpg"
 contactInfo:
   email: "me@clarence.tw"
   github: clarencetw
-  linkedin: clarencetw
+  linkedin: clarence-lin-89764448
   stack-overflow:
     icon: stack-overflow
     url: "https://stackoverflow.com/users/19384998/clarence"
     text: "Clarence"
 
 summary:
-  - Backend / API システム開発
-  - LLM / Speech AI アプリケーション統合
+  - バックエンド／APIシステム開発
+  - LLM／音声AIアプリケーションの統合
   - DevOps、CI/CD、IaC
-  - Cloud / On-prem Infrastructure
-  - Network / Security Operations
-  - Tech Writing と Open Source
+  - クラウド／オンプレミス基盤
+  - ネットワーク／セキュリティ運用
+  - 技術記事の執筆とオープンソース活動

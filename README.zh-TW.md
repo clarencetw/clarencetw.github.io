@@ -10,7 +10,7 @@
 
 Clarence 的個人網站、作品集與技術知識庫。
 
-網站使用 [Hugo](https://gohugo.io/) 與 [Toha](https://github.com/hugo-toha/toha) theme 建置，內容涵蓋 Backend engineering、LLM application、DevOps、Cloud / On-prem infrastructure 與 Network operations，並支援繁體中文、English、日本語。
+網站使用 [Hugo](https://gohugo.io/) 與 [Toha](https://github.com/hugo-themes/toha) theme 建置，內容涵蓋 Backend engineering、LLM application、DevOps、Cloud / On-prem infrastructure 與 Network operations，並支援繁體中文、English、日本語。
 
 網站：[clarence.tw](https://clarence.tw/)
 
@@ -21,6 +21,7 @@ Clarence 的個人網站、作品集與技術知識庫。
 - `content/notes`：較短的技術筆記。
 - `assets/images`：由 Hugo 處理的原始圖片。
 - `assets/styles/override.scss`：載入在 Toha theme 之後的本地視覺樣式。
+- `resume`：找回的 JSON Resume 原始資料、保守版現況草稿與來源考證。
 - `layouts/partials/header.html`：本地 SEO metadata、`hreflang`、`llms.txt` discoverability 與 JSON-LD。
 - `static/llms.txt`：AI / LLM crawler 使用的網站導覽摘要。
 - `.github/workflows`：GitHub Pages deployment、Lighthouse checks 與定期 theme update workflow。
@@ -30,7 +31,7 @@ Clarence 的個人網站、作品集與技術知識庫。
 需求：
 
 - Hugo extended `0.163.0` 或更新版本。CI 與 Netlify 目前固定使用 `0.164.0`。
-- Node.js `24` 或更新版本。
+- Node.js `24.x`。
 - Go `1.23` 或更新版本。
 
 確認本機版本：
@@ -59,6 +60,12 @@ Production build：
 
 ```bash
 npm run build
+```
+
+重新產生社群預覽圖（需要 `rsvg-convert` 與 ImageMagick）：
+
+```bash
+npm run assets:og
 ```
 
 Security audit：

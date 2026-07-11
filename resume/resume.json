@@ -1,0 +1,266 @@
+{
+  "basics": {
+    "name": "Clarence Lin",
+    "label": "Senior Backend Developer / LLM & Infrastructure Engineer",
+    "email": "me@clarence.tw",
+    "website": "https://clarence.tw",
+    "summary": "Senior backend developer working across API platforms, LLM and speech AI integration, CI/CD and infrastructure as code, cloud and on-prem infrastructure, and enterprise networking. Author of AWS CDK 完全學習手冊 and publisher of technical notes and open-source projects.",
+    "profiles": [
+      {
+        "network": "Website",
+        "username": "clarence.tw",
+        "url": "https://clarence.tw"
+      },
+      {
+        "network": "Technical Blog",
+        "username": "blog.clarence.tw",
+        "url": "https://blog.clarence.tw"
+      },
+      {
+        "network": "GitHub",
+        "username": "clarencetw",
+        "url": "https://github.com/clarencetw"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "clarence-lin-89764448",
+        "url": "https://www.linkedin.com/in/clarence-lin-89764448/"
+      },
+      {
+        "network": "Stack Overflow",
+        "username": "Clarence",
+        "url": "https://stackoverflow.com/users/19384998/clarence"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "BRONCI Technology Inc.",
+      "position": "Senior Backend Developer / LLM Engineer",
+      "website": "https://bronci.com.tw/",
+      "startDate": "2020-11",
+      "summary": "Backend, AI, DevOps, cloud, on-prem infrastructure, and enterprise-network delivery.",
+      "highlights": [
+        "Build backend services, APIs, background jobs, data-processing flows, and third-party integrations.",
+        "Integrate LLM applications, OpenAI API, Ollama, Kaldi, and Whisper into production workflows.",
+        "Design AWS architecture and use AWS CDK for repeatable infrastructure as code.",
+        "Maintain GitLab CI/CD, GitHub Actions, automated tests, container builds, and deployment workflows.",
+        "Operate Linux, GPU runtimes, Proxmox VE, Proxmox Backup Server, Harbor, and monitoring platforms.",
+        "Plan and operate enterprise wired, wireless, firewall, VPN, VLAN, and SD-WAN environments."
+      ]
+    },
+    {
+      "company": "5xRuby",
+      "position": "Education training instructor",
+      "website": "https://5xruby.com/",
+      "startDate": "2022",
+      "endDate": "2022"
+    },
+    {
+      "company": "AWS User Group Taiwan",
+      "position": "Lecturer",
+      "website": "https://awsugtw.kktix.cc/events/awsug-202112",
+      "startDate": "2021-12",
+      "endDate": "2021-12",
+      "highlights": [
+        "Presented an introductory AWS CDK session about one-command front-end deployment."
+      ]
+    },
+    {
+      "company": "National Taipei University of Technology, Taipei Tech",
+      "position": "Full-time assistant of special research project",
+      "website": "https://www.ntut.edu.tw/",
+      "startDate": "2015-11",
+      "endDate": "2020-11",
+      "highlights": [
+        "Developed web and backend systems with Node.js, Go, C/C++, PostgreSQL, and Docker."
+      ]
+    },
+    {
+      "company": "Computer and Information Network Center, National Taipei University of Technology, Taipei Tech",
+      "position": "Part-time worker",
+      "website": "https://cnc.ntut.edu.tw/",
+      "startDate": "2012-06",
+      "endDate": "2017-06",
+      "highlights": [
+        "Handled network troubleshooting and computer-system maintenance."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "National Taipei University of Technology, Taipei Tech",
+      "studyType": "M.S.",
+      "area": "Electrical Engineering",
+      "startDate": "2015",
+      "endDate": "2017"
+    },
+    {
+      "institution": "National Taipei University of Technology, Taipei Tech",
+      "studyType": "B.S.",
+      "startDate": "2011",
+      "endDate": "2015"
+    },
+    {
+      "institution": "Xiehe Youde Senior High School",
+      "studyType": "Higher Vocational",
+      "area": "Information",
+      "startDate": "2008",
+      "endDate": "2011"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Students' Information Technology Conference",
+      "position": "Volunteer",
+      "startDate": "2014",
+      "endDate": "2018"
+    },
+    {
+      "organization": "COSCUP",
+      "position": "Volunteer",
+      "startDate": "2014",
+      "endDate": "2014"
+    },
+    {
+      "organization": "Students' Information Technology Conference Summer Camp",
+      "position": "Volunteer",
+      "startDate": "2014",
+      "endDate": "2015"
+    },
+    {
+      "organization": "Hacks In Taiwan Conference",
+      "position": "Volunteer",
+      "startDate": "2014",
+      "endDate": "2014"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Backend",
+      "keywords": [
+        "Node.js",
+        "Go",
+        "Python",
+        "PHP",
+        "API design",
+        "background jobs"
+      ]
+    },
+    {
+      "name": "AI and Speech",
+      "keywords": [
+        "LLM applications",
+        "OpenAI API",
+        "Ollama",
+        "Kaldi",
+        "Whisper",
+        "GPU runtimes"
+      ]
+    },
+    {
+      "name": "Cloud and IaC",
+      "keywords": [
+        "AWS",
+        "AWS CDK",
+        "GCP",
+        "Azure",
+        "Infrastructure as Code"
+      ]
+    },
+    {
+      "name": "Delivery",
+      "keywords": [
+        "Git",
+        "GitHub Actions",
+        "GitLab CI/CD",
+        "Docker",
+        "Jest"
+      ]
+    },
+    {
+      "name": "Data",
+      "keywords": [
+        "PostgreSQL",
+        "MySQL",
+        "Redis"
+      ]
+    },
+    {
+      "name": "Infrastructure",
+      "keywords": [
+        "Linux",
+        "Proxmox VE",
+        "Proxmox Backup Server",
+        "Harbor",
+        "LibreNMS"
+      ]
+    },
+    {
+      "name": "Networking",
+      "keywords": [
+        "VLAN",
+        "VPN",
+        "SD-WAN",
+        "firewalls",
+        "wired and wireless networks"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "name": "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）",
+      "publisher": "DrMaster Press Co., Ltd.",
+      "releaseDate": "2021-11",
+      "url": "https://clarence.tw/en/#publications",
+      "summary": "A Chinese-language practical guide to building cloud infrastructure with AWS CDK."
+    }
+  ],
+  "projects": [
+    {
+      "name": "clarence.tw",
+      "description": "A multilingual Hugo portfolio and technical knowledge site.",
+      "url": "https://github.com/clarencetw/clarencetw.github.io",
+      "keywords": [
+        "Hugo",
+        "Toha",
+        "multilingual"
+      ]
+    },
+    {
+      "name": "node-crypto-ecb",
+      "description": "A Node.js AES ECB library for compatibility-driven encryption and decryption use cases.",
+      "url": "https://github.com/clarencetw/node-crypto-ecb",
+      "startDate": "2022-09",
+      "endDate": "2022-09",
+      "keywords": [
+        "Node.js",
+        "AES"
+      ]
+    },
+    {
+      "name": "cdk-wordpress",
+      "description": "An AWS CDK construct library for repeatable WordPress deployment as infrastructure code.",
+      "url": "https://github.com/clarencetw/cdk-wordpress",
+      "startDate": "2020-10",
+      "endDate": "2024-09",
+      "keywords": [
+        "AWS CDK",
+        "WordPress",
+        "Infrastructure as Code"
+      ]
+    },
+    {
+      "name": "AWS CDK",
+      "description": "Public contributions to the AWS Cloud Development Kit project.",
+      "url": "https://github.com/aws/aws-cdk",
+      "startDate": "2021-02",
+      "endDate": "2021-08",
+      "keywords": [
+        "AWS",
+        "CDK",
+        "open source"
+      ]
+    }
+  ]
+}

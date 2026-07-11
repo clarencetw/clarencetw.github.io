@@ -20,6 +20,9 @@
 {{ end }}
 <link rel="alternate" hreflang="x-default" href="{{ $defaultPermalink }}" />
 <link rel="alternate" type="text/markdown" href="{{ "llms.txt" | absURL }}" title="llms.txt" />
+{{ if eq .Type "search" }}
+<meta name="robots" content="noindex, follow" />
+{{ end }}
 
 {{ partial "helpers/style-bundle.html" . }}
 
@@ -52,15 +55,24 @@
   "https://www.linkedin.com/in/clarence-lin-89764448/"
   "https://stackoverflow.com/users/19384998/clarence"
   "https://blog.clarence.tw/"
+  "https://www.bnext.com.tw/author/4039"
   "https://sitcon.org/credits/#person=clarencetw"
 }}
+{{ $authorData := (index hugo.Data site.Language.Lang).author }}
+{{ $personImage := "clarencetw-og.png" | absURL }}
+{{ with $authorData.image }}
+  {{ with resources.Get . }}
+    {{ $personImage = .Permalink }}
+  {{ end }}
+{{ end }}
 {{ $person := dict
   "@type" "Person"
   "@id" (printf "%s#person" site.BaseURL)
-  "name" "Clarence"
+  "name" "Clarence Lin"
+  "alternateName" (slice "Clarence" "clarencetw")
   "url" site.BaseURL
   "jobTitle" "Senior Backend Developer / LLM & Infrastructure Engineer"
-  "image" ("clarencetw-og.png" | absURL)
+  "image" $personImage
   "sameAs" $sameAs
 }}
 {{ $website := dict
@@ -72,8 +84,81 @@
   "inLanguage" site.Language.Lang
   "publisher" (dict "@id" (printf "%s#person" site.BaseURL))
 }}
-{{ $structuredData := dict
-  "@context" "https://schema.org"
-  "@graph" (slice $person $website)
-}}
+{{ $graph := slice $person $website }}
+{{ if .IsHome }}
+  {{ $profilePage := dict
+    "@type" "ProfilePage"
+    "@id" (printf "%s#profile" site.BaseURL)
+    "url" .Permalink
+    "name" site.Title
+    "description" $siteDescription
+    "mainEntity" (dict "@id" (printf "%s#person" site.BaseURL))
+    "isPartOf" (dict "@id" (printf "%s#website" site.BaseURL))
+  }}
+  {{ $graph = $graph | append $profilePage }}
+  {{ $bookLinks := slice
+    "https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149"
+    "https://www.tenlong.com.tw/products/9789864349203"
+    "https://www.books.com.tw/products/0010907999"
+    "https://www.kingstone.com.tw/basic/2013120607446/"
+    "https://www.eslite.com/product/1001120322682094353002"
+    "https://www.momoshop.com.tw/product/9507722"
+    "https://www.sanmin.com.tw/product/index/010046269"
+    "https://www.taaze.tw/products/11100970760.html"
+    "https://www.huatung.net/books/341640/show"
+    "https://play.google.com/store/books/details?id=u9xZEAAAQBAJ"
+    "https://www.books.com.tw/products/E050121103"
+    "https://www.kingstone.com.tw/basic/2800000057209/"
+    "https://www.rakuten.com.tw/shop/kobo/product/0fecd3d7-2eec-3a1e-b553-999e08353990/"
+    "https://www.bookwalker.com.tw/product/131985"
+    "https://www.eslite.com/product/10072302132682701397009"
+    "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=12411319"
+    "https://www.airitibooks.com/Publication/Details?publicationID=P20230717299"
+    "https://tw.buy.yahoo.com/gdsale/gdsale.asp?gdid=11362845"
+    "https://24h.pchome.com.tw/books/prod/DJBQ2S-D900DW8MO"
+    "https://24h.pchome.com.tw/books/prod/DJBR43-D900IMC3O"
+    "https://24h.pchome.com.tw/books/prod/DJBS3S-D900HVHIO"
+  }}
+  {{ $book := dict
+    "@type" "Book"
+    "@id" (printf "%s#aws-cdk-book" site.BaseURL)
+    "url" (printf "%s#publications" .Permalink)
+    "name" "AWS CDK 完全學習手冊：打造雲端基礎架構程式碼 IaC（iT邦幫忙鐵人賽系列書）"
+    "description" "A Traditional Chinese practical guide to building Infrastructure as Code with TypeScript and AWS CDK."
+    "author" (dict "@id" (printf "%s#person" site.BaseURL))
+    "publisher" (dict "@type" "Organization" "name" "博碩文化股份有限公司" "url" "https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149")
+    "datePublished" "2021-11-12"
+    "inLanguage" "zh-Hant"
+    "numberOfPages" 352
+    "isbn" (slice "978-986-434-920-3" "978-986-434-985-2" "978-986-434-993-7")
+    "bookFormat" (slice "https://schema.org/Paperback" "https://schema.org/EBook")
+    "sameAs" $bookLinks
+    "isPartOf" (dict "@id" (printf "%s#website" site.BaseURL))
+  }}
+  {{ $graph = $graph | append $book }}
+{{ else if and .IsPage (or (eq .Type "posts") (eq .Type "notes")) }}
+  {{ $articleType := "TechArticle" }}
+  {{ if eq .Type "posts" }}{{ $articleType = "Article" }}{{ end }}
+  {{ $articleImage := "clarencetw-og.png" | absURL }}
+  {{ with .Params.images }}{{ $articleImage = index . 0 | absURL }}{{ end }}
+  {{ $article := dict
+    "@type" $articleType
+    "@id" (printf "%s#article" .Permalink)
+    "url" .Permalink
+    "headline" .Title
+    "description" (.Description | default $siteDescription)
+    "image" $articleImage
+    "author" (dict "@id" (printf "%s#person" site.BaseURL))
+    "publisher" (dict "@id" (printf "%s#person" site.BaseURL))
+    "isPartOf" (dict "@id" (printf "%s#website" site.BaseURL))
+  }}
+  {{ if not .Date.IsZero }}
+    {{ $article = merge $article (dict "datePublished" (.Date.Format "2006-01-02T15:04:05-07:00")) }}
+  {{ end }}
+  {{ if not .Lastmod.IsZero }}
+    {{ $article = merge $article (dict "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")) }}
+  {{ end }}
+  {{ $graph = $graph | append $article }}
+{{ end }}
+{{ $structuredData := dict "@context" "https://schema.org" "@graph" $graph }}
 <script type="application/ld+json">{{ $structuredData | jsonify | safeJS }}</script>

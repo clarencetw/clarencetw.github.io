@@ -1,6 +1,63 @@
 [more]
 other = "更多"
 
+[resume]
+other = "履歷"
+
+[official_reference]
+other = "官方資料"
+
+[credential_earned]
+other = "已取得"
+
+[core_skill]
+other = "主力"
+
+[role_scope]
+other = "職務概要"
+
+[full_responsibilities]
+other = "完整職責"
+
 [note_items]
 one = "則筆記"
 other = "則筆記"
+
+[notes_library]
+other = "筆記目錄"
+
+[notes_on_this_page]
+other = "本頁內容"
+
+[notes_search_label]
+other = "搜尋技術筆記"
+
+[notes_search_placeholder]
+other = "輸入名稱或主題"
+
+[notes_filter_results]
+other = "則符合筆記"
+
+[close_navigation]
+other = "關閉目錄"
+
+[copy_code]
+other = "複製"
+
+[code_copied]
+other = "已複製"
+
+[code_copy_error]
+other = "複製失敗"
+
+[notes_in_section]
+other = "此分類的筆記"
+
+[scroll_to_top]
+other = "回到頁首"
+
+[book_editions]
+other = "版本與 ISBN"
+
+[book_platform_links]
+other = "個平台連結"

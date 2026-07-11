@@ -15,19 +15,30 @@ company:
   url: "https://www.bronci.com.tw/"
 
 # your resume. this file path should be relative to you "static" directory
-#resume: "files/resume.pdf"
+resume: "files/zh-tw/resume.pdf"
 
 # a summary about you
-summary: "我主要做 Backend、AI Application、DevOps 與 Infrastructure，把 API、CI/CD、Cloud、On-prem、Network 與 Security 放在同一條交付鏈上處理。我的工作重點不是只把功能寫完，而是讓服務能穩定上線、可觀測、可維運，並在產品需要時整合 LLM、Speech AI、GPU Runtime、Cloud Services 與自建機房資源。目前在長問科技擔任 Senior Backend Developer / LLM Engineer，負責 Backend service、API、GitLab CI/CD、GitHub Actions、AWS CDK / IaC、Kaldi、Whisper、OpenAI / Ollama，以及 Proxmox VE、Harbor、LibreNMS、LDAP、Enterprise Wi-Fi / SD-WAN 與設備採購規劃。我也是 [AWS CDK 完全學習手冊](https://www.tenlong.com.tw/products/9789864349203) 作者，持續把 Cloud、DevOps、Linux、Network 與 AI 開發經驗整理成文章與 Open Source 專案。"
+summary: |-
+  我長期投入網站後端開發、DevOps、Linux、Cloud Architecture 與系統安全，並把 Backend、AI Application、DevOps、Cloud、On-prem、Network 與 Security 放在同一條交付鏈上處理。我的工作不只是在完成功能，也包括讓服務能穩定上線、可觀測、可維運。
+
+  現在於長問科技擔任 Senior Backend Developer / LLM Engineer。實務經驗涵蓋 Backend service 與 API、GitLab CI/CD、GitHub Actions、AWS CDK / IaC、Jest 自動化測試，以及 AWS、GCP、Azure 等 Cloud platform；AI 工作包含 Kaldi、Whisper、OpenAI / Ollama、LLM Application 與 GPU Runtime。
+
+  Infrastructure 經驗涵蓋 Cloud 與 On-prem platform、Proxmox VE / PBS、Harbor、LibreNMS、LDAP、Enterprise wired / Wi-Fi network、VPN / SD-WAN，以及設備選型與基礎設施採購規劃。
+
+  我也是 [AWS CDK 完全學習手冊](#publications) 作者，持續把開發過程中遇到的問題、解決方法與實務經驗整理成技術文章、筆記及 Open Source 專案。
 
 # You can put custom buttons to link your relevant resources.
 resourceLinks:
   - title: "工作方式"
     url: "/posts/technical-delivery-chain/"
+  - title: "精選案例"
+    url: "#projects"
+  - title: "技術筆記"
+    url: "/notes/"
   - title: "Tech Blog"
     url: "https://blog.clarence.tw/"
-  - title: "GitHub"
-    url: "https://github.com/clarencetw"
+  - title: "聯絡合作"
+    url: "mailto:me@clarence.tw"
 
 # your social links
 # give as many as you want. use font-awesome for the icons.
@@ -56,56 +67,91 @@ socialLinks:
     icon: "fab fa-facebook"
     url: "https://www.facebook.com/ClarenceTaiwan/"
 
-# Show your badges
-# You can show your verifiable certificates from https://www.credly.com.
-# You can also show a circular bar indicating the level of expertise on a certain skill
+highlights:
+  - value: "4,000+"
+    label: "曾維運站台"
+    detail: "大量網站環境的標準化維運"
+  - value: "1,900 萬"
+    label: "30 天請求量實績"
+    detail: "高流量 Hosting 公開案例"
+  - value: "Backend → Infra"
+    label: "跨層交付"
+    detail: "從 API、AI 到部署與網路"
+  - value: "AWS CDK"
+    label: "中文專書作者"
+    detail: "把 IaC 經驗整理成可學習內容"
+
+publicProofTitle: "公開紀錄"
+publicProof:
+  - title: "iThome 鐵人賽 DevOps 組冠軍"
+    detail: "第 12 屆系列「用 CDK 定義 AWS 架構」"
+    url: "https://ithelp.ithome.com.tw/articles/10237601"
+  - title: "五倍紅寶石 AWS 教育訓練"
+    detail: "12 小時雲端部署課程與實作"
+    url: "https://5xruby.com/zh/articles/2022-enginner-training"
+  - title: "《數位時代》專欄作者"
+    detail: "Backend、DevOps、Linux、Cloud Architecture 與 Security 主題"
+    url: "https://www.bnext.com.tw/author/4039"
+
+# Show selected certification badges in the primary profile section.
+certificationsTitle: "證照與認證"
+certificationsNote: "只有可驗證的官方徽章會顯示圖片；沒有官方圖片的舊制證照以名稱與能力說明呈現。"
 badges:
   - type: certification
     name: NSE 1 Network Security Associate
+    issuer: Fortinet
+    detail: "已取得｜網路威脅、資安意識與安全上網"
     url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_1"
     badge: "files/badges/1-associate-logo.png"
 
   - type: certification
     name: NSE 2 Network Security Associate
+    issuer: Fortinet
+    detail: "已取得｜安全產品類型與 Fortinet 解決方案"
     url: "https://training.fortinet.com/local/staticpage/view.php?page=nse_2"
     badge: "files/badges/2-associate-logo.png"
 
   - type: certification
     name: Key Applications
+    issuer: Certiport IC3
+    detail: "已取得｜文書、試算表、資料庫與簡報"
     url: "https://www.credly.com/org/certiport/badge/key-applications"
     badge: "https://images.credly.com/size/680x680/images/8a8f3497-95a1-4e87-8cbf-4859dd4c4a85/IC3_key_applications.png"
 
   - type: certification
     name: Computing Fundamentals
+    issuer: Certiport IC3
+    detail: "已取得｜硬體、軟體、作業系統與故障排除"
     url: "https://www.credly.com/org/certiport/badge/computing-fundamentals"
     badge: "https://images.credly.com/size/680x680/images/bf8594c5-1e2d-4e5b-ab28-09c46bd755a3/IC3_computing_fundamentals.png"
 
   - type: certification
     name: Living Online
+    issuer: Certiport IC3
+    detail: "已取得｜網路、協作、資訊評估與安全上網"
     url: "https://www.credly.com/org/certiport/badge/living-online"
     badge: "https://images.credly.com/size/680x680/images/b4c97286-a3ec-4c84-9095-518e1496869d/IC3_living_online.png"
-# - type: certification
-#   name: Microsoft Office Specialist
-#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-office-specialist-master-office-2016"
-#   badge: "https://images.credly.com/size/680x680/images/265436ac-abfb-4199-b536-0fafe5f91e78/MOS_Master.png"
 
-# - type: certification
-#   name: Microsoft Word (Office 2016)
-#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-word-office-2016"
-#   badge: "https://images.credly.com/size/680x680/images/fd092703-61db-4e9f-9c7c-2211d44ca87d/MOS_Word.png"
+  - type: certification
+    name: 國家技術士技能檢定
+    issuer: 勞動部勞動力發展署
+    detail: "已取得｜硬體裝修、網路架設、軟體應用、軟體設計與網頁設計"
+    url: "https://www.wdasec.gov.tw/"
 
-# - type: certification
-#   name: Microsoft Excel (Office 2016)
-#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-excel-office-2016"
-#   badge: "https://images.credly.com/size/680x680/images/d0790dc7-5127-4262-a492-1b60030b0114/MOS_Excel.png"
+  - type: certification
+    name: Microsoft Office 2007 Master
+    issuer: Microsoft / Certiport
+    detail: "已取得｜Word、Excel、PowerPoint、Outlook（77-601～604）"
+    url: "https://www.certiport.com/Portal/common/documentlibrary/MCAS_Master_FAQ.pdf"
 
-# - type: certification
-#   name: Microsoft PowerPoint (Office 2016)
-#   url: "https://www.credly.com/org/microsoft-certification/badge/microsoft-powerpoint-office-2016"
-#   badge: "https://images.credly.com/size/680x680/images/96c033ea-d798-45d7-9c2c-80834335706d/MOS_PowerPoint.png"
+  - type: certification
+    name: Adobe Certified Associate CS3
+    issuer: Adobe / Certiport
+    detail: "已取得｜Dreamweaver、Flash、Photoshop CS3"
+    url: "https://www.certiport.com/PORTAL/desktopdefault.aspx?page=common%2Fpagelibrary%2Fadobe_faq.html"
 
-# you can also provide color code instead of the color name
-# - type: soft-skill-indicator
-#   name: Example 1
-#   percentage: 75
-#   color: "#00adb5"
+  - type: certification
+    name: TQC 資訊技能認證
+    issuer: 電腦技能基金會
+    detail: "已取得｜網際網路與行動通訊、HTML 4.01、Windows Mobile 6"
+    url: "https://www.tqc.org.tw/"

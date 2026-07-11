@@ -1,0 +1,30 @@
+{{- $page := .page -}}
+{{- $class := .class | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $width := .width | default "1200x" -}}
+{{- $hero := $page.Page.Resources.GetMatch "hero.{jpg,jpeg,png,webp,avif,svg}" -}}
+
+{{- with $page.Params.hero -}}
+  {{- $hero = $page.Page.Resources.GetMatch . -}}
+  {{- if not $hero -}}
+    {{- $hero = resources.Get . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and $hero $width (ne $hero.MediaType.SubType "svg") (ne $hero.MediaType.SubType "gif") -}}
+  {{- $hero = $hero.Resize $width -}}
+{{- end -}}
+
+<div class="post-cover {{ $class }}">
+  {{- if $hero -}}
+    <img src="{{ $hero.RelPermalink }}" alt="" aria-hidden="true" loading="{{ $loading }}" decoding="async">
+  {{- else -}}
+    <div class="post-cover-fallback" aria-hidden="true">
+      <span class="post-cover-trace post-cover-trace-a"></span>
+      <span class="post-cover-trace post-cover-trace-b"></span>
+      <span class="post-cover-node post-cover-node-a"></span>
+      <span class="post-cover-node post-cover-node-b"></span>
+      <span class="post-cover-node post-cover-node-c"></span>
+    </div>
+  {{- end -}}
+</div>

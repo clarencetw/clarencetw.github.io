@@ -1,6 +1,7 @@
 ---
 title: 系統管理指令
 description: Linux / Unix system information、file operations、systemd 與 network diagnostics。
+lastmod: 2026-07-11T00:00:00+08:00
 weight: 320
 menu:
   notes:
@@ -9,6 +10,14 @@ menu:
     parent: notes-system
     weight: 20
 ---
+
+{{< note title="版本與安全範圍" >}}
+
+**最後檢視：2026-07-11**
+
+這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。
+
+{{< /note >}}
 
 <!-- 系統資訊查詢 -->
 {{< note title="系統資訊查詢" >}}

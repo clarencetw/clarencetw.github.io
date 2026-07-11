@@ -1,12 +1,11 @@
-<!doctype html><html lang=zh-tw><head><title>套件管理指令</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=canonical href=https://clarence.tw/notes/system/package-management/><link rel=alternate hreflang=zh-TW href=https://clarence.tw/notes/system/package-management/><link rel=alternate hreflang=en href=https://clarence.tw/en/notes/system/package-management/><link rel=alternate hreflang=ja href=https://clarence.tw/ja/notes/system/package-management/><link rel=alternate hreflang=x-default href=https://clarence.tw/notes/system/package-management/><link rel=alternate type=text/markdown href=https://clarence.tw/llms.txt title=llms.txt><link rel=stylesheet href=/application.9007eff72a6e49708c177e420c16823e09579786c216070f318ebcf7bcd87b24.css integrity="sha256-kAfv9ypuSXCMF35CDBaCPglXl4bCFgcPMY6897zYeyQ="><link rel=icon type=image/png href=/images/site/favicon_hu_cc90ce62bfdd4c5.jpeg><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://clarence.tw/#person","@type":"Person","image":"https://clarence.tw/clarencetw-og.png","jobTitle":"Senior Backend Developer / LLM \u0026 Infrastructure Engineer","name":"Clarence","sameAs":["https://github.com/clarencetw","https://www.linkedin.com/in/clarence-lin-89764448/","https://stackoverflow.com/users/19384998/clarence","https://blog.clarence.tw/","https://sitcon.org/credits/#person=clarencetw"],"url":"https://clarence.tw/"},{"@id":"https://clarence.tw/#website","@type":"WebSite","description":"Clarence 的個人網站，整理 Backend、AI / LLM、DevOps、Cloud / On-prem Infrastructure 與 Network Operations 經驗。","inLanguage":"zh-tw","name":"Clarence｜Backend、AI、DevOps 與 Infrastructure","publisher":{"@id":"https://clarence.tw/#person"},"url":"https://clarence.tw/"}]}</script><meta property="og:title" content="套件管理指令"><meta property="og:type" content="website"><meta property="og:description" content="Homebrew、APT、DNF、YUM 與其他 package manager 常用操作。"><meta property="og:image" content="https://clarence.tw/clarencetw-og.png"><meta property="og:url" content="https://clarence.tw/notes/system/package-management/"><meta name=twitter:card content="summary"><meta name=twitter:title content="套件管理指令"><meta name=twitter:description content="Homebrew、APT、DNF、YUM 與其他 package manager 常用操作。"><script integrity="sha256-DO4ugzEwhTW1Id1UIWn0gUJWaebCYOypeTit6LW4QB4=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-notes kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
+<!doctype html><html lang=zh-tw><head><title>套件管理指令</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=canonical href=https://clarence.tw/notes/system/package-management/><link rel=alternate hreflang=zh-TW href=https://clarence.tw/notes/system/package-management/><link rel=alternate hreflang=en href=https://clarence.tw/en/notes/system/package-management/><link rel=alternate hreflang=ja href=https://clarence.tw/ja/notes/system/package-management/><link rel=alternate hreflang=x-default href=https://clarence.tw/notes/system/package-management/><link rel=alternate type=text/markdown href=https://clarence.tw/llms.txt title=llms.txt><link rel=stylesheet href=/application.e0dfec6cc25b29650ed0f082d2fc1cf0fc5858bda59d22fab568a303b6c7c7c3.css integrity="sha256-4N/sbMJbKWUO0PCC0vwc8PxYWL2lnSL6tWijA7bHx8M="><link rel=icon type=image/png href=/images/site/favicon_hu_cc90ce62bfdd4c5.jpeg><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://clarence.tw/#person","@type":"Person","alternateName":["Clarence","clarencetw"],"image":"https://clarence.tw/images/author/clarence.jpg","jobTitle":"Senior Backend Developer / LLM \u0026 Infrastructure Engineer","name":"Clarence Lin","sameAs":["https://github.com/clarencetw","https://www.linkedin.com/in/clarence-lin-89764448/","https://stackoverflow.com/users/19384998/clarence","https://blog.clarence.tw/","https://www.bnext.com.tw/author/4039","https://sitcon.org/credits/#person=clarencetw"],"url":"https://clarence.tw/"},{"@id":"https://clarence.tw/#website","@type":"WebSite","description":"Clarence 的個人網站，整理 Backend、AI / LLM、DevOps、Cloud / On-prem Infrastructure 與 Network Operations 經驗。","inLanguage":"zh-tw","name":"Clarence｜Backend、AI、DevOps 與 Infrastructure","publisher":{"@id":"https://clarence.tw/#person"},"url":"https://clarence.tw/"},{"@id":"https://clarence.tw/notes/system/package-management/#article","@type":"TechArticle","author":{"@id":"https://clarence.tw/#person"},"dateModified":"2026-07-11T00:00:00+08:00","datePublished":"2026-07-11T00:00:00+08:00","description":"Homebrew、APT、DNF、YUM 與其他 package manager 常用操作。","headline":"套件管理指令","image":"https://clarence.tw/clarencetw-og.png","isPartOf":{"@id":"https://clarence.tw/#website"},"publisher":{"@id":"https://clarence.tw/#person"},"url":"https://clarence.tw/notes/system/package-management/"}]}</script><meta property="og:title" content="套件管理指令"><meta property="og:type" content="article"><meta property="og:description" content="Homebrew、APT、DNF、YUM 與其他 package manager 常用操作。"><meta property="og:image" content="https://clarence.tw/clarencetw-og.png"><meta property="og:url" content="https://clarence.tw/notes/system/package-management/"><meta property="article:published_time" content="2026-07-11T00:00:00+08:00"><meta property="article:modified_time" content="2026-07-11T00:00:00+08:00"><meta name=description content="Homebrew、APT、DNF、YUM 與其他 package manager 常用操作。"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="套件管理指令"><meta name=twitter:description content="Homebrew、APT、DNF、YUM 與其他 package manager 常用操作。"><meta name=twitter:image content="https://clarence.tw/clarencetw-og.png"><script integrity="sha256-DO4ugzEwhTW1Id1UIWn0gUJWaebCYOypeTit6LW4QB4=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-notes kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
 <i data-feather=sidebar></i>
 </button>
-<a class=navbar-brand href=/><img src=/images/site/main-logo_hu_cc90ce62bfdd4c5.jpeg id=logo alt=Logo>
-Clarence</a>
+<a class=navbar-brand href=/>Clarence</a>
 <button class="navbar-toggler navbar-light" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-label=menu>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar" id=top-nav-items><ul class="nav navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/#home>首頁</a></li><li class=nav-item><a class=nav-link href=/#about>關於</a></li><li class=nav-item><a class=nav-link href=/#skills>技能</a></li><li class=nav-item><a class=nav-link href=/#experiences>經歷</a></li><li class=nav-item><a class=nav-link href=/#education>學歷</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>更多</a><div class=dropdown-menu aria-labelledby=navbarDropdown><a class=dropdown-item href=/#projects>專案</a>
-<a class=dropdown-item href=/#publications>出版</a>
-<a class=dropdown-item href=/#featured-posts>精選文章</a></div></li><div id=top-navbar-divider></div><li class=nav-item><a class=nav-link id=blog-link href=/posts>文章</a></li><li class=nav-item><a class=nav-link id=note-link href=/notes>筆記</a></li><li class=nav-item><a class=nav-link href=https://blog.clarence.tw/>Blog</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false><span class="fi fi-tw"></span>
+<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar" id=top-nav-items><ul class="nav navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/#home>首頁</a></li><li class=nav-item><a class=nav-link href=/#about>關於</a></li><li class=nav-item><a class=nav-link href=/#projects>專案</a></li><li class=nav-item><a class=nav-link href=/#featured-posts>精選文章</a></li><li class=nav-item><a class=nav-link href=/#experiences>經歷</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>更多</a><div class=dropdown-menu aria-labelledby=navbarDropdown><a class=dropdown-item href=/#publications>出版</a>
+<a class=dropdown-item href=/#skills>技能</a>
+<a class=dropdown-item href=/#education>學歷</a></div></li><div id=top-navbar-divider></div><li class=nav-item><a class=nav-link id=blog-link href=/posts>文章</a></li><li class=nav-item><a class=nav-link id=note-link href=/notes>筆記</a></li><li class=nav-item><a class=nav-link href=https://blog.clarence.tw/>Blog</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false><span class="fi fi-tw"></span>
 繁體中文</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/notes/system/package-management><span class="fi fi-tw"></span>
 繁體中文
 </a><a class="dropdown-item nav-link languages-item" href=/en/notes/system/package-management><span class="fi fi-gb"></span>
@@ -14,232 +13,269 @@ English
 </a><a class="dropdown-item nav-link languages-item" href=/ja/notes/system/package-management><span class="fi fi-jp"></span>
 日本語</a></div></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=themeSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false><img id=navbar-theme-icon-svg class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme"></a><div id=themeMenu class="dropdown-menu dropdown-menu-icons-only" aria-labelledby=themeSelector><a class="dropdown-item nav-link" href=# data-scheme=light><img class=theme-icon src=/icons/sun-svgrepo-com.svg width=20 alt="Light Theme">
 </a><a class="dropdown-item nav-link" href=# data-scheme=dark><img class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme">
-</a><a class="dropdown-item nav-link" href=# data-scheme=system><img class=theme-icon src=/icons/computer-svgrepo-com.svg width=20 alt="System Theme"></a></div></li></ul></div></div><img src=/images/site/main-logo_hu_cc90ce62bfdd4c5.jpeg class=d-none id=main-logo alt=Logo></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=搜尋 data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/notes data-filter=all>筆記</a></li><div class=subtree><li><i data-feather=plus-circle></i><a class=list-link href=/notes/aws/> AWS</a><ul><li><a class=list-link href=/notes/aws/cdk-tips/ title="CDK 技巧">CDK 技巧</a></li><li><a class=list-link href=/notes/aws/aws-cli/ title="AWS CLI">AWS CLI</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/llm/> LLM & AI</a><ul><li><a class=list-link href=/notes/llm/ollama-setup/ title=Ollama>Ollama</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/mac/> macOS</a><ul><li><a class=list-link href=/notes/mac/launchpad/ title="macOS 指令">macOS 指令</a></li></ul></li><li><i data-feather=minus-circle></i><a class="active list-link" href=/notes/system/> 系統管理</a><ul class=active><li><a class="active list-link" href=/notes/system/package-management/ title=套件管理>套件管理</a></li><li><a class=list-link href=/notes/system/system-commands/ title=系統指令>系統指令</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/docker/> Docker</a><ul><li><a class=list-link href=/notes/docker/docker-commands/ title="Docker 指令">Docker 指令</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><article class="content container-fluid note-article" id=content><header class=note-article-header><a class=note-back-link href=/notes/system/>系統管理</a><h1>套件管理指令</h1><p>Homebrew、APT、DNF、YUM 與其他 package manager 常用操作。</p></header><div class="container-fluid note-card-holder" id=note-card-holder><div class=note-card><div class=item><h5 class=note-title><span>Homebrew (macOS)</span></h5><div class=card><div class=card-body><p><strong>安裝 Homebrew：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安裝 Homebrew</span>
-</span></span><span style=display:flex><span>/bin/bash -c <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+</a><a class="dropdown-item nav-link" href=# data-scheme=system><img class=theme-icon src=/icons/computer-svgrepo-com.svg width=20 alt="System Theme"></a></div></li></ul></div></div></nav><section class=sidebar-section id=sidebar-section data-notes-navigation data-navigation-label=筆記目錄><div class=sidebar-holder><div class=sidebar id=sidebar><div class=notes-sidebar-heading><a class=notes-sidebar-home href=/notes>筆記目錄</a>
+<button class=notes-sidebar-close type=button data-notes-close aria-label=關閉目錄>
+<span aria-hidden=true>&#215;</span></button></div><form class=notes-filter-form role=search><label class=visually-hidden for=notes-filter>搜尋技術筆記</label>
+<input type=search placeholder=輸入名稱或主題 autocomplete=off spellcheck=false id=notes-filter aria-controls=notes-menu-root aria-describedby=notes-filter-status>
+<span class=visually-hidden id=notes-filter-status data-result-label=則符合筆記 aria-live=polite aria-atomic=true></span></form><nav class=notes-page-outline aria-labelledby=notes-page-outline-title><p class=notes-page-outline-title id=notes-page-outline-title>本頁內容</p><ol><li><a href=#note-section-%e7%89%88%e6%9c%ac%e8%88%87%e5%ae%89%e5%85%a8%e7%af%84%e5%9c%8d>版本與安全範圍</a></li><li><a href=#note-section-homebrew-macos>Homebrew (macOS)</a></li><li><a href=#note-section-apt-ubuntudebian>APT (Ubuntu/Debian)</a></li><li><a href=#note-section-yumdnf-centosrhelfedora>YUM/DNF (CentOS/RHEL/Fedora)</a></li><li><a href=#note-section-snap-universal-packages>Snap (Universal Packages)</a></li><li><a href=#note-section-%e5%b8%b8%e7%94%a8%e9%96%8b%e7%99%bc%e5%b7%a5%e5%85%b7%e5%bf%ab%e9%80%9f%e5%ae%89%e8%a3%9d>常用開發工具快速安裝</a></li></ol></nav><nav class="notes-library-nav sidebar-tree" aria-label=筆記目錄><ul class="tree notes-menu" id=notes-menu-root><li class=notes-nav-group><div class=notes-nav-group-heading><a class="notes-nav-link list-link" href=/notes/aws/ data-notes-group-label>AWS</a>
+<span class=notes-nav-count aria-hidden=true>2</span></div><ul class="notes-nav-children active"><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/aws/cdk-tips/ title="CDK 技巧">CDK 技巧</a></li><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/aws/aws-cli/ title="AWS CLI">AWS CLI</a></li></ul></li><li class=notes-nav-group><div class=notes-nav-group-heading><a class="notes-nav-link list-link" href=/notes/llm/ data-notes-group-label>LLM & AI</a>
+<span class=notes-nav-count aria-hidden=true>1</span></div><ul class="notes-nav-children active"><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/llm/ollama-setup/ title=Ollama>Ollama</a></li></ul></li><li class=notes-nav-group><div class=notes-nav-group-heading><a class="notes-nav-link list-link" href=/notes/mac/ data-notes-group-label>macOS</a>
+<span class=notes-nav-count aria-hidden=true>1</span></div><ul class="notes-nav-children active"><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/mac/launchpad/ title="macOS 指令">macOS 指令</a></li></ul></li><li class="notes-nav-group is-ancestor"><div class=notes-nav-group-heading><a class="notes-nav-link list-link active" href=/notes/system/ data-notes-group-label>系統管理</a>
+<span class=notes-nav-count aria-hidden=true>2</span></div><ul class="notes-nav-children active"><li class="notes-nav-leaf is-current"><a class="notes-nav-link list-link active" href=/notes/system/package-management/ title=套件管理 aria-current=page>套件管理</a></li><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/system/system-commands/ title=系統指令>系統指令</a></li></ul></li><li class=notes-nav-group><div class=notes-nav-group-heading><a class="notes-nav-link list-link" href=/notes/docker/ data-notes-group-label>Docker</a>
+<span class=notes-nav-count aria-hidden=true>1</span></div><ul class="notes-nav-children active"><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/docker/docker-commands/ title="Docker 指令">Docker 指令</a></li></ul></li></ul></nav></div></div></section><div class=notes-nav-backdrop data-notes-backdrop aria-hidden=true></div><section class=content-section id=content-section><article class="content container-fluid note-article" id=content><header class=note-article-header><a class=note-back-link href=/notes/system/>系統管理</a><h1>套件管理指令</h1><p>Homebrew、APT、DNF、YUM 與其他 package manager 常用操作。</p></header><div class="container-fluid note-card-holder" id=note-card-holder><section class=note-card aria-labelledby=note-section-版本與安全範圍><div class=item><h2 class=note-title id=note-section-版本與安全範圍><span>版本與安全範圍</span></h2><div class=card><div class=card-body><p><strong>最後檢視：2026-07-11</strong></p><p>這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。</p></div></div></div></section><section class=note-card aria-labelledby=note-section-homebrew-macos><div class=item><h2 class=note-title id=note-section-homebrew-macos><span>Homebrew (macOS)</span></h2><div class=card><div class=card-body><p><strong>安裝 Homebrew：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝 Homebrew</span>
+</span></span><span style=display:flex><span>/bin/bash -c <span style=color:#a5d6ff>&#34;</span><span style=color:#ff7b72>$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span style=color:#ff7b72>)</span><span style=color:#a5d6ff>&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定環境變數 (Apple Silicon Mac)</span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;eval &#34;$(/opt/homebrew/bin/brew shellenv)&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定環境變數 (Apple Silicon Mac)</span>
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>&#39;eval &#34;$(/opt/homebrew/bin/brew shellenv)&#34;&#39;</span> &gt;&gt; ~/.zshrc
 </span></span><span style=display:flex><span>source ~/.zshrc
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定環境變數 (Intel Mac)</span>
-</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#39;eval &#34;$(/usr/local/bin/brew shellenv)&#34;&#39;</span> &gt;&gt; ~/.zshrc
-</span></span><span style=display:flex><span>source ~/.zshrc
-</span></span></code></pre></div><p><strong>常用指令：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安裝套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定環境變數 (Intel Mac)</span>
+</span></span><span style=display:flex><span>echo <span style=color:#a5d6ff>&#39;eval &#34;$(/usr/local/bin/brew shellenv)&#34;&#39;</span> &gt;&gt; ~/.zshrc
+</span></span><span style=display:flex><span>source ~/.zshrc</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>常用指令：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝套件</span>
 </span></span><span style=display:flex><span>brew install git
 </span></span><span style=display:flex><span>brew install node
 </span></span><span style=display:flex><span>brew install docker
 </span></span><span style=display:flex><span>brew install hugo
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 安裝 GUI 應用程式</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝 GUI 應用程式</span>
 </span></span><span style=display:flex><span>brew install --cask visual-studio-code
 </span></span><span style=display:flex><span>brew install --cask docker
 </span></span><span style=display:flex><span>brew install --cask google-chrome
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 更新套件</span>
-</span></span><span style=display:flex><span>brew update          <span style=color:#75715e># 更新 Homebrew 本身</span>
-</span></span><span style=display:flex><span>brew upgrade         <span style=color:#75715e># 更新所有套件</span>
-</span></span><span style=display:flex><span>brew upgrade git     <span style=color:#75715e># 更新特定套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 更新套件</span>
+</span></span><span style=display:flex><span>brew update          <span style=color:#8b949e;font-style:italic># 更新 Homebrew 本身</span>
+</span></span><span style=display:flex><span>brew upgrade         <span style=color:#8b949e;font-style:italic># 更新所有套件</span>
+</span></span><span style=display:flex><span>brew upgrade git     <span style=color:#8b949e;font-style:italic># 更新特定套件</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 搜尋套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 搜尋套件</span>
 </span></span><span style=display:flex><span>brew search nginx
 </span></span><span style=display:flex><span>brew search --cask chrome
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看已安裝套件</span>
 </span></span><span style=display:flex><span>brew list
 </span></span><span style=display:flex><span>brew list --cask
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 移除套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 移除套件</span>
 </span></span><span style=display:flex><span>brew uninstall git
 </span></span><span style=display:flex><span>brew uninstall --cask docker
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 清理舊版本</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 清理舊版本</span>
 </span></span><span style=display:flex><span>brew cleanup
 </span></span><span style=display:flex><span>brew cleanup git
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件資訊</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看套件資訊</span>
 </span></span><span style=display:flex><span>brew info git
-</span></span><span style=display:flex><span>brew deps git        <span style=color:#75715e># 查看相依性</span>
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>APT (Ubuntu/Debian)</span></h5><div class=card><div class=card-body><p><strong>更新套件清單：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 更新套件清單</span>
+</span></span><span style=display:flex><span>brew deps git        <span style=color:#8b949e;font-style:italic># 查看相依性</span></span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-apt-ubuntudebian><div class=item><h2 class=note-title id=note-section-apt-ubuntudebian><span>APT (Ubuntu/Debian)</span></h2><div class=card><div class=card-body><p><strong>更新套件清單：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 更新套件清單</span>
 </span></span><span style=display:flex><span>sudo apt update
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 升級所有套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 升級所有套件</span>
 </span></span><span style=display:flex><span>sudo apt upgrade
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 升級系統 (包含核心)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 升級系統 (包含核心)</span>
 </span></span><span style=display:flex><span>sudo apt full-upgrade
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 更新並升級 (一次完成)</span>
-</span></span><span style=display:flex><span>sudo apt update <span style=color:#f92672>&amp;&amp;</span> sudo apt upgrade -y
-</span></span></code></pre></div><p><strong>安裝套件：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安裝單一套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 更新並升級 (一次完成)</span>
+</span></span><span style=display:flex><span>sudo apt update <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> sudo apt upgrade -y</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>安裝套件：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝單一套件</span>
 </span></span><span style=display:flex><span>sudo apt install git
 </span></span><span style=display:flex><span>sudo apt install nginx
 </span></span><span style=display:flex><span>sudo apt install docker.io
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 安裝多個套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝多個套件</span>
 </span></span><span style=display:flex><span>sudo apt install git curl wget vim
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 安裝特定版本</span>
-</span></span><span style=display:flex><span>sudo apt install nginx<span style=color:#f92672>=</span>1.18.0-0ubuntu1
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝特定版本</span>
+</span></span><span style=display:flex><span>sudo apt install <span style=color:#79c0ff>nginx</span><span style=color:#ff7b72;font-weight:700>=</span>1.18.0-0ubuntu1
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 從 .deb 檔案安裝</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 從 .deb 檔案安裝</span>
 </span></span><span style=display:flex><span>sudo dpkg -i package.deb
-</span></span><span style=display:flex><span>sudo apt install -f  <span style=color:#75715e># 修復相依性問題</span>
-</span></span></code></pre></div><p><strong>移除套件：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 移除套件 (保留設定檔)</span>
+</span></span><span style=display:flex><span>sudo apt install -f  <span style=color:#8b949e;font-style:italic># 修復相依性問題</span></span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>移除套件：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 移除套件 (保留設定檔)</span>
 </span></span><span style=display:flex><span>sudo apt remove nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 完全移除套件 (包含設定檔)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 完全移除套件 (包含設定檔)</span>
 </span></span><span style=display:flex><span>sudo apt purge nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 移除不需要的相依套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 移除不需要的相依套件</span>
 </span></span><span style=display:flex><span>sudo apt autoremove
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 移除並清理</span>
-</span></span><span style=display:flex><span>sudo apt remove nginx <span style=color:#f92672>&amp;&amp;</span> sudo apt autoremove
-</span></span></code></pre></div><p><strong>搜尋與查詢：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 搜尋套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 移除並清理</span>
+</span></span><span style=display:flex><span>sudo apt remove nginx <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> sudo apt autoremove</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>搜尋與查詢：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 搜尋套件</span>
 </span></span><span style=display:flex><span>apt search nginx
-</span></span><span style=display:flex><span>apt search <span style=color:#e6db74>&#34;web server&#34;</span>
+</span></span><span style=display:flex><span>apt search <span style=color:#a5d6ff>&#34;web server&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件資訊</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看套件資訊</span>
 </span></span><span style=display:flex><span>apt show nginx
 </span></span><span style=display:flex><span>apt info docker.io
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看已安裝套件</span>
 </span></span><span style=display:flex><span>apt list --installed
 </span></span><span style=display:flex><span>apt list --installed | grep nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看可升級套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看可升級套件</span>
 </span></span><span style=display:flex><span>apt list --upgradable
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件相依性</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看套件相依性</span>
 </span></span><span style=display:flex><span>apt depends nginx
-</span></span><span style=display:flex><span>apt rdepends nginx  <span style=color:#75715e># 反向相依性</span>
-</span></span></code></pre></div><p><strong>清理系統：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 清理下載的套件檔案</span>
+</span></span><span style=display:flex><span>apt rdepends nginx  <span style=color:#8b949e;font-style:italic># 反向相依性</span></span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>清理系統：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 清理下載的套件檔案</span>
 </span></span><span style=display:flex><span>sudo apt clean
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 清理部分快取</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 清理部分快取</span>
 </span></span><span style=display:flex><span>sudo apt autoclean
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 修復損壞的套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 修復損壞的套件</span>
 </span></span><span style=display:flex><span>sudo apt install -f
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 重新設定套件</span>
-</span></span><span style=display:flex><span>sudo dpkg-reconfigure package-name
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>YUM/DNF (CentOS/RHEL/Fedora)</span></h5><div class=card><div class=card-body><p><strong>DNF (Fedora)：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 更新套件清單</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 重新設定套件</span>
+</span></span><span style=display:flex><span>sudo dpkg-reconfigure package-name</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-yumdnf-centosrhelfedora><div class=item><h2 class=note-title id=note-section-yumdnf-centosrhelfedora><span>YUM/DNF (CentOS/RHEL/Fedora)</span></h2><div class=card><div class=card-body><p><strong>DNF (Fedora)：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 更新套件清單</span>
 </span></span><span style=display:flex><span>sudo dnf check-update
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 升級所有套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 升級所有套件</span>
 </span></span><span style=display:flex><span>sudo dnf upgrade
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 安裝套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝套件</span>
 </span></span><span style=display:flex><span>sudo dnf install git
 </span></span><span style=display:flex><span>sudo dnf install nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 移除套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 移除套件</span>
 </span></span><span style=display:flex><span>sudo dnf remove nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 搜尋套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 搜尋套件</span>
 </span></span><span style=display:flex><span>dnf search nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件資訊</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看套件資訊</span>
 </span></span><span style=display:flex><span>dnf info nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看已安裝套件</span>
 </span></span><span style=display:flex><span>dnf list installed
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 清理快取</span>
-</span></span><span style=display:flex><span>sudo dnf clean all
-</span></span></code></pre></div><p><strong>YUM (CentOS 7)：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 更新套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 清理快取</span>
+</span></span><span style=display:flex><span>sudo dnf clean all</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>YUM (CentOS 7)：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 更新套件</span>
 </span></span><span style=display:flex><span>sudo yum update
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 安裝套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝套件</span>
 </span></span><span style=display:flex><span>sudo yum install git
-</span></span><span style=display:flex><span>sudo yum install epel-release  <span style=color:#75715e># EPEL 倉庫</span>
+</span></span><span style=display:flex><span>sudo yum install epel-release  <span style=color:#8b949e;font-style:italic># EPEL 倉庫</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 移除套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 移除套件</span>
 </span></span><span style=display:flex><span>sudo yum remove nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 搜尋套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 搜尋套件</span>
 </span></span><span style=display:flex><span>yum search nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看套件資訊</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看套件資訊</span>
 </span></span><span style=display:flex><span>yum info nginx
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看已安裝套件</span>
 </span></span><span style=display:flex><span>yum list installed
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 清理快取</span>
-</span></span><span style=display:flex><span>sudo yum clean all
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>Snap (Universal Packages)</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安裝 snapd (如果尚未安裝)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 清理快取</span>
+</span></span><span style=display:flex><span>sudo yum clean all</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-snap-universal-packages><div class=item><h2 class=note-title id=note-section-snap-universal-packages><span>Snap (Universal Packages)</span></h2><div class=card><div class=card-body><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝 snapd (如果尚未安裝)</span>
 </span></span><span style=display:flex><span>sudo apt install snapd
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 安裝 snap 套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝 snap 套件</span>
 </span></span><span style=display:flex><span>sudo snap install code --classic
 </span></span><span style=display:flex><span>sudo snap install docker
 </span></span><span style=display:flex><span>sudo snap install hugo
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看已安裝的 snap</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看已安裝的 snap</span>
 </span></span><span style=display:flex><span>snap list
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 更新 snap 套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 更新 snap 套件</span>
 </span></span><span style=display:flex><span>sudo snap refresh
 </span></span><span style=display:flex><span>sudo snap refresh code
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 移除 snap 套件</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 移除 snap 套件</span>
 </span></span><span style=display:flex><span>sudo snap remove code
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 搜尋 snap 套件</span>
-</span></span><span style=display:flex><span>snap find <span style=color:#e6db74>&#34;text editor&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 搜尋 snap 套件</span>
+</span></span><span style=display:flex><span>snap find <span style=color:#a5d6ff>&#34;text editor&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看 snap 資訊</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看 snap 資訊</span>
 </span></span><span style=display:flex><span>snap info code
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看 snap 版本</span>
-</span></span><span style=display:flex><span>snap version
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>常用開發工具快速安裝</span></h5><div class=card><div class=card-body><p><strong>Node.js 與 npm：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ubuntu/Debian</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看 snap 版本</span>
+</span></span><span style=display:flex><span>snap version</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-常用開發工具快速安裝><div class=item><h2 class=note-title id=note-section-常用開發工具快速安裝><span>常用開發工具快速安裝</span></h2><div class=card><div class=card-body><p><strong>Node.js 與 npm：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Ubuntu/Debian</span>
 </span></span><span style=display:flex><span>curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 </span></span><span style=display:flex><span>sudo apt-get install -y nodejs
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># macOS</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># macOS</span>
 </span></span><span style=display:flex><span>brew install node
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 驗證安裝</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 驗證安裝</span>
 </span></span><span style=display:flex><span>node --version
-</span></span><span style=display:flex><span>npm --version
-</span></span></code></pre></div><p><strong>Docker：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ubuntu</span>
+</span></span><span style=display:flex><span>npm --version</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>Docker：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Ubuntu</span>
 </span></span><span style=display:flex><span>sudo apt update
 </span></span><span style=display:flex><span>sudo apt install apt-transport-https ca-certificates curl software-properties-common
 </span></span><span style=display:flex><span>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-</span></span><span style=display:flex><span>sudo add-apt-repository <span style=color:#e6db74>&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span style=color:#66d9ef>$(</span>lsb_release -cs<span style=color:#66d9ef>)</span><span style=color:#e6db74> stable&#34;</span>
+</span></span><span style=display:flex><span>sudo add-apt-repository <span style=color:#a5d6ff>&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span style=color:#ff7b72>$(</span>lsb_release -cs<span style=color:#ff7b72>)</span><span style=color:#a5d6ff> stable&#34;</span>
 </span></span><span style=display:flex><span>sudo apt update
 </span></span><span style=display:flex><span>sudo apt install docker-ce
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># macOS</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># macOS</span>
 </span></span><span style=display:flex><span>brew install --cask docker
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 啟動 Docker 服務</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 啟動 Docker 服務</span>
 </span></span><span style=display:flex><span>sudo systemctl start docker
 </span></span><span style=display:flex><span>sudo systemctl enable docker
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 將使用者加入 docker 群組</span>
-</span></span><span style=display:flex><span>sudo usermod -aG docker $USER
-</span></span></code></pre></div><p><strong>Git：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ubuntu/Debian</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 將使用者加入 docker 群組</span>
+</span></span><span style=display:flex><span>sudo usermod -aG docker <span style=color:#79c0ff>$USER</span></span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>Git：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Ubuntu/Debian</span>
 </span></span><span style=display:flex><span>sudo apt install git
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># macOS</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># macOS</span>
 </span></span><span style=display:flex><span>brew install git
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定 Git</span>
-</span></span><span style=display:flex><span>git config --global user.name <span style=color:#e6db74>&#34;Your Name&#34;</span>
-</span></span><span style=display:flex><span>git config --global user.email <span style=color:#e6db74>&#34;your.email@example.com&#34;</span>
-</span></span></code></pre></div><p><strong>Hugo：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Ubuntu (從 GitHub 下載)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定 Git</span>
+</span></span><span style=display:flex><span>git config --global user.name <span style=color:#a5d6ff>&#34;Your Name&#34;</span>
+</span></span><span style=display:flex><span>git config --global user.email <span style=color:#a5d6ff>&#34;your.email@example.com&#34;</span></span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>Hugo：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Ubuntu (從 GitHub 下載)</span>
 </span></span><span style=display:flex><span>wget https://github.com/gohugoio/hugo/releases/download/v0.148.1/hugo_extended_0.148.1_linux-amd64.deb
 </span></span><span style=display:flex><span>sudo dpkg -i hugo_extended_0.148.1_linux-amd64.deb
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># macOS</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># macOS</span>
 </span></span><span style=display:flex><span>brew install hugo
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 驗證安裝</span>
-</span></span><span style=display:flex><span>hugo version
-</span></span></code></pre></div></div></div></div></div></div></article></section></div><footer id=footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-start"><div class="col-md-4 col-sm-12"><h5>導覽列</h5><ul><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#about>關於</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#skills>技能</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#experiences>經歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#education>學歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#projects>專案</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#publications>出版</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#featured-posts>精選文章</a></li><li class=nav-item><a class=smooth-scroll href=https://blog.clarence.tw/>Blog</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>聯絡方式:</h5><ul><li><a href=mailto:me@clarence.tw target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>me@clarence.tw</span></a></li><li><a href=https://github.com/clarencetw target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>clarencetw</span></a></li><li><a href=https://www.linkedin.com/in/clarencetw target=_blank rel=noopener><span><i class="fab fa-linkedin"></i></span> <span>Clarence</span></a></li><li><a href=https://stackoverflow.com/users/19384998/clarence target=_blank rel=noopener><span><i class="fab fa-stack-overflow"></i></span> <span>Clarence</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-start"><div class=col-md-4><a id=theme href=https://github.com/hugo-toha/toha target=_blank rel=noopener><img src=/images/theme-logo_hu_be7279b2506ad3f1.png alt="Toha Theme Logo">
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 驗證安裝</span>
+</span></span><span style=display:flex><span>hugo version</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section></div></article></section></div><footer id=footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-start"><div class="col-md-4 col-sm-12"><h5>導覽列</h5><ul><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#about>關於</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#projects>專案</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#featured-posts>精選文章</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#experiences>經歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#publications>出版</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#skills>技能</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#education>學歷</a></li><li class=nav-item><a class=smooth-scroll href=https://blog.clarence.tw/>Blog</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>聯絡方式:</h5><ul><li><a href=mailto:me@clarence.tw target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>me@clarence.tw</span></a></li><li><a href=https://github.com/clarencetw target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>clarencetw</span></a></li><li><a href=https://www.linkedin.com/in/clarence-lin-89764448 target=_blank rel=noopener><span><i class="fab fa-linkedin"></i></span> <span>Clarence</span></a></li><li><a href=https://stackoverflow.com/users/19384998/clarence target=_blank rel=noopener><span><i class="fab fa-stack-overflow"></i></span> <span>Clarence</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-start"><div class=col-md-4><a id=theme href=https://github.com/hugo-toha/toha target=_blank rel=noopener><img src=/images/theme-logo_hu_be7279b2506ad3f1.png alt="Toha Theme Logo">
 Toha</a></div><div class="col-md-4 text-center">© 2026 Copyright.</div><div class="col-md-4 text-end"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/application.471867b0aca6b1f97b5f37bea594c807f29f3a69dae4473a1a5e8c5c0f3ac347.js integrity="sha256-RxhnsKymsfl7Xze+pZTIB/KfOmna5Ec6Gl6MXA86w0c=" defer></script><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=clarencetw data-description="Support me on Buy me a coffee!" data-message="Buy me a coffee!" data-color=#FFDD00 data-position=Right data-x_margin=10 data-y_margin=18></script></body></html>
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/application.d7254d0755fdc4e4ed3ddb2317782cd0919dcd799077af5c57c184a08061e1bf.js integrity="sha256-1yVNB1X9xOTtPdsjF3gs0JGdzXmQd69cV8GEoIBh4b8=" defer></script><script src=/scripts/site-accessibility.min.f8dfd6d058f6672cf7610685ce22c14cd8b12dd28ef9a00d34a269aac539c902.js integrity="sha256-+N/W0Fj2Zyz3YQaFziLBTNixLdKO+aANNKJpqsU5yQI="></script></body></html>

@@ -1,12 +1,11 @@
-<!doctype html><html lang=zh-tw><head><title>AWS CLI 基礎指令</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=canonical href=https://clarence.tw/notes/aws/aws-cli/><link rel=alternate hreflang=zh-TW href=https://clarence.tw/notes/aws/aws-cli/><link rel=alternate hreflang=en href=https://clarence.tw/en/notes/aws/aws-cli/><link rel=alternate hreflang=ja href=https://clarence.tw/ja/notes/aws/aws-cli/><link rel=alternate hreflang=x-default href=https://clarence.tw/notes/aws/aws-cli/><link rel=alternate type=text/markdown href=https://clarence.tw/llms.txt title=llms.txt><link rel=stylesheet href=/application.9007eff72a6e49708c177e420c16823e09579786c216070f318ebcf7bcd87b24.css integrity="sha256-kAfv9ypuSXCMF35CDBaCPglXl4bCFgcPMY6897zYeyQ="><link rel=icon type=image/png href=/images/site/favicon_hu_cc90ce62bfdd4c5.jpeg><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://clarence.tw/#person","@type":"Person","image":"https://clarence.tw/clarencetw-og.png","jobTitle":"Senior Backend Developer / LLM \u0026 Infrastructure Engineer","name":"Clarence","sameAs":["https://github.com/clarencetw","https://www.linkedin.com/in/clarence-lin-89764448/","https://stackoverflow.com/users/19384998/clarence","https://blog.clarence.tw/","https://sitcon.org/credits/#person=clarencetw"],"url":"https://clarence.tw/"},{"@id":"https://clarence.tw/#website","@type":"WebSite","description":"Clarence 的個人網站，整理 Backend、AI / LLM、DevOps、Cloud / On-prem Infrastructure 與 Network Operations 經驗。","inLanguage":"zh-tw","name":"Clarence｜Backend、AI、DevOps 與 Infrastructure","publisher":{"@id":"https://clarence.tw/#person"},"url":"https://clarence.tw/"}]}</script><meta property="og:title" content="AWS CLI 基礎指令"><meta property="og:type" content="website"><meta property="og:description" content="AWS CLI 安裝、profile、S3、EC2 與 IAM 常用操作。"><meta property="og:image" content="https://clarence.tw/clarencetw-og.png"><meta property="og:url" content="https://clarence.tw/notes/aws/aws-cli/"><meta name=twitter:card content="summary"><meta name=twitter:title content="AWS CLI 基礎指令"><meta name=twitter:description content="AWS CLI 安裝、profile、S3、EC2 與 IAM 常用操作。"><script integrity="sha256-DO4ugzEwhTW1Id1UIWn0gUJWaebCYOypeTit6LW4QB4=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-notes kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
+<!doctype html><html lang=zh-tw><head><title>AWS CLI 基礎指令</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=canonical href=https://clarence.tw/notes/aws/aws-cli/><link rel=alternate hreflang=zh-TW href=https://clarence.tw/notes/aws/aws-cli/><link rel=alternate hreflang=en href=https://clarence.tw/en/notes/aws/aws-cli/><link rel=alternate hreflang=ja href=https://clarence.tw/ja/notes/aws/aws-cli/><link rel=alternate hreflang=x-default href=https://clarence.tw/notes/aws/aws-cli/><link rel=alternate type=text/markdown href=https://clarence.tw/llms.txt title=llms.txt><link rel=stylesheet href=/application.e0dfec6cc25b29650ed0f082d2fc1cf0fc5858bda59d22fab568a303b6c7c7c3.css integrity="sha256-4N/sbMJbKWUO0PCC0vwc8PxYWL2lnSL6tWijA7bHx8M="><link rel=icon type=image/png href=/images/site/favicon_hu_cc90ce62bfdd4c5.jpeg><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@id":"https://clarence.tw/#person","@type":"Person","alternateName":["Clarence","clarencetw"],"image":"https://clarence.tw/images/author/clarence.jpg","jobTitle":"Senior Backend Developer / LLM \u0026 Infrastructure Engineer","name":"Clarence Lin","sameAs":["https://github.com/clarencetw","https://www.linkedin.com/in/clarence-lin-89764448/","https://stackoverflow.com/users/19384998/clarence","https://blog.clarence.tw/","https://www.bnext.com.tw/author/4039","https://sitcon.org/credits/#person=clarencetw"],"url":"https://clarence.tw/"},{"@id":"https://clarence.tw/#website","@type":"WebSite","description":"Clarence 的個人網站，整理 Backend、AI / LLM、DevOps、Cloud / On-prem Infrastructure 與 Network Operations 經驗。","inLanguage":"zh-tw","name":"Clarence｜Backend、AI、DevOps 與 Infrastructure","publisher":{"@id":"https://clarence.tw/#person"},"url":"https://clarence.tw/"},{"@id":"https://clarence.tw/notes/aws/aws-cli/#article","@type":"TechArticle","author":{"@id":"https://clarence.tw/#person"},"dateModified":"2026-07-11T00:00:00+08:00","datePublished":"2026-07-11T00:00:00+08:00","description":"AWS CLI 安裝、profile、S3、EC2 與 IAM 常用操作。","headline":"AWS CLI 基礎指令","image":"https://clarence.tw/clarencetw-og.png","isPartOf":{"@id":"https://clarence.tw/#website"},"publisher":{"@id":"https://clarence.tw/#person"},"url":"https://clarence.tw/notes/aws/aws-cli/"}]}</script><meta property="og:title" content="AWS CLI 基礎指令"><meta property="og:type" content="article"><meta property="og:description" content="AWS CLI 安裝、profile、S3、EC2 與 IAM 常用操作。"><meta property="og:image" content="https://clarence.tw/clarencetw-og.png"><meta property="og:url" content="https://clarence.tw/notes/aws/aws-cli/"><meta property="article:published_time" content="2026-07-11T00:00:00+08:00"><meta property="article:modified_time" content="2026-07-11T00:00:00+08:00"><meta name=description content="AWS CLI 安裝、profile、S3、EC2 與 IAM 常用操作。"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="AWS CLI 基礎指令"><meta name=twitter:description content="AWS CLI 安裝、profile、S3、EC2 與 IAM 常用操作。"><meta name=twitter:image content="https://clarence.tw/clarencetw-og.png"><script integrity="sha256-DO4ugzEwhTW1Id1UIWn0gUJWaebCYOypeTit6LW4QB4=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-notes kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
 <i data-feather=sidebar></i>
 </button>
-<a class=navbar-brand href=/><img src=/images/site/main-logo_hu_cc90ce62bfdd4c5.jpeg id=logo alt=Logo>
-Clarence</a>
+<a class=navbar-brand href=/>Clarence</a>
 <button class="navbar-toggler navbar-light" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-label=menu>
-<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar" id=top-nav-items><ul class="nav navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/#home>首頁</a></li><li class=nav-item><a class=nav-link href=/#about>關於</a></li><li class=nav-item><a class=nav-link href=/#skills>技能</a></li><li class=nav-item><a class=nav-link href=/#experiences>經歷</a></li><li class=nav-item><a class=nav-link href=/#education>學歷</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>更多</a><div class=dropdown-menu aria-labelledby=navbarDropdown><a class=dropdown-item href=/#projects>專案</a>
-<a class=dropdown-item href=/#publications>出版</a>
-<a class=dropdown-item href=/#featured-posts>精選文章</a></div></li><div id=top-navbar-divider></div><li class=nav-item><a class=nav-link id=blog-link href=/posts>文章</a></li><li class=nav-item><a class=nav-link id=note-link href=/notes>筆記</a></li><li class=nav-item><a class=nav-link href=https://blog.clarence.tw/>Blog</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false><span class="fi fi-tw"></span>
+<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar" id=top-nav-items><ul class="nav navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/#home>首頁</a></li><li class=nav-item><a class=nav-link href=/#about>關於</a></li><li class=nav-item><a class=nav-link href=/#projects>專案</a></li><li class=nav-item><a class=nav-link href=/#featured-posts>精選文章</a></li><li class=nav-item><a class=nav-link href=/#experiences>經歷</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false>更多</a><div class=dropdown-menu aria-labelledby=navbarDropdown><a class=dropdown-item href=/#publications>出版</a>
+<a class=dropdown-item href=/#skills>技能</a>
+<a class=dropdown-item href=/#education>學歷</a></div></li><div id=top-navbar-divider></div><li class=nav-item><a class=nav-link id=blog-link href=/posts>文章</a></li><li class=nav-item><a class=nav-link id=note-link href=/notes>筆記</a></li><li class=nav-item><a class=nav-link href=https://blog.clarence.tw/>Blog</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=languageSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false><span class="fi fi-tw"></span>
 繁體中文</a><div class=dropdown-menu aria-labelledby=languageSelector><a class="dropdown-item nav-link languages-item" href=/notes/aws/aws-cli><span class="fi fi-tw"></span>
 繁體中文
 </a><a class="dropdown-item nav-link languages-item" href=/en/notes/aws/aws-cli><span class="fi fi-gb"></span>
@@ -14,260 +13,295 @@ English
 </a><a class="dropdown-item nav-link languages-item" href=/ja/notes/aws/aws-cli><span class="fi fi-jp"></span>
 日本語</a></div></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=themeSelector role=button data-bs-toggle=dropdown aria-haspopup=true aria-expanded=false><img id=navbar-theme-icon-svg class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme"></a><div id=themeMenu class="dropdown-menu dropdown-menu-icons-only" aria-labelledby=themeSelector><a class="dropdown-item nav-link" href=# data-scheme=light><img class=theme-icon src=/icons/sun-svgrepo-com.svg width=20 alt="Light Theme">
 </a><a class="dropdown-item nav-link" href=# data-scheme=dark><img class=theme-icon src=/icons/moon-svgrepo-com.svg width=20 alt="Dark Theme">
-</a><a class="dropdown-item nav-link" href=# data-scheme=system><img class=theme-icon src=/icons/computer-svgrepo-com.svg width=20 alt="System Theme"></a></div></li></ul></div></div><img src=/images/site/main-logo_hu_cc90ce62bfdd4c5.jpeg class=d-none id=main-logo alt=Logo></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/search><input type=text name=keyword placeholder=搜尋 data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/notes data-filter=all>筆記</a></li><div class=subtree><li><i data-feather=minus-circle></i><a class="active list-link" href=/notes/aws/> AWS</a><ul class=active><li><a class=list-link href=/notes/aws/cdk-tips/ title="CDK 技巧">CDK 技巧</a></li><li><a class="active list-link" href=/notes/aws/aws-cli/ title="AWS CLI">AWS CLI</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/llm/> LLM & AI</a><ul><li><a class=list-link href=/notes/llm/ollama-setup/ title=Ollama>Ollama</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/mac/> macOS</a><ul><li><a class=list-link href=/notes/mac/launchpad/ title="macOS 指令">macOS 指令</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/system/> 系統管理</a><ul><li><a class=list-link href=/notes/system/package-management/ title=套件管理>套件管理</a></li><li><a class=list-link href=/notes/system/system-commands/ title=系統指令>系統指令</a></li></ul></li><li><i data-feather=plus-circle></i><a class=list-link href=/notes/docker/> Docker</a><ul><li><a class=list-link href=/notes/docker/docker-commands/ title="Docker 指令">Docker 指令</a></li></ul></li></div></ul></div></div></div></section><section class=content-section id=content-section><article class="content container-fluid note-article" id=content><header class=note-article-header><a class=note-back-link href=/notes/aws/>AWS</a><h1>AWS CLI 基礎指令</h1><p>AWS CLI 安裝、profile、S3、EC2 與 IAM 常用操作。</p></header><div class="container-fluid note-card-holder" id=note-card-holder><div class=note-card><div class=item><h5 class=note-title><span>AWS CLI 安裝與設定</span></h5><div class=card><div class=card-body><p><strong>安裝 AWS CLI：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># macOS (使用 Homebrew)</span>
+</a><a class="dropdown-item nav-link" href=# data-scheme=system><img class=theme-icon src=/icons/computer-svgrepo-com.svg width=20 alt="System Theme"></a></div></li></ul></div></div></nav><section class=sidebar-section id=sidebar-section data-notes-navigation data-navigation-label=筆記目錄><div class=sidebar-holder><div class=sidebar id=sidebar><div class=notes-sidebar-heading><a class=notes-sidebar-home href=/notes>筆記目錄</a>
+<button class=notes-sidebar-close type=button data-notes-close aria-label=關閉目錄>
+<span aria-hidden=true>&#215;</span></button></div><form class=notes-filter-form role=search><label class=visually-hidden for=notes-filter>搜尋技術筆記</label>
+<input type=search placeholder=輸入名稱或主題 autocomplete=off spellcheck=false id=notes-filter aria-controls=notes-menu-root aria-describedby=notes-filter-status>
+<span class=visually-hidden id=notes-filter-status data-result-label=則符合筆記 aria-live=polite aria-atomic=true></span></form><nav class=notes-page-outline aria-labelledby=notes-page-outline-title><p class=notes-page-outline-title id=notes-page-outline-title>本頁內容</p><ol><li><a href=#note-section-%e7%89%88%e6%9c%ac%e8%88%87%e5%ae%89%e5%85%a8%e7%af%84%e5%9c%8d>版本與安全範圍</a></li><li><a href=#note-section-aws-cli-%e5%ae%89%e8%a3%9d%e8%88%87%e8%a8%ad%e5%ae%9a>AWS CLI 安裝與設定</a></li><li><a href=#note-section-s3-%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c>S3 基本操作</a></li><li><a href=#note-section-s3-%e9%80%b2%e9%9a%8e%e6%93%8d%e4%bd%9c>S3 進階操作</a></li><li><a href=#note-section-s3-%e9%9d%9c%e6%85%8b%e7%b6%b2%e7%ab%99%e8%a8%97%e7%ae%a1>S3 靜態網站託管</a></li><li><a href=#note-section-s3-%e7%94%9f%e5%91%bd%e9%80%b1%e6%9c%9f%e7%ae%a1%e7%90%86>S3 生命週期管理</a></li><li><a href=#note-section-s3-%e7%89%88%e6%9c%ac%e6%8e%a7%e5%88%b6>S3 版本控制</a></li><li><a href=#note-section-s3-%e8%b7%a8%e5%8d%80%e5%9f%9f%e8%a4%87%e8%a3%bd>S3 跨區域複製</a></li><li><a href=#note-section-%e5%b8%b8%e7%94%a8-s3-%e6%8a%80%e5%b7%a7>常用 S3 技巧</a></li></ol></nav><nav class="notes-library-nav sidebar-tree" aria-label=筆記目錄><ul class="tree notes-menu" id=notes-menu-root><li class="notes-nav-group is-ancestor"><div class=notes-nav-group-heading><a class="notes-nav-link list-link active" href=/notes/aws/ data-notes-group-label>AWS</a>
+<span class=notes-nav-count aria-hidden=true>2</span></div><ul class="notes-nav-children active"><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/aws/cdk-tips/ title="CDK 技巧">CDK 技巧</a></li><li class="notes-nav-leaf is-current"><a class="notes-nav-link list-link active" href=/notes/aws/aws-cli/ title="AWS CLI" aria-current=page>AWS CLI</a></li></ul></li><li class=notes-nav-group><div class=notes-nav-group-heading><a class="notes-nav-link list-link" href=/notes/llm/ data-notes-group-label>LLM & AI</a>
+<span class=notes-nav-count aria-hidden=true>1</span></div><ul class="notes-nav-children active"><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/llm/ollama-setup/ title=Ollama>Ollama</a></li></ul></li><li class=notes-nav-group><div class=notes-nav-group-heading><a class="notes-nav-link list-link" href=/notes/mac/ data-notes-group-label>macOS</a>
+<span class=notes-nav-count aria-hidden=true>1</span></div><ul class="notes-nav-children active"><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/mac/launchpad/ title="macOS 指令">macOS 指令</a></li></ul></li><li class=notes-nav-group><div class=notes-nav-group-heading><a class="notes-nav-link list-link" href=/notes/system/ data-notes-group-label>系統管理</a>
+<span class=notes-nav-count aria-hidden=true>2</span></div><ul class="notes-nav-children active"><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/system/package-management/ title=套件管理>套件管理</a></li><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/system/system-commands/ title=系統指令>系統指令</a></li></ul></li><li class=notes-nav-group><div class=notes-nav-group-heading><a class="notes-nav-link list-link" href=/notes/docker/ data-notes-group-label>Docker</a>
+<span class=notes-nav-count aria-hidden=true>1</span></div><ul class="notes-nav-children active"><li class=notes-nav-leaf><a class="notes-nav-link list-link" href=/notes/docker/docker-commands/ title="Docker 指令">Docker 指令</a></li></ul></li></ul></nav></div></div></section><div class=notes-nav-backdrop data-notes-backdrop aria-hidden=true></div><section class=content-section id=content-section><article class="content container-fluid note-article" id=content><header class=note-article-header><a class=note-back-link href=/notes/aws/>AWS</a><h1>AWS CLI 基礎指令</h1><p>AWS CLI 安裝、profile、S3、EC2 與 IAM 常用操作。</p></header><div class="container-fluid note-card-holder" id=note-card-holder><section class=note-card aria-labelledby=note-section-版本與安全範圍><div class=item><h2 class=note-title id=note-section-版本與安全範圍><span>版本與安全範圍</span></h2><div class=card><div class=card-body><p><strong>最後檢視：2026-07-11</strong></p><p>這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。</p></div></div></div></section><section class=note-card aria-labelledby=note-section-aws-cli-安裝與設定><div class=item><h2 class=note-title id=note-section-aws-cli-安裝與設定><span>AWS CLI 安裝與設定</span></h2><div class=card><div class=card-body><p><strong>安裝 AWS CLI：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># macOS (使用 Homebrew)</span>
 </span></span><span style=display:flex><span>brew install awscli
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Ubuntu/Debian</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Ubuntu/Debian</span>
 </span></span><span style=display:flex><span>sudo apt update
 </span></span><span style=display:flex><span>sudo apt install awscli
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用 pip 安裝</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用 pip 安裝</span>
 </span></span><span style=display:flex><span>pip install awscli
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 安裝 AWS CLI v2 (推薦)</span>
-</span></span><span style=display:flex><span>curl <span style=color:#e6db74>&#34;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&#34;</span> -o <span style=color:#e6db74>&#34;awscliv2.zip&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 安裝 AWS CLI v2 (推薦)</span>
+</span></span><span style=display:flex><span>curl <span style=color:#a5d6ff>&#34;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&#34;</span> -o <span style=color:#a5d6ff>&#34;awscliv2.zip&#34;</span>
 </span></span><span style=display:flex><span>unzip awscliv2.zip
 </span></span><span style=display:flex><span>sudo ./aws/install
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 驗證安裝</span>
-</span></span><span style=display:flex><span>aws --version
-</span></span></code></pre></div><p><strong>設定 AWS CLI：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 基本設定</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 驗證安裝</span>
+</span></span><span style=display:flex><span>aws --version</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>設定 AWS CLI：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 基本設定</span>
 </span></span><span style=display:flex><span>aws configure
-</span></span><span style=display:flex><span><span style=color:#75715e># 會提示輸入：</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># AWS Access Key ID</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># AWS Secret Access Key  </span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Default region name (例如: us-east-1)</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># Default output format (json/text/table)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 會提示輸入：</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># AWS Access Key ID</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># AWS Secret Access Key  </span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Default region name (例如: us-east-1)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Default output format (json/text/table)</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定特定 profile</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定特定 profile</span>
 </span></span><span style=display:flex><span>aws configure --profile myprofile
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看設定</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看設定</span>
 </span></span><span style=display:flex><span>aws configure list
 </span></span><span style=display:flex><span>aws configure list --profile myprofile
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定單一參數</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定單一參數</span>
 </span></span><span style=display:flex><span>aws configure set region ap-northeast-1
-</span></span><span style=display:flex><span>aws configure set output json --profile myprofile
-</span></span></code></pre></div><p><strong>環境變數設定：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 設定環境變數</span>
-</span></span><span style=display:flex><span>export AWS_ACCESS_KEY_ID<span style=color:#f92672>=</span>your_access_key
-</span></span><span style=display:flex><span>export AWS_SECRET_ACCESS_KEY<span style=color:#f92672>=</span>your_secret_key
-</span></span><span style=display:flex><span>export AWS_DEFAULT_REGION<span style=color:#f92672>=</span>us-east-1
-</span></span><span style=display:flex><span>export AWS_PROFILE<span style=color:#f92672>=</span>myprofile
+</span></span><span style=display:flex><span>aws configure set output json --profile myprofile</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>環境變數設定：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定環境變數</span>
+</span></span><span style=display:flex><span>export <span style=color:#79c0ff>AWS_ACCESS_KEY_ID</span><span style=color:#ff7b72;font-weight:700>=</span>your_access_key
+</span></span><span style=display:flex><span>export <span style=color:#79c0ff>AWS_SECRET_ACCESS_KEY</span><span style=color:#ff7b72;font-weight:700>=</span>your_secret_key
+</span></span><span style=display:flex><span>export <span style=color:#79c0ff>AWS_DEFAULT_REGION</span><span style=color:#ff7b72;font-weight:700>=</span>us-east-1
+</span></span><span style=display:flex><span>export <span style=color:#79c0ff>AWS_PROFILE</span><span style=color:#ff7b72;font-weight:700>=</span>myprofile
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看當前設定</span>
-</span></span><span style=display:flex><span>aws sts get-caller-identity
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>S3 基本操作</span></h5><div class=card><div class=card-body><p><strong>Bucket 管理：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 列出所有 buckets</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看當前設定</span>
+</span></span><span style=display:flex><span>aws sts get-caller-identity</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-s3-基本操作><div class=item><h2 class=note-title id=note-section-s3-基本操作><span>S3 基本操作</span></h2><div class=card><div class=card-body><p><strong>Bucket 管理：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 列出所有 buckets</span>
 </span></span><span style=display:flex><span>aws s3 ls
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 建立 bucket</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 建立 bucket</span>
 </span></span><span style=display:flex><span>aws s3 mb s3://my-bucket-name
 </span></span><span style=display:flex><span>aws s3 mb s3://my-bucket-name --region ap-northeast-1
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 刪除空的 bucket</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 刪除空的 bucket</span>
 </span></span><span style=display:flex><span>aws s3 rb s3://my-bucket-name
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 刪除 bucket 及所有內容</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 刪除 bucket 及所有內容</span>
 </span></span><span style=display:flex><span>aws s3 rb s3://my-bucket-name --force
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看 bucket 內容</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看 bucket 內容</span>
 </span></span><span style=display:flex><span>aws s3 ls s3://my-bucket-name
-</span></span><span style=display:flex><span>aws s3 ls s3://my-bucket-name/folder/ --recursive
-</span></span></code></pre></div><p><strong>檔案上傳與下載：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 上傳單一檔案</span>
+</span></span><span style=display:flex><span>aws s3 ls s3://my-bucket-name/folder/ --recursive</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>檔案上傳與下載：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 上傳單一檔案</span>
 </span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/
 </span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/folder/
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 下載單一檔案</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 下載單一檔案</span>
 </span></span><span style=display:flex><span>aws s3 cp s3://my-bucket-name/file.txt ./
 </span></span><span style=display:flex><span>aws s3 cp s3://my-bucket-name/folder/file.txt ./downloads/
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 上傳整個目錄</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 上傳整個目錄</span>
 </span></span><span style=display:flex><span>aws s3 cp ./local-folder s3://my-bucket-name/remote-folder --recursive
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 下載整個目錄</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 下載整個目錄</span>
 </span></span><span style=display:flex><span>aws s3 cp s3://my-bucket-name/remote-folder ./local-folder --recursive
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 同步目錄 (只上傳變更的檔案)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 同步目錄 (只上傳變更的檔案)</span>
 </span></span><span style=display:flex><span>aws s3 sync ./local-folder s3://my-bucket-name/remote-folder
 </span></span><span style=display:flex><span>aws s3 sync s3://my-bucket-name/remote-folder ./local-folder
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 移動檔案</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 移動檔案</span>
 </span></span><span style=display:flex><span>aws s3 mv file.txt s3://my-bucket-name/
-</span></span><span style=display:flex><span>aws s3 mv s3://my-bucket-name/old-file.txt s3://my-bucket-name/new-file.txt
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>S3 進階操作</span></h5><div class=card><div class=card-body><p><strong>檔案管理：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 刪除檔案</span>
+</span></span><span style=display:flex><span>aws s3 mv s3://my-bucket-name/old-file.txt s3://my-bucket-name/new-file.txt</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-s3-進階操作><div class=item><h2 class=note-title id=note-section-s3-進階操作><span>S3 進階操作</span></h2><div class=card><div class=card-body><p><strong>檔案管理：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 刪除檔案</span>
 </span></span><span style=display:flex><span>aws s3 rm s3://my-bucket-name/file.txt
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 刪除目錄及所有內容</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 刪除目錄及所有內容</span>
 </span></span><span style=display:flex><span>aws s3 rm s3://my-bucket-name/folder --recursive
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定檔案權限 (ACL)</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定檔案權限 (ACL)</span>
 </span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/ --acl public-read
 </span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/ --acl private
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定 Content-Type</span>
-</span></span><span style=display:flex><span>aws s3 cp index.html s3://my-bucket-name/ --content-type <span style=color:#e6db74>&#34;text/html&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定 Content-Type</span>
+</span></span><span style=display:flex><span>aws s3 cp index.html s3://my-bucket-name/ --content-type <span style=color:#a5d6ff>&#34;text/html&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定快取控制</span>
-</span></span><span style=display:flex><span>aws s3 cp image.jpg s3://my-bucket-name/ --cache-control <span style=color:#e6db74>&#34;max-age=3600&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定快取控制</span>
+</span></span><span style=display:flex><span>aws s3 cp image.jpg s3://my-bucket-name/ --cache-control <span style=color:#a5d6ff>&#34;max-age=3600&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定 metadata</span>
-</span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/ --metadata <span style=color:#e6db74>&#34;key1=value1,key2=value2&#34;</span>
-</span></span></code></pre></div><p><strong>過濾與排除：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 只同步特定檔案類型</span>
-</span></span><span style=display:flex><span>aws s3 sync ./folder s3://my-bucket-name/ --include <span style=color:#e6db74>&#34;*.jpg&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定 metadata</span>
+</span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/ --metadata <span style=color:#a5d6ff>&#34;key1=value1,key2=value2&#34;</span></span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>過濾與排除：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 只同步特定檔案類型</span>
+</span></span><span style=display:flex><span>aws s3 sync ./folder s3://my-bucket-name/ --include <span style=color:#a5d6ff>&#34;*.jpg&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 排除特定檔案</span>
-</span></span><span style=display:flex><span>aws s3 sync ./folder s3://my-bucket-name/ --exclude <span style=color:#e6db74>&#34;*.tmp&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 排除特定檔案</span>
+</span></span><span style=display:flex><span>aws s3 sync ./folder s3://my-bucket-name/ --exclude <span style=color:#a5d6ff>&#34;*.tmp&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 複合條件</span>
-</span></span><span style=display:flex><span>aws s3 sync ./folder s3://my-bucket-name/ --exclude <span style=color:#e6db74>&#34;*&#34;</span> --include <span style=color:#e6db74>&#34;*.jpg&#34;</span> --include <span style=color:#e6db74>&#34;*.png&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 複合條件</span>
+</span></span><span style=display:flex><span>aws s3 sync ./folder s3://my-bucket-name/ --exclude <span style=color:#a5d6ff>&#34;*&#34;</span> --include <span style=color:#a5d6ff>&#34;*.jpg&#34;</span> --include <span style=color:#a5d6ff>&#34;*.png&#34;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 刪除本地不存在的檔案</span>
-</span></span><span style=display:flex><span>aws s3 sync ./folder s3://my-bucket-name/ --delete
-</span></span></code></pre></div><p><strong>檔案資訊查詢：</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 查看檔案詳細資訊</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 刪除本地不存在的檔案</span>
+</span></span><span style=display:flex><span>aws s3 sync ./folder s3://my-bucket-name/ --delete</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div><p><strong>檔案資訊查詢：</strong></p><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看檔案詳細資訊</span>
 </span></span><span style=display:flex><span>aws s3api head-object --bucket my-bucket-name --key file.txt
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看檔案大小和數量</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看檔案大小和數量</span>
 </span></span><span style=display:flex><span>aws s3 ls s3://my-bucket-name --recursive --human-readable --summarize
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看特定前綴的檔案</span>
-</span></span><span style=display:flex><span>aws s3 ls s3://my-bucket-name/logs/ --recursive
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>S3 靜態網站託管</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 啟用靜態網站託管</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看特定前綴的檔案</span>
+</span></span><span style=display:flex><span>aws s3 ls s3://my-bucket-name/logs/ --recursive</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-s3-靜態網站託管><div class=item><h2 class=note-title id=note-section-s3-靜態網站託管><span>S3 靜態網站託管</span></h2><div class=card><div class=card-body><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 啟用靜態網站託管</span>
 </span></span><span style=display:flex><span>aws s3 website s3://my-bucket-name --index-document index.html --error-document error.html
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 上傳網站檔案並設定公開讀取</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 上傳網站檔案並設定公開讀取</span>
 </span></span><span style=display:flex><span>aws s3 sync ./website s3://my-bucket-name --acl public-read
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定 bucket policy (允許公開讀取)</span>
-</span></span><span style=display:flex><span>cat &gt; bucket-policy.json <span style=color:#e6db74>&lt;&lt; EOF
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Version&#34;: &#34;2012-10-17&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Statement&#34;: [
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Sid&#34;: &#34;PublicReadGetObject&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Effect&#34;: &#34;Allow&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Principal&#34;: &#34;*&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Action&#34;: &#34;s3:GetObject&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Resource&#34;: &#34;arn:aws:s3:::my-bucket-name/*&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        }
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    ]
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定 bucket policy (允許公開讀取)</span>
+</span></span><span style=display:flex><span>cat &gt; bucket-policy.json <span style=color:#a5d6ff>&lt;&lt; EOF
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>{
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    &#34;Version&#34;: &#34;2012-10-17&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    &#34;Statement&#34;: [
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Sid&#34;: &#34;PublicReadGetObject&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Effect&#34;: &#34;Allow&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Principal&#34;: &#34;*&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Action&#34;: &#34;s3:GetObject&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Resource&#34;: &#34;arn:aws:s3:::my-bucket-name/*&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        }
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    ]
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>}
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>EOF</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>aws s3api put-bucket-policy --bucket my-bucket-name --policy file://bucket-policy.json
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看網站設定</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看網站設定</span>
 </span></span><span style=display:flex><span>aws s3api get-bucket-website --bucket my-bucket-name
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 停用網站託管</span>
-</span></span><span style=display:flex><span>aws s3api delete-bucket-website --bucket my-bucket-name
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>S3 生命週期管理</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 建立生命週期規則</span>
-</span></span><span style=display:flex><span>cat &gt; lifecycle.json <span style=color:#e6db74>&lt;&lt; EOF
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Rules&#34;: [
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;ID&#34;: &#34;DeleteOldFiles&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Status&#34;: &#34;Enabled&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Filter&#34;: {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                &#34;Prefix&#34;: &#34;logs/&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            },
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Expiration&#34;: {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                &#34;Days&#34;: 30
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            }
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        },
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;ID&#34;: &#34;TransitionToIA&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Status&#34;: &#34;Enabled&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Transitions&#34;: [
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                    &#34;Days&#34;: 30,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                    &#34;StorageClass&#34;: &#34;STANDARD_IA&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                },
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                    &#34;Days&#34;: 90,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                    &#34;StorageClass&#34;: &#34;GLACIER&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                }
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            ]
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        }
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    ]
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 停用網站託管</span>
+</span></span><span style=display:flex><span>aws s3api delete-bucket-website --bucket my-bucket-name</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-s3-生命週期管理><div class=item><h2 class=note-title id=note-section-s3-生命週期管理><span>S3 生命週期管理</span></h2><div class=card><div class=card-body><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 建立生命週期規則</span>
+</span></span><span style=display:flex><span>cat &gt; lifecycle.json <span style=color:#a5d6ff>&lt;&lt; EOF
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>{
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    &#34;Rules&#34;: [
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;ID&#34;: &#34;DeleteOldFiles&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Status&#34;: &#34;Enabled&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Filter&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                &#34;Prefix&#34;: &#34;logs/&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            },
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Expiration&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                &#34;Days&#34;: 30
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            }
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        },
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;ID&#34;: &#34;TransitionToIA&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Status&#34;: &#34;Enabled&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Transitions&#34;: [
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                    &#34;Days&#34;: 30,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                    &#34;StorageClass&#34;: &#34;STANDARD_IA&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                },
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                    &#34;Days&#34;: 90,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                    &#34;StorageClass&#34;: &#34;GLACIER&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                }
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            ]
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        }
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    ]
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>}
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>EOF</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 套用生命週期規則</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 套用生命週期規則</span>
 </span></span><span style=display:flex><span>aws s3api put-bucket-lifecycle-configuration --bucket my-bucket-name --lifecycle-configuration file://lifecycle.json
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看生命週期規則</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看生命週期規則</span>
 </span></span><span style=display:flex><span>aws s3api get-bucket-lifecycle-configuration --bucket my-bucket-name
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 刪除生命週期規則</span>
-</span></span><span style=display:flex><span>aws s3api delete-bucket-lifecycle --bucket my-bucket-name
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>S3 版本控制</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 啟用版本控制</span>
-</span></span><span style=display:flex><span>aws s3api put-bucket-versioning --bucket my-bucket-name --versioning-configuration Status<span style=color:#f92672>=</span>Enabled
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 刪除生命週期規則</span>
+</span></span><span style=display:flex><span>aws s3api delete-bucket-lifecycle --bucket my-bucket-name</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-s3-版本控制><div class=item><h2 class=note-title id=note-section-s3-版本控制><span>S3 版本控制</span></h2><div class=card><div class=card-body><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 啟用版本控制</span>
+</span></span><span style=display:flex><span>aws s3api put-bucket-versioning --bucket my-bucket-name --versioning-configuration <span style=color:#79c0ff>Status</span><span style=color:#ff7b72;font-weight:700>=</span>Enabled
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看版本控制狀態</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看版本控制狀態</span>
 </span></span><span style=display:flex><span>aws s3api get-bucket-versioning --bucket my-bucket-name
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 列出檔案的所有版本</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 列出檔案的所有版本</span>
 </span></span><span style=display:flex><span>aws s3api list-object-versions --bucket my-bucket-name --prefix file.txt
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 下載特定版本的檔案</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 下載特定版本的檔案</span>
 </span></span><span style=display:flex><span>aws s3api get-object --bucket my-bucket-name --key file.txt --version-id VERSION_ID output.txt
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 刪除特定版本</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 刪除特定版本</span>
 </span></span><span style=display:flex><span>aws s3api delete-object --bucket my-bucket-name --key file.txt --version-id VERSION_ID
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 暫停版本控制</span>
-</span></span><span style=display:flex><span>aws s3api put-bucket-versioning --bucket my-bucket-name --versioning-configuration Status<span style=color:#f92672>=</span>Suspended
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>S3 跨區域複製</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 建立複製規則</span>
-</span></span><span style=display:flex><span>cat &gt; replication.json <span style=color:#e6db74>&lt;&lt; EOF
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>{
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Role&#34;: &#34;arn:aws:iam::ACCOUNT_ID:role/replication-role&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Rules&#34;: [
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;ID&#34;: &#34;ReplicateToBackup&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Status&#34;: &#34;Enabled&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Filter&#34;: {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                &#34;Prefix&#34;: &#34;important/&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            },
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;Destination&#34;: {
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                &#34;Bucket&#34;: &#34;arn:aws:s3:::backup-bucket-name&#34;,
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>                &#34;StorageClass&#34;: &#34;STANDARD_IA&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>            }
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>        }
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>    ]
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 暫停版本控制</span>
+</span></span><span style=display:flex><span>aws s3api put-bucket-versioning --bucket my-bucket-name --versioning-configuration <span style=color:#79c0ff>Status</span><span style=color:#ff7b72;font-weight:700>=</span>Suspended</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-s3-跨區域複製><div class=item><h2 class=note-title id=note-section-s3-跨區域複製><span>S3 跨區域複製</span></h2><div class=card><div class=card-body><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 建立複製規則</span>
+</span></span><span style=display:flex><span>cat &gt; replication.json <span style=color:#a5d6ff>&lt;&lt; EOF
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>{
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    &#34;Role&#34;: &#34;arn:aws:iam::ACCOUNT_ID:role/replication-role&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    &#34;Rules&#34;: [
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;ID&#34;: &#34;ReplicateToBackup&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Status&#34;: &#34;Enabled&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Filter&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                &#34;Prefix&#34;: &#34;important/&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            },
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            &#34;Destination&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                &#34;Bucket&#34;: &#34;arn:aws:s3:::backup-bucket-name&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>                &#34;StorageClass&#34;: &#34;STANDARD_IA&#34;
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>            }
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>        }
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>    ]
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>}
+</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>EOF</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 套用複製規則</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 套用複製規則</span>
 </span></span><span style=display:flex><span>aws s3api put-bucket-replication --bucket my-bucket-name --replication-configuration file://replication.json
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 查看複製規則</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 查看複製規則</span>
 </span></span><span style=display:flex><span>aws s3api get-bucket-replication --bucket my-bucket-name
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 刪除複製規則</span>
-</span></span><span style=display:flex><span>aws s3api delete-bucket-replication --bucket my-bucket-name
-</span></span></code></pre></div></div></div></div></div><div class=note-card><div class=item><h5 class=note-title><span>常用 S3 技巧</span></h5><div class=card><div class=card-body><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 產生預簽名 URL (臨時存取連結)</span>
-</span></span><span style=display:flex><span>aws s3 presign s3://my-bucket-name/file.txt --expires-in <span style=color:#ae81ff>3600</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 刪除複製規則</span>
+</span></span><span style=display:flex><span>aws s3api delete-bucket-replication --bucket my-bucket-name</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section><section class=note-card aria-labelledby=note-section-常用-s3-技巧><div class=item><h2 class=note-title id=note-section-常用-s3-技巧><span>常用 S3 技巧</span></h2><div class=card><div class=card-body><div class=code-shell data-code-shell><div class=code-shell__toolbar><span class=code-shell__language data-code-language>BASH</span>
+<button class=code-shell__copy type=button data-copy-code data-copy-label=複製 data-copied-label=已複製 data-copy-error-label=複製失敗 aria-label=複製>
+<i class="fa-regular fa-copy" aria-hidden=true></i>
+<span data-copy-button-label>複製</span></button></div><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 產生預簽名 URL (臨時存取連結)</span>
+</span></span><span style=display:flex><span>aws s3 presign s3://my-bucket-name/file.txt --expires-in <span style=color:#a5d6ff>3600</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 計算檔案 MD5 雜湊值</span>
-</span></span><span style=display:flex><span>aws s3api head-object --bucket my-bucket-name --key file.txt --query <span style=color:#e6db74>&#39;ETag&#39;</span> --output text
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 計算檔案 MD5 雜湊值</span>
+</span></span><span style=display:flex><span>aws s3api head-object --bucket my-bucket-name --key file.txt --query <span style=color:#a5d6ff>&#39;ETag&#39;</span> --output text
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 批次操作 (使用 xargs)</span>
-</span></span><span style=display:flex><span>aws s3 ls s3://my-bucket-name --recursive | grep <span style=color:#e6db74>&#34;.log&#34;</span> | awk <span style=color:#e6db74>&#39;{print $4}&#39;</span> | xargs -I <span style=color:#f92672>{}</span> aws s3 rm s3://my-bucket-name/<span style=color:#f92672>{}</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 批次操作 (使用 xargs)</span>
+</span></span><span style=display:flex><span>aws s3 ls s3://my-bucket-name --recursive | grep <span style=color:#a5d6ff>&#34;.log&#34;</span> | awk <span style=color:#a5d6ff>&#39;{print $4}&#39;</span> | xargs -I <span style=color:#ff7b72;font-weight:700>{}</span> aws s3 rm s3://my-bucket-name/<span style=color:#ff7b72;font-weight:700>{}</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 監控傳輸進度</span>
-</span></span><span style=display:flex><span>aws s3 cp large-file.zip s3://my-bucket-name/ --cli-read-timeout <span style=color:#ae81ff>0</span> --cli-write-timeout <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 監控傳輸進度</span>
+</span></span><span style=display:flex><span>aws s3 cp large-file.zip s3://my-bucket-name/ --cli-read-timeout <span style=color:#a5d6ff>0</span> --cli-write-timeout <span style=color:#a5d6ff>0</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 設定多部分上傳閾值</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 設定多部分上傳閾值</span>
 </span></span><span style=display:flex><span>aws configure set default.s3.multipart_threshold 64MB
-</span></span><span style=display:flex><span>aws configure set default.s3.max_concurrent_requests <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>aws configure set default.s3.max_concurrent_requests <span style=color:#a5d6ff>10</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 使用不同的 storage class</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 使用不同的 storage class</span>
 </span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/ --storage-class STANDARD_IA
 </span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/ --storage-class GLACIER
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e># 加密上傳</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 加密上傳</span>
 </span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/ --sse AES256
-</span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/ --sse aws:kms --sse-kms-key-id alias/my-key
-</span></span></code></pre></div></div></div></div></div></div></article></section></div><footer id=footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-start"><div class="col-md-4 col-sm-12"><h5>導覽列</h5><ul><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#about>關於</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#skills>技能</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#experiences>經歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#education>學歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#projects>專案</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#publications>出版</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#featured-posts>精選文章</a></li><li class=nav-item><a class=smooth-scroll href=https://blog.clarence.tw/>Blog</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>聯絡方式:</h5><ul><li><a href=mailto:me@clarence.tw target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>me@clarence.tw</span></a></li><li><a href=https://github.com/clarencetw target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>clarencetw</span></a></li><li><a href=https://www.linkedin.com/in/clarencetw target=_blank rel=noopener><span><i class="fab fa-linkedin"></i></span> <span>Clarence</span></a></li><li><a href=https://stackoverflow.com/users/19384998/clarence target=_blank rel=noopener><span><i class="fab fa-stack-overflow"></i></span> <span>Clarence</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-start"><div class=col-md-4><a id=theme href=https://github.com/hugo-toha/toha target=_blank rel=noopener><img src=/images/theme-logo_hu_be7279b2506ad3f1.png alt="Toha Theme Logo">
+</span></span><span style=display:flex><span>aws s3 cp file.txt s3://my-bucket-name/ --sse aws:kms --sse-kms-key-id alias/my-key</span></span></code></pre></div><span class="visually-hidden code-shell__status" data-copy-status role=status aria-live=polite aria-atomic=true></span></div></div></div></div></section></div></article></section></div><footer id=footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-start"><div class="col-md-4 col-sm-12"><h5>導覽列</h5><ul><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#about>關於</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#projects>專案</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#featured-posts>精選文章</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#experiences>經歷</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#publications>出版</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#skills>技能</a></li><li class=nav-item><a class=smooth-scroll href=https://clarence.tw/#education>學歷</a></li><li class=nav-item><a class=smooth-scroll href=https://blog.clarence.tw/>Blog</a></li></ul></div><div class="col-md-4 col-sm-12"><h5>聯絡方式:</h5><ul><li><a href=mailto:me@clarence.tw target=_blank rel=noopener><span><i class="fas fa-envelope"></i></span> <span>me@clarence.tw</span></a></li><li><a href=https://github.com/clarencetw target=_blank rel=noopener><span><i class="fab fa-github"></i></span> <span>clarencetw</span></a></li><li><a href=https://www.linkedin.com/in/clarence-lin-89764448 target=_blank rel=noopener><span><i class="fab fa-linkedin"></i></span> <span>Clarence</span></a></li><li><a href=https://stackoverflow.com/users/19384998/clarence target=_blank rel=noopener><span><i class="fab fa-stack-overflow"></i></span> <span>Clarence</span></a></li></ul></div></div></div><hr><div class=container><div class="row text-start"><div class=col-md-4><a id=theme href=https://github.com/hugo-toha/toha target=_blank rel=noopener><img src=/images/theme-logo_hu_be7279b2506ad3f1.png alt="Toha Theme Logo">
 Toha</a></div><div class="col-md-4 text-center">© 2026 Copyright.</div><div class="col-md-4 text-end"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
-<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/application.471867b0aca6b1f97b5f37bea594c807f29f3a69dae4473a1a5e8c5c0f3ac347.js integrity="sha256-RxhnsKymsfl7Xze+pZTIB/KfOmna5Ec6Gl6MXA86w0c=" defer></script><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=clarencetw data-description="Support me on Buy me a coffee!" data-message="Buy me a coffee!" data-color=#FFDD00 data-position=Right data-x_margin=10 data-y_margin=18></script></body></html>
+<img src=/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/application.d7254d0755fdc4e4ed3ddb2317782cd0919dcd799077af5c57c184a08061e1bf.js integrity="sha256-1yVNB1X9xOTtPdsjF3gs0JGdzXmQd69cV8GEoIBh4b8=" defer></script><script src=/scripts/site-accessibility.min.f8dfd6d058f6672cf7610685ce22c14cd8b12dd28ef9a00d34a269aac539c902.js integrity="sha256-+N/W0Fj2Zyz3YQaFziLBTNixLdKO+aANNKJpqsU5yQI="></script></body></html>

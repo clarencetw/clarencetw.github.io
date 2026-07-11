@@ -1,4 +1,434 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/</link><description>Recent content on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Wed, 08 Jul 2026 00:30:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>私の技術的な仕事の進め方：Backend、AI、DevOps、Infrastructure</title><link>https://clarence.tw/ja/posts/technical-delivery-chain/</link><pubDate>Wed, 08 Jul 2026 00:30:00 +0800</pubDate><guid>https://clarence.tw/ja/posts/technical-delivery-chain/</guid><description>&lt;p&gt;私は Backend、AI、DevOps、Infrastructure、Network を別々の領域としてではなく、実際に動くプロダクトを支えるひとつの delivery chain として扱っています。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/</link><description>Recent content on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS CDK Tips</title><link>https://clarence.tw/ja/notes/aws/cdk-tips/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/aws/cdk-tips/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-日常コマンド"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-日常コマンド"&gt;&lt;span&gt;日常コマンド&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk init app --language typescript
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk synth
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk diff
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk deploy
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk deploy --all
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk destroy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;deployment 前には &lt;code&gt;cdk diff&lt;/code&gt; を確認し、環境ごとの値は construct code に直接書かない。&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-environment-と-tags"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-environment-と-tags"&gt;&lt;span&gt;Environment と tags&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;TYPESCRIPT&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;const&lt;/span&gt; env &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; account: &lt;span style="color:#ff7b72"&gt;process.env.CDK_DEFAULT_ACCOUNT&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; region: &lt;span style="color:#ff7b72"&gt;process.env.CDK_DEFAULT_REGION&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Tags.&lt;span style="color:#ff7b72"&gt;of&lt;/span&gt;(&lt;span style="color:#ff7b72"&gt;this&lt;/span&gt;).add(&lt;span style="color:#a5d6ff"&gt;&amp;#34;Project&amp;#34;&lt;/span&gt;, &lt;span style="color:#a5d6ff"&gt;&amp;#34;example&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Tags.&lt;span style="color:#ff7b72"&gt;of&lt;/span&gt;(&lt;span style="color:#ff7b72"&gt;this&lt;/span&gt;).add(&lt;span style="color:#a5d6ff"&gt;&amp;#34;Environment&amp;#34;&lt;/span&gt;, &lt;span style="color:#a5d6ff"&gt;&amp;#34;production&amp;#34;&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;tags は ownership、cost review、incident tracing に使う。&lt;/p&gt;</description></item><item><title>AWS CLI クイックリファレンス</title><link>https://clarence.tw/ja/notes/aws/aws-cli/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/aws/aws-cli/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-install-と-configure"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-install-と-configure"&gt;&lt;span&gt;Install と configure&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install awscli
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws --version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure --profile production
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure list --profile production
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws sts get-caller-identity --profile production&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;production や customer account では named profile を使う。長期 credential を shell history や共有メモに残さない。&lt;/p&gt;</description></item><item><title>macOS 管理コマンド</title><link>https://clarence.tw/ja/notes/mac/launchpad/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/mac/launchpad/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-launchpad-と-dock"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-launchpad-と-dock"&gt;&lt;span&gt;Launchpad と Dock&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock ResetLaunchPad -bool true
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock autohide -bool true
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock tilesize -int &lt;span style="color:#a5d6ff"&gt;50&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;Dock の変更は、多くの場合 &lt;code&gt;killall Dock&lt;/code&gt; 後に反映される。&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-finder-と-screenshots"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-finder-と-screenshots"&gt;&lt;span&gt;Finder と screenshots&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.finder AppleShowAllFiles -bool true
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Finder
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.screencapture location ~/Desktop/Screenshots
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.screencapture type -string &lt;span style="color:#a5d6ff"&gt;&amp;#34;png&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall SystemUIServer&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;screenshot location を変更する前に target folder を作成する。&lt;/p&gt;</description></item><item><title>Ollama 設定と使い方</title><link>https://clarence.tw/ja/notes/llm/ollama-setup/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-install-と実行"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-install-と実行"&gt;&lt;span&gt;Install と実行&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.1:8b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;prompt testing では小さめの model から始め、workflow が安定してから大きな model に移る。&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-model-commands"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-model-commands"&gt;&lt;span&gt;Model commands&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run gemma2:9b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama rm gemma2:9b&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;script では model name を明示する。default model の変更で結果が変わるのを避けるため。&lt;/p&gt;</description></item><item><title>パッケージ管理コマンド</title><link>https://clarence.tw/ja/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-homebrew"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-homebrew"&gt;&lt;span&gt;Homebrew&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install git node hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install --cask visual-studio-code
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew outdated
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew cleanup&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;active development 用の machine では、広範囲 upgrade 前に &lt;code&gt;brew outdated&lt;/code&gt; を確認する。&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-apt"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-apt"&gt;&lt;span&gt;APT&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install git curl wget vim
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt list --installed
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt list --upgradable
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt autoremove&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;production host では kernel や runtime updates の範囲を確認してから適用する。&lt;/p&gt;</description></item><item><title>システム管理コマンド</title><link>https://clarence.tw/ja/notes/system/system-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/system/system-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-system-inspection"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-system-inspection"&gt;&lt;span&gt;System inspection&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uname -a
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat /etc/os-release
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lscpu
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;free -h
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df -h
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsblk
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip addr show
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip route show&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;server incident を記録するときは、この基本情報から取得する。&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-files-と-logs"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-files-と-logs"&gt;&lt;span&gt;Files と logs&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls -la
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;find /path -name &lt;span style="color:#a5d6ff"&gt;&amp;#34;*.log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;du -sh /path/*
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tail -f /var/log/syslog
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grep &lt;span style="color:#a5d6ff"&gt;&amp;#34;error&amp;#34;&lt;/span&gt; /var/log/syslog
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -czf archive.tar.gz folder/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;live logs には &lt;code&gt;tail -f&lt;/code&gt;、過去ログの絞り込みには &lt;code&gt;grep&lt;/code&gt; を使う。&lt;/p&gt;</description></item><item><title>Docker コマンド</title><link>https://clarence.tw/ja/notes/docker/docker-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/docker/docker-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-images-と-containers"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-images-と-containers"&gt;&lt;span&gt;Images と containers&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull nginx:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker images
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps -a
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d --name web -p 8080:80 nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker exec -it web sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker logs -f web
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker stop web
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rm web&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;長く動かす container には名前を付ける。logs や operational commands が読みやすくなる。&lt;/p&gt;</description></item><item><title>私の技術的な仕事の進め方：Backend、AI、DevOps、Infrastructure</title><link>https://clarence.tw/ja/posts/technical-delivery-chain/</link><pubDate>Wed, 08 Jul 2026 00:30:00 +0800</pubDate><guid>https://clarence.tw/ja/posts/technical-delivery-chain/</guid><description>&lt;p&gt;私は Backend、AI、DevOps、Infrastructure、Network を別々の領域としてではなく、実際に動くプロダクトを支えるひとつの delivery chain として扱っています。&lt;/p&gt;
 &lt;p&gt;機能を使える状態にするには API が安定している必要があります。サービスを更新するには CI/CD が必要です。長期運用するには monitoring、backup、network、security が必要です。LLM、Speech AI、GPU runtime を使う場合も、model integration は deployable、observable、operable でなければなりません。&lt;/p&gt;
 &lt;h2 id="主に扱う領域"&gt;主に扱う領域&lt;/h2&gt;
 &lt;h3 id="backend--api"&gt;Backend / API&lt;/h3&gt;
@@ -7,21 +437,12 @@
 &lt;h3 id="llm--speech-ai"&gt;LLM / Speech AI&lt;/h3&gt;
 &lt;p&gt;2022 年から LLM と Speech AI を実際のプロダクト workflow に組み込んでいます。単に model API を呼ぶだけではなく、prompt、batch processing、local model、GPU runtime、OpenAI API、Ollama、Kaldi、Whisper、既存 backend workflow を接続します。&lt;/p&gt;
 &lt;p&gt;入力データの整理、出力の検証、retry、cost control、local model と cloud API の選択、runtime environment の再現性を重視します。&lt;/p&gt;</description></item><item><title>GitLab CI/CD 設定ガイド</title><link>https://clarence.tw/ja/posts/gitlab-cicd-complete-guide/</link><pubDate>Tue, 30 Jan 2024 15:00:00 +0800</pubDate><guid>https://clarence.tw/ja/posts/gitlab-cicd-complete-guide/</guid><description>&lt;p&gt;Enterprise DevOps の実務では、code submission から production deployment までの GitLab CI/CD workflow を構築・運用します。ここではよく使う configuration pattern を整理します。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;**2026年7月11日確認：**サンプルを GitLab Runner authentication token、Node.js 24 LTS、Docker 29.6.1 に更新しました。version と security default は変わるため、production で使う前に &lt;a href="https://docs.gitlab.com/runner/register/" target="_blank" rel="noopener"&gt;GitLab Runner 登録ドキュメント&lt;/a&gt;、&lt;a href="https://nodejs.org/en/about/previous-releases" target="_blank" rel="noopener"&gt;Node.js release status&lt;/a&gt;、&lt;a href="https://docs.docker.com/engine/release-notes/29/" target="_blank" rel="noopener"&gt;Docker Engine release notes&lt;/a&gt; を確認し、team で検証した version または digest に固定してください。&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id="gitlab-runner"&gt;GitLab Runner&lt;/h2&gt;
 &lt;p&gt;Self-hosted runner は、private network、private registry、特定 runtime environment が必要な場合に便利です。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Install GitLab Runner&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -L &lt;span style="color:#e6db74"&gt;&amp;#34;https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh&amp;#34;&lt;/span&gt; | sudo bash
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install gitlab-runner
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Register runner&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo gitlab-runner register &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --url &lt;span style="color:#e6db74"&gt;&amp;#34;https://gitlab.company.com/&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --registration-token &lt;span style="color:#e6db74"&gt;&amp;#34;YOUR_TOKEN&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --executor &lt;span style="color:#e6db74"&gt;&amp;#34;docker&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --docker-image &lt;span style="color:#e6db74"&gt;&amp;#34;alpine:latest&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --description &lt;span style="color:#e6db74"&gt;&amp;#34;Production Runner&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --tag-list &lt;span style="color:#e6db74"&gt;&amp;#34;production,docker&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Docker build を行う場合、runner の security と build requirements を合わせて設計する必要があります。Docker-in-Docker は便利ですが、privileged mode のリスクも理解して使うべきです。&lt;/p&gt;</description></item><item><title>高トラフィック Web Hosting 運用</title><link>https://clarence.tw/ja/posts/hosting-high-bandwidth-web-server/</link><pubDate>Sat, 21 Jan 2023 02:00:00 +0800</pubDate><guid>https://clarence.tw/ja/posts/hosting-high-bandwidth-web-server/</guid><description>&lt;p&gt;私は 4000 以上の Web サイトを載せる high-traffic hosting environment を長期運用した経験があります。この種の仕事は Web server を立てるだけではなく、capacity planning、monitoring、updates、security、DNS / CDN、incident response、日常運用の標準化が必要です。&lt;/p&gt;
+&lt;p&gt;まず GitLab の project、group、または Admin Area で runner を作成し、tags や protected scope を設定してから、&lt;code&gt;glrt-&lt;/code&gt; で始まる runner authentication token を取得します。旧 registration token workflow は deprecated で、GitLab instance ですでに無効化されている場合があります。&lt;/p&gt;</description></item><item><title>高トラフィック Web Hosting 運用</title><link>https://clarence.tw/ja/posts/hosting-high-bandwidth-web-server/</link><pubDate>Sat, 21 Jan 2023 02:00:00 +0800</pubDate><guid>https://clarence.tw/ja/posts/hosting-high-bandwidth-web-server/</guid><description>&lt;p&gt;私は 4000 以上の Web サイトを載せる high-traffic hosting environment を長期運用した経験があります。この種の仕事は Web server を立てるだけではなく、capacity planning、monitoring、updates、security、DNS / CDN、incident response、日常運用の標準化が必要です。&lt;/p&gt;
 &lt;p&gt;規模が大きくなるほど、設定変更、証明書、更新、alert 対応を人の記憶だけに頼ることはリスクになります。&lt;/p&gt;
 &lt;h3 id="cloudflare-30-day-metrics"&gt;Cloudflare 30-day Metrics&lt;/h3&gt;
 &lt;p&gt;1 か月の traffic 例：&lt;/p&gt;
@@ -40,237 +461,4 @@ class="center"
 &lt;p&gt;大量サイトの環境では、ページを手で開いて確認するだけでは足りません。System resources、Web server status、certificates、DNS、HTTP response、error rate、traffic trend を monitoring に入れる必要があります。&lt;/p&gt;
 &lt;p&gt;Monitoring は alert のためだけではなく、問題が application、network、CDN、DNS、storage、upstream service のどこにあるか判断するための材料です。&lt;/p&gt;
 &lt;h3 id="updates-は-controlled-に行う"&gt;Updates は controlled に行う&lt;/h3&gt;
-&lt;p&gt;Hosting environment では security update が必要ですが、同時に既存サイトを壊してはいけません。更新は段階的に行い、観測でき、rollback できる状態にする必要があります。&lt;/p&gt;</description></item><item><title>AWS CDK Tips</title><link>https://clarence.tw/ja/notes/aws/cdk-tips/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/aws/cdk-tips/</guid><description>&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;日常コマンド&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk init app --language typescript
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk synth
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk diff
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk deploy
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk deploy --all
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk destroy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;deployment 前には &lt;code&gt;cdk diff&lt;/code&gt; を確認し、環境ごとの値は construct code に直接書かない。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Environment と tags&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;env&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;account&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;process.env.CDK_DEFAULT_ACCOUNT&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;region&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;process.env.CDK_DEFAULT_REGION&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;Tags&lt;/span&gt;.&lt;span style="color:#66d9ef"&gt;of&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;this&lt;/span&gt;).&lt;span style="color:#a6e22e"&gt;add&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Project&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;example&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;Tags&lt;/span&gt;.&lt;span style="color:#66d9ef"&gt;of&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;this&lt;/span&gt;).&lt;span style="color:#a6e22e"&gt;add&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Environment&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;production&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;tags は ownership、cost review、incident tracing に使う。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>AWS CLI クイックリファレンス</title><link>https://clarence.tw/ja/notes/aws/aws-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/aws/aws-cli/</guid><description>&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Install と configure&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install awscli
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws --version
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure --profile production
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure list --profile production
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws sts get-caller-identity --profile production
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;production や customer account では named profile を使う。長期 credential を shell history や共有メモに残さない。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;S3 operations&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3 ls
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3 ls s3://example-bucket --recursive --human-readable --summarize
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3 cp ./dist s3://example-bucket/dist --recursive
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3 sync ./public s3://example-bucket --delete
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3api head-object --bucket example-bucket --key path/file.txt
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;sync --delete&lt;/code&gt; は、その bucket path が deployment target 専用だと確認してから使う。&lt;/p&gt;</description></item><item><title>macOS 管理コマンド</title><link>https://clarence.tw/ja/notes/mac/launchpad/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/mac/launchpad/</guid><description>&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Launchpad と Dock&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock ResetLaunchPad -bool true
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock autohide -bool true
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock tilesize -int &lt;span style="color:#ae81ff"&gt;50&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Dock の変更は、多くの場合 &lt;code&gt;killall Dock&lt;/code&gt; 後に反映される。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Finder と screenshots&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.finder AppleShowAllFiles -bool true
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Finder
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.screencapture location ~/Desktop/Screenshots
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.screencapture type -string &lt;span style="color:#e6db74"&gt;&amp;#34;png&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall SystemUIServer
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;screenshot location を変更する前に target folder を作成する。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;System と network checks&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sw_vers
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;system_profiler SPHardwareDataType
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sysctl -n machdep.cpu.brand_string
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df -h
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;networksetup -listallhardwareports
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;networksetup -getinfo &lt;span style="color:#e6db74"&gt;&amp;#34;Wi-Fi&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;troubleshooting や migration 前の Mac 記録に使える。&lt;/p&gt;</description></item><item><title>Ollama 設定と使い方</title><link>https://clarence.tw/ja/notes/llm/ollama-setup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/llm/ollama-setup/</guid><description>&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Install と実行&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.1:8b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;prompt testing では小さめの model から始め、workflow が安定してから大きな model に移る。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Model commands&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama rm gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;script では model name を明示する。default model の変更で結果が変わるのを避けるため。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Local API&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl http://localhost:11434/api/generate &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -d &lt;span style="color:#e6db74"&gt;&amp;#39;{&amp;#34;model&amp;#34;:&amp;#34;gemma2:9b&amp;#34;,&amp;#34;prompt&amp;#34;:&amp;#34;Summarize this text.&amp;#34;,&amp;#34;stream&amp;#34;:false}&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;local API は private experiment に便利だが、production では timeout、retry、logging boundary が必要。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>パッケージ管理コマンド</title><link>https://clarence.tw/ja/notes/system/package-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/system/package-management/</guid><description>&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Homebrew&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew update
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install git node hugo
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install --cask visual-studio-code
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew list
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew outdated
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew upgrade
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew cleanup
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;active development 用の machine では、広範囲 upgrade 前に &lt;code&gt;brew outdated&lt;/code&gt; を確認する。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;APT&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt update
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt upgrade
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install git curl wget vim
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt list --installed
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;apt list --upgradable
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt autoremove
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;production host では kernel や runtime updates の範囲を確認してから適用する。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;DNF と YUM&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo dnf check-update
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo dnf install git nginx
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo dnf upgrade
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo yum check-update
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo yum install git nginx
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo yum update
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;distribution native の package manager を使い、service scripts と dependencies の一貫性を保つ。&lt;/p&gt;</description></item><item><title>システム管理コマンド</title><link>https://clarence.tw/ja/notes/system/system-commands/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/system/system-commands/</guid><description>&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;System inspection&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uname -a
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat /etc/os-release
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lscpu
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;free -h
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df -h
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsblk
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip addr show
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip route show
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;server incident を記録するときは、この基本情報から取得する。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Files と logs&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls -la
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;find /path -name &lt;span style="color:#e6db74"&gt;&amp;#34;*.log&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;du -sh /path/*
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tail -f /var/log/syslog
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grep &lt;span style="color:#e6db74"&gt;&amp;#34;error&amp;#34;&lt;/span&gt; /var/log/syslog
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -czf archive.tar.gz folder/
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;live logs には &lt;code&gt;tail -f&lt;/code&gt;、過去ログの絞り込みには &lt;code&gt;grep&lt;/code&gt; を使う。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;systemd と networking&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl status nginx
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl restart nginx
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo journalctl -u nginx -f
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ping -c &lt;span style="color:#ae81ff"&gt;4&lt;/span&gt; 8.8.8.8
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ss -tuln
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsof -i :80
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -I https://example.com
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;service state、listening ports、external HTTP path の順で確認する。&lt;/p&gt;</description></item><item><title>Docker コマンド</title><link>https://clarence.tw/ja/notes/docker/docker-commands/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/docker/docker-commands/</guid><description>&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Images と containers&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull nginx:latest
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker images
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps -a
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d --name web -p 8080:80 nginx
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker exec -it web sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker logs -f web
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker stop web
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rm web
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;長く動かす container には名前を付ける。logs や operational commands が読みやすくなる。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Compose workflow&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose up -d
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose up --build
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose ps
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose logs -f service_name
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose exec service_name sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose down
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose down -v
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;down -v&lt;/code&gt; は volume data を削除してよい場合だけ使う。&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Hosting environment では security update が必要ですが、同時に既存サイトを壊してはいけません。更新は段階的に行い、観測でき、rollback できる状態にする必要があります。&lt;/p&gt;</description></item></channel></rss>

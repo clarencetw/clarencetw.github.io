@@ -1,8 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/docker/</link><description>Recent content in Docker on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://clarence.tw/ja/notes/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker コマンド</title><link>https://clarence.tw/ja/notes/docker/docker-commands/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/docker/docker-commands/</guid><description>&lt;div class="note-card "&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/docker/</link><description>Recent content in Docker on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/notes/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Docker コマンド</title><link>https://clarence.tw/ja/notes/docker/docker-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/docker/docker-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
 &lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Images と containers&lt;/span&gt;&lt;/h5&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull nginx:latest
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-images-と-containers"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-images-と-containers"&gt;&lt;span&gt;Images と containers&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull nginx:latest
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker images
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps -a
@@ -10,20 +36,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker exec -it web sh
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker logs -f web
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker stop web
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rm web
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;長く動かす container には名前を付ける。logs や operational commands が読みやすくなる。&lt;/p&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rm web&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Compose workflow&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose up -d
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose up --build
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose ps
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose logs -f service_name
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose exec service_name sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose down
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose down -v
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;down -v&lt;/code&gt; は volume data を削除してよい場合だけ使う。&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;長く動かす container には名前を付ける。logs や operational commands が読みやすくなる。&lt;/p&gt;</description></item></channel></rss>

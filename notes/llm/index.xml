@@ -1,92 +1,156 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM &amp; AI on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/notes/llm/</link><description>Recent content in LLM &amp; AI on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><atom:link href="https://clarence.tw/notes/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama 設定與使用</title><link>https://clarence.tw/notes/llm/ollama-setup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/notes/llm/ollama-setup/</guid><description>&lt;!-- Ollama 安裝 --&gt;
-&lt;div class="note-card "&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM &amp; AI on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/notes/llm/</link><description>Recent content in LLM &amp; AI on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/notes/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama 設定與使用</title><link>https://clarence.tw/notes/llm/ollama-setup/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍"&gt;
 &lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Ollama 安裝&lt;/span&gt;&lt;/h5&gt;
+&lt;h2 class="note-title" id="note-section-版本與安全範圍"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Linux/macOS 安裝&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.ai/install.sh | sh
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最後檢視：2026-07-11&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- Ollama 安裝 --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-ollama-安裝"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-ollama-安裝"&gt;&lt;span&gt;Ollama 安裝&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="複製"
+data-copied-label="已複製"
+data-copy-error-label="複製失敗"
+aria-label="複製"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Linux/macOS 安裝&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 啟動服務&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 啟動服務&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 下載模型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 下載模型&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:27b
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama2
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull mistral
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull mistral&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
 &lt;!-- 常用模型指令 --&gt;
-&lt;div class="note-card "&gt;
+&lt;section class="note-card " aria-labelledby="note-section-常用模型指令"&gt;
 &lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;常用模型指令&lt;/span&gt;&lt;/h5&gt;
+&lt;h2 class="note-title" id="note-section-常用模型指令"&gt;&lt;span&gt;常用模型指令&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 列出已安裝模型&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="複製"
+data-copied-label="已複製"
+data-copy-error-label="複製失敗"
+aria-label="複製"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 列出已安裝模型&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 執行對話 (使用 Gemma2)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 執行對話 (使用 Gemma2)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run gemma2:9b
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 刪除模型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 刪除模型&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama rm gemma2:9b
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 查看模型資訊&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看模型資訊&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
 &lt;!-- API 使用 --&gt;
-&lt;div class="note-card "&gt;
+&lt;section class="note-card " aria-labelledby="note-section-api-使用範例"&gt;
 &lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;API 使用範例&lt;/span&gt;&lt;/h5&gt;
+&lt;h2 class="note-title" id="note-section-api-使用範例"&gt;&lt;span&gt;API 使用範例&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; requests
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; json
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;PYTHON&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="複製"
+data-copied-label="已複製"
+data-copy-error-label="複製失敗"
+aria-label="複製"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;import&lt;/span&gt; &lt;span style="color:#ff7b72"&gt;requests&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;import&lt;/span&gt; &lt;span style="color:#ff7b72"&gt;json&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;chat_with_ollama&lt;/span&gt;(prompt, model&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; url &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;http://localhost:11434/api/generate&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#f92672"&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;model&amp;#34;&lt;/span&gt;: model,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;prompt&amp;#34;&lt;/span&gt;: prompt,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;stream&amp;#34;&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;False&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;chat_with_ollama&lt;/span&gt;(prompt, model&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; url &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;http://localhost:11434/api/generate&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;model&amp;#34;&lt;/span&gt;: model,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;prompt&amp;#34;&lt;/span&gt;: prompt,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;stream&amp;#34;&lt;/span&gt;: &lt;span style="color:#79c0ff"&gt;False&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#f92672"&gt;=&lt;/span&gt; requests&lt;span style="color:#f92672"&gt;.&lt;/span&gt;post(url, json&lt;span style="color:#f92672"&gt;=&lt;/span&gt;data)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; response&lt;span style="color:#f92672"&gt;.&lt;/span&gt;json()[&lt;span style="color:#e6db74"&gt;&amp;#34;response&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;post(url, json&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;data)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72"&gt;return&lt;/span&gt; response&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;json()[&lt;span style="color:#a5d6ff"&gt;&amp;#34;response&amp;#34;&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 使用範例 - 文本摘要&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;summarize_text&lt;/span&gt;(text):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; prompt &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;f&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&amp;#34;請將以下文字進行摘要，保留重點資訊：
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;{&lt;/span&gt;text&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;摘要：&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; chat_with_ollama(prompt, &lt;span style="color:#e6db74"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 使用範例 - 文本摘要&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;summarize_text&lt;/span&gt;(text):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; prompt &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;f&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;&amp;#34;&amp;#34;請將以下文字進行摘要，保留重點資訊：
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a5d6ff"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a5d6ff"&gt;{&lt;/span&gt;text&lt;span style="color:#a5d6ff"&gt;}&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a5d6ff"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a5d6ff"&gt;摘要：&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72"&gt;return&lt;/span&gt; chat_with_ollama(prompt, &lt;span style="color:#a5d6ff"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# RTX 4090 最佳化設定&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;chat_with_gemma2_optimized&lt;/span&gt;(prompt):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; url &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;http://localhost:11434/api/generate&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#f92672"&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;model&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;prompt&amp;#34;&lt;/span&gt;: prompt,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;stream&amp;#34;&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;False&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;options&amp;#34;&lt;/span&gt;: {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;temperature&amp;#34;&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0.7&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;top_p&amp;#34;&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0.9&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;num_ctx&amp;#34;&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;4096&lt;/span&gt; &lt;span style="color:#75715e"&gt;# RTX 4090 24GB 可支援更大 context&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# RTX 4090 最佳化設定&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;chat_with_gemma2_optimized&lt;/span&gt;(prompt):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; url &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;http://localhost:11434/api/generate&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;model&amp;#34;&lt;/span&gt;: &lt;span style="color:#a5d6ff"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;prompt&amp;#34;&lt;/span&gt;: prompt,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;stream&amp;#34;&lt;/span&gt;: &lt;span style="color:#79c0ff"&gt;False&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;options&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;temperature&amp;#34;&lt;/span&gt;: &lt;span style="color:#a5d6ff"&gt;0.7&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;top_p&amp;#34;&lt;/span&gt;: &lt;span style="color:#a5d6ff"&gt;0.9&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;num_ctx&amp;#34;&lt;/span&gt;: &lt;span style="color:#a5d6ff"&gt;4096&lt;/span&gt; &lt;span style="color:#8b949e;font-style:italic"&gt;# RTX 4090 24GB 可支援更大 context&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#f92672"&gt;=&lt;/span&gt; requests&lt;span style="color:#f92672"&gt;.&lt;/span&gt;post(url, json&lt;span style="color:#f92672"&gt;=&lt;/span&gt;data)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; response&lt;span style="color:#f92672"&gt;.&lt;/span&gt;json()[&lt;span style="color:#e6db74"&gt;&amp;#34;response&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;post(url, json&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;data)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72"&gt;return&lt;/span&gt; response&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;json()[&lt;span style="color:#a5d6ff"&gt;&amp;#34;response&amp;#34;&lt;/span&gt;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 使用範例&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;result &lt;span style="color:#f92672"&gt;=&lt;/span&gt; summarize_text(&lt;span style="color:#e6db74"&gt;&amp;#34;這是一段很長的文字需要摘要...&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(result)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 使用範例&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;result &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; summarize_text(&lt;span style="color:#a5d6ff"&gt;&amp;#34;這是一段很長的文字需要摘要...&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(result)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item></channel></rss>
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;</description></item></channel></rss>

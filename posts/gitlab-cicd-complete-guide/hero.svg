@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="pipeline-bg" x1="80" y1="40" x2="1510" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101622"/>
+      <stop offset="0.55" stop-color="#172B32"/>
+      <stop offset="1" stop-color="#153D3A"/>
+    </linearGradient>
+    <linearGradient id="pipeline-line" x1="180" y1="0" x2="1420" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="0.28" stop-color="#5EEAD4"/>
+      <stop offset="1" stop-color="#2DD4BF"/>
+    </linearGradient>
+    <pattern id="pipeline-dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#D9FFFA" fill-opacity="0.09"/>
+    </pattern>
+    <filter id="pipeline-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" rx="36" fill="url(#pipeline-bg)"/>
+  <rect width="1600" height="900" rx="36" fill="url(#pipeline-dots)"/>
+  <path d="M0 675C266 566 393 770 634 653C900 524 1116 721 1600 539V900H0V675Z" fill="#0F766E" fill-opacity="0.1"/>
+
+  <g transform="translate(128 124)">
+    <circle cx="58" cy="54" r="24" fill="#F59E0B"/>
+    <circle cx="58" cy="178" r="24" fill="#5EEAD4"/>
+    <circle cx="182" cy="116" r="24" fill="#D9FFFA"/>
+    <path d="M58 78V154M79 166C112 166 121 116 158 116M80 54H106C137 54 142 85 142 98" stroke="#D9FFFA" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <path d="M332 470H1390" stroke="#2DD4BF" stroke-opacity="0.2" stroke-width="34" stroke-linecap="round" filter="url(#pipeline-glow)"/>
+  <path d="M332 470H1390" stroke="url(#pipeline-line)" stroke-width="8" stroke-linecap="round"/>
+
+  <g transform="translate(302 318)">
+    <rect width="250" height="304" rx="30" fill="#101F29" stroke="#F59E0B" stroke-opacity="0.72" stroke-width="3"/>
+    <rect x="44" y="46" width="162" height="112" rx="14" fill="#172E36" stroke="#D9FFFA" stroke-opacity="0.45" stroke-width="3"/>
+    <path d="M74 82H176M74 112H146" stroke="#5EEAD4" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="73" cy="215" r="15" fill="#F59E0B"/>
+    <path d="M105 215H181" stroke="#D9FFFA" stroke-width="9" stroke-linecap="round"/>
+    <path d="M91 261L111 281L157 235" stroke="#5EEAD4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(614 318)">
+    <rect width="250" height="304" rx="30" fill="#101F29" stroke="#5EEAD4" stroke-opacity="0.55" stroke-width="3"/>
+    <circle cx="125" cy="104" r="52" stroke="#D9FFFA" stroke-width="8"/>
+    <path d="M88 104L113 129L163 79" stroke="#5EEAD4" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M63 212H187M63 250H150" stroke="#D9FFFA" stroke-opacity="0.74" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="177" cy="250" r="10" fill="#F59E0B"/>
+  </g>
+
+  <g transform="translate(926 318)">
+    <rect width="250" height="304" rx="30" fill="#101F29" stroke="#5EEAD4" stroke-opacity="0.55" stroke-width="3"/>
+    <path d="M66 80L125 47L184 80V146L125 180L66 146V80Z" stroke="#D9FFFA" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M67 80L125 114L184 80M125 114V180" stroke="#5EEAD4" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M67 224H183" stroke="#D9FFFA" stroke-opacity="0.74" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="125" cy="262" r="12" fill="#F59E0B"/>
+  </g>
+
+  <g transform="translate(1238 318)">
+    <rect width="250" height="304" rx="30" fill="#101F29" stroke="#F59E0B" stroke-opacity="0.72" stroke-width="3"/>
+    <path d="M72 150L125 54L178 150H146V197H104V150H72Z" stroke="#D9FFFA" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M77 244H173" stroke="#5EEAD4" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="125" cy="244" r="13" fill="#F59E0B"/>
+  </g>
+
+  <path d="M552 470H614M864 470H926M1176 470H1238" stroke="#FFF3D4" stroke-width="8" stroke-linecap="round"/>
+  <path d="M586 452L606 470L586 488M898 452L918 470L898 488M1210 452L1230 470L1210 488" stroke="#FFF3D4" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

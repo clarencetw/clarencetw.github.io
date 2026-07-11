@@ -1,52 +1,110 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/aws/</link><description>Recent content in AWS on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><atom:link href="https://clarence.tw/ja/notes/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS CDK Tips</title><link>https://clarence.tw/ja/notes/aws/cdk-tips/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/aws/cdk-tips/</guid><description>&lt;div class="note-card "&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AWS on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/aws/</link><description>Recent content in AWS on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/notes/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS CDK Tips</title><link>https://clarence.tw/ja/notes/aws/cdk-tips/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/aws/cdk-tips/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
 &lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;日常コマンド&lt;/span&gt;&lt;/h5&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk init app --language typescript
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-日常コマンド"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-日常コマンド"&gt;&lt;span&gt;日常コマンド&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk init app --language typescript
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk synth
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk diff
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk deploy
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk deploy --all
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk destroy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;deployment 前には &lt;code&gt;cdk diff&lt;/code&gt; を確認し、環境ごとの値は construct code に直接書かない。&lt;/p&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cdk destroy&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;p&gt;deployment 前には &lt;code&gt;cdk diff&lt;/code&gt; を確認し、環境ごとの値は construct code に直接書かない。&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-environment-と-tags"&gt;
 &lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Environment と tags&lt;/span&gt;&lt;/h5&gt;
+&lt;h2 class="note-title" id="note-section-environment-と-tags"&gt;&lt;span&gt;Environment と tags&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;env&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;account&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;process.env.CDK_DEFAULT_ACCOUNT&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;region&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;process.env.CDK_DEFAULT_REGION&lt;/span&gt;,
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;TYPESCRIPT&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-typescript" data-lang="typescript"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;const&lt;/span&gt; env &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; account: &lt;span style="color:#ff7b72"&gt;process.env.CDK_DEFAULT_ACCOUNT&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; region: &lt;span style="color:#ff7b72"&gt;process.env.CDK_DEFAULT_REGION&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;};
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;Tags&lt;/span&gt;.&lt;span style="color:#66d9ef"&gt;of&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;this&lt;/span&gt;).&lt;span style="color:#a6e22e"&gt;add&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Project&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;example&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;Tags&lt;/span&gt;.&lt;span style="color:#66d9ef"&gt;of&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;this&lt;/span&gt;).&lt;span style="color:#a6e22e"&gt;add&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Environment&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;production&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;tags は ownership、cost review、incident tracing に使う。&lt;/p&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Tags.&lt;span style="color:#ff7b72"&gt;of&lt;/span&gt;(&lt;span style="color:#ff7b72"&gt;this&lt;/span&gt;).add(&lt;span style="color:#a5d6ff"&gt;&amp;#34;Project&amp;#34;&lt;/span&gt;, &lt;span style="color:#a5d6ff"&gt;&amp;#34;example&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Tags.&lt;span style="color:#ff7b72"&gt;of&lt;/span&gt;(&lt;span style="color:#ff7b72"&gt;this&lt;/span&gt;).add(&lt;span style="color:#a5d6ff"&gt;&amp;#34;Environment&amp;#34;&lt;/span&gt;, &lt;span style="color:#a5d6ff"&gt;&amp;#34;production&amp;#34;&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>AWS CLI クイックリファレンス</title><link>https://clarence.tw/ja/notes/aws/aws-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/ja/notes/aws/aws-cli/</guid><description>&lt;div class="note-card "&gt;
+&lt;p&gt;tags は ownership、cost review、incident tracing に使う。&lt;/p&gt;</description></item><item><title>AWS CLI クイックリファレンス</title><link>https://clarence.tw/ja/notes/aws/aws-cli/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/aws/aws-cli/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲"&gt;
 &lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Install と configure&lt;/span&gt;&lt;/h5&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install awscli
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-install-と-configure"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-install-と-configure"&gt;&lt;span&gt;Install と configure&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="コピー"
+data-copied-label="コピーしました"
+data-copy-error-label="コピーできませんでした"
+aria-label="コピー"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;コピー&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install awscli
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws --version
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure --profile production
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure list --profile production
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws sts get-caller-identity --profile production
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;production や customer account では named profile を使う。長期 credential を shell history や共有メモに残さない。&lt;/p&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws sts get-caller-identity --profile production&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;S3 operations&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3 ls
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3 ls s3://example-bucket --recursive --human-readable --summarize
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3 cp ./dist s3://example-bucket/dist --recursive
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3 sync ./public s3://example-bucket --delete
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3api head-object --bucket example-bucket --key path/file.txt
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;sync --delete&lt;/code&gt; は、その bucket path が deployment target 専用だと確認してから使う。&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;production や customer account では named profile を使う。長期 credential を shell history や共有メモに残さない。&lt;/p&gt;</description></item></channel></rss>

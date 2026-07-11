@@ -1,31 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM &amp; AI on Clarence | Backend, AI, DevOps, Infrastructure</title><link>https://clarence.tw/en/notes/llm/</link><description>Recent content in LLM &amp; AI on Clarence | Backend, AI, DevOps, Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>en</language><atom:link href="https://clarence.tw/en/notes/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama Setup and Usage</title><link>https://clarence.tw/en/notes/llm/ollama-setup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://clarence.tw/en/notes/llm/ollama-setup/</guid><description>&lt;div class="note-card "&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM &amp; AI on Clarence | Backend, AI, DevOps, Infrastructure</title><link>https://clarence.tw/en/notes/llm/</link><description>Recent content in LLM &amp; AI on Clarence | Backend, AI, DevOps, Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/en/notes/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama Setup and Usage</title><link>https://clarence.tw/en/notes/llm/ollama-setup/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope"&gt;
 &lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Install and run&lt;/span&gt;&lt;/h5&gt;
+&lt;h2 class="note-title" id="note-section-version-and-safety-scope"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;Last reviewed: July 11, 2026&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is a general command reference, not a version-pinned runbook. Check the installed version, current official documentation, and the target account, host, and path before use. Commands that deploy, destroy, delete, prune, sync, upgrade, or change system settings can cause cost, downtime, or data loss; preview changes and back up where appropriate.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-install-and-run"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-install-and-run"&gt;&lt;span&gt;Install and run&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
+&lt;div class="code-shell__toolbar"&gt;
+&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
+&lt;button
+class="code-shell__copy"
+type="button"
+data-copy-code
+data-copy-label="Copy"
+data-copied-label="Copied"
+data-copy-error-label="Copy failed"
+aria-label="Copy"
+&gt;
+&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;span data-copy-button-label&gt;Copy&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.1:8b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use smaller models first when testing prompts, then move to larger models after the workflow is stable.&lt;/p&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Model commands&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama rm gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Keep model names explicit in scripts so a future default model change does not alter results silently.&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="note-card "&gt;
-&lt;div class="item"&gt;
-&lt;h5 class="note-title"&gt;&lt;span&gt;Local API&lt;/span&gt;&lt;/h5&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl http://localhost:11434/api/generate &lt;span style="color:#ae81ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -d &lt;span style="color:#e6db74"&gt;&amp;#39;{&amp;#34;model&amp;#34;:&amp;#34;gemma2:9b&amp;#34;,&amp;#34;prompt&amp;#34;:&amp;#34;Summarize this text.&amp;#34;,&amp;#34;stream&amp;#34;:false}&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Local API calls are useful for private experiments, but production systems still need timeout, retry, and logging boundaries.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;Use smaller models first when testing prompts, then move to larger models after the workflow is stable.&lt;/p&gt;</description></item></channel></rss>

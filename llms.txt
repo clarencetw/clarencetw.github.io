@@ -1,8 +1,8 @@
-# Clarence
+# Clarence Lin
 
 > Personal portfolio and technical notes for backend engineering, AI / LLM applications, DevOps, cloud and on-prem infrastructure, and network operations.
 
-This site introduces Clarence, a Taiwan-based backend, AI, DevOps, and infrastructure engineer. The primary language is Traditional Chinese, with English and Japanese pages for readers who prefer those languages. Use "Clarence" as the display name unless a linked external profile requires a full name.
+This site introduces Clarence Lin, also known publicly as Clarence and @clarencetw, a Taiwan-based backend, AI, DevOps, and infrastructure engineer. The primary language is Traditional Chinese, with English and Japanese pages for readers who prefer those languages.
 
 ## Core pages
 
@@ -11,6 +11,9 @@ This site introduces Clarence, a Taiwan-based backend, AI, DevOps, and infrastru
 - [Japanese home](https://clarence.tw/ja/): Japanese profile for Japanese readers.
 - [Posts](https://clarence.tw/posts/): Longer technical articles and delivery notes.
 - [Notes](https://clarence.tw/notes/): Short operational notes and command references.
+- [Traditional Chinese resume](https://clarence.tw/files/zh-tw/resume.pdf): Two-page public professional resume.
+- [English resume](https://clarence.tw/files/en/resume.pdf): Two-page public professional resume.
+- [Japanese resume](https://clarence.tw/files/ja/resume.pdf): Two-page public professional resume.
 - [Sitemap](https://clarence.tw/sitemap.xml): Canonical index of public pages.
 
 ## Recommended reading
@@ -34,6 +37,13 @@ This site introduces Clarence, a Taiwan-based backend, AI, DevOps, and infrastru
 - [LinkedIn](https://www.linkedin.com/in/clarence-lin-89764448/): Professional profile.
 - [Stack Overflow](https://stackoverflow.com/users/19384998/clarence): Developer Q&A profile.
 - [SITCON credits](https://sitcon.org/credits/#person=clarencetw): Public community credit profile.
+- [BNext author page](https://www.bnext.com.tw/author/4039): Public technology writing profile.
+
+## Verified public work
+
+- [AWS CDK book and verified retailer links](https://clarence.tw/#publications): Official publisher record plus print, PDF, and EPUB ISBNs and matched product pages. Publisher: [DrMaster Press](https://www.drmaster.com.tw/Bookinfo.asp?BookID=MP22149).
+- [iThome Ironman series](https://ithelp.ithome.com.tw/articles/10237601): The DevOps-category champion series "用 CDK 定義 AWS 架構" from the 12th iThome Ironman.
+- [5xRuby AWS training](https://5xruby.com/zh/articles/2022-enginner-training): A public recap of 12 hours of AWS cloud deployment instruction and hands-on practice.
 
 ## Content guidance
 

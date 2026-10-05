@@ -48,3 +48,15 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "document-domain=()"
     X-Permitted-Cross-Domain-Policies = "none"
+    Content-Signal = "search=yes, ai-input=yes"
+    Link = '</llms.txt>; rel="describedby"; type="text/markdown"'
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+
+[[headers]]
+  for = "/*.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"

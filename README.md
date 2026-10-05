@@ -93,8 +93,10 @@ npm run theme:update
 
 - Hugo generates `sitemap.xml`; `layouts/robots.txt` exposes the sitemap and `llms.txt` entry point.
 - `static/llms.txt` uses Markdown to summarize core pages, articles, notes, and external profiles.
-- `layouts/partials/header.html` emits canonical links, `hreflang`, the `llms.txt` alternate link, the Open Graph image, and Person / WebSite JSON-LD.
+- `layouts/partials/header.html` emits canonical links, `hreflang`, a `describedby` link to `llms.txt`, each page's Markdown alternate, the Open Graph image, and Person / WebSite JSON-LD.
 - `static/clarencetw-og.png`, `static/_headers`, and `static/_redirects` are published to the `public` root through the `static` mount.
+- Hugo also generates `index.md` for profile summaries, posts, and notes in all three languages. Use the page's Markdown link or append `index.md` to its trailing-slash URL. The site remains static, with no additional dependencies or server functions.
+- Content Signals allow search and AI input (`search=yes, ai-input=yes`); training preferences are unspecified. `Link` headers advertise `/llms.txt`. Optional `Accept: text/markdown` conversion can be enabled through [Cloudflare Markdown for Agents](https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/) on an eligible plan; static Markdown URLs work independently.
 
 ## Vercel
 

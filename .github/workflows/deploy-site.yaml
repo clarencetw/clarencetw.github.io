@@ -37,8 +37,8 @@ jobs:
         run: npm ci
 
       # build website
-      - name: Build
-        run: npm run build
+      - name: Build and audit
+        run: npm run check
 
       # Publish the generated site to the dedicated Pages branch.
       - name: Deploy

@@ -33,8 +33,24 @@
         {
           "key": "X-Permitted-Cross-Domain-Policies",
           "value": "none"
+        },
+        {
+          "key": "Content-Signal",
+          "value": "search=yes, ai-input=yes"
+        },
+        {
+          "key": "Link",
+          "value": "</llms.txt>; rel=\"describedby\"; type=\"text/markdown\""
         }
       ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [{ "key": "Content-Type", "value": "text/markdown; charset=utf-8" }]
+    },
+    {
+      "source": "/(.*).md",
+      "headers": [{ "key": "Content-Type", "value": "text/markdown; charset=utf-8" }]
     }
   ]
 }

@@ -65,6 +65,21 @@ outputs:
     - HTML
     - RSS
     - JSON
+    - Markdown
+  page:
+    - HTML
+    - Markdown
+  section:
+    - HTML
+    - RSS
+    - Markdown
+
+# Search is an interactive HTML page, not article content.
+cascade:
+  - target:
+      path: /search
+    outputs:
+      - HTML
 
 # Enable global emoji support
 enableEmoji: true

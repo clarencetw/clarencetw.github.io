@@ -63,8 +63,8 @@
   },
   "scripts": {
     "dev": "hugo server -w",
-    "build": "hugo --gc --minify",
-    "build:future": "hugo --gc --minify --buildFuture",
+    "build": "hugo --gc --minify --cleanDestinationDir",
+    "build:future": "hugo --gc --minify --cleanDestinationDir --buildFuture",
     "assets:og": "bash scripts/build-og-image.sh",
     "audit": "npm audit --audit-level=low",
     "check": "npm run build && npm run audit",

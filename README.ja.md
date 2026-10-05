@@ -93,8 +93,10 @@ npm run theme:update
 
 - Hugo が `sitemap.xml` を生成し、`layouts/robots.txt` が sitemap と `llms.txt` entry point を公開します。
 - `static/llms.txt` は Markdown で core pages、articles、notes、external profiles を整理します。
-- `layouts/partials/header.html` は canonical、`hreflang`、`llms.txt` alternate link、Open Graph image、Person / WebSite JSON-LD を出力します。
+- `layouts/partials/header.html` は canonical、`hreflang`、`llms.txt` への `describedby` link、各ページの Markdown alternate、Open Graph image、Person / WebSite JSON-LD を出力します。
 - `static/clarencetw-og.png`、`static/_headers`、`static/_redirects` は `static` mount で `public` root に公開されます。
+- Hugo が3言語のプロフィール概要・記事・ノートを `index.md` として生成します。ページの Markdown link、または URL の末尾に `index.md` を追加して閲覧できます。追加の依存関係や server functions を持たない静的サイトです。
+- Content Signals は検索と AI input を許可します（`search=yes, ai-input=yes`）。学習用途の希望は未指定です。`Link` headers で `/llms.txt` を公開します。`Accept: text/markdown` の自動変換は、対応プランの [Cloudflare Markdown for Agents](https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/) で有効にできます。直接の Markdown URL はこの機能を必要としません。
 
 ## Vercel
 

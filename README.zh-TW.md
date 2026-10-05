@@ -93,8 +93,10 @@ npm run theme:update
 
 - Hugo 產生 `sitemap.xml`，`layouts/robots.txt` 會公開 sitemap 與 `llms.txt` 入口。
 - `static/llms.txt` 使用 Markdown 格式整理核心頁面、文章、筆記與外部 profile。
-- `layouts/partials/header.html` 會輸出 canonical、`hreflang`、`llms.txt` alternate link、Open Graph 圖與 Person / WebSite JSON-LD。
+- `layouts/partials/header.html` 會輸出 canonical、`hreflang`、指向 `llms.txt` 的 `describedby` link、各頁的 Markdown alternate、Open Graph 圖與 Person / WebSite JSON-LD。
 - `static/clarencetw-og.png`、`static/_headers`、`static/_redirects` 會透過 `static` mount 發佈到 `public` root。
+- Hugo 原生產生三語個人簡介、文章與筆記的 `index.md`。使用頁面的 Markdown link，或在頁面 URL 結尾加上 `index.md` 即可閱讀；維持純靜態網站，沒有新增套件或 server functions。
+- Content Signals 允許搜尋與 AI 讀取（`search=yes, ai-input=yes`），訓練用途未指定；`Link` headers 公開 `/llms.txt`。若需要 `Accept: text/markdown` 自動轉換，可在符合方案條件時啟用 [Cloudflare Markdown for Agents](https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/)，直接 Markdown URL 不依賴此功能。
 
 ## Vercel
 

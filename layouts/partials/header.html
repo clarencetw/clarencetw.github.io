@@ -19,7 +19,10 @@
 <link rel="alternate" hreflang="{{ $hreflang }}" href="{{ .Permalink }}" />
 {{ end }}
 <link rel="alternate" hreflang="x-default" href="{{ $defaultPermalink }}" />
-<link rel="alternate" type="text/markdown" href="{{ "llms.txt" | absURL }}" title="llms.txt" />
+<link rel="describedby" type="text/markdown" href="{{ "llms.txt" | absURL }}" title="llms.txt" />
+{{ with .OutputFormats.Get "markdown" }}
+<link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="Markdown" />
+{{ end }}
 {{ if eq .Type "search" }}
 <meta name="robots" content="noindex, follow" />
 {{ end }}

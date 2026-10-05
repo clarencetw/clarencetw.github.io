@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>macOS 筆記 on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/notes/mac/</link><description>Recent content in macOS 筆記 on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/notes/mac/index.xml" rel="self" type="application/rss+xml"/><item><title>Mac 系統管理指令</title><link>https://clarence.tw/notes/mac/launchpad/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/mac/launchpad/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>macOS 筆記 on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/notes/mac/</link><description>Recent content in macOS 筆記 on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/notes/mac/index.xml" rel="self" type="application/rss+xml"/><item><title>Mac 系統管理指令</title><link>https://clarence.tw/notes/mac/launchpad/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/mac/launchpad/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-版本與安全範圍"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
 &lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最後檢視：2026-07-11&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。&lt;/p&gt;
@@ -9,27 +9,11 @@
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- Launchpad 管理 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-launchpad-管理"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-launchpad-管理-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-launchpad-管理"&gt;&lt;span&gt;Launchpad 管理&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-launchpad-管理-2"&gt;&lt;span&gt;Launchpad 管理&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 重置 Launchpad 排列&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 重置 Launchpad 排列&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock ResetLaunchPad -bool true
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -43,35 +27,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 恢復預設設定&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults delete com.apple.dock springboard-columns
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults delete com.apple.dock springboard-rows
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- Dock 設定 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-dock-設定"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-dock-設定-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-dock-設定"&gt;&lt;span&gt;Dock 設定&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-dock-設定-2"&gt;&lt;span&gt;Dock 設定&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 隱藏/顯示 Dock&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 隱藏/顯示 Dock&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock autohide -bool true
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock autohide -bool false
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock
@@ -94,35 +59,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 加快 Dock 動畫速度&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock autohide-time-modifier -float 0.5
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- Finder 設定 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-finder-設定"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-finder-設定-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-finder-設定"&gt;&lt;span&gt;Finder 設定&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-finder-設定-2"&gt;&lt;span&gt;Finder 設定&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 顯示隱藏檔案&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 顯示隱藏檔案&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.finder AppleShowAllFiles -bool true
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Finder
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -147,35 +93,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.finder NewWindowTarget -string &lt;span style="color:#a5d6ff"&gt;&amp;#34;PfHm&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 停用清空垃圾桶警告&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.finder WarnOnEmptyTrash -bool false&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.finder WarnOnEmptyTrash -bool false&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 截圖設定 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-截圖設定"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-截圖設定-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-截圖設定"&gt;&lt;span&gt;截圖設定&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-截圖設定-2"&gt;&lt;span&gt;截圖設定&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 更改截圖儲存位置&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 更改截圖儲存位置&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.screencapture location ~/Desktop/Screenshots
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall SystemUIServer
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -192,35 +119,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Cmd+Shift+3: 全螢幕截圖&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Cmd+Shift+4: 選取區域截圖 &lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Cmd+Shift+4+Space: 視窗截圖&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Cmd+Shift+5: 截圖工具列&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Cmd+Shift+5: 截圖工具列&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 系統資訊查詢 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-系統資訊查詢"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-系統資訊查詢-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-系統資訊查詢"&gt;&lt;span&gt;系統資訊查詢&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-系統資訊查詢-2"&gt;&lt;span&gt;系統資訊查詢&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看 macOS 版本&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看 macOS 版本&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sw_vers
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sw_vers -productVersion
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -246,35 +154,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看已安裝的應用程式&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls /Applications
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;system_profiler SPApplicationsDataType&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;system_profiler SPApplicationsDataType&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 網路設定 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-網路設定"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-網路設定-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-網路設定"&gt;&lt;span&gt;網路設定&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-網路設定-2"&gt;&lt;span&gt;網路設定&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看網路設定&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看網路設定&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;networksetup -listallhardwareports
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;networksetup -getinfo &lt;span style="color:#a5d6ff"&gt;&amp;#34;Wi-Fi&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -293,35 +182,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 連接 Wi-Fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;networksetup -setairportnetwork en0 &lt;span style="color:#a5d6ff"&gt;&amp;#34;WiFi名稱&amp;#34;&lt;/span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;密碼&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;networksetup -setairportnetwork en0 &lt;span style="color:#a5d6ff"&gt;&amp;#34;WiFi名稱&amp;#34;&lt;/span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;密碼&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 電源管理 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-電源管理"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-電源管理-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-電源管理"&gt;&lt;span&gt;電源管理&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-電源管理-2"&gt;&lt;span&gt;電源管理&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看電池資訊&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看電池資訊&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pmset -g batt
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;system_profiler SPPowerDataType
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -341,35 +211,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pmset sleepnow
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看睡眠/喚醒歷史&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pmset -g log | grep -E &lt;span style="color:#a5d6ff"&gt;&amp;#34;(Sleep|Wake)&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pmset -g log | grep -E &lt;span style="color:#a5d6ff"&gt;&amp;#34;(Sleep|Wake)&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 應用程式管理 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-應用程式管理"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-應用程式管理-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-應用程式管理"&gt;&lt;span&gt;應用程式管理&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-應用程式管理-2"&gt;&lt;span&gt;應用程式管理&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 強制結束應用程式&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 強制結束應用程式&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall &lt;span style="color:#a5d6ff"&gt;&amp;#34;應用程式名稱&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pkill -f &lt;span style="color:#a5d6ff"&gt;&amp;#34;應用程式名稱&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -386,35 +237,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;open . &lt;span style="color:#8b949e;font-style:italic"&gt;# 在 Finder 中開啟當前目錄&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看應用程式資訊&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mdls /Applications/Safari.app&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mdls /Applications/Safari.app&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 檔案系統操作 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-檔案系統操作"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-檔案系統操作-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-檔案系統操作"&gt;&lt;span&gt;檔案系統操作&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-檔案系統操作-2"&gt;&lt;span&gt;檔案系統操作&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 顯示檔案/目錄的詳細資訊&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 顯示檔案/目錄的詳細資訊&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls -la@ &lt;span style="color:#8b949e;font-style:italic"&gt;# 包含擴展屬性&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;stat filename
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -440,35 +272,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 計算檔案雜湊值&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;md5 filename
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;shasum -a &lt;span style="color:#a5d6ff"&gt;256&lt;/span&gt; filename&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;shasum -a &lt;span style="color:#a5d6ff"&gt;256&lt;/span&gt; filename&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 系統維護 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-系統維護"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-系統維護-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-系統維護"&gt;&lt;span&gt;系統維護&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-系統維護-2"&gt;&lt;span&gt;系統維護&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 清理系統快取&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 清理系統快取&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo rm -rf ~/Library/Caches/*
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo rm -rf /Library/Caches/*
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo rm -rf /System/Library/Caches/*
@@ -491,10 +304,7 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 開機時按住 Option+Command+P+R&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 重置 SMC (系統管理控制器)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# MacBook: 關機後按住 Shift+Control+Option+電源鍵 10 秒&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# MacBook: 關機後按住 Shift+Control+Option+電源鍵 10 秒&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;</description></item></channel></rss>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM &amp; AI on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/notes/llm/</link><description>Recent content in LLM &amp; AI on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/notes/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama 設定與使用</title><link>https://clarence.tw/notes/llm/ollama-setup/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM &amp; AI on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/notes/llm/</link><description>Recent content in LLM &amp; AI on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/notes/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama 設定與使用</title><link>https://clarence.tw/notes/llm/ollama-setup/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-版本與安全範圍"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
 &lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最後檢視：2026-07-11&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。&lt;/p&gt;
@@ -9,27 +9,11 @@
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- Ollama 安裝 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-ollama-安裝"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-ollama-安裝-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-ollama-安裝"&gt;&lt;span&gt;Ollama 安裝&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-ollama-安裝-2"&gt;&lt;span&gt;Ollama 安裝&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Linux/macOS 安裝&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Linux/macOS 安裝&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 啟動服務&lt;/span&gt;
@@ -39,35 +23,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:27b
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama2
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull mistral&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull mistral&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 常用模型指令 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-常用模型指令"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-常用模型指令-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-常用模型指令"&gt;&lt;span&gt;常用模型指令&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-常用模型指令-2"&gt;&lt;span&gt;常用模型指令&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 列出已安裝模型&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 列出已安裝模型&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 執行對話 (使用 Gemma2)&lt;/span&gt;
@@ -77,35 +42,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama rm gemma2:9b
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看模型資訊&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- API 使用 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-api-使用範例"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-api-使用範例-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-api-使用範例"&gt;&lt;span&gt;API 使用範例&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-api-使用範例-2"&gt;&lt;span&gt;API 使用範例&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;PYTHON&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;import&lt;/span&gt; &lt;span style="color:#ff7b72"&gt;requests&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;import&lt;/span&gt; &lt;span style="color:#ff7b72"&gt;requests&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;import&lt;/span&gt; &lt;span style="color:#ff7b72"&gt;json&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;chat_with_ollama&lt;/span&gt;(prompt, model&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;):
@@ -147,10 +93,7 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 使用範例&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;result &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; summarize_text(&lt;span style="color:#a5d6ff"&gt;&amp;#34;這是一段很長的文字需要摘要...&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(result)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(result)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;</description></item></channel></rss>

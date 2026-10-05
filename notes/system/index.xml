@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>系統管理 on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/notes/system/</link><description>Recent content in 系統管理 on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/notes/system/index.xml" rel="self" type="application/rss+xml"/><item><title>套件管理指令</title><link>https://clarence.tw/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>系統管理 on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/notes/system/</link><description>Recent content in 系統管理 on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/notes/system/index.xml" rel="self" type="application/rss+xml"/><item><title>套件管理指令</title><link>https://clarence.tw/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-版本與安全範圍"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
 &lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最後檢視：2026-07-11&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。&lt;/p&gt;
@@ -9,27 +9,11 @@
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- Homebrew 安裝與使用 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-homebrew-macos"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-homebrew-macos-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-homebrew-macos"&gt;&lt;span&gt;Homebrew (macOS)&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-homebrew-macos-2"&gt;&lt;span&gt;Homebrew (macOS)&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
 &lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;安裝 Homebrew：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 安裝 Homebrew&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/bin/bash -c &lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#ff7b72"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span style="color:#ff7b72"&gt;)&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -39,26 +23,7 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 設定環境變數 (Intel Mac)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &lt;span style="color:#a5d6ff"&gt;&amp;#39;eval &amp;#34;$(/usr/local/bin/brew shellenv)&amp;#34;&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; ~/.zshrc
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;source ~/.zshrc&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;常用指令：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;source ~/.zshrc&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;常用指令：&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 安裝套件&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install git
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install node
@@ -93,21 +58,18 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看套件資訊&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew info git
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew deps git &lt;span style="color:#8b949e;font-style:italic"&gt;# 查看相依性&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew deps git &lt;span style="color:#8b949e;font-style:italic"&gt;# 查看相依性&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- APT 套件管理 (Ubuntu/Debian) --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-apt-ubuntudebian"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-apt-ubuntudebian-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-apt-ubuntudebian"&gt;&lt;span&gt;APT (Ubuntu/Debian)&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-apt-ubuntudebian-2"&gt;&lt;span&gt;APT (Ubuntu/Debian)&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;更新套件清單：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>系統管理指令</title><link>https://clarence.tw/notes/system/system-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/system/system-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;更新套件清單：&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>系統管理指令</title><link>https://clarence.tw/notes/system/system-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/system/system-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-版本與安全範圍"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
 &lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最後檢視：2026-07-11&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。&lt;/p&gt;
@@ -116,27 +78,11 @@ aria-label="複製"
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 系統資訊查詢 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-系統資訊查詢"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-系統資訊查詢-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-系統資訊查詢"&gt;&lt;span&gt;系統資訊查詢&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-系統資訊查詢-2"&gt;&lt;span&gt;系統資訊查詢&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看系統資訊&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看系統資訊&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uname -a &lt;span style="color:#8b949e;font-style:italic"&gt;# 完整系統資訊&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uname -r &lt;span style="color:#8b949e;font-style:italic"&gt;# 核心版本&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsb_release -a &lt;span style="color:#8b949e;font-style:italic"&gt;# 發行版資訊 (Ubuntu/Debian)&lt;/span&gt;
@@ -160,35 +106,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ps aux &lt;span style="color:#8b949e;font-style:italic"&gt;# 所有程序&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;top &lt;span style="color:#8b949e;font-style:italic"&gt;# 即時程序監控&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;htop &lt;span style="color:#8b949e;font-style:italic"&gt;# 更好的 top (需安裝)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pgrep nginx &lt;span style="color:#8b949e;font-style:italic"&gt;# 尋找特定程序&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pgrep nginx &lt;span style="color:#8b949e;font-style:italic"&gt;# 尋找特定程序&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 檔案與目錄操作 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-檔案與目錄操作"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-檔案與目錄操作-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-檔案與目錄操作"&gt;&lt;span&gt;檔案與目錄操作&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-檔案與目錄操作-2"&gt;&lt;span&gt;檔案與目錄操作&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 檔案操作&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 檔案操作&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls -la &lt;span style="color:#8b949e;font-style:italic"&gt;# 詳細列出檔案&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;find /path -name &lt;span style="color:#a5d6ff"&gt;&amp;#34;*.log&amp;#34;&lt;/span&gt; &lt;span style="color:#8b949e;font-style:italic"&gt;# 尋找檔案&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;locate filename &lt;span style="color:#8b949e;font-style:italic"&gt;# 快速尋找檔案 (需 updatedb)&lt;/span&gt;
@@ -212,35 +139,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -czf archive.tar.gz folder/ &lt;span style="color:#8b949e;font-style:italic"&gt;# 壓縮&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -xzf archive.tar.gz &lt;span style="color:#8b949e;font-style:italic"&gt;# 解壓縮&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;zip -r archive.zip folder/ &lt;span style="color:#8b949e;font-style:italic"&gt;# ZIP 壓縮&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unzip archive.zip &lt;span style="color:#8b949e;font-style:italic"&gt;# ZIP 解壓縮&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;unzip archive.zip &lt;span style="color:#8b949e;font-style:italic"&gt;# ZIP 解壓縮&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 服務管理 (systemd) --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-服務管理-systemd"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-服務管理-systemd-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-服務管理-systemd"&gt;&lt;span&gt;服務管理 (systemd)&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-服務管理-systemd-2"&gt;&lt;span&gt;服務管理 (systemd)&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 服務狀態&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 服務狀態&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl status nginx &lt;span style="color:#8b949e;font-style:italic"&gt;# 查看服務狀態&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl is-active nginx &lt;span style="color:#8b949e;font-style:italic"&gt;# 檢查是否運行&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl is-enabled nginx &lt;span style="color:#8b949e;font-style:italic"&gt;# 檢查是否開機啟動&lt;/span&gt;
@@ -263,35 +171,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 列出服務&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl list-units --type&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;service &lt;span style="color:#8b949e;font-style:italic"&gt;# 所有服務&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl list-units --type&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;service --state&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;running &lt;span style="color:#8b949e;font-style:italic"&gt;# 運行中服務&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl list-unit-files --type&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;service &lt;span style="color:#8b949e;font-style:italic"&gt;# 所有服務檔案&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl list-unit-files --type&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;service &lt;span style="color:#8b949e;font-style:italic"&gt;# 所有服務檔案&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 網路工具 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-網路診斷工具"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-網路診斷工具-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-網路診斷工具"&gt;&lt;span&gt;網路診斷工具&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-網路診斷工具-2"&gt;&lt;span&gt;網路診斷工具&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 連線測試&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 連線測試&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ping google.com &lt;span style="color:#8b949e;font-style:italic"&gt;# 測試連線&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ping -c &lt;span style="color:#a5d6ff"&gt;4&lt;/span&gt; 8.8.8.8 &lt;span style="color:#8b949e;font-style:italic"&gt;# 發送 4 個封包&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -311,35 +200,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 下載工具&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://example.com/file.zip &lt;span style="color:#8b949e;font-style:italic"&gt;# 下載檔案&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -O https://example.com/file.zip &lt;span style="color:#8b949e;font-style:italic"&gt;# 使用 curl 下載&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -I https://example.com &lt;span style="color:#8b949e;font-style:italic"&gt;# 只取得 HTTP 標頭&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -I https://example.com &lt;span style="color:#8b949e;font-style:italic"&gt;# 只取得 HTTP 標頭&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 效能監控 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-效能監控"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-效能監控-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-效能監控"&gt;&lt;span&gt;效能監控&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-效能監控-2"&gt;&lt;span&gt;效能監控&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# CPU 監控&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# CPU 監控&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;top &lt;span style="color:#8b949e;font-style:italic"&gt;# 基本監控&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;htop &lt;span style="color:#8b949e;font-style:italic"&gt;# 進階監控 (需安裝)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iotop &lt;span style="color:#8b949e;font-style:italic"&gt;# I/O 監控 (需安裝)&lt;/span&gt;
@@ -356,35 +226,16 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 網路監控&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iftop &lt;span style="color:#8b949e;font-style:italic"&gt;# 網路流量監控 (需安裝)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nethogs &lt;span style="color:#8b949e;font-style:italic"&gt;# 按程序顯示網路使用 (需安裝)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nethogs &lt;span style="color:#8b949e;font-style:italic"&gt;# 按程序顯示網路使用 (需安裝)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
 &lt;!-- 定時任務 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-定時任務-cron"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-定時任務-cron-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-定時任務-cron"&gt;&lt;span&gt;定時任務 (Cron)&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-定時任務-cron-2"&gt;&lt;span&gt;定時任務 (Cron)&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="複製"
-data-copied-label="已複製"
-data-copy-error-label="複製失敗"
-aria-label="複製"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;複製&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 編輯 crontab&lt;/span&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 編輯 crontab&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crontab -e &lt;span style="color:#8b949e;font-style:italic"&gt;# 編輯當前使用者的 crontab&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo crontab -e &lt;span style="color:#8b949e;font-style:italic"&gt;# 編輯 root 的 crontab&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -405,10 +256,7 @@ aria-label="複製"
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看 cron 日誌&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo tail -f /var/log/cron &lt;span style="color:#8b949e;font-style:italic"&gt;# CentOS/RHEL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo tail -f /var/log/syslog &lt;span style="color:#8b949e;font-style:italic"&gt;# Ubuntu/Debian&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo tail -f /var/log/syslog &lt;span style="color:#8b949e;font-style:italic"&gt;# Ubuntu/Debian&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;</description></item></channel></rss>

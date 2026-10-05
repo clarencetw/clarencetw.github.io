@@ -1,0 +1,55 @@
+---
+title: "macOS 管理コマンド"
+url: "https://clarence.tw/ja/notes/mac/launchpad/"
+language: "ja"
+---
+
+# macOS 管理コマンド
+
+macOS Launchpad、Dock、Finder、screenshot、system inspection のコマンド。
+
+## Version と安全範囲
+
+**最終確認：2026年7月11日**
+
+これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。
+
+## Launchpad と Dock
+
+```bash
+defaults write com.apple.dock ResetLaunchPad -bool true
+killall Dock
+
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock tilesize -int 50
+killall Dock
+```
+
+Dock の変更は、多くの場合 `killall Dock` 後に反映される。
+
+## Finder と screenshots
+
+```bash
+defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+killall Finder
+
+defaults write com.apple.screencapture location ~/Desktop/Screenshots
+defaults write com.apple.screencapture type -string "png"
+killall SystemUIServer
+```
+
+screenshot location を変更する前に target folder を作成する。
+
+## System と network checks
+
+```bash
+sw_vers
+system_profiler SPHardwareDataType
+sysctl -n machdep.cpu.brand_string
+df -h
+networksetup -listallhardwareports
+networksetup -getinfo "Wi-Fi"
+```
+
+troubleshooting や migration 前の Mac 記録に使える。

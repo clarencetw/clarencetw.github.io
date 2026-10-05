@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Administration on Clarence | Backend, AI, DevOps, Infrastructure</title><link>https://clarence.tw/en/notes/system/</link><description>Recent content in System Administration on Clarence | Backend, AI, DevOps, Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/en/notes/system/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management Commands</title><link>https://clarence.tw/en/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Administration on Clarence | Backend, AI, DevOps, Infrastructure</title><link>https://clarence.tw/en/notes/system/</link><description>Recent content in System Administration on Clarence | Backend, AI, DevOps, Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/en/notes/system/index.xml" rel="self" type="application/rss+xml"/><item><title>Package Management Commands</title><link>https://clarence.tw/en/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-version-and-safety-scope"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-version-and-safety-scope-2"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
 &lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;Last reviewed: July 11, 2026&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This is a general command reference, not a version-pinned runbook. Check the installed version, current official documentation, and the target account, host, and path before use. Commands that deploy, destroy, delete, prune, sync, upgrade, or change system settings can cause cost, downtime, or data loss; preview changes and back up where appropriate.&lt;/p&gt;
@@ -8,38 +8,19 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-homebrew"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-homebrew-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-homebrew"&gt;&lt;span&gt;Homebrew&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-homebrew-2"&gt;&lt;span&gt;Homebrew&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="Copy"
-data-copied-label="Copied"
-data-copy-error-label="Copy failed"
-aria-label="Copy"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;Copy&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew update
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew update
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install git node hugo
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install --cask visual-studio-code
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew list
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew outdated
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew upgrade
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew cleanup&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;p&gt;Use &lt;code&gt;brew outdated&lt;/code&gt; before broad upgrades on machines used for active development.&lt;/p&gt;</description></item><item><title>System Administration Commands</title><link>https://clarence.tw/en/notes/system/system-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/system/system-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew cleanup&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use &lt;code&gt;brew outdated&lt;/code&gt; before broad upgrades on machines used for active development.&lt;/p&gt;</description></item><item><title>System Administration Commands</title><link>https://clarence.tw/en/notes/system/system-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/system/system-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-version-and-safety-scope"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-version-and-safety-scope-2"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
 &lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;Last reviewed: July 11, 2026&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This is a general command reference, not a version-pinned runbook. Check the installed version, current official documentation, and the target account, host, and path before use. Commands that deploy, destroy, delete, prune, sync, upgrade, or change system settings can cause cost, downtime, or data loss; preview changes and back up where appropriate.&lt;/p&gt;
@@ -47,34 +28,15 @@ aria-label="Copy"
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-system-inspection"&gt;
+&lt;section class="note-card " aria-labelledby="note-section-system-inspection-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-system-inspection"&gt;&lt;span&gt;System inspection&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-system-inspection-2"&gt;&lt;span&gt;System inspection&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="code-shell" data-code-shell&gt;
-&lt;div class="code-shell__toolbar"&gt;
-&lt;span class="code-shell__language" data-code-language&gt;BASH&lt;/span&gt;
-&lt;button
-class="code-shell__copy"
-type="button"
-data-copy-code
-data-copy-label="Copy"
-data-copied-label="Copied"
-data-copy-error-label="Copy failed"
-aria-label="Copy"
-&gt;
-&lt;i class="fa-regular fa-copy" aria-hidden="true"&gt;&lt;/i&gt;
-&lt;span data-copy-button-label&gt;Copy&lt;/span&gt;
-&lt;/button&gt;
-&lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uname -a
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uname -a
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat /etc/os-release
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lscpu
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;free -h
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df -h
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsblk
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip addr show
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip route show&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;span class="visually-hidden code-shell__status" data-copy-status role="status" aria-live="polite" aria-atomic="true"&gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;p&gt;Capture these basics first when documenting a server incident.&lt;/p&gt;</description></item></channel></rss>
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip route show&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Capture these basics first when documenting a server incident.&lt;/p&gt;</description></item></channel></rss>

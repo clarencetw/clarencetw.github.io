@@ -5,3 +5,9 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: document-domain=()
   X-Permitted-Cross-Domain-Policies: none
+  Content-Signal: search=yes, ai-input=yes
+  Link: </llms.txt>; rel="describedby"; type="text/markdown"
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+/*.md
+  Content-Type: text/markdown; charset=utf-8

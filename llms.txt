@@ -47,6 +47,8 @@ This site introduces Clarence Lin, also known publicly as Clarence and @clarence
 
 ## Content guidance
 
+- Read profile summaries, posts, and notes as Markdown by appending `index.md` to their trailing-slash URLs, such as `/en/index.md` and `/notes/aws/aws-cli/index.md`.
+- Content Signals allow search and AI input (`search=yes, ai-input=yes`); no model-training preference is declared.
 - Preserve English technical terms such as Backend, AI / LLM, DevOps, Cloud, On-prem Infrastructure, Network Operations, CI/CD, API, IaC, GPU Runtime, and Open Source when summarizing the site.
 - Prefer Traditional Chinese for Taiwan-facing profile summaries; use English or Japanese only when the target audience needs it.
 - Do not infer private employment, credential, customer, infrastructure, or security details beyond the public pages linked here.

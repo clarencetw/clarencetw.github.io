@@ -1,0 +1,98 @@
+---
+title: "Ollama 設定與使用"
+url: "https://clarence.tw/notes/llm/ollama-setup/"
+language: "zh-tw"
+---
+
+# Ollama 設定與使用
+
+Ollama 安裝、model 管理與 local API 使用範例。
+
+## 版本與安全範圍
+
+**最後檢視：2026-07-11**
+
+這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。
+
+<!-- Ollama 安裝 -->
+## Ollama 安裝
+
+```bash
+# Linux/macOS 安裝
+curl -fsSL https://ollama.com/install.sh | sh
+
+# 啟動服務
+ollama serve
+
+# 下載模型
+ollama pull gemma2:9b
+ollama pull gemma2:27b
+ollama pull llama2
+ollama pull mistral
+```
+
+<!-- 常用模型指令 -->
+## 常用模型指令
+
+```bash
+# 列出已安裝模型
+ollama list
+
+# 執行對話 (使用 Gemma2)
+ollama run gemma2:9b
+
+# 刪除模型
+ollama rm gemma2:9b
+
+# 查看模型資訊
+ollama show gemma2:9b
+```
+
+<!-- API 使用 -->
+## API 使用範例
+
+```python
+import requests
+import json
+
+def chat_with_ollama(prompt, model="gemma2:9b"):
+    url = "http://localhost:11434/api/generate"
+    data = {
+        "model": model,
+        "prompt": prompt,
+        "stream": False
+    }
+    
+    response = requests.post(url, json=data)
+    return response.json()["response"]
+
+# 使用範例 - 文本摘要
+def summarize_text(text):
+    prompt = f"""請將以下文字進行摘要，保留重點資訊：
+
+{text}
+
+摘要："""
+    return chat_with_ollama(prompt, "gemma2:9b")
+
+# RTX 4090 最佳化設定
+def chat_with_gemma2_optimized(prompt):
+    url = "http://localhost:11434/api/generate"
+    data = {
+        "model": "gemma2:9b",
+        "prompt": prompt,
+        "stream": False,
+        "options": {
+            "temperature": 0.7,
+            "top_p": 0.9,
+            "num_ctx": 4096  # RTX 4090 24GB 可支援更大 context
+        }
+    }
+    
+    response = requests.post(url, json=data)
+    return response.json()["response"]
+
+# 使用範例
+result = summarize_text("這是一段很長的文字需要摘要...")
+print(result)
+```

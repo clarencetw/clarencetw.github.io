@@ -68,7 +68,7 @@ skills:
     url: "https://www.python.org/"
     categories: ["language", "ai"]
 
-  - name: Go
+  - name: Go 言語
     logo: /images/sections/skills/brands/go.svg
     summary: "Network application、server software、microservices の開発で利用しています。"
     url: "https://go.dev/"

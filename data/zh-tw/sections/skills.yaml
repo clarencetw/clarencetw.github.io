@@ -69,7 +69,7 @@ skills:
     url: "https://blog.clarence.tw/category/programming-language/node-js/"
     categories: ["language"]
 
-  - name: Go
+  - name: Go 語言
     logo: /images/sections/skills/brands/go.svg
     summary: "使用 Go 開發高效能 Network application、Server software 與 Microservices，特別適合併發處理。"
     url: "https://go.dev/"

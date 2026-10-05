@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Content-Signal: search=yes, ai-input=yes
 
 Sitemap: {{ "sitemap.xml" | absURL }}
 

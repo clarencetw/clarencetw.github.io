@@ -87,6 +87,7 @@ npm run theme:update
 - Scheduled theme update workflow は `dependencies/update-theme` から pull request を作成します。
 - `package.hugo.json` は依存関係の再生成時に修正済み KaTeX のバージョン要件を保持し、ルートの npm override は Mermaid にも同じバージョンを適用します。依存関係の更新後に `npm run check` を実行します。GitHub Actions から Theme Update を手動実行することもできます。
 - GitHub Pages は生成された `public` directory を `gh-pages` branch に公開します。
+- GitHub Actions が Lighthouse の assertions を実行します。Netlify は同じ Hugo ビルドを使い、現在の Node.js と互換性のない旧 Lighthouse Build Plugin を使用しません。
 - この repository の npm packages の多くは Toha Hugo module から `hugo mod npm pack` で生成されます。Toha の module metadata が更新されていない場合、manual major upgrade は避けます。
 - GitHub issue、pull request、commit の title は、change に対応する場合 English Conventional Commits を使います。description は繁體中文で記録します。
 

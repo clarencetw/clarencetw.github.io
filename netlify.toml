@@ -2,9 +2,7 @@
   command = "npm ci && npm run build"
   publish = "public"
 
-[[plugins]]
-  # Installs the Lighthouse Build Plugin for all deploy contexts
-  package = "@netlify/plugin-lighthouse"
+# Lighthouse assertions are enforced by .github/workflows/lighthouse-ci.yaml.
 
 [context.production.environment]
   HUGO_ENABLEGITINFO = "true"

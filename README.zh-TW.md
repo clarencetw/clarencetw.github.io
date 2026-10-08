@@ -87,6 +87,7 @@ npm run theme:update
 - 定期 theme update workflow 會從 `dependencies/update-theme` 開 pull request。
 - `package.hugo.json` 在重新產生依賴設定時保留已修補的 KaTeX 版本要求；根目錄的 npm override 讓 Mermaid 使用相同版本。更新依賴後執行 `npm run check`；也可從 GitHub Actions 手動執行 Theme Update。
 - GitHub Pages 會將產出的 `public` directory 發佈到 `gh-pages` branch。
+- GitHub Actions 會執行 Lighthouse assertions。Netlify 使用相同的 Hugo 建置流程，移除與目前 Node.js 版本不相容的舊 Lighthouse Build Plugin。
 - 這個 repository 的多數 npm packages 由 Toha Hugo module 透過 `hugo mod npm pack` 產生；除非 Toha module metadata 已更新，不建議手動升級 major version，避免和 theme 需求衝突。
 - GitHub issue、pull request 與 commit title 如果對應到一個變更，應使用英文 Conventional Commits；description 使用繁體中文，方便日後回看脈絡。
 

@@ -1,8 +1,17 @@
 name: "Theme Update"
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: theme-update
+  cancel-in-progress: false
 
 jobs:
   update-theme:

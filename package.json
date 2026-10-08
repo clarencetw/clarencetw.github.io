@@ -72,5 +72,8 @@
   },
   "workspaces": [
     "packages/hugoautogen"
-  ]
+  ],
+  "overrides": {
+    "katex": "$katex"
+  }
 }

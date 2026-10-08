@@ -1,4 +1,8 @@
 {
   "name": "clarencetw.github.io",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "devDependencies": {
+    "@fontsource/mulish": "4.5.14",
+    "katex": "^0.19.0"
+  }
 }

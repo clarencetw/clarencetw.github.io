@@ -1,6 +1,6 @@
 ---
-title: Docker 常用指令
-description: Docker image、container、Compose 與清理常用指令。
+title: Docker 常用指令速查：image、container、Compose 與 build
+description: 整理 docker run、ps、exec、logs、build、compose 與 prune 等常用指令，附埠對應、掛載、--rm 自動清除與 Dockerfile 範例。
 lastmod: 2026-07-11T00:00:00+08:00
 weight: 410
 menu:
@@ -43,8 +43,8 @@ docker rmi nginx:alpine
 docker image rm ubuntu:24.04
 
 # 清理未使用的映像檔
-docker image prune
-docker image prune -a  # 移除所有未使用的映像檔
+docker image prune     # 移除懸置（dangling）映像檔
+docker image prune -a  # 移除所有未被容器使用的映像檔
 ```
 
 {{< /note >}}
@@ -58,6 +58,7 @@ docker image prune -a  # 移除所有未使用的映像檔
 docker run nginx
 docker run -d nginx                    # 背景執行
 docker run -it ubuntu bash             # 互動模式
+docker run --rm -it ubuntu bash        # 結束後自動移除容器
 
 # 埠對應
 docker run -d -p 8080:80 nginx         # 對應埠 8080 到容器的 80
@@ -136,27 +137,27 @@ docker diff container_id
 **基本指令：**
 ```bash
 # 啟動服務
-docker-compose up
-docker-compose up -d                    # 背景執行
-docker-compose up --build               # 重新建置映像檔
+docker compose up
+docker compose up -d                    # 背景執行
+docker compose up --build               # 重新建置映像檔
 
 # 停止服務
-docker-compose down
-docker-compose down -v                  # 同時移除 volumes
-docker-compose stop
+docker compose down
+docker compose down -v                  # 同時移除 volumes
+docker compose stop
 
 # 查看服務狀態
-docker-compose ps
-docker-compose logs
-docker-compose logs -f service_name     # 查看特定服務日誌
+docker compose ps
+docker compose logs
+docker compose logs -f service_name     # 查看特定服務日誌
 
 # 執行指令
-docker-compose exec service_name bash
-docker-compose run service_name command
+docker compose exec service_name bash
+docker compose run service_name command
 
 # 重啟服務
-docker-compose restart
-docker-compose restart service_name
+docker compose restart
+docker compose restart service_name
 ```
 
 **範例 docker-compose.yml：**
@@ -272,7 +273,7 @@ docker run -d -v my-volume:/data nginx
 # 移除資料卷
 docker volume rm my-volume
 
-# 清理未使用的資料卷
+# 清理未使用的匿名資料卷（Docker 23+ 加 -a 才會包含具名資料卷）
 docker volume prune
 
 # 備份資料卷
@@ -292,16 +293,16 @@ docker run --rm -v my-volume:/data -v $(pwd):/backup ubuntu tar xzf /backup/back
 docker system df
 
 # 清理未使用的資源
-docker system prune                     # 清理停止的容器、未使用的網路、映像檔
+docker system prune                     # 清理停止的容器、未使用的網路、懸置映像檔與建置快取
 docker system prune -a                  # 包含未使用的映像檔
-docker system prune -a --volumes        # 包含未使用的資料卷
+docker system prune -a --volumes        # 再加上未使用的匿名資料卷
 
 # 分別清理
 docker container prune                  # 清理停止的容器
-docker image prune                      # 清理未使用的映像檔
+docker image prune                      # 清理懸置映像檔
 docker image prune -a                   # 清理所有未使用的映像檔
 docker network prune                    # 清理未使用的網路
-docker volume prune                     # 清理未使用的資料卷
+docker volume prune                     # 清理未使用的匿名資料卷
 
 # 強制移除所有容器
 docker rm -f $(docker ps -aq)
@@ -319,7 +320,7 @@ docker rmi -f $(docker images -q)
 # 登入 Registry
 docker login
 docker login registry.example.com
-docker login -u username -p password registry.example.com
+echo "$REGISTRY_PASSWORD" | docker login -u username --password-stdin registry.example.com  # 避免密碼留在 shell 歷史與程序列表
 
 # 標記映像檔
 docker tag my-app:latest registry.example.com/my-app:latest

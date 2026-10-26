@@ -21,6 +21,10 @@ This site introduces Clarence Lin, also known publicly as Clarence and @clarence
 - [How I Work](https://clarence.tw/posts/technical-delivery-chain/): Delivery chain across backend, AI, DevOps, cloud, on-prem, network, and security.
 - [GitLab CI/CD Complete Guide](https://clarence.tw/posts/gitlab-cicd-complete-guide/): GitLab Runner setup, .gitlab-ci.yml examples, Harbor integration, multi-environment deployment, caching, and troubleshooting.
 - [High-traffic Web Hosting Operations](https://clarence.tw/posts/hosting-high-bandwidth-web-server/): Operational notes for hosting high-bandwidth web services.
+- [Proxmox VE and PBS](https://clarence.tw/posts/proxmox-ve-pbs-infrastructure/): Planning principles, backup strategy, and operating lessons for small on-prem Proxmox VE / PBS environments.
+- [Self-hosted GitLab, Runner, and Harbor](https://clarence.tw/posts/self-hosted-gitlab-runner-harbor/): How source code, CI, container images, and deployment fit together, with long-term operating notes.
+- [LLM Summarization Pipeline](https://clarence.tw/posts/llm-text-summarization-platform/): Design principles and trade-offs for summarization with the OpenAI API, Ollama, and local models.
+- [Speech AI and GPU Runtime](https://clarence.tw/posts/speech-ai-gpu-runtime/): Kaldi and Whisper trade-offs plus NVIDIA driver, CUDA, and container runtime operations.
 
 ## Technical notes
 

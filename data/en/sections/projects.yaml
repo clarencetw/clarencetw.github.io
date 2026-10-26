@@ -61,6 +61,8 @@ projects:
     logo: /images/sections/skills/llm.svg
     role: Builder
     timeline: "2022 - Present"
+    url: /en/posts/llm-text-summarization-platform/
+    target: self
     summary: "Internal text summarization and AI application platform integrating OpenAI API, Ollama, local models, and batch processing with an emphasis on controlled, maintainable model usage."
     tags: ["ai", "llm", "python"]
 
@@ -69,6 +71,8 @@ projects:
     logo: /images/sections/skills/nvidia.svg
     role: Builder / Operator
     timeline: "2022 - Present"
+    url: /en/posts/speech-ai-gpu-runtime/
+    target: self
     summary: "Kaldi, Whisper, and GPU runtime integration for speech recognition, model inference, deployment, and operational maintenance."
     tags: ["ai", "gpu", "infrastructure"]
 
@@ -77,6 +81,8 @@ projects:
     logo: /images/sections/projects/gitlab.svg
     role: Operator
     timeline: "2022 - Present"
+    url: /en/posts/self-hosted-gitlab-runner-harbor/
+    target: self
     summary: "Self-hosted GitLab, GitLab Runner, Harbor registry, and CI/CD operations that connect source code, container images, and deployment workflows."
     tags: ["devops", "gitlab", "docker"]
 
@@ -85,6 +91,8 @@ projects:
     logo: /images/sections/skills/proxmox.png
     role: Operator
     timeline: "2023 - Present"
+    url: /en/posts/proxmox-ve-pbs-infrastructure/
+    target: self
     summary: "Proxmox VE, Proxmox Backup Server, GPU servers, and on-prem infrastructure for internal services, AI runtime workloads, and backup strategy."
     tags: ["devops", "network", "infrastructure"]
 

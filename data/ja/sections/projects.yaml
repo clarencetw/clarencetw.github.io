@@ -52,6 +52,8 @@ projects:
     logo: /images/sections/skills/llm.svg
     role: Builder
     timeline: "2022 - Present"
+    url: /ja/posts/llm-text-summarization-platform/
+    target: self
     summary: "OpenAI API、Ollama、local models、batch processing を統合した internal Text Summarization / AI application platform。"
     tags: ["ai", "llm", "python"]
 
@@ -60,6 +62,8 @@ projects:
     logo: /images/sections/skills/nvidia.svg
     role: Builder / Operator
     timeline: "2022 - Present"
+    url: /ja/posts/speech-ai-gpu-runtime/
+    target: self
     summary: "Kaldi、Whisper、GPU runtime を統合し、Speech AI、model inference、system deployment を支援。"
     tags: ["ai", "gpu", "infrastructure"]
 
@@ -68,6 +72,8 @@ projects:
     logo: /images/sections/projects/gitlab.svg
     role: Operator
     timeline: "2022 - Present"
+    url: /ja/posts/self-hosted-gitlab-runner-harbor/
+    target: self
     summary: "Self-hosted GitLab、GitLab Runner、Harbor registry、CI/CD workflow を運用し、source code、container image、deployment を接続。"
     tags: ["devops", "gitlab", "docker"]
 
@@ -76,6 +82,8 @@ projects:
     logo: /images/sections/skills/proxmox.png
     role: Operator
     timeline: "2023 - Present"
+    url: /ja/posts/proxmox-ve-pbs-infrastructure/
+    target: self
     summary: "Proxmox VE、Proxmox Backup Server、GPU server、On-prem Infrastructure を運用し、internal services、AI runtime workload、backup strategy を支援。"
     tags: ["devops", "network", "infrastructure"]
 

@@ -61,6 +61,8 @@ projects:
     logo: /images/sections/skills/llm.svg
     role: Builder
     timeline: "2022 - Present"
+    url: /posts/llm-text-summarization-platform/
+    target: self
     summary: "Internal Text Summarization / AI application platform，整合 OpenAI API、Ollama、local models 與 batch processing，重點放在可控、可維運的 model usage。"
     tags: ["ai", "llm", "python"]
 
@@ -69,6 +71,8 @@ projects:
     logo: /images/sections/skills/nvidia.svg
     role: Builder / Operator
     timeline: "2022 - Present"
+    url: /posts/speech-ai-gpu-runtime/
+    target: self
     summary: "整合 Kaldi、Whisper 與 GPU runtime，支援 Speech AI、model inference、system deployment 與 performance maintenance。"
     tags: ["ai", "gpu", "infrastructure"]
 
@@ -77,6 +81,8 @@ projects:
     logo: /images/sections/projects/gitlab.svg
     role: Operator
     timeline: "2022 - Present"
+    url: /posts/self-hosted-gitlab-runner-harbor/
+    target: self
     summary: "建置與維護 Self-hosted GitLab、GitLab Runner、Harbor registry 與 CI/CD workflow，串接 source code、container image 與 deployment。"
     tags: ["devops", "gitlab", "docker"]
 
@@ -85,6 +91,8 @@ projects:
     logo: /images/sections/skills/proxmox.png
     role: Operator
     timeline: "2023 - Present"
+    url: /posts/proxmox-ve-pbs-infrastructure/
+    target: self
     summary: "規劃與維運 Proxmox VE、Proxmox Backup Server、GPU server 與 On-prem Infrastructure，用於 internal services、AI runtime workload 與 backup strategy。"
     tags: ["devops", "network", "infrastructure"]
 

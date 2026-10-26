@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on Clarence | Backend, AI, DevOps, Infrastructure</title><link>https://clarence.tw/en/notes/</link><description>Recent content in Notes on Clarence | Backend, AI, DevOps, Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/en/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS CDK Tips</title><link>https://clarence.tw/en/notes/aws/cdk-tips/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/aws/cdk-tips/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on Clarence | Backend, AI, DevOps, Infrastructure</title><link>https://clarence.tw/en/notes/</link><description>Recent content in Notes on Clarence | Backend, AI, DevOps, Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/en/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama Commands and Settings: Model Management, Deleting Models, and Environment Variables</title><link>https://clarence.tw/en/notes/llm/ollama-setup/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-and-safety-scope-2"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;Last reviewed: October 26, 2026&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is a general command reference, not a version-pinned runbook. Check the installed version, current official documentation, and the target account, host, and path before use. Commands that deploy, destroy, delete, prune, sync, upgrade, or change system settings can cause cost, downtime, or data loss; preview changes and back up where appropriate.&lt;/p&gt;
+&lt;p&gt;Commands, flags, environment variables, and default paths on this page were checked against the official documentation and source code as of Ollama v0.40.11 (released October 24, 2026): &lt;a href="https://docs.ollama.com/cli" target="_blank" rel="noopener"&gt;CLI Reference&lt;/a&gt;, &lt;a href="https://docs.ollama.com/faq" target="_blank" rel="noopener"&gt;FAQ&lt;/a&gt;, &lt;a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener"&gt;Context length&lt;/a&gt;, and &lt;a href="https://docs.ollama.com/api/introduction" target="_blank" rel="noopener"&gt;API&lt;/a&gt;. Defaults can change between versions, so trust the output of &lt;code&gt;ollama -v&lt;/code&gt; and &lt;code&gt;ollama serve --help&lt;/code&gt; on your machine.&lt;/p&gt;</description></item><item><title>GitLab Runner config.toml Configuration and Common CI/CD Variables</title><link>https://clarence.tw/en/notes/gitlab/runner-config/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/gitlab/runner-config/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-and-safety-scope-2"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;Last reviewed: October 26, 2026&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Checked against the official GitLab documentation on October 26, 2026, when the latest GitLab Runner release was v19.5.1. Settings and defaults change between versions; before production use, check &lt;a href="https://docs.gitlab.com/runner/configuration/advanced-configuration/" target="_blank" rel="noopener"&gt;Runner advanced configuration&lt;/a&gt;, &lt;a href="https://docs.gitlab.com/runner/register/" target="_blank" rel="noopener"&gt;Registering runners&lt;/a&gt;, and &lt;a href="https://docs.gitlab.com/ci/variables/predefined_variables/" target="_blank" rel="noopener"&gt;Predefined CI/CD variables&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;privileged = true&lt;/code&gt;, mounting &lt;code&gt;/var/run/docker.sock&lt;/code&gt;, &lt;code&gt;gitlab-runner unregister&lt;/code&gt;, and &lt;code&gt;gitlab-runner verify --delete&lt;/code&gt; carry security or irreversible risks and are flagged below. Back up &lt;code&gt;config.toml&lt;/code&gt; before changing it. Runner tokens and registry passwords are secrets; keep them out of repositories and CI logs.&lt;/p&gt;</description></item><item><title>AWS CDK Tips</title><link>https://clarence.tw/en/notes/aws/cdk-tips/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/aws/cdk-tips/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-version-and-safety-scope-2"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
@@ -55,25 +67,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock autohide -bool true
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.dock tilesize -int &lt;span style="color:#a5d6ff"&gt;50&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Dock changes usually need &lt;code&gt;killall Dock&lt;/code&gt; before they appear.&lt;/p&gt;</description></item><item><title>Ollama Setup and Usage</title><link>https://clarence.tw/en/notes/llm/ollama-setup/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-version-and-safety-scope-2"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;Last reviewed: July 11, 2026&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;This is a general command reference, not a version-pinned runbook. Check the installed version, current official documentation, and the target account, host, and path before use. Commands that deploy, destroy, delete, prune, sync, upgrade, or change system settings can cause cost, downtime, or data loss; preview changes and back up where appropriate.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-install-and-run-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-install-and-run-2"&gt;&lt;span&gt;Install and run&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.1:8b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use smaller models first when testing prompts, then move to larger models after the workflow is stable.&lt;/p&gt;</description></item><item><title>Package Management Commands</title><link>https://clarence.tw/en/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall Dock&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Dock changes usually need &lt;code&gt;killall Dock&lt;/code&gt; before they appear.&lt;/p&gt;</description></item><item><title>Package Management Commands</title><link>https://clarence.tw/en/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-version-and-safety-scope-2"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
@@ -114,7 +108,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df -h
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;lsblk
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip addr show
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip route show&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Capture these basics first when documenting a server incident.&lt;/p&gt;</description></item><item><title>Docker Commands</title><link>https://clarence.tw/en/notes/docker/docker-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/docker/docker-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip route show&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Capture these basics first when documenting a server incident.&lt;/p&gt;</description></item><item><title>Docker Commands Cheat Sheet: Images, Containers, Compose, and Cleanup</title><link>https://clarence.tw/en/notes/docker/docker-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/en/notes/docker/docker-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-and-safety-scope-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-version-and-safety-scope-2"&gt;&lt;span&gt;Version and safety scope&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
@@ -124,16 +118,9 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-images-and-containers-2"&gt;
+&lt;!-- Docker basics --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-docker-basics-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-images-and-containers-2"&gt;&lt;span&gt;Images and containers&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-docker-basics-2"&gt;&lt;span&gt;Docker basics&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull nginx:latest
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker images
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps -a
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d --name web -p 8080:80 nginx
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker exec -it web sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker logs -f web
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker stop web
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rm web&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Name long-running containers so logs and operational commands are easier to read.&lt;/p&gt;</description></item></channel></rss>
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;Image management:&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>

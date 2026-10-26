@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitLab on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/gitlab/</link><description>Recent content in GitLab on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/notes/gitlab/index.xml" rel="self" type="application/rss+xml"/><item><title>GitLab Runner config.toml 設定とよく使う CI/CD 変数</title><link>https://clarence.tw/ja/notes/gitlab/runner-config/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/gitlab/runner-config/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲-2"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年10月26日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2026年10月26日時点の GitLab 公式ドキュメントをもとに整理しています。当時の最新 GitLab Runner は v19.5.1 です。設定項目や default 値は version によって変わるため、本番環境では &lt;a href="https://docs.gitlab.com/runner/configuration/advanced-configuration/" target="_blank" rel="noopener"&gt;Runner advanced configuration&lt;/a&gt;、&lt;a href="https://docs.gitlab.com/runner/register/" target="_blank" rel="noopener"&gt;Runner の登録&lt;/a&gt;、&lt;a href="https://docs.gitlab.com/ci/variables/predefined_variables/" target="_blank" rel="noopener"&gt;Predefined CI/CD variables&lt;/a&gt; を確認してください。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;privileged = true&lt;/code&gt;、&lt;code&gt;/var/run/docker.sock&lt;/code&gt; の mount、&lt;code&gt;gitlab-runner unregister&lt;/code&gt;、&lt;code&gt;gitlab-runner verify --delete&lt;/code&gt; には security 上または取り消せないリスクがあり、以下で個別に示します。変更前に &lt;code&gt;config.toml&lt;/code&gt; を backup してください。Runner token や registry password は secret です。repository や CI log に残さないでください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-runner-の登録authentication-token-方式-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-runner-の登録authentication-token-方式-2"&gt;&lt;span&gt;Runner の登録（authentication token 方式）&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;現在の手順では、先に GitLab で runner を作成し、runner authentication token で登録します。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Project runner の場合、project の &lt;strong&gt;Settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;CI/CD&lt;/strong&gt; &amp;gt; &lt;strong&gt;Runners&lt;/strong&gt; で &lt;strong&gt;Create project runner&lt;/strong&gt; を選択します（Maintainer role が必要）。Group runner や instance runner は group 設定または Admin Area で作成します。&lt;/li&gt;
+&lt;li&gt;Tags や説明を設定して作成すると、&lt;code&gt;glrt-&lt;/code&gt; で始まる authentication token が短時間だけ表示されます。&lt;/li&gt;
+&lt;li&gt;Runner host で登録します。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo gitlab-runner register &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --non-interactive &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --url &lt;span style="color:#a5d6ff"&gt;&amp;#34;https://gitlab.example.com/&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --token &lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#79c0ff"&gt;$RUNNER_TOKEN&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --executor &lt;span style="color:#a5d6ff"&gt;&amp;#34;docker&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --docker-image alpine:latest &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --docker-pull-policy &lt;span style="color:#a5d6ff"&gt;&amp;#34;if-not-present&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --description &lt;span style="color:#a5d6ff"&gt;&amp;#34;docker-runner&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;旧来の registration token（&lt;code&gt;--registration-token&lt;/code&gt;）は deprecated で、公式ドキュメントでは GitLab 20.0 で削除予定とされています。新しい runner には authentication token を使ってください。&lt;/li&gt;
+&lt;li&gt;Tags、protected、run untagged などは GitLab UI または API で runner を作成するときに設定し、&lt;code&gt;register&lt;/code&gt; の引数では指定しません。&lt;/li&gt;
+&lt;li&gt;Runner 作成を自動化する場合は、&lt;code&gt;create_runner&lt;/code&gt; scope を持つ access token で &lt;code&gt;POST /api/v4/user/runners&lt;/code&gt; を呼び出し、返された token を &lt;code&gt;register&lt;/code&gt; に渡します。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl --silent --request POST --url &lt;span style="color:#a5d6ff"&gt;&amp;#34;https://gitlab.example.com/api/v4/user/runners&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;runner_type=project_type&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;project_id=&amp;lt;project_id&amp;gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;description=docker-runner&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;tag_list=docker,linux&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --header &lt;span style="color:#a5d6ff"&gt;&amp;#34;PRIVATE-TOKEN: &amp;lt;project_access_token&amp;gt;&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;gitlab_pat&lt;/code&gt; について：&lt;/strong&gt;&lt;code&gt;config.toml&lt;/code&gt; に &lt;code&gt;gitlab_pat&lt;/code&gt; という設定はありません。Runner が GitLab への接続に使うのは &lt;code&gt;[[runners]]&lt;/code&gt; の &lt;code&gt;token&lt;/code&gt;（&lt;code&gt;glrt-&lt;/code&gt; で始まる runner authentication token）です。Personal access token（&lt;code&gt;glpat-&lt;/code&gt; で始まる）は runner 作成などの API 自動化にだけ使い、&lt;code&gt;config.toml&lt;/code&gt; に書く必要はありません。&lt;/p&gt;</description></item></channel></rss>

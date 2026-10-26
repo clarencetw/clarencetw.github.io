@@ -15,3 +15,4 @@ Practical engineering notes for cloud, systems, AI, and day-to-day operations.
 - [macOS](https://clarence.tw/en/notes/mac/)
 - [System Administration](https://clarence.tw/en/notes/system/)
 - [Docker](https://clarence.tw/en/notes/docker/)
+- [GitLab](https://clarence.tw/en/notes/gitlab/)

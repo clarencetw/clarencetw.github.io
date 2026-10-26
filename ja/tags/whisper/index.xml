@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Whisper on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/tags/whisper/</link><description>Recent content in Whisper on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/tags/whisper/index.xml" rel="self" type="application/rss+xml"/><item><title>Speech AI と GPU Runtime：Kaldi・Whisper のデプロイと運用ノート</title><link>https://clarence.tw/ja/posts/speech-ai-gpu-runtime/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/posts/speech-ai-gpu-runtime/</guid><description>&lt;p&gt;2022 年から、私は Kaldi や Whisper といった speech recognition 技術と GPU runtime を実際のシステムに組み込む仕事をしています。範囲は model inference、system deployment、そしてその後の performance maintenance です。&lt;/p&gt;
+&lt;p&gt;この記事は特定プロジェクトの詳細な事例紹介ではなく、社内のアーキテクチャ、データ、性能数値は含みません。まとめたいのは、この種の仕事への向き合い方です。Kaldi と Whisper の違いをどう捉えているか、なぜ GPU runtime を先に安定させるのか、デプロイ後に何を確認しているのかを書きます。技術的な説明は公式ドキュメントに基づき、トラブル対応の経験は &lt;a href="https://blog.clarence.tw/" target="_blank" rel="noopener"&gt;blog.clarence.tw&lt;/a&gt;（中国語）で公開してきた記事から引いています。&lt;/p&gt;
+&lt;h2 id="プロダクトにおける-speech-ai-の位置づけ"&gt;プロダクトにおける Speech AI の位置づけ&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://clarence.tw/ja/posts/technical-delivery-chain/"&gt;私の仕事の進め方&lt;/a&gt; でも書いたように、LLM や Speech AI の仕事は model API を呼ぶだけでは終わりません。batch processing、local model、GPU runtime、既存の backend workflow とつなげる必要があります。&lt;/p&gt;
+&lt;p&gt;音声認識は、多くの場合プロダクト全体の流れの一部です。一般的には、認識の前に音声の取得、形式変換、分割があり、認識の後にはテキストの後処理、保存、検索、他サービスへの受け渡しがあります。そのため Speech AI のコンポーネントを評価するときは、認識結果そのものだけでなく、次の点も一緒に見ます。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;入力音声の形式と品質はそろっているか。前処理はどのレイヤーが担当するか。&lt;/li&gt;
+&lt;li&gt;ストリーミング認識か batch 処理か。失敗時にどう retry するか。&lt;/li&gt;
+&lt;li&gt;モデル出力をどう検証し、どの場合に人の確認が必要か。&lt;/li&gt;
+&lt;li&gt;この runtime を別のマシンで再構築できるか。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;同じツールでも内容によって結果が大きく変わることは、早い段階で実感しました。2019 年に Amazon Transcribe が簡体字中国語に対応したとき、&lt;a href="https://blog.clarence.tw/2019/08/25/amazon-transcribe-supports-simplified-chinese-using-teaching-and-experience/" target="_blank" rel="noopener"&gt;試してみた感想を記事にしました&lt;/a&gt;。歌では結果が良くなかった一方、会話中心の動画ではかなり良くなりました。managed service でも自前でデプロイするモデルでも、実際の利用シーンに近い音声で判断する必要があります。&lt;/p&gt;
+&lt;h2 id="kaldi-と-whisper-の特性とトレードオフ"&gt;Kaldi と Whisper の特性とトレードオフ&lt;/h2&gt;
+&lt;p&gt;私の仕事では Kaldi と Whisper の両方を使います。どちらかがもう一方を置き換えるものではなく、設計思想が大きく異なる二つのツールだと考えています。&lt;/p&gt;</description></item></channel></rss>

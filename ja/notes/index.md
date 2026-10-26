@@ -15,3 +15,4 @@ Cloud、systems、AI、日常運用で使う実務向けメモ。
 - [macOS](https://clarence.tw/ja/notes/mac/)
 - [システム管理](https://clarence.tw/ja/notes/system/)
 - [Docker](https://clarence.tw/ja/notes/docker/)
+- [GitLab](https://clarence.tw/ja/notes/gitlab/)

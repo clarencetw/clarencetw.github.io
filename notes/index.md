@@ -15,3 +15,4 @@ language: "zh-tw"
 - [macOS 筆記](https://clarence.tw/notes/mac/)
 - [系統管理](https://clarence.tw/notes/system/)
 - [Docker](https://clarence.tw/notes/docker/)
+- [GitLab](https://clarence.tw/notes/gitlab/)

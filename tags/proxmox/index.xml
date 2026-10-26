@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Proxmox on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/tags/proxmox/</link><description>Recent content in Proxmox on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/tags/proxmox/index.xml" rel="self" type="application/rss+xml"/><item><title>Proxmox VE 與 PBS：中小型 On-prem 基礎設施的規劃與備份策略</title><link>https://clarence.tw/posts/proxmox-ve-pbs-infrastructure/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/posts/proxmox-ve-pbs-infrastructure/</guid><description>&lt;p&gt;自 2023 年起，我以 Operator 的角色規劃與維運 Proxmox VE、Proxmox Backup Server（PBS）、GPU server 與 On-prem infrastructure，承載 internal services、AI runtime workload，並負責整體的 backup strategy。&lt;/p&gt;
+&lt;p&gt;這篇不是安裝教學，而是整理我在這類中小型地端環境裡比較在意的規劃原則，以及維運時實際踩過、也在 &lt;a href="https://blog.clarence.tw/" target="_blank" rel="noopener"&gt;blog&lt;/a&gt; 記錄過的問題。文中不會提到任何主機名稱、IP、網段配置或資安細節；涉及設定建議的地方，都是一般性的做法，並以 Proxmox 官方文件為準。&lt;/p&gt;
+&lt;h2 id="背景與需求"&gt;背景與需求&lt;/h2&gt;
+&lt;p&gt;地端環境的需求通常很實際：有一批 internal services 要長期穩定運作，有 AI workload 需要 GPU，還有資料必須能備份、能還原。預算與人力有限，所以選擇的平台要能讓少數人就維護得動。&lt;/p&gt;
+&lt;p&gt;Proxmox VE 適合這種情境：VM 與 LXC container 可以在同一個介面管理，cluster、storage、backup 都有內建的做法，搭配 PBS 就能有 incremental、deduplicated 的備份。對我來說，重點不是「功能最多」，而是「出事時能不能快速查、快速救」。&lt;/p&gt;
+&lt;p&gt;我在這個範圍內負責的工作包含：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設計與維運 Proxmox VE cluster、virtualization、storage 與 VM lifecycle。&lt;/li&gt;
+&lt;li&gt;建置 Proxmox Backup Server，規劃 backup、restore 與 disaster recovery 流程。&lt;/li&gt;
+&lt;li&gt;管理 NVIDIA GPU server、driver / runtime、inference environment 與系統調校。&lt;/li&gt;
+&lt;li&gt;評估 Dell、HP、Supermicro server hardware 與 GPU server 規格，整理成可採購、可維運的技術規格。&lt;/li&gt;
+&lt;li&gt;規劃內外部機房、site-to-site backup 與 high availability 路徑，並用 LibreNMS 做 network / server monitoring。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="規劃重點叢集儲存與網路"&gt;規劃重點：叢集、儲存與網路&lt;/h2&gt;
+&lt;h3 id="叢集"&gt;叢集&lt;/h3&gt;
+&lt;p&gt;Cluster 的價值在於集中管理與 VM 搬移，但它也帶來 quorum 的問題。依照 &lt;a href="https://pve.proxmox.com/pve-docs/chapter-pvecm.html" target="_blank" rel="noopener"&gt;Proxmox VE 官方文件&lt;/a&gt;，如果要用 High Availability，至少需要三個節點才能有可靠的 quorum；只有兩個節點時，可以用 QDevice 補第三票。&lt;/p&gt;</description></item></channel></rss>

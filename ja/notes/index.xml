@@ -1,4 +1,151 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技術ノート on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/</link><description>Recent content in 技術ノート on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS CDK Tips</title><link>https://clarence.tw/ja/notes/aws/cdk-tips/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/aws/cdk-tips/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>技術ノート on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/</link><description>Recent content in 技術ノート on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama コマンドと設定：モデル管理、モデル削除、環境変数</title><link>https://clarence.tw/ja/notes/llm/ollama-setup/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲-2"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年10月26日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;p&gt;このページのコマンド、フラグ、環境変数、デフォルトパスは、Ollama v0.40.11（2026年10月24日リリース）時点の公式ドキュメントとソースコードで確認しています：&lt;a href="https://docs.ollama.com/cli" target="_blank" rel="noopener"&gt;CLI Reference&lt;/a&gt;、&lt;a href="https://docs.ollama.com/faq" target="_blank" rel="noopener"&gt;FAQ&lt;/a&gt;、&lt;a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener"&gt;Context length&lt;/a&gt;、&lt;a href="https://docs.ollama.com/api/introduction" target="_blank" rel="noopener"&gt;API&lt;/a&gt;。デフォルト値はバージョンによって変わるため、手元の &lt;code&gt;ollama -v&lt;/code&gt; と &lt;code&gt;ollama serve --help&lt;/code&gt; の出力を優先してください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- インストール --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-ollama-のインストール-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-ollama-のインストール-2"&gt;&lt;span&gt;Ollama のインストール&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Linux へのインストール。同じ script を再実行するとアップグレード&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# バージョン確認&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# server を手動で起動（デフォルトは 127.0.0.1:11434）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;macOS と Windows は &lt;a href="https://ollama.com/download" target="_blank" rel="noopener"&gt;ollama.com/download&lt;/a&gt; からアプリをインストールします。更新は自動でダウンロードされ、メニューバー／タスクバーの「Restart to update」で適用されます。&lt;/li&gt;
+&lt;li&gt;Linux のインストール script は &lt;code&gt;ollama&lt;/code&gt; systemd service を作成するため、通常は &lt;code&gt;ollama serve&lt;/code&gt; を手動で実行する必要はありません。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- コマンド一覧 --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-ollama-コマンド一覧-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-ollama-コマンド一覧-2"&gt;&lt;span&gt;Ollama コマンド一覧&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: left"&gt;コマンド&lt;/th&gt;
+&lt;th style="text-align: left"&gt;用途&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama pull MODEL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;モデルのダウンロード・更新&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama run MODEL [PROMPT]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;モデルを実行。ローカルにない場合は先にダウンロード&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama list&lt;/code&gt;／&lt;code&gt;ollama ls&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;ダウンロード済みモデルの一覧&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama ps&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;メモリにロード中のモデルの一覧&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama show MODEL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;モデル情報の表示&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama stop MODEL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;モデルをメモリから即時アンロード&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama cp SOURCE DESTINATION&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;別名でモデルをコピー&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama rm MODEL [MODEL...]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;&lt;strong&gt;モデルを削除（元に戻せない）&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama create NAME -f Modelfile&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Modelfile からカスタムモデルを作成&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama serve&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Ollama server を起動&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# モデルをダウンロード&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 対話モード。/bye で終了&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 1 回だけ質問（script 向け）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2 &lt;span style="color:#a5d6ff"&gt;&amp;#34;RAG とは何かを 3 文で説明して&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 応答時間や速度などの統計を表示&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2 --verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# モデルをメモリに保持する時間を指定&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2 --keepalive 30m
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# ダウンロード済みモデルの一覧（ls は list の別名）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# ロード中のモデル、サイズ、GPU/CPU の割り当てを確認&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama ps
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# モデルをアンロードして RAM / VRAM を解放（ファイルは削除しない）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama stop llama3.2&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;ollama ps&lt;/code&gt; の &lt;code&gt;PROCESSOR&lt;/code&gt; 列は、&lt;code&gt;100% GPU&lt;/code&gt; なら GPU に完全ロード、&lt;code&gt;100% CPU&lt;/code&gt; ならシステムメモリに完全ロード、&lt;code&gt;48%/52% CPU/GPU&lt;/code&gt; なら両方に分散していることを示します。&lt;/p&gt;</description></item><item><title>GitLab Runner config.toml 設定とよく使う CI/CD 変数</title><link>https://clarence.tw/ja/notes/gitlab/runner-config/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/gitlab/runner-config/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-version-と安全範囲-2"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年10月26日&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;2026年10月26日時点の GitLab 公式ドキュメントをもとに整理しています。当時の最新 GitLab Runner は v19.5.1 です。設定項目や default 値は version によって変わるため、本番環境では &lt;a href="https://docs.gitlab.com/runner/configuration/advanced-configuration/" target="_blank" rel="noopener"&gt;Runner advanced configuration&lt;/a&gt;、&lt;a href="https://docs.gitlab.com/runner/register/" target="_blank" rel="noopener"&gt;Runner の登録&lt;/a&gt;、&lt;a href="https://docs.gitlab.com/ci/variables/predefined_variables/" target="_blank" rel="noopener"&gt;Predefined CI/CD variables&lt;/a&gt; を確認してください。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;privileged = true&lt;/code&gt;、&lt;code&gt;/var/run/docker.sock&lt;/code&gt; の mount、&lt;code&gt;gitlab-runner unregister&lt;/code&gt;、&lt;code&gt;gitlab-runner verify --delete&lt;/code&gt; には security 上または取り消せないリスクがあり、以下で個別に示します。変更前に &lt;code&gt;config.toml&lt;/code&gt; を backup してください。Runner token や registry password は secret です。repository や CI log に残さないでください。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-runner-の登録authentication-token-方式-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-runner-の登録authentication-token-方式-2"&gt;&lt;span&gt;Runner の登録（authentication token 方式）&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;現在の手順では、先に GitLab で runner を作成し、runner authentication token で登録します。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Project runner の場合、project の &lt;strong&gt;Settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;CI/CD&lt;/strong&gt; &amp;gt; &lt;strong&gt;Runners&lt;/strong&gt; で &lt;strong&gt;Create project runner&lt;/strong&gt; を選択します（Maintainer role が必要）。Group runner や instance runner は group 設定または Admin Area で作成します。&lt;/li&gt;
+&lt;li&gt;Tags や説明を設定して作成すると、&lt;code&gt;glrt-&lt;/code&gt; で始まる authentication token が短時間だけ表示されます。&lt;/li&gt;
+&lt;li&gt;Runner host で登録します。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo gitlab-runner register &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --non-interactive &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --url &lt;span style="color:#a5d6ff"&gt;&amp;#34;https://gitlab.example.com/&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --token &lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#79c0ff"&gt;$RUNNER_TOKEN&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --executor &lt;span style="color:#a5d6ff"&gt;&amp;#34;docker&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --docker-image alpine:latest &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --docker-pull-policy &lt;span style="color:#a5d6ff"&gt;&amp;#34;if-not-present&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --description &lt;span style="color:#a5d6ff"&gt;&amp;#34;docker-runner&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;旧来の registration token（&lt;code&gt;--registration-token&lt;/code&gt;）は deprecated で、公式ドキュメントでは GitLab 20.0 で削除予定とされています。新しい runner には authentication token を使ってください。&lt;/li&gt;
+&lt;li&gt;Tags、protected、run untagged などは GitLab UI または API で runner を作成するときに設定し、&lt;code&gt;register&lt;/code&gt; の引数では指定しません。&lt;/li&gt;
+&lt;li&gt;Runner 作成を自動化する場合は、&lt;code&gt;create_runner&lt;/code&gt; scope を持つ access token で &lt;code&gt;POST /api/v4/user/runners&lt;/code&gt; を呼び出し、返された token を &lt;code&gt;register&lt;/code&gt; に渡します。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl --silent --request POST --url &lt;span style="color:#a5d6ff"&gt;&amp;#34;https://gitlab.example.com/api/v4/user/runners&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;runner_type=project_type&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;project_id=&amp;lt;project_id&amp;gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;description=docker-runner&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;tag_list=docker,linux&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --header &lt;span style="color:#a5d6ff"&gt;&amp;#34;PRIVATE-TOKEN: &amp;lt;project_access_token&amp;gt;&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;gitlab_pat&lt;/code&gt; について：&lt;/strong&gt;&lt;code&gt;config.toml&lt;/code&gt; に &lt;code&gt;gitlab_pat&lt;/code&gt; という設定はありません。Runner が GitLab への接続に使うのは &lt;code&gt;[[runners]]&lt;/code&gt; の &lt;code&gt;token&lt;/code&gt;（&lt;code&gt;glrt-&lt;/code&gt; で始まる runner authentication token）です。Personal access token（&lt;code&gt;glpat-&lt;/code&gt; で始まる）は runner 作成などの API 自動化にだけ使い、&lt;code&gt;config.toml&lt;/code&gt; に書く必要はありません。&lt;/p&gt;</description></item><item><title>AWS CDK Tips</title><link>https://clarence.tw/ja/notes/aws/cdk-tips/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/aws/cdk-tips/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-version-と安全範囲-2"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
@@ -95,44 +242,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.screencapture location ~/Desktop/Screenshots
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;defaults write com.apple.screencapture type -string &lt;span style="color:#a5d6ff"&gt;&amp;#34;png&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall SystemUIServer&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;screenshot location を変更する前に target folder を作成する。&lt;/p&gt;</description></item><item><title>Ollama 設定と使い方</title><link>https://clarence.tw/ja/notes/llm/ollama-setup/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-version-と安全範囲-2"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-install-と実行-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-install-と実行-2"&gt;&lt;span&gt;Install と実行&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.1:8b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;prompt testing では小さめの model から始め、workflow が安定してから大きな model に移る。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-model-commands-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-model-commands-2"&gt;&lt;span&gt;Model commands&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama rm gemma2:9b&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;script では model name を明示する。default model の変更で結果が変わるのを避けるため。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-local-api-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-local-api-2"&gt;&lt;span&gt;Local API&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl http://localhost:11434/api/generate &lt;span style="color:#79c0ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -d &lt;span style="color:#a5d6ff"&gt;&amp;#39;{&amp;#34;model&amp;#34;:&amp;#34;gemma2:9b&amp;#34;,&amp;#34;prompt&amp;#34;:&amp;#34;Summarize this text.&amp;#34;,&amp;#34;stream&amp;#34;:false}&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;local API は private experiment に便利だが、production では timeout、retry、logging boundary が必要。&lt;/p&gt;</description></item><item><title>パッケージ管理コマンド</title><link>https://clarence.tw/ja/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;killall SystemUIServer&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;screenshot location を変更する前に target folder を作成する。&lt;/p&gt;</description></item><item><title>パッケージ管理コマンド</title><link>https://clarence.tw/ja/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-version-と安全範囲-2"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
@@ -199,7 +309,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;du -sh /path/*
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tail -f /var/log/syslog
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grep &lt;span style="color:#a5d6ff"&gt;&amp;#34;error&amp;#34;&lt;/span&gt; /var/log/syslog
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -czf archive.tar.gz folder/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;live logs には &lt;code&gt;tail -f&lt;/code&gt;、過去ログの絞り込みには &lt;code&gt;grep&lt;/code&gt; を使う。&lt;/p&gt;</description></item><item><title>Docker コマンド</title><link>https://clarence.tw/ja/notes/docker/docker-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/docker/docker-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -czf archive.tar.gz folder/&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;live logs には &lt;code&gt;tail -f&lt;/code&gt;、過去ログの絞り込みには &lt;code&gt;grep&lt;/code&gt; を使う。&lt;/p&gt;</description></item><item><title>Docker コマンド早見表：image、container、Compose、cleanup</title><link>https://clarence.tw/ja/notes/docker/docker-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/docker/docker-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-version-と安全範囲-2"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
@@ -209,30 +319,39 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-images-と-containers-2"&gt;
+&lt;!-- Docker 基本コマンド --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-docker-基本コマンド-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-images-と-containers-2"&gt;&lt;span&gt;Images と containers&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-docker-基本コマンド-2"&gt;&lt;span&gt;Docker 基本コマンド&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull nginx:latest
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;Image 管理：&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# image を検索&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker search nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker search ubuntu
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# image を取得&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull nginx:alpine
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull ubuntu:24.04
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# image 一覧&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker images
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps -a
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -d --name web -p 8080:80 nginx
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker exec -it web sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker logs -f web
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker stop web
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rm web&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;長く動かす container には名前を付ける。logs や operational commands が読みやすくなる。&lt;/p&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# image を削除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rmi nginx
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker rmi nginx:alpine
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image rm ubuntu:24.04
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 未使用 image の整理&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image prune &lt;span style="color:#8b949e;font-style:italic"&gt;# dangling image を削除&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image prune -a &lt;span style="color:#8b949e;font-style:italic"&gt;# どの container にも使われていない image をすべて削除&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-compose-workflow-2"&gt;
+&lt;!-- Container 操作 --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-container-操作-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-compose-workflow-2"&gt;&lt;span&gt;Compose workflow&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-container-操作-2"&gt;&lt;span&gt;Container 操作&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose up -d
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose up --build
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose ps
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose logs -f service_name
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose exec service_name sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose down
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker compose down -v&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;down -v&lt;/code&gt; は volume data を削除してよい場合だけ使う。&lt;/p&gt;</description></item></channel></rss>
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;Container の起動：&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>

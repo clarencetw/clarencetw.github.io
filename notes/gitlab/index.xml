@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GitLab on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/notes/gitlab/</link><description>Recent content in GitLab on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/notes/gitlab/index.xml" rel="self" type="application/rss+xml"/><item><title>GitLab Runner config.toml 設定與常用 CI/CD 變數</title><link>https://clarence.tw/notes/gitlab/runner-config/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/gitlab/runner-config/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最後檢視：2026-10-26&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;內容依 2026-10-26 的 GitLab 官方文件整理，當時最新的 GitLab Runner 為 v19.5.1。設定項目與預設值會隨版本變動，正式環境請先核對 &lt;a href="https://docs.gitlab.com/runner/configuration/advanced-configuration/" target="_blank" rel="noopener"&gt;Runner advanced configuration&lt;/a&gt;、&lt;a href="https://docs.gitlab.com/runner/register/" target="_blank" rel="noopener"&gt;Runner 註冊&lt;/a&gt; 與 &lt;a href="https://docs.gitlab.com/ci/variables/predefined_variables/" target="_blank" rel="noopener"&gt;Predefined CI/CD variables&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;privileged = true&lt;/code&gt;、掛載 &lt;code&gt;/var/run/docker.sock&lt;/code&gt;、&lt;code&gt;gitlab-runner unregister&lt;/code&gt; 與 &lt;code&gt;gitlab-runner verify --delete&lt;/code&gt; 都有安全或不可復原的風險，下方會個別標示。修改前先備份 &lt;code&gt;config.toml&lt;/code&gt;；runner token 與 registry 密碼都是 secret，不要寫進 repository 或 CI log。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-註冊-runnerauthentication-token-流程-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-註冊-runnerauthentication-token-流程-2"&gt;&lt;span&gt;註冊 Runner（authentication token 流程）&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;新的流程是先在 GitLab 建立 runner，再用 runner authentication token 註冊：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Project runner：到 project 的 &lt;strong&gt;Settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;CI/CD&lt;/strong&gt; &amp;gt; &lt;strong&gt;Runners&lt;/strong&gt;，選 &lt;strong&gt;Create project runner&lt;/strong&gt;（需要 Maintainer 角色）。Group 或 instance runner 則在 group 設定或 Admin Area 建立。&lt;/li&gt;
+&lt;li&gt;設定 tags、描述等屬性後建立，畫面會顯示以 &lt;code&gt;glrt-&lt;/code&gt; 開頭的 authentication token，只會短暫顯示一次。&lt;/li&gt;
+&lt;li&gt;在 runner 主機上註冊：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo gitlab-runner register &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --non-interactive &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --url &lt;span style="color:#a5d6ff"&gt;&amp;#34;https://gitlab.example.com/&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --token &lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#79c0ff"&gt;$RUNNER_TOKEN&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --executor &lt;span style="color:#a5d6ff"&gt;&amp;#34;docker&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --docker-image alpine:latest &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --docker-pull-policy &lt;span style="color:#a5d6ff"&gt;&amp;#34;if-not-present&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --description &lt;span style="color:#a5d6ff"&gt;&amp;#34;docker-runner&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;舊的 registration token（&lt;code&gt;--registration-token&lt;/code&gt;）已 deprecated，官方文件標示預計在 GitLab 20.0 移除；新 runner 請一律使用 authentication token。&lt;/li&gt;
+&lt;li&gt;Tags、protected、run untagged 等屬性改在 GitLab UI 或 API 建立 runner 時設定，不再由 &lt;code&gt;register&lt;/code&gt; 參數決定。&lt;/li&gt;
+&lt;li&gt;自動化建立 runner 可呼叫 &lt;code&gt;POST /api/v4/user/runners&lt;/code&gt;，用具備 &lt;code&gt;create_runner&lt;/code&gt; scope 的 access token 取得 runner token，再交給 &lt;code&gt;register&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl --silent --request POST --url &lt;span style="color:#a5d6ff"&gt;&amp;#34;https://gitlab.example.com/api/v4/user/runners&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;runner_type=project_type&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;project_id=&amp;lt;project_id&amp;gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;description=docker-runner&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;tag_list=docker,linux&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --header &lt;span style="color:#a5d6ff"&gt;&amp;#34;PRIVATE-TOKEN: &amp;lt;project_access_token&amp;gt;&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;關於 &lt;code&gt;gitlab_pat&lt;/code&gt;：&lt;/strong&gt;&lt;code&gt;config.toml&lt;/code&gt; 沒有 &lt;code&gt;gitlab_pat&lt;/code&gt; 這個設定。Runner 連線 GitLab 用的是 &lt;code&gt;[[runners]]&lt;/code&gt; 裡的 &lt;code&gt;token&lt;/code&gt;（&lt;code&gt;glrt-&lt;/code&gt; 開頭的 runner authentication token）；Personal access token（&lt;code&gt;glpat-&lt;/code&gt; 開頭）只用在呼叫 API 建立 runner 這類自動化步驟，不需要也不應該寫進 &lt;code&gt;config.toml&lt;/code&gt;。&lt;/p&gt;</description></item></channel></rss>

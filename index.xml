@@ -1,4 +1,212 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/</link><description>Recent content on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/index.xml" rel="self" type="application/rss+xml"/><item><title>AWS CDK 實用技巧</title><link>https://clarence.tw/notes/aws/cdk-tips/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/aws/cdk-tips/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/</link><description>Recent content on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama 指令與設定速查：模型管理、刪除模型與環境變數</title><link>https://clarence.tw/notes/llm/ollama-setup/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最後檢視：2026-10-26&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。&lt;/p&gt;
+&lt;p&gt;本頁指令、旗標、環境變數與預設路徑，已對照 Ollama v0.40.11（2026-10-24 發布）時的官方文件與原始碼：&lt;a href="https://docs.ollama.com/cli" target="_blank" rel="noopener"&gt;CLI Reference&lt;/a&gt;、&lt;a href="https://docs.ollama.com/faq" target="_blank" rel="noopener"&gt;FAQ&lt;/a&gt;、&lt;a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener"&gt;Context length&lt;/a&gt; 與 &lt;a href="https://docs.ollama.com/api/introduction" target="_blank" rel="noopener"&gt;API&lt;/a&gt;。不同版本的預設值可能不同，請以 &lt;code&gt;ollama -v&lt;/code&gt; 與 &lt;code&gt;ollama serve --help&lt;/code&gt; 的實際輸出為準。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- Ollama 安裝 --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-ollama-安裝-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-ollama-安裝-2"&gt;&lt;span&gt;Ollama 安裝&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Linux 安裝；再次執行同一個 script 即可升級&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 手動啟動 server（預設監聽 127.0.0.1:11434）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;macOS 與 Windows 從 &lt;a href="https://ollama.com/download" target="_blank" rel="noopener"&gt;ollama.com/download&lt;/a&gt; 安裝 app，會自動下載更新，從選單列／工作列點「Restart to update」套用。&lt;/li&gt;
+&lt;li&gt;Linux 用安裝 script 安裝時會建立 &lt;code&gt;ollama&lt;/code&gt; systemd service，通常不需要再手動執行 &lt;code&gt;ollama serve&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!-- 常用指令速查 --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-ollama-常用指令速查-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-ollama-常用指令速查-2"&gt;&lt;span&gt;Ollama 常用指令速查&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: left"&gt;指令&lt;/th&gt;
+&lt;th style="text-align: left"&gt;用途&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama pull MODEL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;下載或更新模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama run MODEL [PROMPT]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;執行模型；沒有本機模型時會先下載&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama list&lt;/code&gt;／&lt;code&gt;ollama ls&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;列出已下載的模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama ps&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;列出目前載入記憶體的模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama show MODEL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;查看模型資訊&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama stop MODEL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;立即從記憶體卸載模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama cp SOURCE DESTINATION&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;以新名稱複製模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama rm MODEL [MODEL...]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;&lt;strong&gt;刪除模型（無法復原）&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama create NAME -f Modelfile&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;從 Modelfile 建立自訂模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama serve&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;啟動 Ollama server&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 下載模型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 互動式對話；輸入 /bye 離開&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 單次提問，適合寫進 script&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2 &lt;span style="color:#a5d6ff"&gt;&amp;#34;用三句話說明什麼是 RAG&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 顯示回應耗時、速度等統計&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2 --verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 指定模型在記憶體停留多久&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2 --keepalive 30m
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 列出已下載模型（ls 是 list 的別名）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看已載入的模型、佔用大小與 GPU/CPU 分配&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama ps
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 立即卸載模型，釋放 RAM / VRAM（不會刪除檔案）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama stop llama3.2&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;ollama ps&lt;/code&gt; 的 &lt;code&gt;PROCESSOR&lt;/code&gt; 欄位：&lt;code&gt;100% GPU&lt;/code&gt; 代表完全載入 GPU；&lt;code&gt;100% CPU&lt;/code&gt; 代表完全在系統記憶體；&lt;code&gt;48%/52% CPU/GPU&lt;/code&gt; 代表部分在 GPU、部分在系統記憶體。&lt;/p&gt;</description></item><item><title>GitLab Runner config.toml 設定與常用 CI/CD 變數</title><link>https://clarence.tw/notes/gitlab/runner-config/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/gitlab/runner-config/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最後檢視：2026-10-26&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;內容依 2026-10-26 的 GitLab 官方文件整理，當時最新的 GitLab Runner 為 v19.5.1。設定項目與預設值會隨版本變動，正式環境請先核對 &lt;a href="https://docs.gitlab.com/runner/configuration/advanced-configuration/" target="_blank" rel="noopener"&gt;Runner advanced configuration&lt;/a&gt;、&lt;a href="https://docs.gitlab.com/runner/register/" target="_blank" rel="noopener"&gt;Runner 註冊&lt;/a&gt; 與 &lt;a href="https://docs.gitlab.com/ci/variables/predefined_variables/" target="_blank" rel="noopener"&gt;Predefined CI/CD variables&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;privileged = true&lt;/code&gt;、掛載 &lt;code&gt;/var/run/docker.sock&lt;/code&gt;、&lt;code&gt;gitlab-runner unregister&lt;/code&gt; 與 &lt;code&gt;gitlab-runner verify --delete&lt;/code&gt; 都有安全或不可復原的風險，下方會個別標示。修改前先備份 &lt;code&gt;config.toml&lt;/code&gt;；runner token 與 registry 密碼都是 secret，不要寫進 repository 或 CI log。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;section class="note-card " aria-labelledby="note-section-註冊-runnerauthentication-token-流程-2"&gt;
+&lt;div class="item"&gt;
+&lt;h2 class="note-title" id="note-section-註冊-runnerauthentication-token-流程-2"&gt;&lt;span&gt;註冊 Runner（authentication token 流程）&lt;/span&gt;&lt;/h2&gt;
+&lt;div class="card"&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;新的流程是先在 GitLab 建立 runner，再用 runner authentication token 註冊：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Project runner：到 project 的 &lt;strong&gt;Settings&lt;/strong&gt; &amp;gt; &lt;strong&gt;CI/CD&lt;/strong&gt; &amp;gt; &lt;strong&gt;Runners&lt;/strong&gt;，選 &lt;strong&gt;Create project runner&lt;/strong&gt;（需要 Maintainer 角色）。Group 或 instance runner 則在 group 設定或 Admin Area 建立。&lt;/li&gt;
+&lt;li&gt;設定 tags、描述等屬性後建立，畫面會顯示以 &lt;code&gt;glrt-&lt;/code&gt; 開頭的 authentication token，只會短暫顯示一次。&lt;/li&gt;
+&lt;li&gt;在 runner 主機上註冊：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo gitlab-runner register &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --non-interactive &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --url &lt;span style="color:#a5d6ff"&gt;&amp;#34;https://gitlab.example.com/&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --token &lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#79c0ff"&gt;$RUNNER_TOKEN&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --executor &lt;span style="color:#a5d6ff"&gt;&amp;#34;docker&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --docker-image alpine:latest &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --docker-pull-policy &lt;span style="color:#a5d6ff"&gt;&amp;#34;if-not-present&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --description &lt;span style="color:#a5d6ff"&gt;&amp;#34;docker-runner&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;舊的 registration token（&lt;code&gt;--registration-token&lt;/code&gt;）已 deprecated，官方文件標示預計在 GitLab 20.0 移除；新 runner 請一律使用 authentication token。&lt;/li&gt;
+&lt;li&gt;Tags、protected、run untagged 等屬性改在 GitLab UI 或 API 建立 runner 時設定，不再由 &lt;code&gt;register&lt;/code&gt; 參數決定。&lt;/li&gt;
+&lt;li&gt;自動化建立 runner 可呼叫 &lt;code&gt;POST /api/v4/user/runners&lt;/code&gt;，用具備 &lt;code&gt;create_runner&lt;/code&gt; scope 的 access token 取得 runner token，再交給 &lt;code&gt;register&lt;/code&gt;：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl --silent --request POST --url &lt;span style="color:#a5d6ff"&gt;&amp;#34;https://gitlab.example.com/api/v4/user/runners&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;runner_type=project_type&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;project_id=&amp;lt;project_id&amp;gt;&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;description=docker-runner&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --data &lt;span style="color:#a5d6ff"&gt;&amp;#34;tag_list=docker,linux&amp;#34;&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --header &lt;span style="color:#a5d6ff"&gt;&amp;#34;PRIVATE-TOKEN: &amp;lt;project_access_token&amp;gt;&amp;#34;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;關於 &lt;code&gt;gitlab_pat&lt;/code&gt;：&lt;/strong&gt;&lt;code&gt;config.toml&lt;/code&gt; 沒有 &lt;code&gt;gitlab_pat&lt;/code&gt; 這個設定。Runner 連線 GitLab 用的是 &lt;code&gt;[[runners]]&lt;/code&gt; 裡的 &lt;code&gt;token&lt;/code&gt;（&lt;code&gt;glrt-&lt;/code&gt; 開頭的 runner authentication token）；Personal access token（&lt;code&gt;glpat-&lt;/code&gt; 開頭）只用在呼叫 API 建立 runner 這類自動化步驟，不需要也不應該寫進 &lt;code&gt;config.toml&lt;/code&gt;。&lt;/p&gt;</description></item><item><title>LLM 文字摘要流程的設計與取捨：OpenAI API、Ollama 與 Local Model</title><link>https://clarence.tw/posts/llm-text-summarization-platform/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/posts/llm-text-summarization-platform/</guid><description>&lt;p&gt;自 2022 年起，我開始把 LLM 放進實際產品流程，其中一塊是內部的文字摘要與 AI application 平台：整合 OpenAI API、Ollama、local model 與 batch processing，重點放在可控、可維運的 model usage。&lt;/p&gt;
+&lt;p&gt;這類內部系統的細節不適合公開，所以這篇不是完整的 case study，而是整理我設計與維運摘要流程時採用的原則與取捨。文中提到的 API 行為都以官方文件為準，寫作時（2026-10）已對照過；實際使用前仍請以最新文件為準。&lt;/p&gt;
+&lt;h2 id="為什麼摘要不只是呼叫-api"&gt;為什麼摘要不只是呼叫 API&lt;/h2&gt;
+&lt;p&gt;做出一個摘要 demo 很快：把文字丟進 prompt，請模型「幫我摘要」，幾分鐘就能看到結果。真正的工作在 demo 之後：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;輸入長度不固定，有些文字會超過模型的 context length。&lt;/li&gt;
+&lt;li&gt;同一批資料要處理很多筆，會碰到 rate limit、timeout 與部分失敗。&lt;/li&gt;
+&lt;li&gt;下游系統需要固定格式，但模型輸出不一定每次都長得一樣。&lt;/li&gt;
+&lt;li&gt;成本、延遲與資料敏感度，會影響每一筆該送到哪個模型。&lt;/li&gt;
+&lt;li&gt;換模型或改 prompt 之後，需要知道品質是變好還是變差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以我會把摘要當成一條資料處理 pipeline 來設計，而不是一個 API call。&lt;/p&gt;
+&lt;h2 id="流程拆解"&gt;流程拆解&lt;/h2&gt;
+&lt;p&gt;我習慣把流程拆成幾個可以各自觀察、各自重跑的階段：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;前處理&lt;/strong&gt;：清掉格式雜訊、重複內容與不需要送進模型的欄位，並在這一步處理不該離開環境的資料。送進模型的內容越乾淨，token 用量與輸出品質都越好控制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;切段&lt;/strong&gt;：先估算 token 數，超過模型可處理的長度就依段落或語意邊界切段，必要時保留少量重疊，避免重點剛好被切斷。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型呼叫&lt;/strong&gt;：短文字直接摘要；長文字用 map-reduce 的方式，先對每一段產生摘要，再把段落摘要合併成最終摘要。這樣每次呼叫的輸入都在可控範圍內，失敗時也只需要重跑單一段落。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;驗證&lt;/strong&gt;：檢查輸出格式、必要欄位、長度與明顯的錯誤，不通過就標記為失敗或進入重試。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;輸出&lt;/strong&gt;：把結果連同使用的模型、prompt 版本與處理狀態一起保存，之後才能追查與比較。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;使用 local model 時，context length 要特別留意。Ollama 的預設 context length 會依 VRAM 大小決定，可以用 &lt;code&gt;OLLAMA_CONTEXT_LENGTH&lt;/code&gt; 調整，並透過 &lt;code&gt;ollama ps&lt;/code&gt; 的 CONTEXT 欄位確認實際配置（&lt;a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener"&gt;Context length 官方文件&lt;/a&gt;）。如果沒有確認這個設定，長文字可能沒有被模型完整看到。Ollama 的安裝、指令與環境變數，我整理在 &lt;a href="https://clarence.tw/notes/llm/ollama-setup/"&gt;Ollama 指令與設定速查&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>Proxmox VE 與 PBS：中小型 On-prem 基礎設施的規劃與備份策略</title><link>https://clarence.tw/posts/proxmox-ve-pbs-infrastructure/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/posts/proxmox-ve-pbs-infrastructure/</guid><description>&lt;p&gt;自 2023 年起，我以 Operator 的角色規劃與維運 Proxmox VE、Proxmox Backup Server（PBS）、GPU server 與 On-prem infrastructure，承載 internal services、AI runtime workload，並負責整體的 backup strategy。&lt;/p&gt;
+&lt;p&gt;這篇不是安裝教學，而是整理我在這類中小型地端環境裡比較在意的規劃原則，以及維運時實際踩過、也在 &lt;a href="https://blog.clarence.tw/" target="_blank" rel="noopener"&gt;blog&lt;/a&gt; 記錄過的問題。文中不會提到任何主機名稱、IP、網段配置或資安細節；涉及設定建議的地方，都是一般性的做法，並以 Proxmox 官方文件為準。&lt;/p&gt;
+&lt;h2 id="背景與需求"&gt;背景與需求&lt;/h2&gt;
+&lt;p&gt;地端環境的需求通常很實際：有一批 internal services 要長期穩定運作，有 AI workload 需要 GPU，還有資料必須能備份、能還原。預算與人力有限，所以選擇的平台要能讓少數人就維護得動。&lt;/p&gt;
+&lt;p&gt;Proxmox VE 適合這種情境：VM 與 LXC container 可以在同一個介面管理，cluster、storage、backup 都有內建的做法，搭配 PBS 就能有 incremental、deduplicated 的備份。對我來說，重點不是「功能最多」，而是「出事時能不能快速查、快速救」。&lt;/p&gt;
+&lt;p&gt;我在這個範圍內負責的工作包含：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;設計與維運 Proxmox VE cluster、virtualization、storage 與 VM lifecycle。&lt;/li&gt;
+&lt;li&gt;建置 Proxmox Backup Server，規劃 backup、restore 與 disaster recovery 流程。&lt;/li&gt;
+&lt;li&gt;管理 NVIDIA GPU server、driver / runtime、inference environment 與系統調校。&lt;/li&gt;
+&lt;li&gt;評估 Dell、HP、Supermicro server hardware 與 GPU server 規格，整理成可採購、可維運的技術規格。&lt;/li&gt;
+&lt;li&gt;規劃內外部機房、site-to-site backup 與 high availability 路徑，並用 LibreNMS 做 network / server monitoring。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="規劃重點叢集儲存與網路"&gt;規劃重點：叢集、儲存與網路&lt;/h2&gt;
+&lt;h3 id="叢集"&gt;叢集&lt;/h3&gt;
+&lt;p&gt;Cluster 的價值在於集中管理與 VM 搬移，但它也帶來 quorum 的問題。依照 &lt;a href="https://pve.proxmox.com/pve-docs/chapter-pvecm.html" target="_blank" rel="noopener"&gt;Proxmox VE 官方文件&lt;/a&gt;，如果要用 High Availability，至少需要三個節點才能有可靠的 quorum；只有兩個節點時，可以用 QDevice 補第三票。&lt;/p&gt;</description></item><item><title>Speech AI 與 GPU Runtime：Kaldi、Whisper 的部署與維運筆記</title><link>https://clarence.tw/posts/speech-ai-gpu-runtime/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/posts/speech-ai-gpu-runtime/</guid><description>&lt;p&gt;自 2022 年起，我在工作中負責把 Kaldi、Whisper 這類 speech recognition 技術與 GPU runtime 接進實際的系統，範圍包含 model inference、system deployment 與後續的 performance maintenance。&lt;/p&gt;
+&lt;p&gt;這篇不是某個專案的完整案例，不會寫內部架構、資料內容或效能數據。我想整理的是自己面對這類工作的方式：怎麼看待 Kaldi 與 Whisper 的差異、為什麼我會先把 GPU runtime 弄穩，以及部署之後會固定檢查哪些東西。文中的技術說明以官方文件為準，踩坑經驗則來自我過去公開在 &lt;a href="https://blog.clarence.tw/" target="_blank" rel="noopener"&gt;blog.clarence.tw&lt;/a&gt; 的文章。&lt;/p&gt;
+&lt;h2 id="speech-ai-在產品中的位置"&gt;Speech AI 在產品中的位置&lt;/h2&gt;
+&lt;p&gt;我在 &lt;a href="https://clarence.tw/posts/technical-delivery-chain/"&gt;我的技術工作方式&lt;/a&gt; 提過，LLM 與 Speech AI 不只是呼叫一個 model API，而是要和 batch processing、local model、GPU runtime 與既有 backend workflow 串在一起。&lt;/p&gt;
+&lt;p&gt;語音辨識在產品裡通常只是其中一段。一般來說，前面會有音訊取得、格式轉換與切段，後面會有文字後處理、儲存、搜尋，或交給其他服務繼續使用。所以我評估一個 Speech AI 元件時，除了辨識結果本身，也會一起看：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;輸入音訊的格式與品質是否一致，前處理放在哪一層。&lt;/li&gt;
+&lt;li&gt;辨識是即時串流還是批次處理，失敗時怎麼 retry。&lt;/li&gt;
+&lt;li&gt;模型輸出要怎麼驗證，哪些情況需要人工確認。&lt;/li&gt;
+&lt;li&gt;這個 runtime 能不能在另一台機器上被重複建出來。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這種「同一個工具在不同內容上表現差很多」的感覺，我很早就有。2019 年 Amazon Transcribe 剛支援簡體中文時，我&lt;a href="https://blog.clarence.tw/2019/08/25/amazon-transcribe-supports-simplified-chinese-using-teaching-and-experience/" target="_blank" rel="noopener"&gt;試用並寫了心得&lt;/a&gt;，當時拿歌曲測試的效果不太好，換成以對話為主的影片就好很多。不論是 managed service 還是自己部署的模型，都要用接近實際情境的音訊來判斷。&lt;/p&gt;
+&lt;h2 id="kaldi-與-whisper-的特性與取捨"&gt;Kaldi 與 Whisper 的特性與取捨&lt;/h2&gt;
+&lt;p&gt;Kaldi 與 Whisper 在我的工作中都會用到。我不把它們看成誰取代誰，而是兩種設計思路很不一樣的工具。&lt;/p&gt;</description></item><item><title>自架 GitLab、Runner 與 Harbor：從原始碼到部署的 CI/CD 流程</title><link>https://clarence.tw/posts/self-hosted-gitlab-runner-harbor/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/posts/self-hosted-gitlab-runner-harbor/</guid><description>&lt;p&gt;自 2022 年起，我以 Operator 的角色建置與維護 Self-hosted GitLab、GitLab Runner、Harbor registry 與 CI/CD workflow，把 source code、container image 與 deployment 串在同一條流程上。&lt;/p&gt;
+&lt;p&gt;這篇不是設定教學。&lt;code&gt;.gitlab-ci.yml&lt;/code&gt;、Runner 部署與多環境部署的範例整理在 &lt;a href="https://clarence.tw/posts/gitlab-cicd-complete-guide/"&gt;GitLab CI/CD 完整配置指南&lt;/a&gt;，&lt;code&gt;config.toml&lt;/code&gt; 的設定項目與常用變數整理在 &lt;a href="https://clarence.tw/notes/gitlab/runner-config/"&gt;GitLab Runner config.toml 設定與常用 CI/CD 變數&lt;/a&gt;。這裡想談的是另一面：為什麼要自己養這套系統、各元件怎麼接，以及跑了幾年之後真正花時間的地方。文中提到的問題，都附上我當時寫在 &lt;a href="https://blog.clarence.tw/" target="_blank" rel="noopener"&gt;blog.clarence.tw&lt;/a&gt; 的紀錄。&lt;/p&gt;
+&lt;h2 id="為什麼考慮自架"&gt;為什麼考慮自架&lt;/h2&gt;
+&lt;p&gt;GitLab.com 與各家雲端 registry 都很成熟，自架不是預設答案。會走向自架，通常是下面幾個考量疊在一起：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;資料與程式碼放在哪裡&lt;/strong&gt;：有些團隊需要原始碼、image 與 build log 留在自己能控制的環境。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;網路環境&lt;/strong&gt;：deployment target 在地端或內部網路時，Runner 與 registry 放在同一側，build 與 pull image 的路徑比較短，也比較好控管對外連線。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Runner 資源&lt;/strong&gt;：需要特定硬體、作業系統或較大的 build 資源時，自己的 Runner 比較好安排。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;整合需求&lt;/strong&gt;：要和既有的帳號系統、監控與備份流程接在一起。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;代價也很清楚：升級、備份、憑證、金鑰、磁碟空間與故障排除都變成自己的事。決定自架之前，要先確定有人願意長期承擔這些工作。&lt;/p&gt;
+&lt;h2 id="整體流向"&gt;整體流向&lt;/h2&gt;
+&lt;p&gt;整條流程可以用一句話描述：程式碼進 GitLab，Runner 依照 pipeline build 與測試，產出的 container image 推到 Harbor，部署環境再從 Harbor 拉 image。&lt;/p&gt;</description></item><item><title>AWS CDK 實用技巧</title><link>https://clarence.tw/notes/aws/cdk-tips/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/aws/cdk-tips/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
@@ -404,104 +612,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# MacBook: 關機後按住 Shift+Control+Option+電源鍵 10 秒&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/section&gt;</description></item><item><title>Ollama 設定與使用</title><link>https://clarence.tw/notes/llm/ollama-setup/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最後檢視：2026-07-11&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;這是通用指令速查，不是綁定特定版本的完整 runbook。執行前請確認工具版本、目前官方文件、帳號／主機／路徑等目標；涉及 deploy、destroy、delete、prune、sync、upgrade 或系統設定變更的指令，可能造成費用、停機或資料遺失，請先預覽差異並視需要備份。&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;!-- Ollama 安裝 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-ollama-安裝-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-ollama-安裝-2"&gt;&lt;span&gt;Ollama 安裝&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Linux/macOS 安裝&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 啟動服務&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 下載模型&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:27b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama2
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull mistral&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;!-- 常用模型指令 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-常用模型指令-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-常用模型指令-2"&gt;&lt;span&gt;常用模型指令&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 列出已安裝模型&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 執行對話 (使用 Gemma2)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 刪除模型&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama rm gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 查看模型資訊&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;!-- API 使用 --&gt;
-&lt;section class="note-card " aria-labelledby="note-section-api-使用範例-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-api-使用範例-2"&gt;&lt;span&gt;API 使用範例&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;import&lt;/span&gt; &lt;span style="color:#ff7b72"&gt;requests&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;import&lt;/span&gt; &lt;span style="color:#ff7b72"&gt;json&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;chat_with_ollama&lt;/span&gt;(prompt, model&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; url &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;http://localhost:11434/api/generate&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;model&amp;#34;&lt;/span&gt;: model,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;prompt&amp;#34;&lt;/span&gt;: prompt,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;stream&amp;#34;&lt;/span&gt;: &lt;span style="color:#79c0ff"&gt;False&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;post(url, json&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;data)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72"&gt;return&lt;/span&gt; response&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;json()[&lt;span style="color:#a5d6ff"&gt;&amp;#34;response&amp;#34;&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 使用範例 - 文本摘要&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;summarize_text&lt;/span&gt;(text):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; prompt &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; &lt;span style="color:#79c0ff"&gt;f&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;&amp;#34;&amp;#34;請將以下文字進行摘要，保留重點資訊：
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a5d6ff"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a5d6ff"&gt;{&lt;/span&gt;text&lt;span style="color:#a5d6ff"&gt;}&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a5d6ff"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a5d6ff"&gt;摘要：&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72"&gt;return&lt;/span&gt; chat_with_ollama(prompt, &lt;span style="color:#a5d6ff"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# RTX 4090 最佳化設定&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;chat_with_gemma2_optimized&lt;/span&gt;(prompt):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; url &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;http://localhost:11434/api/generate&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; data &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;model&amp;#34;&lt;/span&gt;: &lt;span style="color:#a5d6ff"&gt;&amp;#34;gemma2:9b&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;prompt&amp;#34;&lt;/span&gt;: prompt,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;stream&amp;#34;&lt;/span&gt;: &lt;span style="color:#79c0ff"&gt;False&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;options&amp;#34;&lt;/span&gt;: {
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;temperature&amp;#34;&lt;/span&gt;: &lt;span style="color:#a5d6ff"&gt;0.7&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;top_p&amp;#34;&lt;/span&gt;: &lt;span style="color:#a5d6ff"&gt;0.9&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a5d6ff"&gt;&amp;#34;num_ctx&amp;#34;&lt;/span&gt;: &lt;span style="color:#a5d6ff"&gt;4096&lt;/span&gt; &lt;span style="color:#8b949e;font-style:italic"&gt;# RTX 4090 24GB 可支援更大 context&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; response &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; requests&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;post(url, json&lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt;data)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72"&gt;return&lt;/span&gt; response&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;json()[&lt;span style="color:#a5d6ff"&gt;&amp;#34;response&amp;#34;&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 使用範例&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;result &lt;span style="color:#ff7b72;font-weight:bold"&gt;=&lt;/span&gt; summarize_text(&lt;span style="color:#a5d6ff"&gt;&amp;#34;這是一段很長的文字需要摘要...&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;print(result)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 &lt;/section&gt;</description></item><item><title>套件管理指令</title><link>https://clarence.tw/notes/system/package-management/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/system/package-management/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
@@ -763,7 +873,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo tail -f /var/log/syslog &lt;span style="color:#8b949e;font-style:italic"&gt;# Ubuntu/Debian&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/section&gt;</description></item><item><title>Docker 常用指令</title><link>https://clarence.tw/notes/docker/docker-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/docker/docker-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
+&lt;/section&gt;</description></item><item><title>Docker 常用指令速查：image、container、Compose 與 build</title><link>https://clarence.tw/notes/docker/docker-commands/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/notes/docker/docker-commands/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-版本與安全範圍-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-版本與安全範圍-2"&gt;&lt;span&gt;版本與安全範圍&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
@@ -798,8 +908,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image rm ubuntu:24.04
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 清理未使用的映像檔&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image prune
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image prune -a &lt;span style="color:#8b949e;font-style:italic"&gt;# 移除所有未使用的映像檔&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image prune &lt;span style="color:#8b949e;font-style:italic"&gt;# 移除懸置（dangling）映像檔&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker image prune -a &lt;span style="color:#8b949e;font-style:italic"&gt;# 移除所有未被容器使用的映像檔&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
@@ -818,7 +928,7 @@
 &lt;p&gt;自 2022 年起，我開始把 LLM 與 Speech AI 放進實際產品流程。這類工作不只是呼叫 model API，而是要把 prompt、batch processing、local model、GPU runtime、OpenAI API、Ollama、Kaldi、Whisper 與既有 backend workflow 串起來。&lt;/p&gt;
 &lt;p&gt;我會優先處理可控性與可維運性：輸入資料如何整理、模型輸出如何被驗證、失敗時怎麼 retry、成本怎麼控、local model 與 cloud API 如何選擇，以及 runtime environment 是否能重複部署。&lt;/p&gt;
 &lt;h3 id="devops--cicd"&gt;DevOps / CI/CD&lt;/h3&gt;
-&lt;p&gt;我維護 GitLab CI/CD、GitHub Actions、Jest tests、container image build、deployment workflow 與 release 流程。目標是讓 release 可以被重複執行，並且在出問題時能知道是哪個階段壞掉。&lt;/p&gt;</description></item><item><title>GitLab CI/CD 完整配置指南</title><link>https://clarence.tw/posts/gitlab-cicd-complete-guide/</link><pubDate>Tue, 30 Jan 2024 15:00:00 +0800</pubDate><guid>https://clarence.tw/posts/gitlab-cicd-complete-guide/</guid><description>&lt;p&gt;在企業 DevOps 實踐中，我負責建置和維護 GitLab CI/CD 流程，涵蓋從程式碼提交到生產部署的完整自動化。這篇文章將分享 GitLab CI/CD 的基礎配置經驗。&lt;/p&gt;
+&lt;p&gt;我維護 GitLab CI/CD、GitHub Actions、Jest tests、container image build、deployment workflow 與 release 流程。目標是讓 release 可以被重複執行，並且在出問題時能知道是哪個階段壞掉。&lt;/p&gt;</description></item><item><title>GitLab CI/CD 完整配置指南：Runner、.gitlab-ci.yml、Harbor 與多環境部署</title><link>https://clarence.tw/posts/gitlab-cicd-complete-guide/</link><pubDate>Tue, 30 Jan 2024 15:00:00 +0800</pubDate><guid>https://clarence.tw/posts/gitlab-cicd-complete-guide/</guid><description>&lt;p&gt;在企業 DevOps 實踐中，我負責建置和維護 GitLab CI/CD 流程，涵蓋從程式碼提交到生產部署的完整自動化。這篇文章將分享 GitLab CI/CD 的基礎配置經驗。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;**2026-07-11 檢視：**本文範例已改用 GitLab Runner authentication token、Node.js 24 LTS 與 Docker 29.6.1。版本與安全預設仍會變動；正式環境請先核對 &lt;a href="https://docs.gitlab.com/runner/register/" target="_blank" rel="noopener"&gt;GitLab Runner 註冊文件&lt;/a&gt;、&lt;a href="https://nodejs.org/en/about/previous-releases" target="_blank" rel="noopener"&gt;Node.js release status&lt;/a&gt; 與 &lt;a href="https://docs.docker.com/engine/release-notes/29/" target="_blank" rel="noopener"&gt;Docker Engine release notes&lt;/a&gt;，並將 image 鎖定到團隊驗證過的版本或 digest。&lt;/p&gt;
 &lt;/blockquote&gt;

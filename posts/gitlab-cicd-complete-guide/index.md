@@ -1,12 +1,12 @@
 ---
-title: "GitLab CI/CD 完整配置指南"
+title: "GitLab CI/CD 完整配置指南：Runner、.gitlab-ci.yml、Harbor 與多環境部署"
 url: "https://clarence.tw/posts/gitlab-cicd-complete-guide/"
 language: "zh-tw"
 ---
 
-# GitLab CI/CD 完整配置指南
+# GitLab CI/CD 完整配置指南：Runner、.gitlab-ci.yml、Harbor 與多環境部署
 
-分享 GitLab CI/CD 的完整配置經驗，從基礎設定到進階部署策略
+GitLab CI/CD 實務配置：Runner 部署與 config.toml、.gitlab-ci.yml 範例、Harbor 私有映像倉庫、多環境部署、快取與常見問題排除。
 
 在企業 DevOps 實踐中，我負責建置和維護 GitLab CI/CD 流程，涵蓋從程式碼提交到生產部署的完整自動化。這篇文章將分享 GitLab CI/CD 的基礎配置經驗。
 
@@ -35,6 +35,8 @@ sudo gitlab-runner register \
 ```
 
 Authentication token 是 secret；不要寫入 repository、CI log 或共用筆記。Runner 註冊後，token 會保存在 runner host 的 `config.toml`，應限制該檔案與主機的存取權限。
+
+`config.toml` 完整設定項目、Docker-in-Docker 風險與常用 CI/CD 變數，整理在 [GitLab Runner config.toml 設定與常用 CI/CD 變數](https://clarence.tw/notes/gitlab/runner-config/)。
 
 **Docker-in-Docker 配置：**
 ```toml
@@ -121,6 +123,9 @@ build:
 # 部署到測試環境
 deploy:staging:
   stage: deploy
+  image: alpine:3.23
+  before_script:
+    - apk add --no-cache kubectl
   script:
     - echo "Deploying to staging environment"
     - kubectl set image deployment/myapp myapp=$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
@@ -172,7 +177,8 @@ build:harbor:
 ```yaml
 # Harbor 內建的映像安全掃描
 scan:harbor:
-  stage: test
+  stage: build
+  needs: ["build:harbor"]
   image: alpine:3.23
   before_script:
     - apk add --no-cache curl jq
@@ -180,12 +186,12 @@ scan:harbor:
     # 觸發 Harbor 掃描
     - |
       curl -X POST -u "$HARBOR_USERNAME:$HARBOR_PASSWORD" \
-      "$HARBOR_REGISTRY/api/v2.0/projects/$HARBOR_PROJECT/repositories/myapp/artifacts/$CI_COMMIT_SHA/scan"
+      "https://$HARBOR_REGISTRY/api/v2.0/projects/$HARBOR_PROJECT/repositories/myapp/artifacts/$CI_COMMIT_SHA/scan"
     # 等待掃描完成並取得結果
     - sleep 30
     - |
       curl -u "$HARBOR_USERNAME:$HARBOR_PASSWORD" \
-      "$HARBOR_REGISTRY/api/v2.0/projects/$HARBOR_PROJECT/repositories/myapp/artifacts/$CI_COMMIT_SHA" | jq '.scan_overview'
+      "https://$HARBOR_REGISTRY/api/v2.0/projects/$HARBOR_PROJECT/repositories/myapp/artifacts/$CI_COMMIT_SHA?with_scan_overview=true" | jq '.scan_overview'
   only:
     - main
 ```
@@ -285,8 +291,10 @@ cache:
   paths:
     - node_modules/
     - dist/
+```
 
-# 分支別快取
+```yaml
+# 分支別快取（擇一使用，同一層級不能重複定義 cache）
 cache:
   key: "$CI_COMMIT_REF_SLUG"
   paths:

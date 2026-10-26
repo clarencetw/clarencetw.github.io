@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Whisper on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/tags/whisper/</link><description>Recent content in Whisper on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/tags/whisper/index.xml" rel="self" type="application/rss+xml"/><item><title>Speech AI 與 GPU Runtime：Kaldi、Whisper 的部署與維運筆記</title><link>https://clarence.tw/posts/speech-ai-gpu-runtime/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/posts/speech-ai-gpu-runtime/</guid><description>&lt;p&gt;自 2022 年起，我在工作中負責把 Kaldi、Whisper 這類 speech recognition 技術與 GPU runtime 接進實際的系統，範圍包含 model inference、system deployment 與後續的 performance maintenance。&lt;/p&gt;
+&lt;p&gt;這篇不是某個專案的完整案例，不會寫內部架構、資料內容或效能數據。我想整理的是自己面對這類工作的方式：怎麼看待 Kaldi 與 Whisper 的差異、為什麼我會先把 GPU runtime 弄穩，以及部署之後會固定檢查哪些東西。文中的技術說明以官方文件為準，踩坑經驗則來自我過去公開在 &lt;a href="https://blog.clarence.tw/" target="_blank" rel="noopener"&gt;blog.clarence.tw&lt;/a&gt; 的文章。&lt;/p&gt;
+&lt;h2 id="speech-ai-在產品中的位置"&gt;Speech AI 在產品中的位置&lt;/h2&gt;
+&lt;p&gt;我在 &lt;a href="https://clarence.tw/posts/technical-delivery-chain/"&gt;我的技術工作方式&lt;/a&gt; 提過，LLM 與 Speech AI 不只是呼叫一個 model API，而是要和 batch processing、local model、GPU runtime 與既有 backend workflow 串在一起。&lt;/p&gt;
+&lt;p&gt;語音辨識在產品裡通常只是其中一段。一般來說，前面會有音訊取得、格式轉換與切段，後面會有文字後處理、儲存、搜尋，或交給其他服務繼續使用。所以我評估一個 Speech AI 元件時，除了辨識結果本身，也會一起看：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;輸入音訊的格式與品質是否一致，前處理放在哪一層。&lt;/li&gt;
+&lt;li&gt;辨識是即時串流還是批次處理，失敗時怎麼 retry。&lt;/li&gt;
+&lt;li&gt;模型輸出要怎麼驗證，哪些情況需要人工確認。&lt;/li&gt;
+&lt;li&gt;這個 runtime 能不能在另一台機器上被重複建出來。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這種「同一個工具在不同內容上表現差很多」的感覺，我很早就有。2019 年 Amazon Transcribe 剛支援簡體中文時，我&lt;a href="https://blog.clarence.tw/2019/08/25/amazon-transcribe-supports-simplified-chinese-using-teaching-and-experience/" target="_blank" rel="noopener"&gt;試用並寫了心得&lt;/a&gt;，當時拿歌曲測試的效果不太好，換成以對話為主的影片就好很多。不論是 managed service 還是自己部署的模型，都要用接近實際情境的音訊來判斷。&lt;/p&gt;
+&lt;h2 id="kaldi-與-whisper-的特性與取捨"&gt;Kaldi 與 Whisper 的特性與取捨&lt;/h2&gt;
+&lt;p&gt;Kaldi 與 Whisper 在我的工作中都會用到。我不把它們看成誰取代誰，而是兩種設計思路很不一樣的工具。&lt;/p&gt;</description></item></channel></rss>

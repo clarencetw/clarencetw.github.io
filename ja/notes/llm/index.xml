@@ -1,38 +1,110 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM &amp; AI on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/llm/</link><description>Recent content in LLM &amp; AI on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sat, 11 Jul 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/notes/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama 設定と使い方</title><link>https://clarence.tw/ja/notes/llm/ollama-setup/</link><pubDate>Sat, 11 Jul 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM &amp; AI on Clarence｜Backend・AI・DevOps・Infrastructure</title><link>https://clarence.tw/ja/notes/llm/</link><description>Recent content in LLM &amp; AI on Clarence｜Backend・AI・DevOps・Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/ja/notes/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Ollama コマンドと設定：モデル管理、モデル削除、環境変数</title><link>https://clarence.tw/ja/notes/llm/ollama-setup/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/ja/notes/llm/ollama-setup/</guid><description>&lt;section class="note-card " aria-labelledby="note-section-version-と安全範囲-2"&gt;
 &lt;div class="item"&gt;
 &lt;h2 class="note-title" id="note-section-version-と安全範囲-2"&gt;&lt;span&gt;Version と安全範囲&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年7月11日&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="card-body"&gt;&lt;p&gt;&lt;strong&gt;最終確認：2026年10月26日&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;これは一般的な command reference であり、特定 version に固定した完全な runbook ではありません。実行前に installed version、最新の公式ドキュメント、対象 account／host／path を確認してください。deploy、destroy、delete、prune、sync、upgrade、system setting の変更は、費用、停止、data loss につながる可能性があります。差分を事前確認し、必要に応じて backup を取得してください。&lt;/p&gt;
+&lt;p&gt;このページのコマンド、フラグ、環境変数、デフォルトパスは、Ollama v0.40.11（2026年10月24日リリース）時点の公式ドキュメントとソースコードで確認しています：&lt;a href="https://docs.ollama.com/cli" target="_blank" rel="noopener"&gt;CLI Reference&lt;/a&gt;、&lt;a href="https://docs.ollama.com/faq" target="_blank" rel="noopener"&gt;FAQ&lt;/a&gt;、&lt;a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener"&gt;Context length&lt;/a&gt;、&lt;a href="https://docs.ollama.com/api/introduction" target="_blank" rel="noopener"&gt;API&lt;/a&gt;。デフォルト値はバージョンによって変わるため、手元の &lt;code&gt;ollama -v&lt;/code&gt; と &lt;code&gt;ollama serve --help&lt;/code&gt; の出力を優先してください。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-install-と実行-2"&gt;
+&lt;!-- インストール --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-ollama-のインストール-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-install-と実行-2"&gt;&lt;span&gt;Install と実行&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-ollama-のインストール-2"&gt;&lt;span&gt;Ollama のインストール&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.1:8b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;prompt testing では小さめの model から始め、workflow が安定してから大きな model に移る。&lt;/p&gt;&lt;/div&gt;
+&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# Linux へのインストール。同じ script を再実行するとアップグレード&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -fsSL https://ollama.com/install.sh | sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# バージョン確認&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama -v
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# server を手動で起動（デフォルトは 127.0.0.1:11434）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;macOS と Windows は &lt;a href="https://ollama.com/download" target="_blank" rel="noopener"&gt;ollama.com/download&lt;/a&gt; からアプリをインストールします。更新は自動でダウンロードされ、メニューバー／タスクバーの「Restart to update」で適用されます。&lt;/li&gt;
+&lt;li&gt;Linux のインストール script は &lt;code&gt;ollama&lt;/code&gt; systemd service を作成するため、通常は &lt;code&gt;ollama serve&lt;/code&gt; を手動で実行する必要はありません。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-model-commands-2"&gt;
+&lt;!-- コマンド一覧 --&gt;
+&lt;section class="note-card " aria-labelledby="note-section-ollama-コマンド一覧-2"&gt;
 &lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-model-commands-2"&gt;&lt;span&gt;Model commands&lt;/span&gt;&lt;/h2&gt;
+&lt;h2 class="note-title" id="note-section-ollama-コマンド一覧-2"&gt;&lt;span&gt;Ollama コマンド一覧&lt;/span&gt;&lt;/h2&gt;
 &lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama show gemma2:9b
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama rm gemma2:9b&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;script では model name を明示する。default model の変更で結果が変わるのを避けるため。&lt;/p&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;section class="note-card " aria-labelledby="note-section-local-api-2"&gt;
-&lt;div class="item"&gt;
-&lt;h2 class="note-title" id="note-section-local-api-2"&gt;&lt;span&gt;Local API&lt;/span&gt;&lt;/h2&gt;
-&lt;div class="card"&gt;
-&lt;div class="card-body"&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl http://localhost:11434/api/generate &lt;span style="color:#79c0ff"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -d &lt;span style="color:#a5d6ff"&gt;&amp;#39;{&amp;#34;model&amp;#34;:&amp;#34;gemma2:9b&amp;#34;,&amp;#34;prompt&amp;#34;:&amp;#34;Summarize this text.&amp;#34;,&amp;#34;stream&amp;#34;:false}&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;local API は private experiment に便利だが、production では timeout、retry、logging boundary が必要。&lt;/p&gt;</description></item></channel></rss>
+&lt;div class="card-body"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: left"&gt;コマンド&lt;/th&gt;
+&lt;th style="text-align: left"&gt;用途&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama pull MODEL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;モデルのダウンロード・更新&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama run MODEL [PROMPT]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;モデルを実行。ローカルにない場合は先にダウンロード&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama list&lt;/code&gt;／&lt;code&gt;ollama ls&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;ダウンロード済みモデルの一覧&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama ps&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;メモリにロード中のモデルの一覧&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama show MODEL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;モデル情報の表示&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama stop MODEL&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;モデルをメモリから即時アンロード&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama cp SOURCE DESTINATION&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;別名でモデルをコピー&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama rm MODEL [MODEL...]&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;&lt;strong&gt;モデルを削除（元に戻せない）&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama create NAME -f Modelfile&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Modelfile からカスタムモデルを作成&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: left"&gt;&lt;code&gt;ollama serve&lt;/code&gt;&lt;/td&gt;
+&lt;td style="text-align: left"&gt;Ollama server を起動&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# モデルをダウンロード&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama pull llama3.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 対話モード。/bye で終了&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 1 回だけ質問（script 向け）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2 &lt;span style="color:#a5d6ff"&gt;&amp;#34;RAG とは何かを 3 文で説明して&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 応答時間や速度などの統計を表示&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2 --verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# モデルをメモリに保持する時間を指定&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama run llama3.2 --keepalive 30m
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# ダウンロード済みモデルの一覧（ls は list の別名）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# ロード中のモデル、サイズ、GPU/CPU の割り当てを確認&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama ps
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# モデルをアンロードして RAM / VRAM を解放（ファイルは削除しない）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama stop llama3.2&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;ollama ps&lt;/code&gt; の &lt;code&gt;PROCESSOR&lt;/code&gt; 列は、&lt;code&gt;100% GPU&lt;/code&gt; なら GPU に完全ロード、&lt;code&gt;100% CPU&lt;/code&gt; ならシステムメモリに完全ロード、&lt;code&gt;48%/52% CPU/GPU&lt;/code&gt; なら両方に分散していることを示します。&lt;/p&gt;</description></item></channel></rss>

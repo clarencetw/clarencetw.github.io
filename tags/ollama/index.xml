@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ollama on Clarence｜Backend、AI、DevOps 與 Infrastructure</title><link>https://clarence.tw/tags/ollama/</link><description>Recent content in Ollama on Clarence｜Backend、AI、DevOps 與 Infrastructure</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://clarence.tw/tags/ollama/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM 文字摘要流程的設計與取捨：OpenAI API、Ollama 與 Local Model</title><link>https://clarence.tw/posts/llm-text-summarization-platform/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><guid>https://clarence.tw/posts/llm-text-summarization-platform/</guid><description>&lt;p&gt;自 2022 年起，我開始把 LLM 放進實際產品流程，其中一塊是內部的文字摘要與 AI application 平台：整合 OpenAI API、Ollama、local model 與 batch processing，重點放在可控、可維運的 model usage。&lt;/p&gt;
+&lt;p&gt;這類內部系統的細節不適合公開，所以這篇不是完整的 case study，而是整理我設計與維運摘要流程時採用的原則與取捨。文中提到的 API 行為都以官方文件為準，寫作時（2026-10）已對照過；實際使用前仍請以最新文件為準。&lt;/p&gt;
+&lt;h2 id="為什麼摘要不只是呼叫-api"&gt;為什麼摘要不只是呼叫 API&lt;/h2&gt;
+&lt;p&gt;做出一個摘要 demo 很快：把文字丟進 prompt，請模型「幫我摘要」，幾分鐘就能看到結果。真正的工作在 demo 之後：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;輸入長度不固定，有些文字會超過模型的 context length。&lt;/li&gt;
+&lt;li&gt;同一批資料要處理很多筆，會碰到 rate limit、timeout 與部分失敗。&lt;/li&gt;
+&lt;li&gt;下游系統需要固定格式，但模型輸出不一定每次都長得一樣。&lt;/li&gt;
+&lt;li&gt;成本、延遲與資料敏感度，會影響每一筆該送到哪個模型。&lt;/li&gt;
+&lt;li&gt;換模型或改 prompt 之後，需要知道品質是變好還是變差。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以我會把摘要當成一條資料處理 pipeline 來設計，而不是一個 API call。&lt;/p&gt;
+&lt;h2 id="流程拆解"&gt;流程拆解&lt;/h2&gt;
+&lt;p&gt;我習慣把流程拆成幾個可以各自觀察、各自重跑的階段：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;前處理&lt;/strong&gt;：清掉格式雜訊、重複內容與不需要送進模型的欄位，並在這一步處理不該離開環境的資料。送進模型的內容越乾淨，token 用量與輸出品質都越好控制。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;切段&lt;/strong&gt;：先估算 token 數，超過模型可處理的長度就依段落或語意邊界切段，必要時保留少量重疊，避免重點剛好被切斷。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型呼叫&lt;/strong&gt;：短文字直接摘要；長文字用 map-reduce 的方式，先對每一段產生摘要，再把段落摘要合併成最終摘要。這樣每次呼叫的輸入都在可控範圍內，失敗時也只需要重跑單一段落。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;驗證&lt;/strong&gt;：檢查輸出格式、必要欄位、長度與明顯的錯誤，不通過就標記為失敗或進入重試。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;輸出&lt;/strong&gt;：把結果連同使用的模型、prompt 版本與處理狀態一起保存，之後才能追查與比較。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;使用 local model 時，context length 要特別留意。Ollama 的預設 context length 會依 VRAM 大小決定，可以用 &lt;code&gt;OLLAMA_CONTEXT_LENGTH&lt;/code&gt; 調整，並透過 &lt;code&gt;ollama ps&lt;/code&gt; 的 CONTEXT 欄位確認實際配置（&lt;a href="https://docs.ollama.com/context-length" target="_blank" rel="noopener"&gt;Context length 官方文件&lt;/a&gt;）。如果沒有確認這個設定，長文字可能沒有被模型完整看到。Ollama 的安裝、指令與環境變數，我整理在 &lt;a href="https://clarence.tw/notes/llm/ollama-setup/"&gt;Ollama 指令與設定速查&lt;/a&gt;。&lt;/p&gt;</description></item></channel></rss>

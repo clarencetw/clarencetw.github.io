@@ -1,0 +1,37 @@
+{{/* Local override of Toha's lang-selector: link to real translations and keep trailing slashes so crawlers do not hit redirects. */}}
+{{ $page := . }}
+{{ $pageURL:= .RelPermalink }}
+{{ if hugo.IsMultilingual }}
+  {{ $languagePrefix := printf "/%s/" .Language.Lang }}
+  {{ if or (eq $pageURL $languagePrefix) (strings.HasPrefix $pageURL $languagePrefix) }}
+    {{ $pageURL = strings.TrimPrefix (printf "/%s" .Language.Lang) $pageURL }}
+  {{ end }}
+{{ end }}
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="languageSelector" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{ if ne site.Params.features.flags.enable false }}
+            {{ $countryCode := partial "helpers/country-code.html" . }}
+            <span class="fi fi-{{$countryCode}}"></span>
+        {{ end }}
+        {{ site.Language.Label }}
+    </a>
+    <div class="dropdown-menu" aria-labelledby="languageSelector">
+        {{ range site.Home.AllTranslations }}
+        {{ $lang := .Language.Lang }}
+        {{ $href := path.Join "/" (cond (eq $lang hugo.Sites.Default.Language.Lang) "" $lang) $pageURL }}
+        {{ if strings.HasSuffix $pageURL "/" }}
+          {{ $href = printf "%s/" (strings.TrimSuffix "/" $href) }}
+        {{ end }}
+        {{ with where $page.AllTranslations "Language.Lang" $lang }}
+          {{ $href = (index . 0).RelPermalink }}
+        {{ end }}
+        <a class="dropdown-item nav-link languages-item" href="{{ $href }}">
+            {{ if ne site.Params.features.flags.enable false }}
+                {{ $countryCode := partial "helpers/country-code.html" . }}
+                <span class="fi fi-{{$countryCode}}"></span>
+            {{ end }}
+            {{ .Language.Label }}
+        </a>
+        {{ end }}
+    </div>
+    </li>
